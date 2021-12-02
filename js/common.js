@@ -203,6 +203,7 @@ $(function() {
 		$('.sub_children').hide();
 		$(`#${target}`).fadeIn(200);
 		scrollbox_slider[2].update();
+		scrollbox_slider[2].scrollbar.updateSize();
 	});
 
 
