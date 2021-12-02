@@ -166,7 +166,7 @@ $(function() {
 
 
 	// ScrollBox
-	var scrollbox = new Swiper(".scrollbox", {
+	let scrollbox_slider = new Swiper(".scrollbox", {
 		direction: "vertical",
 		slidesPerView: "auto",
 		freeMode: true,
@@ -177,19 +177,33 @@ $(function() {
 	});
 
 
-	// js_catpopup
-	// $('.js_catpopup').on('click', function() {
-	// 	$(this).toggleClass('active');
-	// 	$('.catpopup').toggleClass('opened');
-	// 	return false;
-	// });
-	// $(document).on('click touchstart', function(e) {
-	// 	let cat = $('.catpopup');
-	// 	if ( !cat.is(e.target) && cat.has(e.target).length === 0 ) {
-	// 		$('.js_catpopup').removeClass('active');
-	// 		cat.removeClass('opened');
-	// 	}
-	// });
+	// catpopup
+	$('.catpopup').on('mouseleave', function() {
+		$('.catpopup .parent1 .parent > a').removeClass('active');
+		$('.catpopup .parent2 .parent > a').removeClass('active');
+		$('.children').hide();
+		$('.sub_children').hide();
+		scrollbox_slider[1].update();
+		scrollbox_slider[2].update();
+	});
+	$('.catpopup .parent1 .parent > a').on('mouseover', function() {
+		let target = $(this).attr('data-title');
+		$('.catpopup .parent1 .parent > a').removeClass('active');
+		$('.catpopup .parent2 .parent > a').removeClass('active');
+		$(this).addClass('active');
+		$('.children').hide();
+		$('.sub_children').hide();
+		$(`#${target}`).fadeIn(200);
+		scrollbox_slider[1].update();
+	});
+	$('.catpopup .parent2 .parent > a').on('mouseover', function() {
+		let target = $(this).attr('data-title');
+		$('.catpopup .parent2 .parent > a').removeClass('active');
+		$(this).addClass('active');
+		$('.sub_children').hide();
+		$(`#${target}`).fadeIn(200);
+		scrollbox_slider[2].update();
+	});
 
 
 	// Select
