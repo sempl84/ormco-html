@@ -1075,6 +1075,13 @@ input[type='checkbox'] {
   overflow: auto;
   max-height: 200px; }
 
+.suggestions-suggestions {
+  position: relative !important;
+  left: auto !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  border: 0 !important; }
+
 .suggestions-hint {
   padding: 0 12px 10px;
   font-size: 12px;
