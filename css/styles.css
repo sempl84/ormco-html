@@ -1569,7 +1569,8 @@ input[type='checkbox'] {
   display: block;
   text-decoration: none;
   color: #111;
-  transition: all 200ms ease-in-out; }
+  transition: all 200ms ease-in-out;
+  min-height: 100%; }
   .popular_cat_img {
     display: flex;
     align-items: center;
