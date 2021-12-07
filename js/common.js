@@ -186,9 +186,9 @@ $(function() {
 		scrollbox_slider[1].update();
 		scrollbox_slider[2].update();
 	});
-	$('.catpopup .parent1 .parent > a').on('mouseover', function() {
+	$('.catpopup .parent1 > li > a').on('mouseover', function() {
 		let target = $(this).attr('data-title');
-		$('.catpopup .parent1 .parent > a').removeClass('active');
+		$('.catpopup .parent1 > li > a').removeClass('active');
 		$('.catpopup .parent2 .parent > a').removeClass('active');
 		$(this).addClass('active');
 		$('.children').hide();
@@ -196,9 +196,9 @@ $(function() {
 		$(`#${target}`).fadeIn(200);
 		scrollbox_slider[1].update();
 	});
-	$('.catpopup .parent2 .parent > a').on('mouseover', function() {
+	$('.catpopup .parent2 > li > a').on('mouseover', function() {
 		let target = $(this).attr('data-title');
-		$('.catpopup .parent2 .parent > a').removeClass('active');
+		$('.catpopup .parent2 > li > a').removeClass('active');
 		$(this).addClass('active');
 		$('.sub_children').hide();
 		$(`#${target}`).fadeIn(200);
