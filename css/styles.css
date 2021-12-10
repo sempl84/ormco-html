@@ -1249,8 +1249,9 @@ input[type='checkbox'] {
   width: 200px;
   padding: 10px 0;
   position: absolute;
-  z-index: 100;
+  z-index: 1100;
   left: 0;
+  top: 20px;
   transition: all 200ms ease-in-out;
   -webkit-transition: all 200ms ease-in-out;
   opacity: 0;
