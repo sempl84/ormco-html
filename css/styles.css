@@ -247,6 +247,8 @@ h3 {
   .input-sm {
     height: 40px;
     line-height: 20px; }
+  .input-not-valid {
+    border: 1px solid var(--color-red); }
 
 /* === Button === */
 .btn {
@@ -453,12 +455,24 @@ input[type='checkbox'] {
   .input-field-hidden {
     display: none;
     margin-top: 8px; }
+  .input-field .tooltip {
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    bottom: 100%;
+    transform: none;
+    margin: 0 0 9px; }
+    .input-field .tooltip::after {
+      left: 9px;
+      margin-left: 0; }
 
 /* input-float */
 .input-float {
   background: #f9f9f9;
   border-radius: 4px;
   position: relative; }
+  .input-float.notvalid {
+    background: linear-gradient(0deg, rgba(255, 59, 48, 0.1), rgba(255, 59, 48, 0.1)), #FFFFFF; }
   .input-float label {
     position: absolute;
     margin: 0;
