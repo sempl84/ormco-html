@@ -4,9 +4,18 @@ $(function() {
 	$(window).on('scroll', function() {
 		let top = $(document).scrollTop();
 		let headHeight = $('.header_top').outerHeight();
-		( top > headHeight )
-			? $('.header_sticky').addClass('shadow')
-			: $('.header_sticky').removeClass('shadow')
+		if ( top > headHeight ) {
+			$('.header_sticky').addClass('shadow');
+		} else {
+			$('.header_sticky').removeClass('shadow');
+		}
+
+		// Ontop fade
+		if (top >= 500) {
+			$('#ontop').fadeIn(200);
+		} else {
+			$('#ontop').fadeOut(200);
+		}
 	});
 
 	// header phones
@@ -220,5 +229,16 @@ $(function() {
 		$(this).closest('.spoiler').find('.spoiler_hide').slideToggle(200);
 		return false;
 	});
+
+
+	// Ontop
+	$('#ontop').on('click', function() {
+		$('body, html').animate({
+			scrollTop: 0
+		}, 800);
+	});
+
+
+
 
 });
