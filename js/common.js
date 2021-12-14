@@ -244,17 +244,55 @@ $(function() {
 	});
 
 
+	
+	// custom_select
+	$('.custom_select').each(function() {
+		$(this).find('.custom_select__select').on('click', function() {
+			let div = $(this).closest('.custom_select');
+			if ( !div.hasClass('focused') ) {
+				$('.custom_select').removeClass('focused');
+				$('.custom_select__dropdown').fadeOut(200);
+				div.addClass('focused');
+				div.find('.custom_select__dropdown').fadeIn(100);
+			} else {
+				div.removeClass('focused');
+				div.find('.custom_select__dropdown').fadeOut(50);
+			}
+		});
+	});
+	$(document).on('click touchstart', function(event) {
+		let customSelect = $('.custom_select');
+		if ( !customSelect.is(event.target) && customSelect.has(event.target).length === 0 ) {
+			customSelect.removeClass('focused');
+			customSelect.find('.custom_select__dropdown').fadeOut(50);
+		}
+	});
+	$('.custom_select__dropdown li').on('click', function() {
+		let txt = $(this).find('span').text();
+		$(this).closest('.custom_select').find('.custom_select__select-value').text(txt);
+		$(this).closest('.custom_select').find('.custom_select__hidden').val(txt);
+		$(this).closest('.custom_select').removeClass('focused');
+		$(this).closest('.custom_select__dropdown').fadeOut(50);
+	});
+	// custom_select end
+
+
 	// Configurator
 	const configChooseTeeth = (id, classname) => {
 		$(`#${id}`).on('click', function() {
-			const teeth = $(`.${classname}`).find('input[type="checkbox"]').not(':disabled')
-			if ( teeth.prop('checked') === true ) {
-				teeth.prop('checked', false);
-			} else {
-				teeth.prop('checked', true);
-			}
+			$(`.${classname} input[type="checkbox"]`).not(':disabled').each(function() {
+				if ( $(this).prop('checked') === false ) {
+					$(this).prop('checked', true);
+				}
+			})
 		});
 	}
+	$('#clearConfig').on('click', function() {
+		$(`.teeth_container input[type="checkbox"]`).not(':disabled').each(function() {
+			$(this).prop('checked', false);
+		});
+		return false;
+	});
 	configChooseTeeth('top-teeth', 'teeth_row-top');
 	configChooseTeeth('bottom-teeth', 'teeth_row-bottom');
 	configChooseTeeth('all-teeth', 'teeth_container');
