@@ -125,7 +125,12 @@ $(function() {
 		pagination: {
 			el: '.topslider .swiper-pagination',
 			type: "fraction",
-		}
+		},
+		loop: true,
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: false,
+		},
 	});
 	
 	let popuparProducts = new Swiper('.popupar_products .swiper', {
