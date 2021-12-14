@@ -27,7 +27,15 @@
     margin-bottom: 0; }
   /* catpopup */
   .catpopup {
-    width: 826px; } }
+    width: 826px; }
+  /* teeth_container / teeth_row */
+  .teeth_container_center {
+    min-width: 140px;
+    max-width: 140px; }
+  .teeth_container_left .teeth:nth-child(2) {
+    margin-right: 20px; }
+  .teeth_container_right .teeth:nth-child(5) {
+    margin-right: 20px; } }
 
 /* Medium */
 @media screen and (max-width: 1020px) {

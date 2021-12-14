@@ -239,6 +239,21 @@ $(function() {
 	});
 
 
+	// Configurator
+	const configChooseTeeth = (id, classname) => {
+		$(`#${id}`).on('click', function() {
+			const teeth = $(`.${classname}`).find('input[type="checkbox"]').not(':disabled')
+			if ( teeth.prop('checked') === true ) {
+				teeth.prop('checked', false);
+			} else {
+				teeth.prop('checked', true);
+			}
+		});
+	}
+	configChooseTeeth('top-teeth', 'teeth_row-top');
+	configChooseTeeth('bottom-teeth', 'teeth_row-bottom');
+	configChooseTeeth('all-teeth', 'teeth_container');
+	
 
 
 });
