@@ -296,6 +296,13 @@ $(function() {
 	configChooseTeeth('top-teeth', 'teeth_row-top');
 	configChooseTeeth('bottom-teeth', 'teeth_row-bottom');
 	configChooseTeeth('all-teeth', 'teeth_container');
+
+
+	// order_spoiler
+	$('.order_spoiler_head').on('click', function() {
+		$(this).toggleClass('opened');
+		$(this).next().slideToggle(200);
+	});
 	
 
 
