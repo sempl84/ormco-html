@@ -90,7 +90,7 @@ $(function() {
 	$('.js_auth, .js_authmail, .js_modal_code, .js_signup2').on('click', function() {
 		$.fancybox.close();
 	});
-	$('.js_auth, .js_authmail, .js_modal_code, .js_signup2, .js_choose_country, .js_freeconsult').fancybox({
+	$('.js_auth, .js_authmail, .js_modal_code, .js_signup2, .js_choose_country, .js_freeconsult, .js-allfilters').fancybox({
 		autoFocus: false,
 		touch: false,
 		closeBtn: false,
@@ -260,13 +260,6 @@ $(function() {
 			}
 		});
 	});
-	$(document).on('click touchstart', function(event) {
-		let customSelect = $('.custom_select');
-		if ( !customSelect.is(event.target) && customSelect.has(event.target).length === 0 ) {
-			customSelect.removeClass('focused');
-			customSelect.find('.custom_select__dropdown').fadeOut(50);
-		}
-	});
 	$('.custom_select__dropdown li').on('click', function() {
 		let txt = $(this).find('span').text();
 		$(this).closest('.custom_select').find('.custom_select__select-value').text(txt);
@@ -275,6 +268,78 @@ $(function() {
 		$(this).closest('.custom_select__dropdown').fadeOut(50);
 	});
 	// custom_select end
+
+
+	// check-select
+	$('.check-select').each(function() {
+		let val = '';
+		let values = [];
+		let title = $(this).find('.check-select__select').text();
+		$(this).find('.check-select__select').on('click', function() {
+			if ( !$(this).hasClass('active') ) {
+				$('.check-select__select').removeClass('active');
+				$('.check-select__dropdown').fadeOut(200);
+				$(this).addClass('active');
+				$(this).closest('.check-select').find('.check-select__dropdown').fadeIn(100);
+			} else {
+				$(this).removeClass('active');
+				$(this).closest('.check-select').find('.check-select__dropdown').fadeOut(50);
+			}
+		});
+		// Checking
+		$(this).find('input[type="checkbox"]').on('change', function() {
+			val = $(this).val();
+			if ( $(this).prop('checked') === true ) {
+				values.push(val)
+			} else {
+				values = values.filter(item => item !== val);
+			}
+		});
+		// Apply
+		$(this).find('.check-select__btn').on('click', function() {
+			$(this).closest('.check-select').find('.check-select__select').removeClass('active');
+			$(this).closest('.check-select').find('.check-select__dropdown').fadeOut(50);
+			if ( values.length === 1 ) {
+				$(this).closest('.check-select').find('.check-select__select').text(values[0]);
+			} else if ( values.length > 1 ) {
+				$(this).closest('.check-select').find('.check-select__select').text(`${title}: (${values.length})`);
+			} else {
+				$(this).closest('.check-select').find('.check-select__select').text(title);
+				return false;
+			}
+		});
+	});
+
+	// Close custom selects
+	$(document).on('click touchstart', function(event) {
+		let customSelect = $('.custom_select');
+		let checkSelect = $('.check-select');
+		if ( !customSelect.is(event.target) && customSelect.has(event.target).length === 0 ) {
+			customSelect.removeClass('focused');
+			customSelect.find('.custom_select__dropdown').fadeOut(50);
+		}
+		if ( !checkSelect.is(event.target) && checkSelect.has(event.target).length === 0 ) {
+			checkSelect.find('.check-select__select').removeClass('active');
+			checkSelect.find('.check-select__dropdown').fadeOut(50);
+		}
+	});
+
+
+	// filter_header_more
+	let manyHeight = $('.filter_header_left .many_inner').outerHeight();
+	let manyText = $('.filter_header_more').text();
+	$('.filter_header_more').on('click', function() {
+		if ( !$(this).hasClass('active') ) {
+			$(this).addClass('active');
+			$('.filter_header_left.many').css('height', manyHeight);
+			$(this).text('Показать меньше');
+		} else {
+			$(this).removeClass('active');
+			$('.filter_header_left.many').removeAttr('style');
+			$(this).text(manyText);
+		}
+		return false;
+	});
 
 
 	// Configurator
@@ -299,7 +364,7 @@ $(function() {
 
 
 	// order_spoiler
-	$('.order_spoiler_head').on('click', function() {
+	$('.order_spoiler_head, .filters_item_title').on('click', function() {
 		$(this).toggleClass('opened');
 		$(this).next().slideToggle(200);
 	});
