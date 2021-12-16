@@ -271,4 +271,9 @@
   .config_wrapper_footer .backlink {
     justify-content: center;
     margin: 0 0 16px;
-    display: flex; } }
+    display: flex; }
+  /* mobile_footer */
+  .mobile_footer li a::before {
+    width: 28px;
+    height: 28px;
+    background-size: 28px; } }
