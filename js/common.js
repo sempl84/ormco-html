@@ -186,6 +186,7 @@ $(function() {
 		freeMode: true,
 		scrollbar: {
 			el: ".swiper-scrollbar",
+			draggable: true
 		},
 		mousewheel: true,
 	});
