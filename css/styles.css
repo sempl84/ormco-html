@@ -1217,7 +1217,7 @@ input[type='checkbox'] {
 
 /* ontop */
 #ontop {
-  background: #fff url(../images/svg/top.svg) center center no-repeat;
+  background: #fff;
   border: 1px solid #F9F9F9;
   border-radius: 50%;
   cursor: pointer;
@@ -1230,8 +1230,28 @@ input[type='checkbox'] {
   transition: all 200ms ease-in-out;
   z-index: 1200;
   display: none; }
-  #ontop:hover {
-    background-image: url(../images/svg/top-active.svg); }
+  #ontop .ontop_inner, #ontop .ontop_hover {
+    position: absolute;
+    display: block;
+    background-image: url("../images/svg/top.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 22px;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -10px;
+    transition: all 200ms ease-in-out; }
+  #ontop .ontop_hover {
+    background-image: url(../images/svg/top-active.svg);
+    opacity: 0; }
+  #ontop:hover .ontop_inner {
+    opacity: 0; }
+  #ontop:hover .ontop_hover {
+    opacity: 1; }
 
 /* custom_select */
 .custom_select {
