@@ -1,0 +1,18 @@
+<div class="custom_select">
+  <div class="custom_select__select">
+    <div class="custom_select__select-name">Выбранные зубы</div>
+    <div class="custom_select__select-value">Без щечной трубки</div>
+  </div>
+  <div class="custom_select__dropdown">
+    <ul>
+      @@for (let i = 0; i < list.length; i++) {
+      <li>
+        <span>` + list[i] + `</span>
+        <small>Применится на 16, 46, 26, 36 зубы</small>
+        <a href="index.html" class="custom_select__to"></a>
+      </li>
+      }
+    </ul>
+  </div>
+  <input type="hidden" class="custom_select__hidden" value="Без щечной трубки">
+</div><!-- /custom_select -->

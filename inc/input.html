@@ -1,0 +1,17 @@
+<div class="input-field">
+  @@if(context.float){<div class="input-float @@if(context.error){notvalid}">
+    <label>@@label</label>
+    <input type="@@type" name="@@type" class="input@@if(context.phone){ phone_input} @@if(context.error){input-not-valid}">
+  </div>}
+  @@if(!context.float){
+    <label>@@label</label>
+    <input type="@@type" name="@@type" class="input@@if(context.phone){ phone_input}">
+  }
+
+  @@if(context.error){<div class="tooltip">@@error</div>}
+
+  @@if(context.compl){
+  @@include('suggest.html')
+  }
+
+</div>

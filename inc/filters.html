@@ -1,0 +1,30 @@
+<div class="filters" id="allfilters">
+  <div class="filters_inner">
+    <div class="filters_header">
+      <div class="filters_title">Фильтры</div>
+      <a href="#" class="btn-close" data-fancybox-close></a>
+    </div>
+    <div class="filters_content">
+      <div class="row filters_list">
+        <div class="grid4">
+          @@include('filters-item.html', { "title": "Форма" })
+          @@include('filters-item.html', { "title": "Челюсть" })
+          @@include('filters-item.html', { "title": "Температура трансофрмации" })
+        </div>
+        <div class="grid4">
+          @@include('filters-item.html', { "title": "Материалы" })
+          @@include('filters-item.html', { "title": "Расстояние между петлями" })
+          @@include('filters-item.html', { "title": "Цвет" })
+        </div>
+        <div class="grid4">
+          @@include('filters-item.html', { "title": "Сечение дуги" })
+          @@include('filters-item.html', { "title": "Размер дуги" })
+        </div>
+      </div>
+    </div>
+    <div class="filters_footer">
+      <button class="btn btn-link-dark">Сбросить все фильтры</button>
+      <button class="btn btn-blue" data-fancybox-close>Применить</button>
+    </div>
+  </div>
+</div><!-- /filters -->

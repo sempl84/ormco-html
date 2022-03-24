@@ -1,0 +1,47 @@
+<div class="panel">
+  <ul class="panel_nav">
+    <li><a href="#">Каталог</a></li>
+    <li><a href="#" class="color-orange">Акции</a></li>
+    <li><a href="#">Контакты</a></li>
+    <li><a href="#">Оплата и доставка</a></li>
+    <li><a href="#">Найти клинику</a></li>
+    <li><a href="#">Образовательный портал</a></li>
+    <li><a href="#">Статьи и исследования</a></li>
+    <li><a href="#">Новости</a></li>
+    <li class="parent">
+      <a href="#" class="js_panel_child">Клиентам</a>
+      <div class="parent_child">
+        <a href="#" class="js_panel_child_back">Клиентам</a>
+        <ul>
+          <li><a href="#">Как оформить заказ</a></li>
+          <li><a href="#">О компании</a></li>
+          <li><a href="#">Диллеры</a></li>
+          <li><a href="#">ЭДО</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+
+  <div class="panel_title">Обратная связь</div>
+  <div class="iconbtn-wrap">
+    @@loop('icon.html',[
+      { "icon": "phone", "text": "Позвонить" },
+      { "icon": "env", "text": "Почта" },
+      { "icon": "chat", "text": "Онлайн-чат" }
+    ])
+  </div><!-- /iconbtn-wrap -->
+
+  <div class="panel_title">Мы в социальных сетях</div>
+  <div class="iconbtn-wrap">
+    @@loop('icon.html',[
+      { "icon": "fb", "text": "Facebook" },
+      { "icon": "inst", "text": "Instagram" },
+      { "icon": "tw", "text": "Twitter" },
+      { "icon": "vk", "text": "ВКонтакте" },
+      { "icon": "yt", "text": "YouTube" }
+    ])
+  </div><!-- /iconbtn-wrap -->
+
+  <a href="#" class="btn-close"></a>
+</div><!-- /panel -->
+<div class="panel_overlay"></div>

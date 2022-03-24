@@ -1,0 +1,14 @@
+<div class="teeth @@if(context.reverse){teeth-bottom}@@if(context.disabled){ teeth-disabled}">
+  <div class="teeth-icon">
+    @@if(context.icon && !context.disabled){
+      <div class="icon icon-@@icon">
+        <div class="tooltip">@@iconTxt</div>
+      </div>
+    }
+  </div>
+  <label class="teeth-label">
+    <input type="checkbox" @@if(context.disabled){disabled} @@if(context.checked){checked}>
+    <span class="teeth-count">@@count</span>
+    <span class="teeth-img"></span>
+  </label>
+</div><!-- /teeth -->
