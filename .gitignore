@@ -5,7 +5,16 @@
 
 # Node artifact files
 node_modules/
-dist/
+frommau0hez/phpmailer/
+frommau0hez/package-lock.json
+flsStartTemplate/
+frommau0hez/node_modules/
+.gitignore
+frommau0hez/Source/
+frommau0hez/version.json
+**/*.zip
+**/*.rar
+
 
 # Compiled Java class files
 *.class
@@ -22,6 +31,7 @@ dist/
 # Maven
 target/
 dist/
+src/
 
 # JetBrains IDE
 .idea/
