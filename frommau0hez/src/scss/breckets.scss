@@ -1,0 +1,461 @@
+.breckets {
+
+  &__container {
+  }
+
+  &__head {
+  }
+
+  &__body {
+    display: grid;
+    gap: rem(20);
+    @include adaptiveValue("padding-bottom", 100, 60);
+    .page_damon & {
+      padding-bottom: 0;
+    }
+    @media (min-width:$tablet){
+      grid-template-columns: rem(285) auto;
+    }
+  }
+
+  &__left {
+  }
+
+  &__right {
+  }
+}
+.head-breckets {
+  display: flex;
+  gap: rem(20);
+  &:not(:last-child) {margin-bottom: rem(40);}
+  overflow: auto;
+  @media (max-width:$mobile){
+    display: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+    border-radius: rem(12);
+    border: rem(1) solid transparent;
+    transition: all 0.3s ease 0s;
+    padding: rem(10) rem(8);
+    background-color: #F9F9F9;
+    @media (min-width:$tablet){
+      flex: 0 0 rem(285);
+    }
+    @media (any-hover: hover){
+      &:hover{
+        border-color: #E8E8E9;
+        color: $blue;
+      }
+    }
+  }
+
+  &__img,
+  picture {
+    flex: 0 0 rem(80);
+    width: rem(80);
+    height: rem(80);
+    object-fit: contain;
+  }
+
+  &__text {
+    font-weight: 600;
+    transition: color 0.3s ease 0s;
+  }
+}
+.left-breckets {
+  @media (max-width:$mobile){
+    display: none;
+  }
+
+  &__category {
+    &:not(:last-child) {margin-bottom: rem(24);}
+  }
+
+  &__banner {
+
+    &_blue {
+      color: #fff;
+      background-color: $blue;
+      @media (max-width:$tablet){
+        display: none !important;
+      }
+      a {
+        color: $blue;
+        background-color: #fff;
+        transition: all 0.3s ease 0s;
+        border: rem(1) solid #fff;
+        @media (any-hover: hover){
+          &:hover{
+            color: #fff;
+            background-color: $blue;
+          }
+        }
+      }
+    }
+
+    &_white {
+      @media (max-width:$tablet){
+        display: none !important;
+      }
+
+      a {
+        color: #fff;
+        background-color: $blue;
+        border: rem(1) solid $blue;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover){
+          &:hover{
+            color: $blue;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.spollers-breckets {
+
+  &__item {
+    border-radius: rem(12);
+    border: rem(1) solid #E8E8E9;
+  }
+
+  &__title {
+    border: none;
+    border-radius: 0;
+    border-bottom: rem(1) solid #F5F5F5;
+    padding: rem(16);
+    font-weight: 600;
+    font-size: rem(18);
+    &::before, &::after{
+      width: rem(9) !important;
+      background-color: $mainColor;
+      transition: all 0.3s ease 0s;
+      right: rem(20) !important;
+    }
+    @media (any-hover: hover){
+      &:hover{
+        color: $blue;
+        &::before, &::after{
+          background-color: $blue !important;
+        }
+      }
+    }
+  }
+
+  &__body {
+    padding: rem(16);
+  }
+
+
+  &__name {
+    &_bold {
+      font-weight: 600;
+    }
+  }
+
+  &__items {
+    padding: rem(12);
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+  }
+
+  &__link {
+    transition: all 0.3s ease 0s;
+    &_active {
+      font-weight: 600;
+    }
+    @media (any-hover: hover){
+      &:hover{
+        color: $blue;
+      }
+    }
+  }
+
+  &__subhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: rem(24) rem(16) 0;
+    @media (min-width:$tablet){
+      display: none;
+    }
+  }
+
+  &__quantity {
+    color: $gray;
+  }
+
+  &__reset {
+    color: $blue;
+  }
+}
+.banner-breckets {
+  &:not(:last-child) {margin-bottom: rem(16);}
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-radius: rem(12);
+  padding: rem(16);
+  overflow: hidden;
+
+  &__title {
+    font-weight: 600;
+    &:not(:last-child) {margin-bottom: rem(4);}
+  }
+
+  &__text {
+    font-size: rem(13);
+    &:not(:last-child) {margin-bottom: rem(20);}
+  }
+
+  &__link {
+  }
+
+  &__image {
+    margin: rem(-16);
+    margin-bottom: 0;
+    &:not(:last-child) {margin-bottom: rem(12);}
+  }
+}
+.right-breckets {
+  min-width: 0;
+
+  &__config {
+  }
+
+  &__body {
+    &:not(:last-child) {
+      @include adaptiveValue("padding-bottom", 100, 60);
+      border-bottom: rem(1) solid #E8E8E9;
+    }
+  }
+
+  &__row {
+  }
+}
+.config-breckets {
+  &:not(:last-child) {margin-bottom: rem(40);}
+  background-color: $blue;
+  border-radius: rem(12);
+  padding: rem(20);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width:$mobile){
+    display: none;
+    .page_model & {
+      display: block;
+    }
+  }
+
+  &__body {
+    flex: 0 1 rem(300);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: rem(12);
+    @media (max-width:$mobile){
+      &:not(:last-child) {margin-bottom: rem(20);}
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: 1.2;
+  }
+
+  &__text {
+  }
+
+  &__link {
+    margin-top: auto;
+    color: $blue;
+    background-color: #fff;
+    transition: all 0.3s ease 0s;
+    border: rem(1) solid #fff;
+    @media (any-hover: hover){
+      &:hover{
+        color: #fff;
+        background-color: $blue;
+      }
+    }
+  }
+
+  &__image {
+    flex: 0 1 43%;
+    border-radius: rem(8);
+    overflow: hidden;
+    img,
+    picture {
+      width: 100%;
+    }
+  }
+}
+.row-breckets {
+  position: relative;
+  &:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 60, 40, 1920, 375, 1);
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include adaptiveValue("gap", 40, 25);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 16, 1920, 375, 1);
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: rem(18);
+    &_slider {
+      font-weight: 600;
+      @include adaptiveValue("font-size", 28, 20, 1920, 375, 1);
+    }
+  }
+
+  &__seall {
+    color: $gray;
+    transition: color 0.3s ease 0s;
+    white-space: nowrap;
+    @media (any-hover: hover){
+      &:hover{
+        color: $blue;
+      }
+    }
+  }
+
+  &__body {
+  }
+
+  &__slider {
+    margin: rem(-5);
+    padding: rem(5);
+  }
+
+  &__wrapper {
+    align-items: stretch;
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: stretch;
+    border-radius: rem(12);
+    background-color: #fff;
+    box-shadow: 0px 1px 4px rgba(26, 26, 26, 0.1);
+    p {
+      transition: color 0.3s ease 0s;
+    }
+    @media (any-hover: hover){
+      &:hover{
+        p {
+          color: $blue2;
+        }
+      }
+    }
+
+    &_buywith {
+      justify-content: start;
+    }
+  }
+
+  &__name {
+    @include adaptiveValue("padding", 18, 12);
+    font-weight: 600;
+    margin: 0;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 33, 22, 1920, 376, 1);
+    }
+  }
+
+  &__image,
+    picture {
+    @media (max-width:$mobileSmall){
+      max-height: rem(80);
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__navigation {
+    @media (max-width:$mobile){
+      display: none;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      z-index: 9;
+      margin-top: 0;
+      &::after{
+        display: none;
+      }
+    } 
+    .page_breckets & {
+      .swiper-button-prev {
+        left: rem(-15);
+      }
+      .swiper-button-next {
+        right: rem(-15);
+      }
+    }
+  }
+}
+.buywith-slide {
+  padding: rem(8);
+  img,
+  picture {
+    margin-top: rem(-8);
+    align-self: center;
+    max-width: 100%;
+    &:not(:last-child) {margin-bottom: rem(8);}
+  }
+
+  &__article {
+    color: $gray;
+    &:not(:last-child) {margin-bottom: rem(4);}
+    font-size: rem(11);
+  }
+
+  &__name {
+    font-size: rem(13);
+    transition: color 0.3s ease 0s;
+    &:not(:last-child) {margin-bottom: rem(32);}
+    @media (any-hover: hover){
+      &:hover{
+        color: $blue;
+      }
+    }
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: rem(18);
+    span {
+      font-weight: normal;
+    }
+  }
+
+  &__buy {
+    border-radius: rem(4);
+    background-color: $blue;
+    display: flex;
+    justify-content:center;align-items: center;
+    align-self: stretch;
+    font-size: rem(13);
+    color: #fff;
+    padding: rem(9);
+  }
+}

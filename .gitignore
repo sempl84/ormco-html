@@ -30,8 +30,6 @@ frommau0hez/version.json
 
 # Maven
 target/
-dist/
-src/
 
 # JetBrains IDE
 .idea/
