@@ -41,17 +41,52 @@ function tippyInit() {
       let secondText = elem.dataset.secondText;
       let firstDiscount = elem.dataset.firstDiscount;
       let secondDiscount = elem.dataset.secondDiscount;
+      let tippyTexts = elem.dataset.text;
+      let tippyDiscounts = elem.dataset.discount;
+      
+      let firstRow = ``;
+      let secondRow = ``;
+      let tippyContent = ``;
+      if (tippyTexts && tippyDiscounts) {
+        tippyTexts = tippyTexts.split('||');
+        tippyDiscounts = tippyDiscounts.split('||');
+        for (let i = 0; i < tippyTexts.length; i++) {
+          let row = `
+          <div class="discount-tippy__row">
+            <div class="discount-tippy__text">${tippyTexts[i]}</div>
+            <div class="discount-tippy__discount">${tippyDiscounts[i]}</div>
+          </div>`;
+          tippyContent += row;
+        }
+      } else if (firstText && firstDiscount && secondText && secondDiscount) {
+        if (firstText && firstDiscount) {
+          firstRow = `
+          <div class="discount-tippy__row">
+            <div class="discount-tippy__text">${firstText}</div>
+            <div class="discount-tippy__discount">${firstDiscount}</div>
+          </div>
+          `
+        } else {
+          firstRow = ``;
+        }
+        if (secondText && secondDiscount) {
+          secondRow = `
+          <div class="discount-tippy__row">
+            <div class="discount-tippy__text">${secondText}</div>
+            <div class="discount-tippy__discount">${secondDiscount}</div>
+          </div>
+          `
+        } else {
+          secondRow = ``;
+        }
+        tippyContent = `
+        <div class="discount-tippy">
+          ${firstRow}
+          ${secondRow}
+        </div>`;
+      }
       flsModules.tippy = tippy(elem, {
-        content: `<div class="discount-tippy">
-        <div class="discount-tippy__row">
-          <div class="discount-tippy__text">${firstText}</div>
-          <div class="discount-tippy__discount">${firstDiscount}%</div>
-        </div>
-        <div class="discount-tippy__row">
-          <div class="discount-tippy__text">${secondText}</div>
-          <div class="discount-tippy__discount">${secondDiscount}%</div>
-        </div>
-      </div>`,
+        content: tippyContent,
         allowHTML: true,
         theme: 'translucent',
         interactive: true,

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Оформление"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header_ordering.htm',{})
+			<main class="page page_ordering">
+        <section class="cart ordering">
+          <div class="cart__container container">
+            <div class="ordering__head">
+              <a href="#" class="ordering__back back-ordering">
+                <svg class="back-ordering__arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.46875 1.375L13.0938 7L7.46875 12.625M12.3125 7L0.90625 7" stroke="#2CA5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="back-ordering__text">Вернуться в корзину</span>
+              </a>
+              <div class="ordering__title">Оформление</div>
+              <div class="ordering__empty"></div>
+            </div>
+            <form action="#" method="post" data-dev class="cart__body ordering__body">
+              <div class="ordering__buyers buyers-ordering">
+                <div class="buyers-ordering__item">
+                  <div class="buyers-ordering__head">
+                    <div class="buyers-ordering__title">Доставка</div>
+                  </div>
+                  <div class="buyers-ordering__body">
+                    <a href="#" class="buyers-ordering__link" data-popup="#popupAddress">Указать адрес доставки</a>
+                  </div>
+                </div>
+                <div class="buyers-ordering__item">
+                  <div class="buyers-ordering__head">
+                    <div class="buyers-ordering__title">Юридическое лицо</div>
+                  </div>
+                  <div class="buyers-ordering__body">
+                    <a href="#" class="buyers-ordering__link" data-popup="">Указать данные юр. лица</a>
+                  </div>
+                </div>
+              </div>
+
+
+              <div data-error="Выберите адрес доставки и введите данные организации" class="cart__ordering ordering-cart ordering-cart_error">
+                <div class="ordering-cart__body ordering-cart__body_boxes">
+                  <div class="ordering-cart__row ordering-cart__row_big">
+                    <div class="ordering-cart__key">
+                      <div class="ordering-cart__name">Способ оплаты</div>
+                    </div>
+                  </div>
+                  <div class="ordering-cart__row">
+                    <input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_1" class="ordering-cart__radio">
+                    <label for="ordering-cart__radio_1" class="ordering-cart__label">Картой онлайн</label>
+                  </div>
+                  <div class="ordering-cart__row">
+                    <input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_2" class="ordering-cart__radio">
+                    <label for="ordering-cart__radio_2" class="ordering-cart__label">Картой при получении</label>
+                  </div>
+                  <div class="ordering-cart__row">
+                    <input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_3" class="ordering-cart__radio">
+                    <label for="ordering-cart__radio_3" class="ordering-cart__label">Наличными при получении</label>
+                  </div>
+                  <div class="ordering-cart__row">
+                    <input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_4" class="ordering-cart__radio">
+                    <label for="ordering-cart__radio_4" class="ordering-cart__label">Квитанция в банк</label>
+                  </div>
+                  <div class="ordering-cart__row">
+                    <input type="radio" checked name="ordering-cart__radio" id="ordering-cart__radio_5" class="ordering-cart__radio">
+                    <label for="ordering-cart__radio_5" class="ordering-cart__label">Счет для юридического лица</label>
+                  </div>
+                </div>
+                <div class="ordering-cart__body">
+                  <div class="ordering-cart__row ordering-cart__row_big">
+                    <div class="ordering-cart__key">
+                      <div class="ordering-cart__name">Итого</div>
+                    </div>
+                    <div class="ordering-cart__value"><span class="ordering-cart__bothprice">52 455</span> ₽</div>
+                  </div>
+                  <div class="ordering-cart__row">
+                    <div class="ordering-cart__key">
+                      <div class="ordering-cart__name">Товары</div>
+                      <span class="ordering-cart__span">(23)</span>
+                    </div>
+                    <div class="ordering-cart__value"><span class="ordering-cart__totalprice">55 855</span> ₽</div>
+                  </div>
+                  <div class="ordering-cart__row">
+                    <div class="ordering-cart__key">
+                      <div class="ordering-cart__name">Скидка</div>
+                      <span data-tippy-discount data-text="Персональная скидка||Промокод на всю продукцию||Промокод на категорию" data-discount="15%||5%||10%"class="ordering-cart__span">
+                        <img src="@img/icons/tippy.svg" alt="image">
+                      </span>
+                    </div>
+                    <div class="ordering-cart__value ordering-cart__value_red"><span class="ordering-cart__discount">-3400</span> ₽</div>
+                  </div>
+                </div>
+                <button type="submit" class="ordering-cart__link ordering-cart__link_error">Оформить заказ</button>
+              </div>
+            </form>
+          </div>
+        </section>
+        <section hidden class="short-model">
+          <div class="short-model__body">
+            <div class="short-model__price">
+              <div class="short-model__actprice">52 455 <span>₽</span></div>
+            </div>
+            <button class="short-model__buy try_btn">Оформить заказ</button>
+          </div>
+        </section>
+			</main>
+			@@include('html/_footer.htm',{
+				"cart": "_active",
+        "mob": "_dn"
+      })
+			@@include('html/_popup_addresses.htm',{})
+			@@include('html/_popup_addresses_new.htm',{})
+			@@include('html/_popup_addresses_edit.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

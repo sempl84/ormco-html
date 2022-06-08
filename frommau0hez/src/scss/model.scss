@@ -474,6 +474,9 @@
   width: 100%;
   background-color: #fff;
   z-index: 19;
+  .page_ordering & {
+    bottom: 0;
+  }
   @media (min-width:$mobile){
     display: none !important;
   }

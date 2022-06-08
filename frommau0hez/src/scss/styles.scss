@@ -45,7 +45,15 @@
   &_middle {
     padding: 16px 0 20px;
     .container {display: flex; align-items: center;}
-    .logo {margin-right: 20px;}
+    .logo {
+      margin-right: 20px;
+      @media (max-width:$mobile){
+        flex: 1 1 auto;
+        margin: 0;
+        display: flex;
+        justify-content:center;align-items: center;
+      }
+    }
     .logo img,
     .logo picture {display: block;}
     .searchbox {flex: 1; margin: 0 20px 0 0;}

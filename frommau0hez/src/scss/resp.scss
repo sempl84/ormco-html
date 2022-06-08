@@ -41,7 +41,7 @@
   .navbars {display: block;}
 
   /* catpopup */
-  .header, .header_sticky {display: none;}
+  .header, .header_sticky:not(.header_sticky_ordering) {display: none;}
   .mobile_header, .mobile_footer {display: block;}
   .header_middle_item_cat {position: static;}
   .header_middle .container {position: relative;}
