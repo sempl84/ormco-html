@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Damon Q2"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page page_model">
+        <div class="breadcumps" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <div class="breadcumps__container container">
+            <div class="breadcumps__body">
+              <a href="#" class="breadcumps__item" itemprop="item">
+								<span itemprop="name">Каталог</span>
+								<meta itemprop="position" content="1">
+							</a>
+              <a href="#" class="breadcumps__item" itemprop="item">
+								<span itemprop="name">Брекеты</span>
+								<meta itemprop="position" content="2">
+							</a>
+              <a href="#" class="breadcumps__item" itemprop="item">
+								<span itemprop="name">Damon System (Самолигирующие)</span>
+								<meta itemprop="position" content="3">
+							</a>
+              <a href="#" class="breadcumps__item" itemprop="item">
+								<span itemprop="name">Damon Q2</span>
+								<meta itemprop="position" content="4">
+							</a>
+            </div>
+          </div>
+        </div>
+        <section itemscope itemtype="https://schema.org/Product" class="model">
+          <div class="model__container">
+            <div class="model__info info-model">
+              <div class="info-model__title">Damon Q2</div>
+              <div class="info-model__media">
+                <div class="info-model__image">
+                  <img itemprop="image" src="@img/model/product.png" alt="image">
+                </div>
+              </div>
+              <div data-da=".model__container, 767" class="info-model__description">
+                <div class="info-model__subtitle">Описание</div>
+                <div  itemprop="description" class="info-model__text">Damon Q2 – это восьмая версия самолигирующих брекетов Ormco, квинтэссенция технологий и клинического опыта практикующих врачей. В два раза больший контроль ротации для точности и предсказуемости лечения. Второе поколение металлических Damon Q – это уверенная коррекция аномалий прикуса и надежное создание неотразимых улыбок. </div>
+                <a href="#" class="info-model__link">
+                  <span>Узнать больше</span>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.46875 1.375L13.0938 7L7.46875 12.625M12.3125 7L0.90625 7" stroke="#2CA5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <form data-ajax action="#" method="post" class="model__tocart tocart-model">
+              <div  itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="tocart-model__price">
+                <div class="price-tubes__actual" itemprop="price">35 000 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                <div class="price-tubes__bot">
+                  <div class="price-tubes__discount" data-tippy-discount data-first-text="Промокод на всю продукцию" data-second-text="Промокод на категорию" data-first-discount="14%" data-second-discount="10%">-24%</div>
+                  <div class="price-tubes__old">38 600 <span><font class="rub">i</font></span></div>
+                </div>
+              </div>
+              <div class="tocart-model__name">
+                <div class="tocart-model__gray">Набор брекетов</div>
+                <div class="tocart-model__black">Стандартный торк, 20 шт.</div>
+              </div>
+              <div class="tocart-model__radios radios-model">
+                <div class="radios-model__item"><input checked type="radio" name="radios-model__input" id="radios-model__input_1" class="radios-model__input"><label for="radios-model__input_1" class="radios-model__label">.018</label></div>
+                <div class="radios-model__item"><input type="radio" name="radios-model__input" id="radios-model__input_2" class="radios-model__input"><label for="radios-model__input_2" class="radios-model__label">.022</label></div>
+              </div>
+              <button type="submit" class="tocart-model__submit">Купить</button>
+              <div class="_bdb"></div>
+              <div class="tocart-model__bottom">
+                <div class="tocart-model__oneprice">1 750 <i><font class="rub">i</font></i> / <span>шт</span></div>
+                <a href="#" class="tocart-model__onebuy try_btn">Выбрать поштучно</a>
+              </div>
+            </form>
+          </div>
+        </section>
+        <section class="configurator">
+          <div class="configurator__container">
+            <div class="right-breckets__config config-breckets">
+              <div class="config-breckets__body">
+                <div class="config-breckets__title">Поробуйте новый конфигуратор брекет-систем</div>
+                <div class="config-breckets__text">Поэтапная и быстрая настройка всех параметров брекет-системы</div>
+                <a href="#" class="config-breckets__link try_btn">Попробовать</a>
+              </div>
+              <div class="config-breckets__image">
+                <img src="@img/catalog/breckets_banner.png" alt="image">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-sticky data-sticky-top="44" class="tubes">
+          <a data-sticky-item href="#" data-popup="#filtersPopup" class="filtersButton">
+            <div class="container">
+              <div class="filtersButton__body">
+                <span>Фильтры <font class="_gray">4</font> </span>
+                <img src="@img/icons/filters.svg" alt="image">
+              </div>
+            </div>
+          </a>
+          <div class="tubes__container container">
+            <div class="tubes__body">
+              <div class="tubes__aside aside-tubes">
+                <form data-ajax action="#" method="post" data-da=".filtersPopup__text, 991, 0" class="aside-tubes__filters">
+                  <div data-spollers="992, min" class="spollers-breckets">
+                    <div class="spollers-breckets__item spollers-breckets__item_unique">
+                      <button type="button" data-spoller class="spollers-breckets__title spollers-breckets__title_filters spollers__title _spoller-active">Фильтры</button>
+                      <div class="spollers-breckets__body filters-catalog">
+                        <div class="filters-showmore">
+                          <ul class="filters-showmore__content">
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Челюсть</div>
+                              <div class="filters-catalog__body">
+                                <div class="showmore-filters">
+                                  <ul class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_1" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_1" class="showmore-filters__label">Вверхняя</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_2" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_2" class="showmore-filters__label">Нижняя</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Сторона</div>
+                              <div class="filters-catalog__body">
+                                <div class="showmore-filters">
+                                  <ul class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_8" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_8" class="showmore-filters__label">Левая</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_9" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_9" class="showmore-filters__label">Правая</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Зуб</div>
+                              <div class="filters-catalog__body">
+                                <div data-showmore="items" class="showmore-filters">
+                                  <ul data-showmore-content="6" class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_3" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_3" class="showmore-filters__label">11</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_4" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_4" class="showmore-filters__label">21</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_5" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_5" class="showmore-filters__label">12</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_6" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_6" class="showmore-filters__label">22</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_77" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_77" class="showmore-filters__label">13</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_78" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_78" class="showmore-filters__label">23</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_79" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_79" class="showmore-filters__label">14</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_71" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_71" class="showmore-filters__label">24</label>
+                                    </li>
+                                  </ul>
+                                  <button hidden data-showmore-button type="button" class="showmore-filters__more"><span>Показать все</span><span>Скрыть</span></button>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Торк</div>
+                              <div class="filters-catalog__body">
+                                <div class="showmore-filters">
+                                  <ul class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_10" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_10" class="showmore-filters__label">
+                                        <span>Стандартный</span>
+                                        <img src="@img/model/tags_standart.svg" alt="image">
+                                      </label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_11" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_11" class="showmore-filters__label">
+                                        <span>Высокий</span>
+                                        <img src="@img/model/tags_high.svg" alt="image">
+                                      </label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_17" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_17" class="showmore-filters__label">
+                                        <span>Низкий</span>
+                                        <img src="@img/model/tags_low.svg" alt="image">
+                                      </label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_888" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_888" class="showmore-filters__label">
+                                        <span>Стандартный / низкий</span>
+                                        <img src="@img/model/tags_yellow.svg" alt="image">
+                                      </label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Крючок</div>
+                              <div class="filters-catalog__body">
+                                <div data-showmore="size" class="showmore-filters">
+                                  <ul data-showmore-content="125" class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_12" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_12" class="showmore-filters__label">
+                                        <span>Припаянный</span>
+                                        <img src="@img/model/tags_solered.svg" alt="image">
+                                      </label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_13" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_13" class="showmore-filters__label">
+                                        <span>Съемный</span>
+                                        <img src="@img/model/tags_removable.svg" alt="image">
+                                      </label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_14" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_14" class="showmore-filters__label">
+                                        <span>Без крючка</span>
+                                        <img src="@img/model/tags_withouthook.svg" alt="image">
+                                      </label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_999" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_999" class="showmore-filters__label">
+                                        <span>Со смещением</span>
+                                        <img src="@img/model/tags_arrows.svg" alt="image">
+                                      </label>
+                                    </li>
+                                  </ul>
+                                  <button hidden data-showmore-button type="button" class="showmore-filters__more"><span>Показать все</span><span>Скрыть</span></button>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <!-- <button hidden data-showmore-button type="button" class="filters-showmore__more"><span>Все фильтры</span><span>Скрыть</span></button> -->
+                          <!-- <button hidden data-showmore-button type="button" class="items-tubes__more"><span>Все фильтры</span><span>Скрыть</span></button> -->
+                        </div>
+                      </div>
+                      <div data-da=".spollers-breckets__item_unique, 992, 1" class="spollers-breckets__subhead">
+                        <div class="spollers-breckets__quantity">Выбрано <span>4</span></div>
+                        <button type="reset" class="spollers-breckets__reset">Сбросить все</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tubes__items items-tubes">
+                <div class="items-tubes__head">
+                  <div class="items-tubes__quantity"><span class="_number">149</span> <span>товаров</span></div>
+                  <div class="items-tubes__checkfilters checkfilters"></div>
+                </div>
+                <div class="items-tubes__body">
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Стандартный" src="@img/model/tags_standart.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Низкий" src="@img/model/tags_low.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Без крючка" src="@img/model/tags_withouthook.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                          <div class="price-tubes__bot">
+                            <div class="price-tubes__discount" data-tippy-discount data-first-text="Промокод на всю продукцию" data-second-text="Промокод на категорию" data-first-discount="14%" data-second-discount="10%">-24%</div>
+                            <div class="price-tubes__old">1 600 <span><font class="rub">i</font></span></div>
+                          </div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Стандартный / низкий" src="@img/model/tags_yellow.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Стандартный" src="@img/model/tags_standart.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Низкий" src="@img/model/tags_low.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Без крючка" src="@img/model/tags_withouthook.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                          <div class="price-tubes__bot">
+                            <div class="price-tubes__discount" data-tippy-discount data-first-text="Промокод на всю продукцию" data-second-text="Промокод на категорию" data-first-discount="14%" data-second-discount="10%">-24%</div>
+                            <div class="price-tubes__old">1 200 <span><font class="rub">i</font></span></div>
+                          </div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Высокий" src="@img/model/tags_high.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Низкий" src="@img/model/tags_low.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Высокий" src="@img/model/tags_high.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Припаянный" src="@img/model/tags_solered.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                          <div class="price-tubes__bot">
+                            <div class="price-tubes__discount" data-tippy-discount data-first-text="Промокод на всю продукцию" data-second-text="Промокод на категорию" data-first-discount="14%" data-second-discount="10%">-24%</div>
+                            <div class="price-tubes__old">1 200 <span><font class="rub">i</font></span></div>
+                          </div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Стандартный / низкий" src="@img/model/tags_yellow.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Стандартный" src="@img/model/tags_standart.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Низкий" src="@img/model/tags_low.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Без крючка" src="@img/model/tags_withouthook.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                          <div class="price-tubes__bot">
+                            <div class="price-tubes__discount" data-tippy-discount data-first-text="Промокод на всю продукцию" data-second-text="Промокод на категорию" data-first-discount="14%" data-second-discount="10%">-24%</div>
+                            <div class="price-tubes__old">1 200 <span><font class="rub">i</font></span></div>
+                          </div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-model"  itemscope itemtype="https://schema.org/Product">
+                    <a href="#" target="_blank" class="item-model__image"><img src="@img/model/product.png" alt="image" itemprop="image"></a>
+                    <div class="item-model__content">
+                      <a href="#" target="_blank" class="item-model__text">
+                        <div  itemprop="name" class="item-model__name">Damon Q2, зуб 11</div>
+                        <div class="item-model__art">Артикул: 227-1005</div>
+                        <div class="item-model__tooth">.022</div>
+                      </a>
+                      <div class="item-model__tags">
+                        <img data-tippy-bottom="Высокий" src="@img/model/tags_high.svg" alt="image">
+                        <img data-tippy-bottom="Со смещением" src="@img/model/tags_arrows.svg" alt="image">
+                        <img data-tippy-bottom="Съемный" src="@img/model/tags_removable.svg" alt="image">
+                      </div>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="items-tubes__footer">
+                  <button class="items-tubes__more">Показать еще</button>
+                  <div class="items-tubes__pagination pagination-tubes">
+                    <!-- <a href="#" class="pagination-tubes__item">Назад</a> -->
+                    <div class="pagination-tubes__item pagination-tubes__item_active">1</div>
+                    <a href="#" class="pagination-tubes__item">2</a>
+                    <a href="#" class="pagination-tubes__item">3</a>
+                    <a href="#" class="pagination-tubes__item">4</a>
+                    <a href="#" class="pagination-tubes__item">5</a>
+                    <a href="#" class="pagination-tubes__item pagination-tubes__item_arrow">Вперед</a>
+                  </div>
+                </div>
+                <div class="right-breckets__row row-breckets">
+                  <div class="row-breckets__head">
+                    <div class="row-breckets__title row-breckets__title_slider">С этим покупают</div>
+                  </div>
+                  <div class="article__slider swiper">
+                    <div class="article__wrapper swiper-wrapper">
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/catalog/buywith_1.png" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              670 <font class="rub">i</font>
+                            </div>
+                            <button class="slide-article__buy">Купить</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/catalog/buywith_2.png" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Замок для наклеивания Accent mini для Damon, верхняя челюсть слева, зуб № 26, паз 022</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              670 <font class="rub">i</font>
+                            </div>
+                            <button class="slide-article__buy">Купить</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/catalog/buywith_3.png" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Замок для наклеивания Accent mini для Damon, верхняя челюсть слева, зуб № 27, паз 022</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              670 <font class="rub">i</font>
+                            </div>
+                            <button class="slide-article__buy">Купить</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/catalog/buywith_1.png" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Замок для наклеивания Accent mini для Damon, верхняя челюсть слева, зуб № 16, паз 022</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              670 <font class="rub">i</font>
+                            </div>
+                            <button class="slide-article__buy">Купить</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/catalog/buywith_2.png" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Замок для наклеивания Accent mini для Damon, верхняя челюсть слева, зуб № 17, паз 022</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              670 <font class="rub">i</font>
+                            </div>
+                            <button class="slide-article__buy">Купить</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/catalog/buywith_3.png" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Замок для наклеивания Accent mini для Damon, верхняя челюсть слева, зуб № 99, паз 022</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              670 <font class="rub">i</font>
+                            </div>
+                            <button class="slide-article__buy">Купить</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-breckets__navigation">
+                    <div class="swiper-button-prev">
+                      <img src="@img/icons/p-right.svg" alt="image">
+                    </div>
+                    <div class="swiper-button-next">
+                      <img src="@img/icons/p-right.svg" alt="image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+				@@include('html/_subscribe.htm',{})
+				<div class="container _bottom">
+					<div class="h3">Контактные данные</div>
+					<div class="row contacts_row">
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">СПб, Малоохтинский пр., д.64, к.3</p>
+							<a href="tel:+78123247414">+7 (812) 324-74-14</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Москва, ул. Станиславского, д.21, стр. 3</p>
+							<a href="tel:+74956647555">+7 (495) 664-75-55</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Для звонков из регионов России</p>
+							<a href="tel:+78002227414">+7 (800) 222-74-14</a>
+						</div>
+						<div class="feedback_button_wrapper">
+							<a href="#" class="btn btn-xl btn-border  feedback_button">Обратная связь</a>
+						</div>
+					</div><!-- /contacts_row -->
+				
+					<div class="h3">Партнеры</div>
+					<div class="row partners_row">
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kerr.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kavo.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/nobel.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="https://med-resurs.org" target="_blank"><img src="@img/uploads/soyuz.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+					</div><!-- /partners_row -->
+				</div>
+        <section hidden class="short-model">
+          <div class="short-model__body">
+            <div class="short-model__price">
+              <div class="short-model__actprice">35 000 <span><font class="rub">i</font></span></div>
+              <div class="short-model__oldprice">38 600 <font class="rub">i</font></div>
+            </div>
+            <button class="short-model__buy try_btn">Купить</button>
+          </div>
+        </section>
+
+			</main>
+			@@include('html/_footer.htm',{
+				"active": "_active"
+      })
+			@@include('html/_filters_popup.htm',{})
+			@@include('html/_buy_popup.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

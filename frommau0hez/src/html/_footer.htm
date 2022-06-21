@@ -1,0 +1,234 @@
+<footer class="footer @@md3">
+	<div class="container">
+		<div class="footer_copy">© ООО «Ормко», 2021</div>
+		<ul class="footer_nav">
+			<li><a href="#">О компании</a></li>
+			<li><a href="#">Политика конфиденциальности</a></li>
+			<li><a href="#">Что такое сookies?</a></li>
+		</ul>
+		<div class="footer_text">
+			Не является офертой. Имеются противопоказания.<br> Проконсультируйтесь со специалистами
+		</div>
+	</div>
+</footer><!-- /footer -->
+
+
+<div class="mobile_footer @@mob">
+	<div class="container">
+		<ul>
+			<li><a href="#" class="@@active">Каталог</a></li>
+			<li><a href="#" class="js_search_mb @@search">Поиск</a></li>
+			<li><a href="#" class="@@cart">Корзина</a></li>
+			<li><a href="#auth" class="js_auth @@auth">Войти</a></li>
+		</ul>
+	</div>
+</div><!-- /mobile_footer -->
+
+
+<div class="modal" id="auth">
+	<div class="modal_header">
+		<div class="modal_title">Введите номер телефона</div>
+	</div>
+	<form action="#" method="post">
+		<div class="input-field">
+			<div class="input-float">
+				<label>Ваш телефон</label>
+				<input type="tel" name="tel" class="input phone_input">
+			</div>
+		</div>
+		<div class="input-field">
+			<a href="#modal_code" class="btn btn-light btn-xl btn-block js_modal_code">Продолжить</a>
+			<a href="#authmail" class="btn btn-link btn-xl btn-reg btn-block js_authmail">Войти по почте</a>
+		</div>
+	</form>
+	<a href="#" data-fancybox-close class="btn-close"></a>
+</div><!-- /modal -->
+
+
+<div class="modal" id="authmail">
+	<div class="modal_header">
+		<div class="modal_title">Введите e-mail и пароль</div>
+		<p>Только для зарегистрированных пользователей</p>
+	</div>
+	<form action="#" method="post">
+		@@include('_input.htm', { "label": "Электронная почта", "type": "email", "phone": "" })
+		@@include('_input.htm', { "label": "Пароль", "type": "password", "phone": "" })
+		<div class="input-field">
+			<input type="button" value="Войти" class="btn btn-light btn-xl btn-block" disabled>
+			<div class="modal_links">
+				<p><a href="#signup" class="js_auth">Забыли пароль?</a></p>
+				<p><a href="#auth" class="js_auth">Войти по номеру телефона</a></p>
+			</div>
+		</div>
+	</form>
+	<a href="#" data-fancybox-close class="btn-close"></a>
+</div><!-- /modal -->
+
+
+<div class="modal" id="modal_code">
+	<div class="modal_header">
+		<div class="modal_title">Введите код из смс</div>
+		<p>Отправили на номер +7 (999) 804-49-22</p>
+	</div>
+	<form action="#" method="post">
+		<div class="input-field">
+			<div class="codeinput codeinput-error">
+				<input type="text" class="codeinput_input">
+			</div><!-- /codeinput -->
+			<div class="input-text color-red text-center">Слишком много неудачных попыток ввода кода для активации. Запросите новую СМС.</div>
+		</div>
+		<div class="modal_links">
+			<p>Получить новый код можно через 00:59</p>
+			<p><a href="#">Не приходит код?</a></p>
+		</div>
+	</form>
+	<a href="#" class="btn-back"></a>
+	<a href="#" data-fancybox-close class="btn-close"></a>
+
+	<!-- <div class="modal-loader">
+		<div class="modal-loader-circle">
+			<div class="loader"></div>
+		</div>
+	</div> -->
+</div><!-- /modal -->
+
+
+
+<div class="modal" id="signup">
+	<div class="modal_header">
+		<div class="modal_title">Вы врач?</div>
+		<p>Пожалуйста, ответьте на вопрос, для персональных рекомендаций</p>
+	</div>
+	<form action="#" method="post">
+		<div class="input-field">
+			<label class="check-field"><input type="radio" name="spec"> Ортодонт</label>
+		</div>
+		<div class="input-field">
+			<label class="check-field"><input type="radio" name="spec"> Хирург</label>
+		</div>
+		<div class="input-field input-field-hide">
+			<label class="check-field"><input type="radio" name="spec" value="another"> Другая специализация</label>
+			<div class="input-field-hidden">
+				<input type="text" class="input input-sm" placeholder="Ваша специализация">
+			</div>
+		</div>
+		<div class="input-field">
+			<label class="check-field"><input type="radio" name="spec"> Студент</label>
+		</div>
+		<div class="input-field">
+			<label class="check-field"><input type="radio" name="spec"> Не врач</label>
+		</div>
+		<div class="input-field">
+			<a href="#signup2" class="btn btn-light btn-xl btn-block js_signup2">Продолжить</a>
+		</div>
+	</form>
+	<a href="#" data-fancybox-close class="btn-close"></a>
+</div><!-- #signup -->
+
+
+<div class="modal" id="signup2">
+	<div class="modal_header">
+		<div class="modal_title">Расскажите о себе</div>
+		<p>Заполните поля для завершения регистрации</p>
+	</div>
+	<form action="#" method="post">
+			@@include('_input.htm', { "type": "text", "label": "Имя", "float": true })
+			@@include('_input.htm', { "type": "text", "label": "Фамилия", "float": true })
+			@@include('_input.htm', { "type": "email", "label": "Электронная почта", "float": true })
+			@@include('_input.htm', { "type": "text", "label": "Адрес", "float": true })
+		<div class="input-field">
+			<input type="submit" value="Зарегистрироваться" class="btn btn-xl btn-light btn-block" disabled>
+		</div>
+	</form>
+	<a href="#" data-fancybox-close class="btn-close"></a>
+</div><!-- #signup -->
+
+
+
+<div class="modal" id="choose_country">
+	<div class="modal_header">
+		<div class="modal_title">Please select your country</div>
+	</div>
+	<div class="countries">
+		<div class="countries_title">Americas</div>
+		<ul class="countries_list">
+				@@include('countries.htm', { "svg": "canada.svg", "title": "Canada" })
+				@@include('countries.htm', { "svg": "usa.svg", "title": "USA" })
+				@@include('countries.htm', { "svg": "mexico.svg", "title": "Mexico" })
+		</ul>
+	</div>
+	<div class="countries">
+		<div class="countries_title">EMEA</div>
+		<ul class="countries_list">
+				@@include('countries.htm', { "svg": "austria.svg", "title": "Austria" })
+				@@include('countries.htm', { "svg": "denmark.svg", "title": "Denmark" })
+				@@include('countries.htm', { "svg": "belgium.svg", "title": "Belgium" })
+				@@include('countries.htm', { "svg": "france.svg", "title": "France" })
+				@@include('countries.htm', { "svg": "germany.svg", "title": "Germany" })
+				@@include('countries.htm', { "svg": "ireland.svg", "title": "Ireland" })
+				@@include('countries.htm', { "svg": "india.svg", "title": "India" })
+				@@include('countries.htm', { "svg": "italy.svg", "title": "Italy" })
+				@@include('countries.htm', { "svg": "luxembourg.svg", "title": "Luxembourg" })
+				@@include('countries.htm', { "svg": "netherlands.svg", "title": "Netherlands" })
+				@@include('countries.htm', { "svg": "poland.svg", "title": "Poland" })
+				@@include('countries.htm', { "svg": "portugal.svg", "title": "Portugal" })
+				@@include('countries.htm', { "svg": "russia.svg", "title": "Russia" })
+				@@include('countries.htm', { "svg": "rsa.svg", "title": "South Africa" })
+				@@include('countries.htm', { "svg": "spain.svg", "title": "Spain" })
+				@@include('countries.htm', { "svg": "switzerland.svg", "title": "Switzerland" })
+				@@include('countries.htm', { "svg": "uk.svg", "title": "United Kingdom" })
+		</ul>
+	</div>
+	<a href="#" data-fancybox-close class="btn-close"></a>
+</div><!-- #signup -->
+
+
+<div class="modal" id="freeconsult">
+	<div class="modal_header">
+		<div class="modal_title">Задать вопрос</div>
+	</div>
+	<form action="#" method="post">
+		<div class="input-field">
+			<select class="select_default" data-placeholder="Тема*">
+				<option>
+					&nbsp;
+				</option>
+				<option>Регистрация на сайте</option>
+				<option>Консультация по продукции</option>
+				<option>Доступ к матералам</option>
+				<option>Как оформить заказ</option>
+				<option>Статус заказа</option>
+				<option>Как оплатить заказ</option>
+				<option>Скидки на продукцию</option>
+			</select>
+		</div>
+			@@include('_input.htm', { "type": "text", "label": "ФИО*", "float": true },)
+			@@include('_input.htm', { "type": "email", "label": "E-mail*", "float": true },)
+			@@include('_input.htm', { "type": "tel", "label": "Телефон*", "float": true },)
+			@@include('_input.htm', { "type": "text", "label": "Город*", "float": true, "compl": true })
+		<div class="input-field">
+			<div class="input-float input-float-text">
+				<label>Вопрос*</label>
+				<textarea class="input"></textarea>
+			</div>
+		</div>
+		<div class="input-field">
+			<label class="check-field">
+				<input type="checkbox" checked>
+				Согласен с <a href="#">политикой конфиденциальности</a>, на обработку предоставленных данных ООО «Ормко», передачу данных аффилированным лицам и получение информационных рассылок.
+			</label>
+		</div>
+		<div class="input-field">
+			<input type="submit" value="Зарегистрироваться" class="btn btn-xl btn-light btn-block" disabled>
+		</div>
+	</form>
+	<a href="#" data-fancybox-close class="btn-close"></a>
+</div><!-- #signup -->
+
+
+<a href="#" id="ontop">
+	<span class="ontop_inner"></span>
+	<span class="ontop_hover"></span>
+</a>
+
+

@@ -1,0 +1,121 @@
+:root {
+  @include adaptiveValue("--catitm", 285, 140);
+}
+.catalog {
+
+  &__container {
+    display: grid;
+    gap: rem(20);
+    @include adaptiveValue("padding-bottom", 100, 60);
+    padding-top: rem(24);
+    @media (min-width:$tablet){
+      grid-template-columns: rem(285) auto;
+    }
+  }
+
+  &__menu {
+    @media (max-width:$tablet){
+      display: none;
+    }
+  }
+
+  &__body {
+    display: grid;
+    @include adaptiveValue("gap", 20, 8);
+    grid-template-columns: repeat(2, 1fr);
+    @media (min-width:$mobileSmall){
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+  }
+}
+.spollers-catalog {
+
+  &__item {
+    border: rem(1) solid #E8E8E9;
+    border-radius: rem(12);
+  }
+
+  &__title {
+    border: none;
+    padding: rem(16);
+    font-weight: 600;
+    font-size: rem(18);
+    border-radius: 0;
+    border-bottom: rem(1) solid #F5F5F5;
+    transition: color 0.3s ease 0s;
+    &::before, &::after{
+      width: rem(9) !important;
+      background-color: $mainColor;
+      transition: all 0.3s ease 0s;
+      right: rem(20) !important;
+    }
+    @media (any-hover: hover){
+      &:hover{
+        color: $blue;
+        &::before,
+        &::after{
+          background-color: $blue;
+        }
+      }
+    }
+  }
+
+  &__body {
+    border: none;
+    padding: rem(16);
+  }
+
+  &__list {
+    & li:first-child a {
+      padding-top: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: rem(6) 0;
+    color: $mainColor;
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover){
+      &:hover{
+        color: $blue;
+      }
+    }
+  }
+}
+.item-catalog {
+  background-color: #F9F9F9;
+  border-radius: rem(12);
+  border: rem(1) solid transparent;
+  @include adaptiveValue("padding", 20, 12, 1920, 375, 1);
+  padding-bottom: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s ease 0s;
+  gap: rem(20);
+  @media (any-hover: hover){
+    &:hover{
+      border-color: #E8E8E9;
+      color: $blue;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    transition: color 0.3s ease 0s;
+  }
+
+  &__image {
+    align-self: center;
+    img,
+    picture {
+      @include adaptiveValue("width", 160, 122);
+      @include adaptiveValue("height", 100, 76);
+      object-fit: contain;
+    }
+  }
+}
