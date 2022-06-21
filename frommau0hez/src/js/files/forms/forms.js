@@ -35,6 +35,18 @@ export function formFieldsInit(options = { viewPass: false }) {
 			formValidate.removeError(targetElement);
 		}
 	});
+	document.body.addEventListener("input", function (e) {
+		const targetElement = e.target;
+		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
+			if (targetElement.dataset.placeholder) {
+				targetElement.placeholder = '';
+			}
+			if (!targetElement.hasAttribute('data-no-focus-classes')) {
+				targetElement.classList.add('_form-input');
+				targetElement.parentElement.classList.add('_form-input');
+			}
+		}
+	});
 	document.body.addEventListener("focusout", function (e) {
 		const targetElement = e.target;
 		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
@@ -44,6 +56,10 @@ export function formFieldsInit(options = { viewPass: false }) {
 			if (!targetElement.hasAttribute('data-no-focus-classes')) {
 				targetElement.classList.remove('_form-focus');
 				targetElement.parentElement.classList.remove('_form-focus');
+				if (!targetElement.value.trim()) {
+					targetElement.classList.remove('_form-input');
+					targetElement.parentElement.classList.remove('_form-input');
+				}
 			}
 			// Моментальная валидация
 			if (targetElement.hasAttribute('data-validate')) {

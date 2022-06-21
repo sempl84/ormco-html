@@ -1,4 +1,13 @@
+:root {
+  @include adaptiveValue("--subml", 36, 0, 1920, 376, 1);
+}
+
 .cart {
+  @media (max-width:$tablet){
+    &:not(.ordering) {
+      padding-top: rem(24);
+    }
+  }
 
   &__container {
     @media (min-width:$tablet){
@@ -9,8 +18,14 @@
   &__head {
     display: flex;
     align-items: end;
-    line-height: 1;
-    gap: rem(12);
+    @include adaptiveValue("gap", 12, 8, 1920, 480, 1);
+    @media (min-width:$mobile){
+      &:not(:last-child) {margin-bottom: rem(40);}
+    }
+    
+    * {
+      line-height: 1;
+    }
   }
 
   &__title {
@@ -108,7 +123,7 @@
     &:not(:last-child) {margin-bottom: rem(25);}
     @media (max-width:$mobile){
       justify-content: space-between;
-      &:not(:last-child) {margin-bottom: rem(29);}
+      &:not(:last-child) {margin-bottom: rem(16);}
     }
     .products-cart__item_unavaiable & {
       justify-content: space-between;
@@ -116,6 +131,8 @@
       @include adaptiveValue("padding-right", 20, 12, 1920, 380, 1);
       @include adaptiveValue("padding-top", 16, 12, 1920, 380, 1);
       @include adaptiveValue("padding-bottom", 16, 12, 1920, 380, 1);
+      background-color: #f9f9f9;
+      border-radius: rem(4);
       @media (max-width:$mobile){
         align-items: start;
         flex-direction: column;
@@ -141,6 +158,8 @@
     align-items: center;
     color: $red;
     transition: all 0.3s ease 0s;
+    gap: rem(8);
+    cursor: pointer;
     @media (any-hover: hover){
       &:hover{
         filter: grayscale(1);
@@ -152,19 +171,17 @@
   }
 
   &__body {
+    border-bottom: rem(1) solid #F5F5F5;
   }
 
   &__row {
-    border-bottom: rem(1) solid #F5F5F5;
+    border-top: rem(1) solid #F5F5F5;
     position: relative;
-    @include adaptiveValue("padding-bottom", 21, 13, 1920, 767, 1);
-    &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 24, 12, 1920, 375, 1);
-    }
   }
 
   &__product {
-    @include adaptiveValue("padding-top", 24, 0, 1920, 767, 1);
+    @include adaptiveValue("padding-top", 24, 12, 1920, 767, 1);
+    @include adaptiveValue("padding-bottom", 21, 13, 1920, 767, 1);
     position: relative;
     z-index: 1;
     @media (max-width:$mobile){
@@ -214,7 +231,7 @@
     @include adaptiveValue("font-size", 15, 13, 1920, 380, 1);
     &:not(:last-child) {margin-bottom: rem(4);}
     @media (min-width:$mobile){
-      max-width: 90%;
+      max-width: 94%;
     }
   }
 
@@ -326,15 +343,17 @@
     &::before{
       content:'Показать';
     }
-    &::after{
-      content:'';
-      flex: 0 0 rem(20);
-      height: rem(20);
-      background-image: url(../img/icons/cart-spollers.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      transition: transform 0.3s ease 0s;
-      transform: rotate(180deg);
+    @media (min-width:$mobile){
+      &::after{
+        content:'';
+        flex: 0 0 rem(20);
+        height: rem(20);
+        background-image: url(../img/icons/cart-spollers.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.3s ease 0s;
+        transform: rotate(180deg);
+      }
     }
     &._spoller-active {
       &::before{
@@ -344,19 +363,25 @@
         transform: none;
       }
     }
+    @media (max-width:$mobile){
+      padding-bottom: rem(12);
+      
+    }
   }
 
   &__body {
     border-radius: rem(4);
     border: rem(1) solid #F5F5F5;
-    @include adaptiveValue("padding-left", 20, 10, 1920, 375, 1);
-    @include adaptiveValue("padding-right", 20, 10, 1920, 375, 1);
     padding-top: rem(4);
     padding-bottom: rem(4);
+    max-width: calc(100% - var(--subml));
+    margin-left: auto;
   }
 
   &__product {
     display: grid;
+    @include adaptiveValue("padding-left", 20, 10, 1920, 375, 1);
+    @include adaptiveValue("padding-right", 20, 10, 1920, 375, 1);
     @media (min-width:$mobile){
       grid-template-columns: auto rem(112);
     }
@@ -374,6 +399,16 @@
   }
 }
 .ordering-cart {
+  .page_ordering & {
+    @media (max-width:$mobile){
+      padding-bottom: rem(80);
+    }
+  }
+  .page_cart & {
+    @media (max-width:$mobile){
+      padding-bottom: rem(162);
+    }
+  }
   &_error {
     &::after{
       content:attr(data-error);
@@ -386,6 +421,7 @@
   flex-direction: column;
   @include adaptiveValue("gap", 16, 12, 1920, 767, 1);
   @media (max-width:$mobile){
+    padding-bottom: rem(20);
     .page_cart & {
       flex-direction: column-reverse;
     }
@@ -398,6 +434,10 @@
     flex: 0 1 auto;
     position: relative;
     display: block;
+    border-radius: rem(8);
+    font-size: rem(15);
+    padding: rem(17);
+    line-height: 1.2;
     .ordering-cart_error & {
       pointer-events: none;
       opacity: 0.4;
@@ -407,14 +447,28 @@
   &__body {
     background-color: #F9F9F9;
     border-radius: rem(10);
-    @include adaptiveValue("padding-top", 12, 10, 1920, 767, 1);
-    @include adaptiveValue("padding-bottom", 12, 10, 1920, 767, 1);
-    @include adaptiveValue("padding-left", 20, 12, 1920, 767, 1);
-    @include adaptiveValue("padding-right", 20, 12, 1920, 767, 1);
+    &:not(.ordering-cart__body_boxes) {
+      @include adaptiveValue("padding-top", 12, 10, 1920, 767, 1);
+      @include adaptiveValue("padding-bottom", 12, 10, 1920, 767, 1);
+      @include adaptiveValue("padding-left", 20, 12, 1920, 767, 1);
+      @include adaptiveValue("padding-right", 20, 12, 1920, 767, 1);
+    }
     &_boxes {
       display: flex;
       flex-direction: column;
-      gap: rem(8);
+      border-radius: rem(20);
+      background-color: #fff;
+      @media (min-width:$mobile){
+        padding: rem(24);
+        gap: rem(8);
+        border: rem(1) solid #E8E8E9;
+      }
+      @media (max-width:$mobile){
+        margin: 0 rem(-16);
+        padding: 0 rem(16) rem(24);
+        border-bottom: rem(1) solid #F5F5F5;
+        border-radius: 0;
+      }
     }
   }
 
@@ -435,6 +489,7 @@
   &__key {
     display: flex;
     gap: rem(4);
+    align-items: center;
   }
 
   &__name {
@@ -455,11 +510,22 @@
   }
 
   &__span {
+    display: flex;
+    justify-content:center;align-items: center;
+    svg path {
+      transition: all 0.3s ease 0s;
+      @media (any-hover: hover){
+        &:hover{
+          fill: $blue;
+        }
+      }
+    }
   }
   &__label {
     text-align: left;
     flex: 1 1 auto;
     margin-left: rem(8);
+    cursor: pointer;
   }
 }
 

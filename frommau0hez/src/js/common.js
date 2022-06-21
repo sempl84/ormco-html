@@ -190,11 +190,12 @@ export function homePageFunctions() {
 		},
 		mousewheel: true,
 	});
-
-	setTimeout(() => {
-		scrollbox_slider[2].scrollbar.el.style = 'display: none;';
-		scrollbox_slider[1].scrollbar.el.style = 'display: none;';
-	}, 500);
+	if (document.querySelector('.scrollbox')) {
+		setTimeout(() => {
+			scrollbox_slider[2].scrollbar.el.style = 'display: none;';
+			scrollbox_slider[1].scrollbar.el.style = 'display: none;';
+		}, 500);
+	}
 
 	// catpopup
 	$('.catpopup').on('mouseleave', function() {

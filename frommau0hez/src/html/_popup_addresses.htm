@@ -1,10 +1,12 @@
 <div id="popupAddress" aria-hidden="true" class="popup popupAddress">
 	<div class="popup__wrapper popupAddress__wrapper">
 		<div class="popup__content popupAddress__content">
+			<span data-close></span>
 			<button data-close data-da=".popupAddress__head, 767" type="button" class="popup__close popupAddress__close">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11.25 0.75L0.75 11.25M11.25 11.25L0.75 0.75L11.25 11.25Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="16" cy="16" r="16" fill="#F5F5F5"/>
+					<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
       </button>
 			<div class="popup__text popupAddress__text">
 				<div class="popupAddress__head">
@@ -16,16 +18,16 @@
 						<input type="radio" name="popupAddress__radio" id="popupAddress__radio_1" class="popupAddress__radio">
 						<label for="popupAddress__radio_1" class="popupAddress__label">
 							<div class="popupAddress__adress">
-								<span data-adress>Городской посёлок Токсово, улица Лесовода Морозова 10,</span> кв./офис<span data-flat> 31</span>
+								<span data-value="adress">Городской посёлок Токсово, улица Лесовода Морозова 10</span>, кв./офис <span data-value="flat">31</span>
 							</div>
 							<div class="popupAddress__comment">
-								<span data-entrance>1</span> подъезд,
-								<span data-floor>15</span> этаж,
-								домофон <span data-intercom>15</span>,
-								<span data-comment>«вход со двора</span>»
+								<span data-value="entrance">1</span> подъезд,
+								<span data-value="floor">15</span> этаж,
+								домофон <span data-value="intercom">15</span>,
+								«<span data-value="comment">вход со двора</span>»
 							</div>
 						</label>
-						<a href="#" data-popup="popupAddressEdit" class="popupAddress__edit">
+						<a href="#" data-popup="#popupAddressEdit" class="popupAddress__edit">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M18 10.5V19.125C18 19.3712 17.9515 19.615 17.8573 19.8425C17.763 20.07 17.6249 20.2767 17.4508 20.4508C17.2767 20.6249 17.07 20.763 16.8425 20.8573C16.615 20.9515 16.3712 21 16.125 21H4.875C4.37772 21 3.90081 20.8025 3.54917 20.4508C3.19754 20.0992 3 19.6223 3 19.125V7.875C3 7.37772 3.19754 6.90081 3.54917 6.54917C3.90081 6.19754 4.37772 6 4.875 6H12.7256" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								<path d="M21.5597 2.49611C21.4912 2.42085 21.4082 2.36025 21.3156 2.31799C21.2231 2.27573 21.1229 2.25267 21.0211 2.25022C20.9194 2.24777 20.8182 2.26596 20.7237 2.30371C20.6292 2.34147 20.5434 2.39799 20.4713 2.46986L19.8915 3.04689C19.8212 3.11721 19.7817 3.21255 19.7817 3.31197C19.7817 3.41138 19.8212 3.50673 19.8915 3.57705L20.423 4.10767C20.4579 4.14268 20.4993 4.17046 20.5449 4.18941C20.5905 4.20837 20.6394 4.21812 20.6888 4.21812C20.7382 4.21812 20.7871 4.20837 20.8327 4.18941C20.8783 4.17046 20.9197 4.14268 20.9546 4.10767L21.5199 3.54517C21.8058 3.2597 21.8326 2.7947 21.5597 2.49611ZM18.7191 4.21877L10.2572 12.6656C10.2059 12.7167 10.1686 12.7802 10.149 12.8499L9.75756 14.0156C9.74818 14.0473 9.74752 14.0809 9.75564 14.1128C9.76375 14.1448 9.78035 14.174 9.80368 14.1973C9.82701 14.2207 9.85621 14.2373 9.88818 14.2454C9.92016 14.2535 9.95374 14.2528 9.98537 14.2435L11.1502 13.8521C11.2199 13.8324 11.2833 13.7951 11.3344 13.7438L19.7813 5.28095C19.8595 5.20197 19.9033 5.09535 19.9033 4.98423C19.9033 4.87312 19.8595 4.7665 19.7813 4.68752L19.3149 4.21877C19.2358 4.1399 19.1287 4.09562 19.017 4.09562C18.9053 4.09562 18.7982 4.1399 18.7191 4.21877Z" fill="#8E8E93"/>
@@ -36,16 +38,16 @@
 						<input type="radio" name="popupAddress__radio" id="popupAddress__radio_2" class="popupAddress__radio">
 						<label for="popupAddress__radio_2" class="popupAddress__label">
 							<div class="popupAddress__adress">
-								<span data-adress>Городской посёлок Токсово, улица Лесовода Морозова 10,</span> кв./офис<span data-flat> 31</span>
+								<span data-value="adress">Городской посёлок Токсово, улица Лесовода Морозова 10</span>, кв./офис <span data-value="flat">31</span>
 							</div>
 							<div class="popupAddress__comment">
-								<span data-entrance>1</span> подъезд,
-								<span data-floor>15</span> этаж,
-								домофон <span data-intercom>15</span>,
-								<span data-comment>«вход со двора</span>»
+								<span data-value="entrance">1</span> подъезд,
+								<span data-value="floor">15</span> этаж,
+								домофон <span data-value="intercom">15</span>,
+								«<span data-value="comment">вход со двора</span>»
 							</div>
 						</label>
-						<a href="#" data-popup="popupAddressEdit" class="popupAddress__edit">
+						<a href="#" data-popup="#popupAddressEdit" class="popupAddress__edit">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M18 10.5V19.125C18 19.3712 17.9515 19.615 17.8573 19.8425C17.763 20.07 17.6249 20.2767 17.4508 20.4508C17.2767 20.6249 17.07 20.763 16.8425 20.8573C16.615 20.9515 16.3712 21 16.125 21H4.875C4.37772 21 3.90081 20.8025 3.54917 20.4508C3.19754 20.0992 3 19.6223 3 19.125V7.875C3 7.37772 3.19754 6.90081 3.54917 6.54917C3.90081 6.19754 4.37772 6 4.875 6H12.7256" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								<path d="M21.5597 2.49611C21.4912 2.42085 21.4082 2.36025 21.3156 2.31799C21.2231 2.27573 21.1229 2.25267 21.0211 2.25022C20.9194 2.24777 20.8182 2.26596 20.7237 2.30371C20.6292 2.34147 20.5434 2.39799 20.4713 2.46986L19.8915 3.04689C19.8212 3.11721 19.7817 3.21255 19.7817 3.31197C19.7817 3.41138 19.8212 3.50673 19.8915 3.57705L20.423 4.10767C20.4579 4.14268 20.4993 4.17046 20.5449 4.18941C20.5905 4.20837 20.6394 4.21812 20.6888 4.21812C20.7382 4.21812 20.7871 4.20837 20.8327 4.18941C20.8783 4.17046 20.9197 4.14268 20.9546 4.10767L21.5199 3.54517C21.8058 3.2597 21.8326 2.7947 21.5597 2.49611ZM18.7191 4.21877L10.2572 12.6656C10.2059 12.7167 10.1686 12.7802 10.149 12.8499L9.75756 14.0156C9.74818 14.0473 9.74752 14.0809 9.75564 14.1128C9.76375 14.1448 9.78035 14.174 9.80368 14.1973C9.82701 14.2207 9.85621 14.2373 9.88818 14.2454C9.92016 14.2535 9.95374 14.2528 9.98537 14.2435L11.1502 13.8521C11.2199 13.8324 11.2833 13.7951 11.3344 13.7438L19.7813 5.28095C19.8595 5.20197 19.9033 5.09535 19.9033 4.98423C19.9033 4.87312 19.8595 4.7665 19.7813 4.68752L19.3149 4.21877C19.2358 4.1399 19.1287 4.09562 19.017 4.09562C18.9053 4.09562 18.7982 4.1399 18.7191 4.21877Z" fill="#8E8E93"/>
@@ -55,7 +57,7 @@
 				</div>
 				<div class="popupAddress__foot">
 					<button data-close class="popupAddress__button try_btn">Выбрать</button>
-					<a href="#" data-da=".popupAddress__more, 767" class="popupAddress__add try_btn" data-popup="popupAddressNew">Добавить новый</a>
+					<a href="#" data-da=".popupAddress__more, 767" class="popupAddress__add" data-popup="#popupAddressNew">Добавить новый</a>
 				</div>
 			</div>
 		</div>

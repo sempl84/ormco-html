@@ -12,7 +12,7 @@ export let gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 
 		let headerItem = '';
 		let headerItemHeight = 0;
 		if (noHeader) {
-			headerItem = 'header.header';
+			headerItem = 'header';
 			headerItemHeight = document.querySelector(headerItem).offsetHeight;
 		}
 		let options = {

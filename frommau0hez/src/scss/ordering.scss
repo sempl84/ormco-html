@@ -1,3 +1,7 @@
+.page_ordering {
+  min-height: rem(800);
+}
+
 .ordering {
 
   &__head {
@@ -10,8 +14,12 @@
       margin: 0 rem(-15);
       padding: rem(12) rem(16);
       flex-direction: row;
+      align-items: center;
       justify-content: space-between;
       box-shadow: 0px 0.5px 4px rgba(26, 26, 26, 0.08);
+    }
+    @media (min-width:$mobile){
+      gap: rem(4);
     }
   }
 
@@ -32,7 +40,7 @@
   }
 
   &__empty {
-    flex: 0 0 rem(24);
+    flex: 0 0 rem(14);
     @media (min-width:$mobile){
       display: none;
     }
@@ -47,9 +55,9 @@
   &__arrow {
     transform: rotate(180deg);
     @media (max-width:$mobile){
-      flex: 0 0 rem(24);
-      height: rem(24);
-      width: rem(24);
+      flex: 0 0 rem(14);
+      height: rem(14);
+      width: rem(14);
     }
     path {
       @media (max-width:$mobile){
@@ -69,13 +77,14 @@
 .buyers-ordering {
 
   &__item {
-    &:not(:last-child) {margin-bottom: rem(24);}
     @media (min-width:$mobile){
+      &:not(:last-child) {margin-bottom: rem(24);}
       padding: rem(24);
       border-radius: rem(20);
       border: rem(1) solid #E8E8E9;
     }
     @media (max-width:$mobile){
+      &:last-child {margin-top: rem(24);}
       padding: 0 rem(16) rem(24);
       margin: 0 rem(-15);
       border-bottom: rem(1) solid #F5F5F5;
@@ -285,6 +294,7 @@
       }
       textarea {
         transform: scaleY(1);
+        display: block;
       }
     }
   }
@@ -333,6 +343,7 @@
     min-height: rem(74);
     transform-origin: top center;
     transform: scaleY(0);
+    display: none;
     &::placeholder {
       color: #8E8E93;
     }
@@ -379,11 +390,20 @@
 
 //========================================================================================================================================================
 
-.popupAddress {
+.popupAddress,
+.popupLegalface {
+  @media (min-width:$mobile){
+    border-radius: rem(8);
+  }
   @media (max-width:$mobile){
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
+    transform: translateY(150%);
+    transition: all 0.5s ease 0s;
+    &.popup_show {
+      transform: none
+    }
   }
 
   &__wrapper {
@@ -400,17 +420,44 @@
       max-width: none;
       min-height: calc(100vh - rem(80));
       border-radius: rem(20) rem(20) 0px 0px;
+      transform: none !important;
+    }
+    @media (max-width:$mobile){
+      span[data-close] {
+        display: block;
+        height: rem(50);
+        border-radius: rem(20) rem(20) 0px 0px;
+        background-color: #fff;
+        width: 99vw;
+        margin: rem(-15) rem(-15) 0;
+        position: relative;
+        &::before{
+          content:'';
+          display: block;
+          position: absolute;
+          width: rem(52);
+          height: rem(5);
+          background-color: #E0E0E3;
+          border-radius: rem(100);
+          top: rem(16);
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      }
     }
     @media (min-width:$mobile){
       min-height: rem(600);
       max-width: rem(480);
+      span[data-close] {
+        display: none;
+      }
     }
   }
 
   &__close {
     @media (min-width:$mobile){
       display: flex;
-      padding: rem(10);
       align-items: center;
       justify-content: end;
       margin-left: auto;
@@ -422,6 +469,9 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
+    @media (min-width:$mobile){
+      padding: 0 rem(12);
+    }
   }
 
   &__head {
@@ -436,6 +486,7 @@
   }
 
   &__title {
+    @include adaptiveValue("font-size", 28, 20, 1920, 480, 1);
     @media (max-width:$mobile){
       display: flex;
       flex-direction: column;
@@ -471,7 +522,7 @@
     }
     @media (max-width:$mobile){
       border-bottom: rem(1) solid #F5F5F5;
-      padding: 0 rem(16);
+      padding: rem(16) 0;
     }
   }
 
@@ -481,6 +532,7 @@
 
   &__label {
     flex: 1 1 auto;
+    cursor: pointer;
   }
 
   &__adress {
@@ -493,8 +545,13 @@
   }
 
   &__edit {
+    transform: translateY(rem(-5));
     svg path {
       transition: all 0.3s ease 0s;
+      stroke: $gray;
+      .popupAddress__item_active &{
+        stroke: $blue;
+      }
     }
     @media (any-hover: hover){
       &:hover{
@@ -508,19 +565,26 @@
   &__foot {
     display: flex;
     gap: rem(12);
-    padding: rem(12);
+    padding: rem(12) 0;
   }
 
   &__button {
-    min-width: none;
+    min-width: 0;
     text-align: center;
     color: #fff;
     background-color: $blue;
     border: rem(1) solid $blue;
     transition: all 0.3s ease 0s;
     padding: rem(17);
+    #popupAddressNew &,
+    #popupLegalfaceEdit & {
+      flex: 1 1 auto;
+    }
     @media (min-width:$mobile){
       flex: 0 1 50%;
+      #popupAddressEdit & {
+        max-width: rem(200);
+      }
     }
     @media (max-width:$mobile){
       flex: 1 1 auto;
@@ -537,18 +601,305 @@
     flex: 0 1 50%;
     min-width: none;
     text-align: center;
+    font-weight: 600;
     @media (min-width:$mobile){
       color: $blue;
       background-color: #fff;
       border: rem(1) solid $blue;
       transition: all 0.3s ease 0s;
       padding: rem(17);
+      min-width: rem(160);
+      display: inline-flex;
+      justify-content:center;align-items: center;
+      padding: rem(10);
+      border-radius: rem(4);
+    }
+    @media (max-width:$mobile){
+      color: $blue;
     }
     @media (any-hover: hover){
       &:hover{
         color: #fff;
         background-color: $blue;
       }
+    }
+  }
+}
+//========================================================================================================================================================
+
+
+.popupAddressNew {
+  @extend .popupAddressEdit;
+  &__wrapper {
+    @extend .popupAddressEdit__wrapper;
+  }
+  &__close {
+    @extend .popupAddressEdit__close;
+  }
+}
+
+.popupAddressEdit {
+  @media (min-width:$mobile){
+    border-radius: rem(8);
+  }
+  @media (max-width:$mobile){
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    transform: translateY(150%);
+    transition: all 0.5s ease 0s;
+    &.popup_show {
+      transform: none
+    }
+  }
+
+  &__wrapper {
+    @include adaptiveValue("padding-top", 90, 50, 1920, 767, 1);
+  }
+
+  &__content {
+    padding: rem(12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @media (max-width:$mobile){
+      padding: rem(16);
+      max-width: none;
+      min-height: calc(100vh - rem(80));
+      border-radius: rem(20) rem(20) 0px 0px;
+      transform: none !important;
+    }
+    @media (max-width:$mobile){
+      span[data-close] {
+        display: block;
+        height: rem(50);
+        border-radius: rem(20) rem(20) 0px 0px;
+        background-color: #fff;
+        width: 99vw;
+        margin: rem(-15) rem(-15) 0;
+        position: relative;
+        &::before{
+          content:'';
+          display: block;
+          position: absolute;
+          width: rem(52);
+          height: rem(5);
+          background-color: #E0E0E3;
+          border-radius: rem(100);
+          top: rem(16);
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      }
+    }
+    @media (min-width:$mobile){
+      min-height: rem(600);
+      max-width: rem(480);
+      span[data-close] {
+        display: none;
+      }
+    }
+  }
+
+  &__close,
+  #popupLegalfaceNew &__close {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 8, 12, 1920, 767, 1);
+    }
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width:$mobile){
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    @media (min-width:$mobile){
+      padding: 0 rem(12);
+    }
+  }
+
+  &__x {
+    @media (max-width:$mobile){
+      display: none;
+    }
+  }
+
+  &__back {
+  }
+
+  &__head {
+    &:not(:last-child) {margin-bottom: rem(20);}
+    @media (max-width:$mobile){
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 28, 20, 1920, 480, 1);
+  }
+
+  &__more {
+  }
+
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__row {
+  }
+
+  &__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(12);
+    padding: rem(12) 0;
+    .popupLegalfaceEdit  & {
+      padding-bottom: rem(20);
+    }
+  }
+
+  &__add {
+    display: inline-flex;
+    align-items: center;
+    color: $red;
+    gap: rem(8);
+  }
+}
+.row-popupAddressEdit {
+  display: flex;
+  gap: rem(12);
+  &:not(:last-child) {margin-bottom: rem(12);}
+
+  &__item {
+    flex: 1 1 auto;
+    position: relative;
+    min-height: rem(54);
+    padding: rem(12) rem(12) rem(5);
+    background-color: #F5F5F5;
+    border-radius: rem(4);
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+
+  &__label {
+    position: absolute;
+    z-index: 2;
+    white-space: nowrap;
+    color: $gray;
+    left: rem(12);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease 0s;
+    pointer-events: none;
+    ._form-focus &,
+    ._form-input & {
+      top: rem(12);
+      font-size: rem(13);
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: rem(94);
+    background-color: transparent;
+    padding-top: rem(10);
+    &+label {
+      top: rem(20);
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.find-popupLegalfaceEdit {
+  display: flex;
+  align-items: start;
+  gap: rem(10);
+  background-color: #f9f9f9;
+  align-items: start;
+  border-radius: rem(8);
+  padding: rem(10) rem(12);
+  &:not(:last-child) {margin-bottom: rem(20);}
+
+  &__icon {
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    padding-right: rem(10);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: rem(4);
+  }
+
+  &__black {
+    font-weight: 600;
+  }
+
+  &__gray {
+    font-size: rem(13);
+    color: $gray;
+  }
+
+  &__link {
+    white-space: nowrap;
+    color: $blue;
+    transition: all 0.3s ease 0s;
+    font-weight: 600;
+    font-size: rem(13);
+    @media (any-hover: hover){
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.popupLegalfaceEdit__subtitle {
+  font-weight: 600;
+  @include adaptiveValue("font-size", 18, 15, 1920, 376, 1);
+  &:not(:last-child) {margin-bottom: rem(12);}
+}
+
+.popupLegalfaceNew__button {
+  padding: rem(17);
+  color: #fff;
+  background-color: $blue;
+  border: rem(1) solid $blue;
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover){
+    &:hover{
+      color: $blue;
+      background-color: #fff;
+    }
+  }
+}
+
+.popupAddress,
+.popupLegalface,
+.popupAddressNew,
+.popupAddressEdit,
+.popupLegalfaceEdit {
+  &__content {
+    @media (min-width:$mobile){
+      border-radius: rem(8);
     }
   }
 }

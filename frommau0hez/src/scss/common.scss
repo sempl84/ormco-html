@@ -324,6 +324,11 @@
     display: none;
   }
 }
+._md3dn {
+  @media (max-width:$mobile){
+    display: none;
+  }
+}
 
 .lg-backdrop {
   background-color: rgba(0, 0, 0, 0.7) !important;
@@ -372,4 +377,18 @@
 
 ._dn {
   display: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.tippy-content {
+  background-color: #333342;
+  border-radius: rem(4);
 }
