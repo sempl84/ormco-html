@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Щечные трубки"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page page_tubes page__withfilters">
+        <div class="breadcumps" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <div class="breadcumps__container container">
+            <div class="breadcumps__body">
+              <a href="#" class="breadcumps__item" itemprop="item">
+								<span itemprop="name">Каталог</span>
+								<meta itemprop="position" content="1">
+							</a>
+              <a href="#" class="breadcumps__item" itemprop="item">
+								<span itemprop="name">Щечные трубки</span>
+								<meta itemprop="position" content="2">
+							</a>
+            </div>
+          </div>
+        </div>
+        <a href="#" data-popup="#filtersPopup" class="filtersButton">
+          <div class="container">
+            <div class="filtersButton__body">
+              <span>Фильтры <font class="_gray">4</font> </span>
+              <img src="@img/icons/filters.svg" alt="image">
+            </div>
+          </div>
+        </a>
+				@@include('html/_pagehead.htm',{
+					"title": "Щечные трубки"
+				})
+        <section class="tubes">
+          <div class="tubes__container container">
+            <div class="tubes__head head-tubes">
+              <div class="head-tubes__slider swiper">
+                <div class="head-tubes__wrapper swiper-wrapper">
+                  <a href="#" itemprop="url" class="head-tubes__slide swiper-slide">
+                    <img src="@img/tubes/head_1.png" alt="image" itemprop="image">
+                    <span itemprop="name">Damon</span>
+                  </a>
+                  <a href="#" itemprop="url" class="head-tubes__slide swiper-slide">
+                    <img src="@img/tubes/head_2.png" alt="image" itemprop="image">
+                    <span itemprop="name">Peerless</span>
+                  </a>
+                  <a href="#" itemprop="url" class="head-tubes__slide swiper-slide">
+                    <img src="@img/tubes/head_3.png" alt="image" itemprop="image">
+                    <span itemprop="name">Titanium Orthos</span>
+                  </a>
+                  <a href="#" itemprop="url" class="head-tubes__slide swiper-slide">
+                    <img src="@img/tubes/head_4.png" alt="image" itemprop="image">
+                    <span itemprop="name">Accent Orthos</span>
+                  </a>
+                  <a href="#" itemprop="url" class="head-tubes__slide swiper-slide">
+                    <img src="@img/tubes/head_2.png" alt="image" itemprop="image">
+                    <span itemprop="name">Accent Mini MBT</span>
+                  </a>
+                  <a href="#" itemprop="url" class="head-tubes__slide swiper-slide">
+                    <img src="@img/tubes/head_3.png" alt="image" itemprop="image">
+                    <span itemprop="name">Micro Tube</span>
+                  </a>
+                  <a href="#" itemprop="url" class="head-tubes__slide swiper-slide">
+                    <img src="@img/tubes/head_4.png" alt="image" itemprop="image">
+                    <span itemprop="name">Лингвальные</span>
+                  </a>
+                </div>
+              </div>
+              <div class="head-tubes__navigation">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
+            <div class="tubes__body">
+              <div class="tubes__aside aside-tubes">
+                <div class="aside-tubes__category">
+                  <div data-spollers class="spollers-breckets">
+                    <div class="spollers-breckets__item">
+                      <button type="button" data-spoller class="spollers-breckets__title spollers__title _spoller-active">Категории</button>
+                      <div class="spollers-breckets__body">
+                        <div class="spollers-breckets__name spollers-breckets__name_bold">Щечные трубки</div>
+                        <div class="spollers-breckets__items">
+                          <a href="#" class="spollers-breckets__link">Damon</a>
+                          <a href="#" class="spollers-breckets__link">Peerless</a>
+                          <a href="#" class="spollers-breckets__link">Titanium Orthos</a>
+                          <a href="#" class="spollers-breckets__link">Accent Orthos</a>
+                          <a href="#" class="spollers-breckets__link">Accent Mini MBT</a>
+                          <a href="#" class="spollers-breckets__link">Micro Tube</a>
+                          <a href="#" class="spollers-breckets__link">Лингвальные</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <form data-ajax action="#" method="post" data-da=".filtersPopup__text, 991, 0" class="aside-tubes__filters">
+                  <div data-spollers="992, min" class="spollers-breckets">
+                    <div class="spollers-breckets__item spollers-breckets__item_unique">
+                      <button type="button" data-spoller class="spollers-breckets__title spollers-breckets__title_filters spollers__title _spoller-active">Фильтры</button>
+                      <div class="spollers-breckets__body filters-catalog">
+                        <div data-showmore="items" data-showmore-media="992, min" class="filters-showmore">
+                          <ul data-showmore-content="3" class="filters-showmore__content">
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Челюсть</div>
+                              <div class="filters-catalog__body">
+                                <div class="showmore-filters">
+                                  <ul class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_1" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_1" class="showmore-filters__label">Вверхняя</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_2" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_2" class="showmore-filters__label">Нижняя</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Зуб</div>
+                              <div class="filters-catalog__body">
+                                <div data-showmore="items" class="showmore-filters">
+                                  <ul data-showmore-content="4" class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_3" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_3" class="showmore-filters__label">16</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_4" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_4" class="showmore-filters__label">26</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_5" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_5" class="showmore-filters__label">36</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_6" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_6" class="showmore-filters__label">46</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_7" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_7" class="showmore-filters__label">46</label>
+                                    </li>
+                                  </ul>
+                                  <button hidden data-showmore-button type="button" class="showmore-filters__more"><span>Показать все</span><span>Скрыть</span></button>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Сторона</div>
+                              <div class="filters-catalog__body">
+                                <div class="showmore-filters">
+                                  <ul class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_8" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_8" class="showmore-filters__label">Левая</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_9" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_9" class="showmore-filters__label">Правая</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Челюсть2</div>
+                              <div class="filters-catalog__body">
+                                <div class="showmore-filters">
+                                  <ul class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_10" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_10" class="showmore-filters__label">Вверхняя</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_11" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_11" class="showmore-filters__label">Нижняя</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Зуб2</div>
+                              <div class="filters-catalog__body">
+                                <div data-showmore="size" class="showmore-filters">
+                                  <ul data-showmore-content="125" class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_12" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_12" class="showmore-filters__label">16</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_13" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_13" class="showmore-filters__label">26</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_14" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_14" class="showmore-filters__label">36</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_15" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_15" class="showmore-filters__label">46</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_16" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_16" class="showmore-filters__label">46</label>
+                                    </li>
+                                  </ul>
+                                  <button hidden data-showmore-button type="button" class="showmore-filters__more"><span>Показать все</span><span>Скрыть</span></button>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="filters-catalog__item">
+                              <div class="filters-catalog__head">Сторона2</div>
+                              <div class="filters-catalog__body">
+                                <div class="showmore-filters">
+                                  <ul class="showmore-filters__content">
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_17" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_17" class="showmore-filters__label">Левая</label>
+                                    </li>
+                                    <li class="showmore-filters__row">
+                                      <input type="checkbox"  id="showmore-filters__checkbox_18" class="showmore-filters__checkbox">
+                                      <label for="showmore-filters__checkbox_18" class="showmore-filters__label">Правая</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <!-- <button hidden data-showmore-button type="button" class="filters-showmore__more"><span>Все фильтры</span><span>Скрыть</span></button> -->
+                          <button hidden data-showmore-button type="button" class="items-tubes__more"><span>Все фильтры</span><span>Скрыть</span></button>
+                        </div>
+                      </div>
+                      <div data-da=".spollers-breckets__item_unique, 992, 1" class="spollers-breckets__subhead">
+                        <div class="spollers-breckets__quantity">Выбрано <span>4</span></div>
+                        <button type="reset" class="spollers-breckets__reset">Сбросить все</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tubes__items items-tubes">
+                <div class="items-tubes__head">
+                  <div class="items-tubes__quantity"><span class="_number">149</span> <span>товаров</span></div>
+                  <div class="items-tubes__checkfilters checkfilters"></div>
+                </div>
+                <div class="items-tubes__body">
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_1.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 227-1005</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 26, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                          <div class="price-tubes__bot">
+                            <div class="price-tubes__discount" data-tippy-discount data-first-text="Промокод на всю продукцию" data-second-text="Промокод на категорию" data-first-discount="14%" data-second-discount="10%">-24%</div>
+                            <div class="price-tubes__old">1 200 <span><font class="rub">i</font></span></div>
+                          </div>
+                        </div>
+                        <button  data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_2.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 740-0272</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 27, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_3.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 272-0012</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 16, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_2.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 740-0272</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 27, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">1 420 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button  data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_3.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 272-0012</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 16, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                          <div class="price-tubes__bot">
+                            <div class="price-tubes__discount" data-tippy-discount data-first-text="Промокод на всю продукцию" data-second-text="Промокод на категорию" data-first-discount="14%" data-second-discount="10%">-24%</div>
+                            <div class="price-tubes__old">1 600 <span><font class="rub">i</font></span></div>
+                          </div>
+                        </div>
+                        <button  data-popup="#buyPopup" class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_1.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 227-1005</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 26, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_1.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 227-1005</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 26, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_2.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 740-0272</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 27, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-tubes__item item-tubes" itemscope itemtype="https://schema.org/Product">
+                    <a href="#" class="item-tubes__image" >
+                      <img src="@img/tubes/item_3.png" alt="image" itemprop="image">
+                    </a>
+                    <div class="item-tubes__body">
+                      <div class="item-tubes__art">Артикул: 272-0012</div>
+                      <a href="#" itemprop="name" class="item-tubes__name"><span class="_md4dn">Замок для наклеивания </span>Accent mini для Damon, верхняя челюсть слева, зуб № 16, паз 022</a>
+                      <div class="item-tubes__bottom">
+                        <div class="item-tubes__price price-tubes">
+                          <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                        </div>
+                        <button class="item-tubes__buy">Купить</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="items-tubes__footer">
+                  <button class="items-tubes__more">Показать еще</button>
+                  <div class="items-tubes__pagination pagination-tubes">
+                    <!-- <a href="#" class="pagination-tubes__item pagination-tubes__item_arrow">Назад</a> -->
+                    <div class="pagination-tubes__item pagination-tubes__item_active">1</div>
+                    <a href="#" class="pagination-tubes__item">2</a>
+                    <a href="#" class="pagination-tubes__item">3</a>
+                    <a href="#" class="pagination-tubes__item">4</a>
+                    <a href="#" class="pagination-tubes__item">5</a>
+                    <a href="#" class="pagination-tubes__item pagination-tubes__item_arrow">Вперед</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+				@@include('html/_subscribe.htm',{})
+				<div class="container _bottom">
+					<div class="h3">Контактные данные</div>
+					<div class="row contacts_row">
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">СПб, Малоохтинский пр., д.64, к.3</p>
+							<a href="tel:+78123247414">+7 (812) 324-74-14</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Москва, ул. Станиславского, д.21, стр. 3</p>
+							<a href="tel:+74956647555">+7 (495) 664-75-55</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Для звонков из регионов России</p>
+							<a href="tel:+78002227414">+7 (800) 222-74-14</a>
+						</div>
+						<div class="feedback_button_wrapper">
+							<a href="#" class="btn btn-xl btn-border  feedback_button">Обратная связь</a>
+						</div>
+					</div><!-- /contacts_row -->
+				
+					<div class="h3">Партнеры</div>
+					<div class="row partners_row">
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kerr.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kavo.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/nobel.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="https://med-resurs.org" target="_blank"><img src="@img/uploads/soyuz.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+					</div><!-- /partners_row -->
+				</div>
+
+			</main>
+			@@include('html/_footer.htm',{
+				"active": "_active"
+      })
+			@@include('html/_filters_popup.htm',{})
+			@@include('html/_buy_popup.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

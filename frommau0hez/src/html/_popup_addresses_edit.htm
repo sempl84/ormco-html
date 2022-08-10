@@ -1,0 +1,69 @@
+<div id="popupAddressEdit" aria-hidden="true" class="popup popupAddressEdit">
+	<div class="popup__wrapper popupAddressEdit__wrapper">
+		<div class="popup__content popupAddressEdit__content">
+			<span data-close></span>
+			<button type="button" class="popup__close popupAddressEdit__close">
+				<svg class="popupAddressEdit__back" data-popup="#popupAddress" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="16" cy="16" r="16" fill="#F5F5F5"/>
+					<path d="M15.5312 21.625L9.90625 16L15.5313 10.375M10.6875 16L22.0937 16" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				<svg class="popupAddressEdit__x" data-close width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="16" cy="16" r="16" fill="#F5F5F5"/>
+					<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+			<form data-ajax action="#" method="post" class="popup__text popupAddressEdit__text">
+				<div class="popupAddressEdit__head">
+					<div class="popupAddressEdit__title pagehead__title">Изменить адрес</div>
+					<div class="popupAddressEdit__more"></div>
+				</div>
+				<div class="popupAddressEdit__body">
+					<div class="popupAddressEdit__row row-popupAddressEdit">
+						<div class="row-popupAddressEdit__item">
+							<input type="text" name="" data-name="adress"  class="row-popupAddressEdit__input">
+							<label for="" class="row-popupAddressEdit__label">Адрес</label>
+						</div>
+					</div>
+					<div class="popupAddressEdit__row row-popupAddressEdit">
+						<div class="row-popupAddressEdit__item">
+							<input type="number" name="" data-name="flat"  class="row-popupAddressEdit__input">
+							<label for="" class="row-popupAddressEdit__label">Кв/Офис</label>
+						</div>
+						<div class="row-popupAddressEdit__item">
+							<input type="number" name="" data-name="entrance"  class="row-popupAddressEdit__input">
+							<label for="" class="row-popupAddressEdit__label">Подъезд</label>
+						</div>
+					</div>
+					<div class="popupAddressEdit__row row-popupAddressEdit">
+						<div class="row-popupAddressEdit__item">
+							<input type="number" name="" data-name="floor"  class="row-popupAddressEdit__input">
+							<label for="" class="row-popupAddressEdit__label">Этаж</label>
+						</div>
+						<div class="row-popupAddressEdit__item">
+							<input type="number" name="" data-name="intercom" class="row-popupAddressEdit__input">
+							<label for="" class="row-popupAddressEdit__label">Домофон</label>
+						</div>
+					</div>
+					<div class="popupAddressEdit__row row-popupAddressEdit">
+						<div class="row-popupAddressEdit__item">
+							<textarea name=""  data-name="comment" class="row-popupAddressEdit__textarea"></textarea>
+							<label for="" class="row-popupAddressEdit__label">Комментарий к адресу</label>
+						</div>
+					</div>
+				</div>
+				<div class="popupAddressEdit__foot">
+					<button type="submit" data-popup="#popupAddress" class="popupAddress__button try_btn">Сохранить</button>
+					<a href="#" data-da=".popupAddressEdit__more, 767" class="popupAddressEdit__add">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M4.375 4.375L5.15625 16.875C5.19336 17.5973 5.71875 18.125 6.40625 18.125H13.5938C14.284 18.125 14.7996 17.5973 14.8438 16.875L15.625 4.375" stroke="#FF3B30" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M3.125 4.375H16.875H3.125Z" fill="#FF3B30"/>
+							<path d="M3.125 4.375H16.875" stroke="#FF3B30" stroke-miterlimit="10" stroke-linecap="round"/>
+							<path d="M12.8125 6.875L12.5 15.625M7.5 4.375V2.8125C7.49964 2.68929 7.52364 2.56722 7.57063 2.45331C7.61761 2.33941 7.68666 2.23591 7.77378 2.14879C7.86091 2.06166 7.9644 1.99262 8.07831 1.94563C8.19221 1.89865 8.31428 1.87464 8.4375 1.875H11.5625C11.6857 1.87464 11.8078 1.89865 11.9217 1.94563C12.0356 1.99262 12.1391 2.06166 12.2262 2.14879C12.3133 2.23591 12.3824 2.33941 12.4294 2.45331C12.4764 2.56722 12.5004 2.68929 12.5 2.8125V4.375H7.5ZM10 6.875V15.625V6.875ZM7.1875 6.875L7.5 15.625L7.1875 6.875Z" stroke="#FF3B30" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						<span>Удалить</span>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
