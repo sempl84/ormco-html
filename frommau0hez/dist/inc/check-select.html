@@ -1,0 +1,12 @@
+<div class="check-select">
+	<button class="check-select__select btn btn btn-icon btn-select">@@title</button>
+	<div class="check-select__dropdown">
+		<ul>
+			@@for (var i = 0; i < list.length; i++) { <li>
+				<label class="check-field"><input type="checkbox" value="` + list[i] + `"> ` + list[i] + `</label>
+				</li>
+				}
+		</ul>
+		<button class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+	</div>
+</div><!-- /check-select -->

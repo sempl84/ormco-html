@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Оформление без адреса и юрлица</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220810193040">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220810193040">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220810193040" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20220810193040">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop="name" content="Интернет-магазин ортодонтической продукции Ormco (Санкт-Петербург)">
+			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<meta itemprop="addressLocality" content="Санкт-Петербург">
+				<meta itemprop="streetAddress" content="Малоохтинский пр., д. 64, корп. 3, этаж 5, БЦ 'Санкт-Петербург Плаза'">
+				<meta itemprop="postalCode" content="195112">
+			</div>
+			<meta itemprop="telephone" content="+7 (812) 324-74-14">
+			<meta itemprop="faxNumber" content="+7 (812) 320-20-52">
+			<meta itemprop="email" content="sales.stp@ormco.com">
+		</div>
+		<div itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop="name" content="Интернет-магазин ортодонтической продукции Ormco (Москва)">
+			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<meta itemprop="addressLocality" content="Москва">
+				<meta itemprop="streetAddress" content="ул. Станиславского, д. 21, стр. 3, этаж 1, БЦ 'Фабрика Станиславского'">
+				<meta itemprop="postalCode" content="109004">
+			</div>
+			<meta itemprop="telephone" content="+7 (495) 664-75-55">
+			<meta itemprop="faxNumber" content="+7 (495) 664-75-55">
+			<meta itemprop="email" content="sales.msk@ormco.com">
+		</div>
+		<meta itemprop="openingHours" datetime="Mo,Fr 09:00−17:30" content="Понедельник - Пятница: 9:00 - 17:30">
+
+
+		<header class="header_sticky header_sticky_ordering">
+			<div class="header_middle">
+				<div class="container">
+					<div class="logo">
+						<a href="/"><img src="img/svg/logo.svg" alt=""></a>
+					</div>
+				</div>
+			</div><!-- /header_middle -->
+
+		</header><!-- /header_sticky -->
+		<main class="page page_ordering">
+			<section class="cart ordering">
+				<div class="cart__container container">
+					<div class="ordering__head">
+						<a href="#" class="ordering__back back-ordering">
+							<svg class="back-ordering__arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.46875 1.375L13.0938 7L7.46875 12.625M12.3125 7L0.90625 7" stroke="#2CA5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+							<span class="back-ordering__text">Вернуться в корзину</span>
+						</a>
+						<div class="ordering__title">Оформление</div>
+						<div class="ordering__empty"></div>
+					</div>
+					<form action="#" method="post" data-dev class="cart__body ordering__body">
+						<div class="ordering__buyers buyers-ordering">
+							<div data-adress class="buyers-ordering__item">
+								<div class="buyers-ordering__head">
+									<div class="buyers-ordering__title">Доставка</div>
+								</div>
+								<div class="buyers-ordering__body">
+									<a href="#" class="buyers-ordering__link" data-popup="#popupAddress">Указать адрес доставки</a>
+								</div>
+							</div>
+							<div data-legalface class="buyers-ordering__item">
+								<div class="buyers-ordering__head">
+									<div class="buyers-ordering__title">Юридическое лицо</div>
+								</div>
+								<div class="buyers-ordering__body">
+									<a href="#" class="buyers-ordering__link" data-popup="#popupLegalface">Указать данные юр. лица</a>
+								</div>
+							</div>
+						</div>
+
+
+						<div data-error="Выберите адрес доставки и введите данные организации" class="cart__ordering ordering-cart">
+							<div class="ordering-cart__body ordering-cart__body_boxes">
+								<div class="ordering-cart__row ordering-cart__row_big">
+									<div class="ordering-cart__key">
+										<div class="ordering-cart__name">Способ оплаты</div>
+									</div>
+								</div>
+								<div class="ordering-cart__row">
+									<input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_1" class="ordering-cart__radio">
+									<label for="ordering-cart__radio_1" class="ordering-cart__label">Картой онлайн</label>
+								</div>
+								<div class="ordering-cart__row">
+									<input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_2" class="ordering-cart__radio">
+									<label for="ordering-cart__radio_2" class="ordering-cart__label">Картой при получении</label>
+								</div>
+								<div class="ordering-cart__row">
+									<input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_3" class="ordering-cart__radio">
+									<label for="ordering-cart__radio_3" class="ordering-cart__label">Наличными при получении</label>
+								</div>
+								<div class="ordering-cart__row">
+									<input type="radio" name="ordering-cart__radio" id="ordering-cart__radio_4" class="ordering-cart__radio">
+									<label for="ordering-cart__radio_4" class="ordering-cart__label">Квитанция в банк</label>
+								</div>
+								<div class="ordering-cart__row">
+									<input type="radio" checked data-legalface-checked name="ordering-cart__radio" id="ordering-cart__radio_5" class="ordering-cart__radio">
+									<label for="ordering-cart__radio_5" class="ordering-cart__label">Счет для юридического лица</label>
+								</div>
+							</div>
+							<div class="ordering-cart__body">
+								<div class="ordering-cart__row ordering-cart__row_big">
+									<div class="ordering-cart__key">
+										<div class="ordering-cart__name">Итого</div>
+									</div>
+									<div class="ordering-cart__value"><span class="ordering-cart__bothprice">52 455</span>
+										<font class="rub">i</font>
+									</div>
+								</div>
+								<div class="ordering-cart__row">
+									<div class="ordering-cart__key">
+										<div class="ordering-cart__name">Товары</div>
+										<span class="ordering-cart__span">(23)</span>
+									</div>
+									<div class="ordering-cart__value"><span class="ordering-cart__totalprice">55 855</span>
+										<font class="rub">i</font>
+									</div>
+								</div>
+								<div class="ordering-cart__row">
+									<div class="ordering-cart__key">
+										<div class="ordering-cart__name">Скидка</div>
+										<span data-tippy-discount data-text="Персональная скидка||Промокод на всю продукцию||Промокод на категорию" data-discount="15%||5%||10%" class="ordering-cart__span">
+											<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8 0.5C3.85938 0.5 0.5 3.85938 0.5 8C0.5 12.1406 3.85938 15.5 8 15.5C12.1406 15.5 15.5 12.1406 15.5 8C15.5 3.85938 12.1406 0.5 8 0.5ZM7.76562 12.375C7.61111 12.375 7.46006 12.3292 7.33159 12.2433C7.20311 12.1575 7.10298 12.0355 7.04384 11.8927C6.98471 11.75 6.96924 11.5929 6.99939 11.4413C7.02953 11.2898 7.10394 11.1506 7.2132 11.0413C7.32246 10.9321 7.46166 10.8577 7.61321 10.8275C7.76476 10.7974 7.92184 10.8128 8.0646 10.872C8.20735 10.9311 8.32937 11.0312 8.41521 11.1597C8.50106 11.2882 8.54688 11.4392 8.54688 11.5938C8.54688 11.801 8.46457 11.9997 8.31805 12.1462C8.17154 12.2927 7.97283 12.375 7.76562 12.375V12.375ZM9.07188 8.39062C8.43867 8.81563 8.35156 9.20508 8.35156 9.5625C8.35156 9.70754 8.29395 9.84664 8.19139 9.9492C8.08883 10.0518 7.94973 10.1094 7.80469 10.1094C7.65965 10.1094 7.52055 10.0518 7.41799 9.9492C7.31543 9.84664 7.25781 9.70754 7.25781 9.5625C7.25781 8.70664 7.65156 8.02617 8.46172 7.48203C9.21484 6.97656 9.64062 6.65625 9.64062 5.95195C9.64062 5.47305 9.36719 5.10938 8.80117 4.84023C8.66797 4.77695 8.37148 4.71523 8.00664 4.71953C7.54883 4.72539 7.19336 4.83477 6.91953 5.05508C6.40312 5.4707 6.35938 5.92305 6.35938 5.92969C6.35591 6.0015 6.33834 6.07194 6.30766 6.13696C6.27697 6.20199 6.23378 6.26033 6.18055 6.30866C6.12732 6.357 6.06509 6.39437 5.99742 6.41866C5.92974 6.44294 5.85795 6.45366 5.78613 6.4502C5.71432 6.44673 5.64388 6.42916 5.57886 6.39848C5.51384 6.36779 5.45549 6.32461 5.40716 6.27137C5.35882 6.21814 5.32145 6.15592 5.29716 6.08824C5.27288 6.02057 5.26216 5.94877 5.26562 5.87695C5.26992 5.78203 5.33594 4.92695 6.2332 4.20508C6.69844 3.83086 7.29023 3.63633 7.99102 3.62773C8.48711 3.62188 8.95312 3.70586 9.26914 3.85508C10.2148 4.30234 10.7344 5.04805 10.7344 5.95195C10.7344 7.27344 9.85117 7.8668 9.07188 8.39062Z" fill="#E0E0E3" />
+											</svg>
+										</span>
+									</div>
+									<div class="ordering-cart__value ordering-cart__value_red"><span class="ordering-cart__discount">-3400</span>
+										<font class="rub">i</font>
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="ordering-cart__link">Оформить заказ</button>
+						</div>
+					</form>
+				</div>
+			</section>
+			<section hidden class="short-model">
+				<div class="short-model__body">
+					<div class="short-model__price">
+						<div class="short-model__actprice">52 455 <span>
+								<font class="rub">i</font>
+							</span></div>
+					</div>
+					<button class="short-model__buy try_btn">Оформить заказ</button>
+				</div>
+			</section>
+		</main>
+		<footer class="footer _md3dn">
+			<div class="container">
+				<div class="footer_copy">© ООО «Ормко», 2021</div>
+				<ul class="footer_nav">
+					<li><a href="#">О компании</a></li>
+					<li><a href="#">Политика конфиденциальности</a></li>
+					<li><a href="#">Что такое сookies?</a></li>
+				</ul>
+				<div class="footer_text">
+					Не является офертой. Имеются противопоказания.<br> Проконсультируйтесь со специалистами
+				</div>
+			</div>
+		</footer><!-- /footer -->
+
+
+		<div class="mobile_footer _dn">
+			<div class="container">
+				<ul>
+					<li><a href="#" class="undefined">Каталог</a></li>
+					<li><a href="#" class="js_search_mb undefined">Поиск</a></li>
+					<li><a href="#" class="_active">Корзина</a></li>
+					<li><a href="#auth" class="js_auth undefined">Войти</a></li>
+				</ul>
+			</div>
+		</div><!-- /mobile_footer -->
+
+
+		<div class="modal" id="auth">
+			<div class="modal_header">
+				<div class="modal_title">Введите номер телефона</div>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="input-float">
+						<label>Ваш телефон</label>
+						<input type="tel" name="tel" class="input phone_input">
+					</div>
+				</div>
+				<div class="input-field">
+					<a href="#modal_code" class="btn btn-light btn-xl btn-block js_modal_code">Продолжить</a>
+					<a href="#authmail" class="btn btn-link btn-xl btn-reg btn-block js_authmail">Войти по почте</a>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- /modal -->
+
+
+		<div class="modal" id="authmail">
+			<div class="modal_header">
+				<div class="modal_title">Введите e-mail и пароль</div>
+				<p>Только для зарегистрированных пользователей</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="input-float">
+						<label>Электронная почта</label>
+						<input type="email" name="email" data-required="email" data-error="undefined" class="input ">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Пароль</label>
+						<input type="password" name="password" data-required="email" data-error="undefined" class="input ">
+					</div>
+				</div>
+				<div class="input-field">
+					<input type="button" value="Войти" class="btn btn-light btn-xl btn-block" disabled>
+					<div class="modal_links">
+						<p><a href="#signup" class="js_auth">Забыли пароль?</a></p>
+						<p><a href="#auth" class="js_auth">Войти по номеру телефона</a></p>
+					</div>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- /modal -->
+
+
+		<div class="modal" id="modal_code">
+			<div class="modal_header">
+				<div class="modal_title">Введите код из смс</div>
+				<p>Отправили на номер +7 (999) 804-49-22</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="codeinput codeinput-error">
+						<input type="text" class="codeinput_input">
+					</div><!-- /codeinput -->
+					<div class="input-text color-red text-center">Слишком много неудачных попыток ввода кода для активации. Запросите новую СМС.</div>
+				</div>
+				<div class="modal_links">
+					<p>Получить новый код можно через 00:59</p>
+					<p><a href="#">Не приходит код?</a></p>
+				</div>
+			</form>
+			<a href="#" class="btn-back"></a>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+
+			<!-- <div class="modal-loader">
+		<div class="modal-loader-circle">
+			<div class="loader"></div>
+		</div>
+	</div> -->
+		</div><!-- /modal -->
+
+
+
+		<div class="modal" id="signup">
+			<div class="modal_header">
+				<div class="modal_title">Вы врач?</div>
+				<p>Пожалуйста, ответьте на вопрос, для персональных рекомендаций</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Ортодонт</label>
+				</div>
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Хирург</label>
+				</div>
+				<div class="input-field input-field-hide">
+					<label class="check-field"><input type="radio" name="spec" value="another"> Другая специализация</label>
+					<div class="input-field-hidden">
+						<input type="text" class="input input-sm" placeholder="Ваша специализация">
+					</div>
+				</div>
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Студент</label>
+				</div>
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Не врач</label>
+				</div>
+				<div class="input-field">
+					<a href="#signup2" class="btn btn-light btn-xl btn-block js_signup2">Продолжить</a>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+		<div class="modal" id="signup2">
+			<div class="modal_header">
+				<div class="modal_title">Расскажите о себе</div>
+				<p>Заполните поля для завершения регистрации</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="input-float">
+						<label>Имя</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Фамилия</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Электронная почта</label>
+						<input type="email" name="email" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Адрес</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<input type="submit" value="Зарегистрироваться" class="btn btn-xl btn-light btn-block" disabled>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+
+		<div class="modal" id="choose_country">
+			<div class="modal_header">
+				<div class="modal_title">Please select your country</div>
+			</div>
+			<div class="countries">
+				<div class="countries_title">Americas</div>
+				<ul class="countries_list">
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/canada.svg" alt="">
+							<span>Canada</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/usa.svg" alt="">
+							<span>USA</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/mexico.svg" alt="">
+							<span>Mexico</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<div class="countries">
+				<div class="countries_title">EMEA</div>
+				<ul class="countries_list">
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/austria.svg" alt="">
+							<span>Austria</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/denmark.svg" alt="">
+							<span>Denmark</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/belgium.svg" alt="">
+							<span>Belgium</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/france.svg" alt="">
+							<span>France</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/germany.svg" alt="">
+							<span>Germany</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/ireland.svg" alt="">
+							<span>Ireland</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/india.svg" alt="">
+							<span>India</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/italy.svg" alt="">
+							<span>Italy</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/luxembourg.svg" alt="">
+							<span>Luxembourg</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/netherlands.svg" alt="">
+							<span>Netherlands</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/poland.svg" alt="">
+							<span>Poland</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/portugal.svg" alt="">
+							<span>Portugal</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/russia.svg" alt="">
+							<span>Russia</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/rsa.svg" alt="">
+							<span>South Africa</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/spain.svg" alt="">
+							<span>Spain</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/switzerland.svg" alt="">
+							<span>Switzerland</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/uk.svg" alt="">
+							<span>United Kingdom</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+		<div class="modal" id="freeconsult">
+			<div class="modal_header">
+				<div class="modal_title">Задать вопрос</div>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<select class="select_default" data-placeholder="Тема*">
+						<option>
+							&nbsp;
+						</option>
+						<option>Регистрация на сайте</option>
+						<option>Консультация по продукции</option>
+						<option>Доступ к матералам</option>
+						<option>Как оформить заказ</option>
+						<option>Статус заказа</option>
+						<option>Как оплатить заказ</option>
+						<option>Скидки на продукцию</option>
+					</select>
+				</div>
+				@@include('_input.htm', { "type": "text", "label": "ФИО*", "float": true },)
+				@@include('_input.htm', { "type": "email", "label": "E-mail*", "float": true },)
+				@@include('_input.htm', { "type": "tel", "label": "Телефон*", "float": true },)
+				<div class="input-field">
+					<div class="input-float">
+						<label>Город*</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float input-float-text">
+						<label>Вопрос*</label>
+						<textarea class="input"></textarea>
+					</div>
+				</div>
+				<div class="input-field">
+					<label class="check-field">
+						<input type="checkbox" checked>
+						Согласен с <a href="#">политикой конфиденциальности</a>, на обработку предоставленных данных ООО «Ормко», передачу данных аффилированным лицам и получение информационных рассылок.
+					</label>
+				</div>
+				<div class="input-field">
+					<input type="submit" value="Зарегистрироваться" class="btn btn-xl btn-light btn-block" disabled>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+		<a href="#" id="ontop">
+			<span class="ontop_inner"></span>
+			<span class="ontop_hover"></span>
+		</a>
+
+
+
+		<div id="popupAddress" aria-hidden="true" class="popup popupAddress">
+			<div class="popup__wrapper popupAddress__wrapper">
+				<div class="popup__content popupAddress__content">
+					<span data-close></span>
+					<button data-close data-da=".popupAddress__head, 767" type="button" class="popup__close popupAddress__close">
+						<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</button>
+					<div class="popup__text popupAddress__text">
+						<div class="popupAddress__head">
+							<div class="popupAddress__title pagehead__title">Мои адреса</div>
+						</div>
+						<div class="popupAddress__more"></div>
+						<div class="popupAddress__body">
+							<div class="popupAddress__item">
+								<input type="radio" name="popupAddress__radio" id="popupAddress__radio_1" class="popupAddress__radio">
+								<label for="popupAddress__radio_1" class="popupAddress__label">
+									<div class="popupAddress__adress">
+										<span data-value="adress">Городской посёлок Токсово, улица Лесовода Морозова 10</span>, кв./офис <span data-value="flat">31</span>
+									</div>
+									<div class="popupAddress__comment">
+										<span data-value="entrance">1</span> подъезд,
+										<span data-value="floor">15</span> этаж,
+										домофон <span data-value="intercom">15</span>,
+										«<span data-value="comment">вход со двора</span>»
+									</div>
+								</label>
+								<a href="#" data-popup="#popupAddressEdit" class="popupAddress__edit">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M18 10.5V19.125C18 19.3712 17.9515 19.615 17.8573 19.8425C17.763 20.07 17.6249 20.2767 17.4508 20.4508C17.2767 20.6249 17.07 20.763 16.8425 20.8573C16.615 20.9515 16.3712 21 16.125 21H4.875C4.37772 21 3.90081 20.8025 3.54917 20.4508C3.19754 20.0992 3 19.6223 3 19.125V7.875C3 7.37772 3.19754 6.90081 3.54917 6.54917C3.90081 6.19754 4.37772 6 4.875 6H12.7256" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M21.5597 2.49611C21.4912 2.42085 21.4082 2.36025 21.3156 2.31799C21.2231 2.27573 21.1229 2.25267 21.0211 2.25022C20.9194 2.24777 20.8182 2.26596 20.7237 2.30371C20.6292 2.34147 20.5434 2.39799 20.4713 2.46986L19.8915 3.04689C19.8212 3.11721 19.7817 3.21255 19.7817 3.31197C19.7817 3.41138 19.8212 3.50673 19.8915 3.57705L20.423 4.10767C20.4579 4.14268 20.4993 4.17046 20.5449 4.18941C20.5905 4.20837 20.6394 4.21812 20.6888 4.21812C20.7382 4.21812 20.7871 4.20837 20.8327 4.18941C20.8783 4.17046 20.9197 4.14268 20.9546 4.10767L21.5199 3.54517C21.8058 3.2597 21.8326 2.7947 21.5597 2.49611ZM18.7191 4.21877L10.2572 12.6656C10.2059 12.7167 10.1686 12.7802 10.149 12.8499L9.75756 14.0156C9.74818 14.0473 9.74752 14.0809 9.75564 14.1128C9.76375 14.1448 9.78035 14.174 9.80368 14.1973C9.82701 14.2207 9.85621 14.2373 9.88818 14.2454C9.92016 14.2535 9.95374 14.2528 9.98537 14.2435L11.1502 13.8521C11.2199 13.8324 11.2833 13.7951 11.3344 13.7438L19.7813 5.28095C19.8595 5.20197 19.9033 5.09535 19.9033 4.98423C19.9033 4.87312 19.8595 4.7665 19.7813 4.68752L19.3149 4.21877C19.2358 4.1399 19.1287 4.09562 19.017 4.09562C18.9053 4.09562 18.7982 4.1399 18.7191 4.21877Z" fill="#8E8E93" />
+									</svg>
+								</a>
+							</div>
+							<div class="popupAddress__item">
+								<input type="radio" name="popupAddress__radio" id="popupAddress__radio_2" class="popupAddress__radio">
+								<label for="popupAddress__radio_2" class="popupAddress__label">
+									<div class="popupAddress__adress">
+										<span data-value="adress">Городской посёлок Токсово, улица Лесовода Морозова 10</span>, кв./офис <span data-value="flat">31</span>
+									</div>
+									<div class="popupAddress__comment">
+										<span data-value="entrance">1</span> подъезд,
+										<span data-value="floor">15</span> этаж,
+										домофон <span data-value="intercom">15</span>,
+										«<span data-value="comment">вход со двора</span>»
+									</div>
+								</label>
+								<a href="#" data-popup="#popupAddressEdit" class="popupAddress__edit">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M18 10.5V19.125C18 19.3712 17.9515 19.615 17.8573 19.8425C17.763 20.07 17.6249 20.2767 17.4508 20.4508C17.2767 20.6249 17.07 20.763 16.8425 20.8573C16.615 20.9515 16.3712 21 16.125 21H4.875C4.37772 21 3.90081 20.8025 3.54917 20.4508C3.19754 20.0992 3 19.6223 3 19.125V7.875C3 7.37772 3.19754 6.90081 3.54917 6.54917C3.90081 6.19754 4.37772 6 4.875 6H12.7256" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M21.5597 2.49611C21.4912 2.42085 21.4082 2.36025 21.3156 2.31799C21.2231 2.27573 21.1229 2.25267 21.0211 2.25022C20.9194 2.24777 20.8182 2.26596 20.7237 2.30371C20.6292 2.34147 20.5434 2.39799 20.4713 2.46986L19.8915 3.04689C19.8212 3.11721 19.7817 3.21255 19.7817 3.31197C19.7817 3.41138 19.8212 3.50673 19.8915 3.57705L20.423 4.10767C20.4579 4.14268 20.4993 4.17046 20.5449 4.18941C20.5905 4.20837 20.6394 4.21812 20.6888 4.21812C20.7382 4.21812 20.7871 4.20837 20.8327 4.18941C20.8783 4.17046 20.9197 4.14268 20.9546 4.10767L21.5199 3.54517C21.8058 3.2597 21.8326 2.7947 21.5597 2.49611ZM18.7191 4.21877L10.2572 12.6656C10.2059 12.7167 10.1686 12.7802 10.149 12.8499L9.75756 14.0156C9.74818 14.0473 9.74752 14.0809 9.75564 14.1128C9.76375 14.1448 9.78035 14.174 9.80368 14.1973C9.82701 14.2207 9.85621 14.2373 9.88818 14.2454C9.92016 14.2535 9.95374 14.2528 9.98537 14.2435L11.1502 13.8521C11.2199 13.8324 11.2833 13.7951 11.3344 13.7438L19.7813 5.28095C19.8595 5.20197 19.9033 5.09535 19.9033 4.98423C19.9033 4.87312 19.8595 4.7665 19.7813 4.68752L19.3149 4.21877C19.2358 4.1399 19.1287 4.09562 19.017 4.09562C18.9053 4.09562 18.7982 4.1399 18.7191 4.21877Z" fill="#8E8E93" />
+									</svg>
+								</a>
+							</div>
+						</div>
+						<div class="popupAddress__foot">
+							<button data-close class="popupAddress__button try_btn">Выбрать</button>
+							<a href="#" data-da=".popupAddress__more, 767" class="popupAddress__add" data-popup="#popupAddressNew">Добавить новый</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="popupAddressNew" aria-hidden="true" class="popup popupAddressNew">
+			<div class="popup__wrapper popupAddressNew__wrapper">
+				<div class="popup__content popupAddressEdit__content">
+					<span data-close></span>
+					<button type="button" class="popup__close popupAddressNew__close">
+						<svg class="popupAddressEdit__back" data-popup="#popupAddress" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M15.5312 21.625L9.90625 16L15.5313 10.375M10.6875 16L22.0937 16" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						<svg class="popupAddressEdit__x" data-close width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</button>
+					<form data-ajax action="#" method="post" class="popup__text popupAddressEdit__text">
+						<div class="popupAddressEdit__head">
+							<div class="popupAddressEdit__title pagehead__title">Новый адрес</div>
+						</div>
+						<div class="popupAddressEdit__body">
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<input type="text" name="" data-name="adress" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Адрес</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="flat" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Кв/Офис</label>
+								</div>
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="entrance" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Подъезд</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="floor" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Этаж</label>
+								</div>
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="intercom" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Домофон</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<textarea name="" data-name="comment" class="row-popupAddressEdit__textarea"></textarea>
+									<label for="" class="row-popupAddressEdit__label">Комментарий к адресу</label>
+								</div>
+							</div>
+						</div>
+						<div class="popupAddressEdit__foot">
+							<button type="submit" data-popup="#popupAddress" class="popupAddress__button try_btn">Сохранить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="popupAddressEdit" aria-hidden="true" class="popup popupAddressEdit">
+			<div class="popup__wrapper popupAddressEdit__wrapper">
+				<div class="popup__content popupAddressEdit__content">
+					<span data-close></span>
+					<button type="button" class="popup__close popupAddressEdit__close">
+						<svg class="popupAddressEdit__back" data-popup="#popupAddress" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M15.5312 21.625L9.90625 16L15.5313 10.375M10.6875 16L22.0937 16" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						<svg class="popupAddressEdit__x" data-close width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</button>
+					<form data-ajax action="#" method="post" class="popup__text popupAddressEdit__text">
+						<div class="popupAddressEdit__head">
+							<div class="popupAddressEdit__title pagehead__title">Изменить адрес</div>
+							<div class="popupAddressEdit__more"></div>
+						</div>
+						<div class="popupAddressEdit__body">
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<input type="text" name="" data-name="adress" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Адрес</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="flat" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Кв/Офис</label>
+								</div>
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="entrance" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Подъезд</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="floor" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Этаж</label>
+								</div>
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="intercom" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Домофон</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<textarea name="" data-name="comment" class="row-popupAddressEdit__textarea"></textarea>
+									<label for="" class="row-popupAddressEdit__label">Комментарий к адресу</label>
+								</div>
+							</div>
+						</div>
+						<div class="popupAddressEdit__foot">
+							<button type="submit" data-popup="#popupAddress" class="popupAddress__button try_btn">Сохранить</button>
+							<a href="#" data-da=".popupAddressEdit__more, 767" class="popupAddressEdit__add">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M4.375 4.375L5.15625 16.875C5.19336 17.5973 5.71875 18.125 6.40625 18.125H13.5938C14.284 18.125 14.7996 17.5973 14.8438 16.875L15.625 4.375" stroke="#FF3B30" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M3.125 4.375H16.875H3.125Z" fill="#FF3B30" />
+									<path d="M3.125 4.375H16.875" stroke="#FF3B30" stroke-miterlimit="10" stroke-linecap="round" />
+									<path d="M12.8125 6.875L12.5 15.625M7.5 4.375V2.8125C7.49964 2.68929 7.52364 2.56722 7.57063 2.45331C7.61761 2.33941 7.68666 2.23591 7.77378 2.14879C7.86091 2.06166 7.9644 1.99262 8.07831 1.94563C8.19221 1.89865 8.31428 1.87464 8.4375 1.875H11.5625C11.6857 1.87464 11.8078 1.89865 11.9217 1.94563C12.0356 1.99262 12.1391 2.06166 12.2262 2.14879C12.3133 2.23591 12.3824 2.33941 12.4294 2.45331C12.4764 2.56722 12.5004 2.68929 12.5 2.8125V4.375H7.5ZM10 6.875V15.625V6.875ZM7.1875 6.875L7.5 15.625L7.1875 6.875Z" stroke="#FF3B30" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								<span>Удалить</span>
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="popupLegalface" aria-hidden="true" class="popup popupLegalface">
+			<div class="popup__wrapper popupAddress__wrapper">
+				<div class="popup__content popupAddress__content">
+					<span data-close></span>
+					<button data-close data-da=".popupLegalface__head, 767" type="button" class="popup__close popupAddress__close">
+						<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</button>
+					<div class="popup__text popupAddress__text">
+						<div class="popupAddress__head popupLegalface__head">
+							<div class="popupAddress__title pagehead__title">Ваши юр. лица</div>
+						</div>
+						<div class="popupLegalface__more"></div>
+						<div class="popupAddress__body">
+							<div class="popupAddress__item popupAddress__item_active">
+								<input checked type="radio" name="popupAddress__radio" id="popupAddress__radio_9" class="popupAddress__radio">
+								<label for="popupAddress__radio_9" class="popupAddress__label">
+									<div class="popupAddress__adress">
+										<span data-value="companyname">ООО «ИНТЕРНЕТ-АГЕНТСТВО «ЛЕГИОН»</span>
+									</div>
+									<div class="popupAddress__comment">
+										ИНН <span data-value="inn">7841492988</span>,
+										<span data-value="phone">+79998082088</span>
+										<span class="_dn" data-value="bik">044030653</span>
+										<span class="_dn" data-value="checkingacc">40702810655040005713</span>
+									</div>
+								</label>
+								<a href="#" data-popup="#popupLegalfaceEdit" class="popupAddress__edit">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M18 10.5V19.125C18 19.3712 17.9515 19.615 17.8573 19.8425C17.763 20.07 17.6249 20.2767 17.4508 20.4508C17.2767 20.6249 17.07 20.763 16.8425 20.8573C16.615 20.9515 16.3712 21 16.125 21H4.875C4.37772 21 3.90081 20.8025 3.54917 20.4508C3.19754 20.0992 3 19.6223 3 19.125V7.875C3 7.37772 3.19754 6.90081 3.54917 6.54917C3.90081 6.19754 4.37772 6 4.875 6H12.7256" stroke="#2CA5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M21.5597 2.49611C21.4912 2.42085 21.4082 2.36025 21.3156 2.31799C21.2231 2.27573 21.1229 2.25267 21.0211 2.25022C20.9194 2.24777 20.8182 2.26596 20.7237 2.30371C20.6292 2.34147 20.5434 2.39799 20.4713 2.46986L19.8915 3.04689C19.8212 3.11721 19.7817 3.21255 19.7817 3.31197C19.7817 3.41138 19.8212 3.50673 19.8915 3.57705L20.423 4.10767C20.4579 4.14268 20.4993 4.17046 20.5449 4.18941C20.5905 4.20837 20.6394 4.21812 20.6888 4.21812C20.7382 4.21812 20.7871 4.20837 20.8327 4.18941C20.8783 4.17046 20.9197 4.14268 20.9546 4.10767L21.5199 3.54517C21.8058 3.2597 21.8326 2.7947 21.5597 2.49611ZM18.7191 4.21877L10.2572 12.6656C10.2059 12.7167 10.1686 12.7802 10.149 12.8499L9.75756 14.0156C9.74818 14.0473 9.74752 14.0809 9.75564 14.1128C9.76375 14.1448 9.78035 14.174 9.80368 14.1973C9.82701 14.2207 9.85621 14.2373 9.88818 14.2454C9.92016 14.2535 9.95374 14.2528 9.98537 14.2435L11.1502 13.8521C11.2199 13.8324 11.2833 13.7951 11.3344 13.7438L19.7813 5.28095C19.8595 5.20197 19.9033 5.09535 19.9033 4.98423C19.9033 4.87312 19.8595 4.7665 19.7813 4.68752L19.3149 4.21877C19.2358 4.1399 19.1287 4.09562 19.017 4.09562C18.9053 4.09562 18.7982 4.1399 18.7191 4.21877Z" fill="#2CA5F5" />
+									</svg>
+								</a>
+							</div>
+						</div>
+						<div class="popupAddress__foot">
+							<button data-close class="popupAddress__button try_btn">Выбрать</button>
+							<a href="#" data-da=".popupLegalface__more, 767" class="popupAddress__add" data-popup="#popupLegalfaceNew">Добавить новый</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="popupLegalfaceNew" aria-hidden="true" class="popup popupAddress">
+			<div class="popup__wrapper popupAddress__wrapper">
+				<div class="popup__content popupAddress__content">
+					<span data-close></span>
+					<button type="button" class="popup__close popupAddressNew__close">
+						<svg class="popupAddressEdit__back" data-popup="#popupLegalface" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M15.5312 21.625L9.90625 16L15.5313 10.375M10.6875 16L22.0937 16" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						<svg class="popupAddressEdit__x" data-close width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</button>
+					<div class="popup__text popupAddress__text">
+						<div class="popupAddress__head popupLegalfaceNew__head">
+							<div class="popupAddress__title pagehead__title">Добавление юр. лица</div>
+						</div>
+						<div class="popupLegalfaceNew__more"></div>
+						<form data-ajax method="post" action="#" class="popupAddress__body">
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item">
+									<input type="number" name="" data-name="inn" data-required class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">ИНН*</label>
+								</div>
+								<button type="submit" data-popup="#popupLegalfaceEdit" class="popupLegalfaceNew__button try_btn">Найти</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="popupLegalfaceEdit" aria-hidden="true" class="popup popupAddressEdit popupLegalfaceEdit">
+			<div class="popup__wrapper popupAddressEdit__wrapper">
+				<div class="popup__content popupAddressEdit__content">
+					<span data-close></span>
+					<button type="button" class="popup__close popupAddressEdit__close">
+						<svg class="popupAddressEdit__back" data-popup="#popupLegalface" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M15.5312 21.625L9.90625 16L15.5313 10.375M10.6875 16L22.0937 16" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						<svg class="popupAddressEdit__x" data-close width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+							<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</button>
+					<form data-ajax action="#" method="post" class="popup__text popupAddressEdit__text">
+						<div class="popupAddressEdit__head">
+							<div class="popupAddressEdit__title pagehead__title">Добавление юр. лица</div>
+						</div>
+						<div class="popupLegalfaceEdit__find find-popupLegalfaceEdit">
+							<div class="find-popupLegalfaceEdit__icon">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M10 0.625C4.83063 0.625 0.625 4.83063 0.625 10C0.625 15.1694 4.83063 19.375 10 19.375C15.1694 19.375 19.375 15.1694 19.375 10C19.375 4.83063 15.1694 0.625 10 0.625ZM10 4.46875C10.241 4.46875 10.4767 4.54023 10.6771 4.67415C10.8775 4.80806 11.0337 4.99841 11.126 5.2211C11.2182 5.4438 11.2424 5.68885 11.1953 5.92527C11.1483 6.16168 11.0322 6.37884 10.8618 6.54929C10.6913 6.71973 10.4742 6.83581 10.2378 6.88283C10.0014 6.92986 9.7563 6.90572 9.5336 6.81348C9.31091 6.72123 9.12056 6.56502 8.98665 6.3646C8.85273 6.16418 8.78125 5.92855 8.78125 5.6875C8.78125 5.36427 8.90965 5.05427 9.13821 4.82571C9.36677 4.59715 9.67677 4.46875 10 4.46875ZM12.25 15.0625H8.125C7.92609 15.0625 7.73532 14.9835 7.59467 14.8428C7.45402 14.7022 7.375 14.5114 7.375 14.3125C7.375 14.1136 7.45402 13.9228 7.59467 13.7822C7.73532 13.6415 7.92609 13.5625 8.125 13.5625H9.4375V9.4375H8.6875C8.48859 9.4375 8.29782 9.35848 8.15717 9.21783C8.01652 9.07718 7.9375 8.88641 7.9375 8.6875C7.9375 8.48859 8.01652 8.29782 8.15717 8.15717C8.29782 8.01652 8.48859 7.9375 8.6875 7.9375H10.1875C10.3864 7.9375 10.5772 8.01652 10.7178 8.15717C10.8585 8.29782 10.9375 8.48859 10.9375 8.6875V13.5625H12.25C12.4489 13.5625 12.6397 13.6415 12.7803 13.7822C12.921 13.9228 13 14.1136 13 14.3125C13 14.5114 12.921 14.7022 12.7803 14.8428C12.6397 14.9835 12.4489 15.0625 12.25 15.0625Z" fill="#E0E0E3" />
+								</svg>
+							</div>
+							<div class="find-popupLegalfaceEdit__text">
+								<div class="find-popupLegalfaceEdit__black">Юр.лицо найдено</div>
+								<div class="find-popupLegalfaceEdit__gray">Пожалуйста, проверьте заполненные данные и нажмите кнопку «Добавить».</div>
+							</div>
+							<a href="#" class="find-popupLegalfaceEdit__link" data-popup="#popupLegalfaceNew">Новый поиск</a>
+						</div>
+						<div class="popupLegalfaceEdit__subtitle">Реквизиты организации</div>
+						<div class="popupAddressEdit__body">
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item _form-input">
+									<input type="text" name="" data-name="companyname" data-required value="ООО «ИНТЕРНЕТ-АГЕНТСТВО «ЛЕГИОН»" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Название*</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item _form-input">
+									<input type="number" name="" data-name="inn" data-required value="2540167061" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">ИНН*</label>
+								</div>
+								<div class="row-popupAddressEdit__item _form-input">
+									<input type="number" name="" data-name="bik" value="783450001" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">БИК*</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item _form-input">
+									<input type="text" name="" data-name="checkingacc" data-required value="40702810655040005713" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Расчетный счет*</label>
+								</div>
+							</div>
+							<div class="popupAddressEdit__row row-popupAddressEdit">
+								<div class="row-popupAddressEdit__item _form-input">
+									<input type="text" name="" data-name="phone" data-required value="+7 999 804 49 22" class="row-popupAddressEdit__input">
+									<label for="" class="row-popupAddressEdit__label">Контактный телефон</label>
+								</div>
+							</div>
+						</div>
+						<div class="popupAddressEdit__foot">
+							<button type="submit" data-popup="#popupLegalface" class="popupAddress__button try_btn">Добавить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220810193040"></script>
+	<script src="js/app.min.js?_v=20220810193040"></script>
+</body>
+
+</html>

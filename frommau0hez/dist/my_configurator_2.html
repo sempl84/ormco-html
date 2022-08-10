@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Конфигуратор брекет-систем</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220810193040">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220810193040">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220810193040" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20220810193040">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop="name" content="Интернет-магазин ортодонтической продукции Ormco (Санкт-Петербург)">
+			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<meta itemprop="addressLocality" content="Санкт-Петербург">
+				<meta itemprop="streetAddress" content="Малоохтинский пр., д. 64, корп. 3, этаж 5, БЦ 'Санкт-Петербург Плаза'">
+				<meta itemprop="postalCode" content="195112">
+			</div>
+			<meta itemprop="telephone" content="+7 (812) 324-74-14">
+			<meta itemprop="faxNumber" content="+7 (812) 320-20-52">
+			<meta itemprop="email" content="sales.stp@ormco.com">
+		</div>
+		<div itemscope itemtype="http://schema.org/Organization">
+			<meta itemprop="name" content="Интернет-магазин ортодонтической продукции Ormco (Москва)">
+			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<meta itemprop="addressLocality" content="Москва">
+				<meta itemprop="streetAddress" content="ул. Станиславского, д. 21, стр. 3, этаж 1, БЦ 'Фабрика Станиславского'">
+				<meta itemprop="postalCode" content="109004">
+			</div>
+			<meta itemprop="telephone" content="+7 (495) 664-75-55">
+			<meta itemprop="faxNumber" content="+7 (495) 664-75-55">
+			<meta itemprop="email" content="sales.msk@ormco.com">
+		</div>
+		<meta itemprop="openingHours" datetime="Mo,Fr 09:00−17:30" content="Понедельник - Пятница: 9:00 - 17:30">
+
+		<div class="mobile_header">
+			<div class="container">
+				<div class="mobile_header_inner">
+					<div class="logo">
+						<a href="index.html"><img src="img/svg/logo.svg" alt=""></a>
+					</div>
+					<a href="#" class="navbtn js_nav"></a>
+				</div>
+				<div class="searchbox">
+					<form action="#" method="POST">
+						<input type="search" name="search" class="searchbox_input" placeholder="Поиск по товарам">
+					</form>
+				</div><!-- /searchbox -->
+			</div>
+		</div><!-- /mobile_header -->
+
+		<header data-scroll="30" class="header">
+			<div class="header_top">
+				<div class="container">
+					<div class="header_top_list js_header_phones">
+						<div class="header_top_item">
+							<a href="#" class="pin_link js_choose_phone">Санкт-Петербург</a>
+							<ul class="phones_nav">
+								<li><a href="#phone-spb">Санкт-Петербург</a></li>
+								<li><a href="#phone-msc">Москва и МО</a></li>
+								<li><a href="#phone-rus">Регионы России</a></li>
+							</ul>
+						</div>
+						<div class="header_top_item header_top_phone">
+							<a href="tel:+78123247414" class="phone_link" id="phone-spb">+7 (812) 324-74-14</a>
+							<a href="tel:+78123247414" class="phone_link" id="phone-msc">+7 (912) 123-45-67</a>
+							<a href="tel:+78123247414" class="phone_link" id="phone-rus">+7 (987) 654-32-10</a>
+						</div>
+					</div>
+					<div class="header_top_list">
+						<div class="header_top_item"><a href="#" class="download_link">Скачать каталог</a></div>
+						<div class="header_top_item"><a href="#" class="download_link">Скачать прайс</a></div>
+						<div class="header_top_item"><a href="#choose_country" class="planet_btn js_choose_country"></a></div>
+					</div>
+				</div>
+			</div><!-- /header_top -->
+		</header>
+
+		<div class="header_sticky">
+			<div class="header_middle">
+				<div class="container">
+					<div class="logo">
+						<a href="index.html"><img src="img/svg/logo.svg" alt=""></a>
+					</div>
+					<div class="header_middle_item header_middle_item_cat">
+						<a href="#" class="btn btn-cat"><span>Каталог</span></a>
+						<div class="catpopup">
+							<div class="row">
+								<div class="grid4">
+									<div class="swiper scrollbox">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="parent1">
+													<li class="parent"><a href="#" data-title="item-1">Брекеты</a></li>
+													<li class="parent"><a href="#" data-title="item-2">Щечные трубки</a></li>
+													<li class="parent"><a href="#" data-title="item-3">Дуги</a></li>
+													<li class="parent"><a href="#" data-title="item-4">Лигатуры</a></li>
+													<li><a href="#">Внеротовые и внутреротовые тяги</a></li>
+													<li><a href="#">Крючки, стопоры</a></li>
+													<li><a href="#">Пружины</a></li>
+													<li><a href="#">Адгезивы</a></li>
+													<li><a href="#">Эластики</a></li>
+													<li class="parent"><a href="#">Брекеты</a></li>
+													<li class="parent"><a href="#">Щечные трубки</a></li>
+													<li class="parent"><a href="#">Дуги</a></li>
+													<li class="parent"><a href="#">Лигатуры</a></li>
+													<li class="parent"><a href="#">Внеротовые и внутреротовые тяги</a></li>
+													<li class="parent"><a href="#">Крючки, стопоры</a></li>
+													<li class="parent"><a href="#">Пружины</a></li>
+													<li class="parent"><a href="#">Адгезивы</a></li>
+													<li class="parent"><a href="#">Эластики</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="swiper-scrollbar"></div>
+									</div>
+								</div><!-- /grid4 -->
+
+								<div class="grid4">
+									<div class="swiper scrollbox">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+
+												<div class="children" id="item-1">
+													<ul class="parent2">
+														<li class="parent"><a href="#" data-title="children-1">Damon System (Самолигирующие)</a></li>
+														<li><a href="#">Лигатурные</a></li>
+														<li class="parent"><a href="#" data-title="children-3">Лингвальные</a></li>
+													</ul>
+												</div>
+
+												<div class="children" id="item-2">
+													<ul class="parent2">
+														<li class="parent"><a href="#">Щечные трубки</a></li>
+														<li class="parent"><a href="#">Щечные трубки 2</a></li>
+														<li class="parent"><a href="#">Щечные трубки 3</a></li>
+														<li class="parent"><a href="#">Щечные трубки 4</a></li>
+														<li class="parent"><a href="#">Щечные трубки 5</a></li>
+														<li class="parent"><a href="#">Щечные трубки 6</a></li>
+														<li class="parent"><a href="#">Щечные трубки 7</a></li>
+														<li class="parent"><a href="#">Щечные трубки 8</a></li>
+														<li class="parent"><a href="#">Щечные трубки 9</a></li>
+														<li class="parent"><a href="#">Щечные трубки 10</a></li>
+														<li class="parent"><a href="#">Щечные трубки 11</a></li>
+														<li class="parent"><a href="#">Щечные трубки 12</a></li>
+														<li class="parent"><a href="#">Щечные трубки 13</a></li>
+														<li class="parent"><a href="#">Щечные трубки 14</a></li>
+														<li class="parent"><a href="#">Щечные трубки 15</a></li>
+													</ul>
+												</div>
+
+												<div class="children" id="item-3">
+													<ul class="parent2">
+														<li class="parent"><a href="#">Дуги</a></li>
+														<li class="parent"><a href="#">Дуги 2</a></li>
+														<li class="parent"><a href="#">Дуги 3</a></li>
+														<li class="parent"><a href="#">Дуги 4</a></li>
+														<li class="parent"><a href="#">Дуги 5</a></li>
+													</ul>
+												</div>
+
+												<div class="children" id="item-4">
+													<ul class="parent2">
+														<li><a href="#">Лигатуры 1</a></li>
+														<li><a href="#">Лигатуры 2</a></li>
+														<li><a href="#">Лигатуры 3</a></li>
+														<li><a href="#">Лигатуры 4</a></li>
+														<li><a href="#">Лигатуры 5</a></li>
+													</ul>
+												</div>
+
+											</div>
+										</div>
+										<div class="swiper-scrollbar"></div>
+									</div>
+								</div><!-- /grid4 -->
+
+								<div class="grid4">
+									<div class="swiper scrollbox">
+										<div class="swiper-wrapper">
+
+											<div class="swiper-slide">
+												<div class="sub_children" id="children-1">
+													<ul>
+														<li class="catpopup_title">Металические</li>
+														<li><a href="#">Damon Q2</a></li>
+														<li><a href="#">Damon Q</a></li>
+														<li><a href="#">Damon 3MX</a></li>
+													</ul>
+													<ul>
+														<li class="catpopup_title">Эстетические</li>
+														<li><a href="#">Damon Clear</a></li>
+														<li><a href="#">Damon Clear 2</a></li>
+														<li><a href="#">Damon 3</a></li>
+													</ul>
+												</div>
+											</div><!-- /sub_children -->
+
+											<div class="swiper-slide">
+												<div class="sub_children" id="children-3">
+													<ul>
+														<li class="catpopup_title">Металические</li>
+														<li><a href="#">Damon Q2</a></li>
+														<li><a href="#">Damon Q</a></li>
+													</ul>
+												</div>
+											</div><!-- /sub_children -->
+
+										</div>
+										<div class="swiper-scrollbar"></div>
+									</div>
+								</div><!-- /grid4 -->
+							</div>
+						</div><!-- /catpopup -->
+					</div>
+					<div class="searchbox">
+						<form action="#" method="POST">
+							<input type="search" name="search" class="searchbox_input" placeholder="Поиск по товарам">
+						</form>
+					</div><!-- /searchbox -->
+					<div class="header_middle_item alert_hover">
+						<a href="#auth" class="header_middle_btn js_auth">
+							<span class="header_middle_btn-icon header_middle_btn-login">
+								<span class="header_middle_btn-count">2</span>
+							</span>
+							Константин
+						</a>
+						<div class="alert_modal alert_modal-center">
+							<p>Войдите, чтобы делать покупки, отслеживать заказы и пользоваться персональными скидками.</p><a href="#auth" class="btn js_auth">Войти или зарегистрироваться</a>
+						</div>
+					</div>
+					<div class="header_middle_item">
+						<a href="#" class="header_middle_btn">
+							<span class="header_middle_btn-icon header_middle_btn-cube"></span>
+							Заказы
+						</a>
+					</div>
+					<div class="header_middle_item">
+						<a href="#" class="header_middle_btn">
+							<span class="header_middle_btn-icon header_middle_btn-cart">
+								<span class="header_middle_btn-count">10</span>
+							</span>
+							Корзина
+						</a>
+					</div>
+				</div>
+			</div><!-- /header_middle -->
+
+			<div class="header_bottom">
+				<div class="container">
+					<ul class="header_nav">
+						<li><a href="#" class="header_nav-actions">Акции</a></li>
+						<li><a href="configurator.html" class="header_nav-teeth">Конфигуратор брекет-систем</a></li>
+						<li><a href="#">Образовательный портал</a></li>
+						<li><a href="#">Контакты</a></li>
+						<li><a href="#">Оплата и доставка</a></li>
+					</ul>
+					<ul class="header_nav">
+						<li><a href="#freeconsult" class="header_nav-env js_freeconsult">Бесплатная консультация</a></li>
+						<li><a href="#" class="header_nav-nav js_nav">Меню</a></li>
+					</ul>
+				</div>
+			</div><!-- /header_bottom -->
+		</div><!-- /header_sticky -->
+
+
+		<div class="panel">
+			<ul class="panel_nav">
+				<li><a href="#">Каталог</a></li>
+				<li><a href="#" class="color-orange">Акции</a></li>
+				<li><a href="#">Контакты</a></li>
+				<li><a href="#">Оплата и доставка</a></li>
+				<li><a href="#">Найти клинику</a></li>
+				<li><a href="#">Образовательный портал</a></li>
+				<li><a href="#">Статьи и исследования</a></li>
+				<li><a href="#">Новости</a></li>
+				<li class="parent">
+					<a href="#" class="js_panel_child">Клиентам</a>
+					<div class="parent_child">
+						<a href="#" class="js_panel_child_back">Клиентам</a>
+						<ul>
+							<li><a href="#">Как оформить заказ</a></li>
+							<li><a href="#">О компании</a></li>
+							<li><a href="#">Диллеры</a></li>
+							<li><a href="#">ЭДО</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+
+			<div class="panel_title">Обратная связь</div>
+			<div class="iconbtn-wrap">
+				<a href="#" class="iconbtn-item">
+					<span class="iconbtn iconbtn-phone"></span>
+					<span class="iconbtn-text">Позвонить</span>
+				</a>
+				<a href="#" class="iconbtn-item">
+					<span class="iconbtn iconbtn-env"></span>
+					<span class="iconbtn-text">Почта</span>
+				</a>
+				<a href="#" class="iconbtn-item">
+					<span class="iconbtn iconbtn-chat"></span>
+					<span class="iconbtn-text">Онлайн-чат</span>
+				</a>
+			</div><!-- /iconbtn-wrap -->
+
+			<div class="panel_title">Мы в социальных сетях</div>
+			<div class="iconbtn-wrap">
+				<a href="#" class="iconbtn-item">
+					<span class="iconbtn iconbtn-tw"></span>
+					<span class="iconbtn-text">Twitter</span>
+				</a>
+				<a href="#" class="iconbtn-item">
+					<span class="iconbtn iconbtn-vk"></span>
+					<span class="iconbtn-text">ВКонтакте</span>
+				</a>
+				<a href="#" class="iconbtn-item">
+					<span class="iconbtn iconbtn-yt"></span>
+					<span class="iconbtn-text">YouTube</span>
+				</a>
+			</div><!-- /iconbtn-wrap -->
+
+			<a href="#" class="btn-close"></a>
+		</div><!-- /panel -->
+		<div class="panel_overlay"></div>
+		<main class="page page_configurator">
+
+			<div class="configurator">
+				<div class="configurator__head head-configurator">
+					<div class="head-configurator__container">
+						<div class="head-configurator__breadcumps">
+							<a href="#">Главная</a><span>Подборщик брекет-систем</span>
+						</div>
+						<div class="head-configurator__title pagehead__title">Подборщик брекет-системы</div>
+						<div class="head-configurator__stepsline stepsline">
+							<div class="stepsline_item active"><span>Брекеты</span></div>
+							<div class="stepsline_item"><span>Торк</span></div>
+							<div class="stepsline_item"><span>Смещение</span></div>
+							<div class="stepsline_item"><span>Крючки</span></div>
+							<div class="stepsline_item"><span>Щечные трубки</span></div>
+							<div class="stepsline_item"><span>Дуги</span></div>
+							<div class="stepsline_item"><span>Дополнительные товары</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="configurator__steps">
+					<form method="post" action="#" data-ajax class="configurator__step configurator__step_one step-configurator">
+						<div class="step-configurator__container">
+							<div class="step-configurator__head">
+								<h2 class="step-configurator__title">Выбор брекет-системы</h2>
+								<div class="step-configurator__label">Выберите группу зубов, а затем – модель брекетов. Вы сможете выбрать следующую группу зубов и другую модель брекетов, когда закончите работать с первой. Возможно выбрать несколько групп зубов и моделей брекетов.</div>
+							</div>
+							<div class="step-configurator__body">
+
+								<div class="step-configurator__group group-stepConfigurator">
+									<div class="group-stepConfigurator__head">
+										<div class="group-stepConfigurator__title">Группа брекетов №1</div>
+										<div class="group-stepConfigurator__buttons">
+											<a href="#" class="group-stepConfigurator__button_edit group-stepConfigurator__button">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M18 10.5V19.125C18 19.3712 17.9515 19.615 17.8573 19.8425C17.763 20.07 17.6249 20.2767 17.4508 20.4508C17.2767 20.6249 17.07 20.763 16.8425 20.8573C16.615 20.9515 16.3712 21 16.125 21H4.875C4.37772 21 3.90081 20.8025 3.54917 20.4508C3.19754 20.0992 3 19.6223 3 19.125V7.875C3 7.37772 3.19754 6.90081 3.54917 6.54917C3.90081 6.19754 4.37772 6 4.875 6H12.7256" stroke="#2CA5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M21.5597 2.49611C21.4912 2.42085 21.4082 2.36025 21.3156 2.31799C21.2231 2.27573 21.1229 2.25267 21.0211 2.25022C20.9194 2.24777 20.8182 2.26596 20.7237 2.30371C20.6292 2.34147 20.5434 2.39799 20.4713 2.46986L19.8915 3.04689C19.8212 3.11721 19.7817 3.21255 19.7817 3.31197C19.7817 3.41138 19.8212 3.50673 19.8915 3.57705L20.423 4.10767C20.4579 4.14268 20.4993 4.17046 20.5449 4.18941C20.5905 4.20837 20.6394 4.21812 20.6888 4.21812C20.7382 4.21812 20.7871 4.20837 20.8327 4.18941C20.8783 4.17046 20.9197 4.14268 20.9546 4.10767L21.5199 3.54517C21.8058 3.2597 21.8326 2.7947 21.5597 2.49611ZM18.7191 4.21877L10.2572 12.6656C10.2059 12.7167 10.1686 12.7802 10.149 12.8499L9.75756 14.0156C9.74818 14.0473 9.74752 14.0809 9.75564 14.1128C9.76375 14.1448 9.78035 14.174 9.80368 14.1973C9.82701 14.2207 9.85621 14.2373 9.88818 14.2454C9.92016 14.2535 9.95374 14.2528 9.98537 14.2435L11.1502 13.8521C11.2199 13.8324 11.2833 13.7951 11.3344 13.7438L19.7813 5.28095C19.8595 5.20197 19.9033 5.09535 19.9033 4.98423C19.9033 4.87312 19.8595 4.7665 19.7813 4.68752L19.3149 4.21877C19.2358 4.1399 19.1287 4.09562 19.017 4.09562C18.9053 4.09562 18.7982 4.1399 18.7191 4.21877Z" fill="#2CA5F5" />
+												</svg>
+												<span>Редактировать</span>
+											</a>
+											<a href="#" class="group-stepConfigurator__button_delete group-stepConfigurator__button">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M5.25 5.25L6.1875 20.25C6.23203 21.1167 6.8625 21.75 7.6875 21.75H16.3125C17.1408 21.75 17.7595 21.1167 17.8125 20.25L18.75 5.25" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M3.75 5.25H20.25H3.75Z" fill="#FF3B30" />
+													<path d="M3.75 5.25H20.25" stroke="#FF3B30" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
+													<path d="M15.375 8.25L15 18.75M9 5.25V3.375C8.99957 3.22715 9.02837 3.08066 9.08475 2.94397C9.14114 2.80729 9.22399 2.6831 9.32854 2.57854C9.43309 2.47399 9.55728 2.39114 9.69397 2.33476C9.83066 2.27838 9.97714 2.24957 10.125 2.25H13.875C14.0229 2.24957 14.1693 2.27838 14.306 2.33476C14.4427 2.39114 14.5669 2.47399 14.6715 2.57854C14.776 2.6831 14.8589 2.80729 14.9152 2.94397C14.9716 3.08066 15.0004 3.22715 15 3.375V5.25H9ZM12 8.25V18.75V8.25ZM8.625 8.25L9 18.75L8.625 8.25Z" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+												<span>Удалить</span>
+											</a>
+										</div>
+									</div>
+									<div class="group-stepConfigurator__body">
+										<div class="group-stepConfigurator__product product-groupConfigurator">
+											<div class="product-groupConfigurator__image">
+												<picture><source srcset="img/configurator/model_1.webp" type="image/webp"><img src="img/configurator/model_1.png" alt="image"></picture>
+											</div>
+											<div class="product-groupConfigurator__body">
+												<div class="product-groupConfigurator__line">
+													<div class="product-groupConfigurator__name">Damon Q2</div>
+													<div class="product-groupConfigurator__size">.022</div>
+												</div>
+												<div class="product-groupConfigurator__line">
+													<div class="product-groupConfigurator__key">Тип:</div>
+													<div class="product-groupConfigurator__value">Самолигирующая</div>
+												</div>
+												<div class="product-groupConfigurator__line">
+													<div class="product-groupConfigurator__key">Материал:</div>
+													<div class="product-groupConfigurator__value">Металл</div>
+												</div>
+											</div>
+										</div>
+										<div class="group-stepConfigurator__tooth tooth-groupConfigurator">
+											<div class="tooth-groupConfigurator__image">
+												<svg width="144" height="100" viewBox="0 0 144 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M5.65961 4.74667C-1.40412 9.17025 -0.71483 18.6464 1.6265 26.2491C3.15545 31.2138 7.51518 34.5685 12.5763 35.7395C24.2663 38.4442 47.4137 42.9858 71.3355 43.0674C105.056 43.1825 140.349 34.2357 141.459 33.6827C143.692 32.5705 144.076 21.6333 143.989 16.3037C143.849 3.25181 133.299 0.794151 122.079 1.1755C116.445 1.367 110.957 2.88426 105.421 3.94623C105.15 3.99824 104.882 4.04773 104.62 4.09478C97.697 5.3337 90.8926 3.01276 83.9994 1.61983C68.8617 -1.43908 59.274 4.09879 57.4677 4.74667C55.7233 5.37232 52.031 5.00736 50.403 4.74667L36.7968 1.87913C30.488 0.286054 15.4281 -1.37075 5.65961 4.74667Z" fill="#F5F5F5" />
+													<path d="M143.515 16.3088L143.515 16.3115C143.559 18.9646 143.485 23.0113 143.123 26.5262C142.942 28.2859 142.691 29.8938 142.352 31.1216C142.183 31.7363 141.996 32.2381 141.796 32.6106C141.59 32.9926 141.399 33.1838 141.248 33.2587C141.25 33.2576 141.25 33.2578 141.247 33.2592C141.243 33.261 141.233 33.2649 141.217 33.271C141.19 33.2808 141.154 33.2934 141.108 33.3088C141.015 33.3396 140.888 33.3787 140.726 33.4259C140.405 33.52 139.957 33.6432 139.391 33.7912C138.259 34.0871 136.663 34.4803 134.67 34.9368C130.686 35.8498 125.125 37.0147 118.545 38.1589C105.383 40.4478 88.1594 42.6511 71.3371 42.5937C47.4665 42.5123 24.3585 37.9793 12.6831 35.278C7.74814 34.1362 3.5479 30.8788 2.0792 26.1097C0.918387 22.3403 0.178721 18.14 0.587107 14.3565C0.99417 10.5853 2.53486 7.26241 5.91102 5.14813C10.6933 2.15327 16.8035 1.04528 22.538 0.894987C28.2665 0.744855 33.5654 1.55171 36.6808 2.3384L36.6899 2.3407L36.6991 2.34263L50.3053 5.21017L50.3166 5.21256L50.3281 5.21439C51.1585 5.34736 52.5084 5.50607 53.8757 5.55246C55.2227 5.59816 56.6626 5.53865 57.6276 5.19254C57.8604 5.10903 58.1892 4.96223 58.614 4.77252C59.9997 4.1537 62.4078 3.07832 65.8448 2.25382C70.302 1.18457 76.4131 0.570113 83.9056 2.08413C85.3401 2.37402 86.7704 2.70419 88.206 3.0356C88.4871 3.10047 88.7683 3.16539 89.0498 3.23007C90.766 3.62435 92.4896 4.00879 94.2169 4.31085C97.6715 4.91499 101.165 5.19428 104.703 4.56105C104.968 4.51366 105.237 4.46381 105.51 4.41143C106.947 4.13588 108.372 3.83193 109.791 3.52919C113.892 2.65454 117.946 1.78993 122.095 1.64891C127.684 1.45894 133.021 1.98267 136.964 4.11862C138.925 5.18146 140.539 6.64185 141.674 8.61608C142.81 10.5922 143.481 13.1099 143.515 16.3088Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+													<path d="M6.41121 28.9904C7.87648 28.0172 8.65516 32.8718 8.80053 35.4207L9.46387 44.8054C9.20221 45.6743 8.38235 47.3427 7.19618 47.0646C5.71346 46.7171 4.75405 42.4592 4.57961 39.4179C4.40517 36.3765 4.57961 30.207 6.41121 28.9904Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M13.6354 31.6901L14.5234 32.9008L15.2212 45.4137C10.2732 51.6073 8.03011 42.6219 8.82601 34.7345C9.01638 32.848 9.29886 31.109 9.55197 29.7726C10.0559 27.1117 12.0336 29.5063 13.6354 31.6901Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M22.8085 38.7416V35.2032C22.8085 31.6321 23.4013 27.1466 26.9078 26.4705C33.4891 25.2014 34.6148 36.4151 34.1977 43.1046L33.9725 46.717C33.8451 47.9866 32.0836 50.1258 31.026 51.2155C30.8484 51.3986 30.6028 51.4962 30.3478 51.4962C30.2075 51.4962 30.0677 51.4663 29.941 51.4061C27.3883 50.1937 25.616 48.2909 24.4648 46.4994C23.0044 44.227 22.8085 41.4428 22.8085 38.7416Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M51.0137 35.5944C50.9845 33.184 50.0604 31.1648 48.778 29.5927C45.7304 25.8568 39.83 25.7725 36.8342 29.5501C35.2182 31.5878 33.9716 34.3985 33.9716 37.8538V50.888C33.9425 51.699 34.7161 53.1519 37.2859 53.4079C39.0449 53.5832 42.3015 53.6406 45.0953 53.6594C47.4383 53.6752 50.8392 53.5786 50.8392 51.2356L50.752 43.5019L51.0137 35.5944Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M18.0984 26.8182C18.9357 26.6791 21.5872 29.1933 22.8082 30.4678L24.0293 45.7613C20.8196 49.6542 19.145 50.164 18.7089 49.9322C17.0518 49.1791 13.8247 45.6049 14.1736 37.3324C14.6097 26.9919 17.0518 26.9919 18.0984 26.8182Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M69.1683 28.5633C73.8753 33.3924 73.3521 43.1872 72.4376 52.1045C71.1292 55.2327 56.9997 54.3638 54.1215 54.1031C51.4163 53.8581 50.8072 50.7309 50.8072 48.0147V39.5047C50.68 36.2732 50.8775 30.7317 55.4235 27.6976C59.5525 24.9419 65.7034 25.0085 69.1683 28.5633Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M139.682 28.9904C138.216 28.0172 137.438 32.8718 137.292 35.4207L136.629 44.8054C136.891 45.6743 137.71 47.3427 138.897 47.0646C140.379 46.7171 141.339 42.4592 141.513 39.4179C141.688 36.3765 141.513 30.207 139.682 28.9904Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M132.457 31.6901L131.569 32.9008L130.872 45.4137C135.82 51.6073 138.063 42.6219 137.267 34.7345C137.076 32.848 136.794 31.109 136.541 29.7726C136.037 27.1117 134.059 29.5063 132.457 31.6901Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M123.283 38.7416V35.2032C123.283 31.6321 122.691 27.1466 119.184 26.4705C112.603 25.2014 111.477 36.4151 111.894 43.1046L112.119 46.717C112.247 47.9866 114.008 50.1258 115.066 51.2155C115.243 51.3986 115.489 51.4962 115.744 51.4962C115.884 51.4962 116.024 51.4663 116.151 51.4061C118.703 50.1937 120.476 48.2909 121.627 46.4994C123.087 44.227 123.283 41.4428 123.283 38.7416Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M95.0781 35.5944C95.1073 33.184 96.0314 31.1648 97.3138 29.5927C100.361 25.8568 106.262 25.7725 109.258 29.5501C110.874 31.5878 112.12 34.3985 112.12 37.8538V50.888C112.149 51.699 111.376 53.1519 108.806 53.4079C107.047 53.5832 103.79 53.6406 100.996 53.6594C98.6535 53.6752 95.2526 53.5786 95.2526 51.2356L95.3398 43.5019L95.0781 35.5944Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M127.995 26.8182C127.158 26.6791 124.506 29.1933 123.285 30.4678L122.064 45.7613C125.274 49.6542 126.948 50.164 127.384 49.9322C129.041 49.1791 132.269 45.6049 131.92 37.3324C131.484 26.9919 129.041 26.9919 127.995 26.8182Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M76.9264 28.5633C72.2195 33.3924 72.7426 43.1872 73.6571 52.1045C74.9655 55.2327 89.095 54.3638 91.9732 54.1031C94.6784 53.8581 95.2875 50.7309 95.2875 48.0147V39.5047C95.4147 36.2732 95.2173 30.7317 90.6712 27.6976C86.5423 24.9419 80.3913 25.0085 76.9264 28.5633Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M104.503 97.508C142.955 99.7273 138.821 72.9691 136.228 67.2C134.946 64.3471 104.111 63.9146 72.9951 64.2155C47.1367 64.4656 21.0843 65.2221 11.638 65.5167C9.2422 65.5914 7.31299 66.8522 7.20316 69.2466C6.98757 73.947 7.91118 82.2096 11.6148 88.6119C12.2471 89.7049 13.177 90.5961 14.2958 91.1815C23.5809 96.039 37.4338 95.7978 43.5143 95.0065C51.8001 92.921 58.546 99.3982 66.3085 99.3982C72.5883 100.18 79.4485 98.4823 85.9027 96.3099C90.6432 94.7143 98.3441 96.073 102.431 97.158C103.102 97.3361 103.81 97.468 104.503 97.508Z" fill="#F5F5F5" />
+													<path d="M66.367 98.9281L66.3379 98.9245H66.3085C63.075 98.9245 60.0258 97.7701 56.8656 96.5737C56.3377 96.3738 55.8067 96.1727 55.2712 95.9757C51.5767 94.6164 47.7079 93.4715 43.426 94.5403C40.4151 94.9298 35.4791 95.184 30.146 94.7403C24.7915 94.2947 19.0783 93.1489 14.5154 90.7617C13.476 90.218 12.6122 89.39 12.0248 88.3747C8.38127 82.0762 7.46333 73.9127 7.67635 69.2683C7.72501 68.2073 8.16986 67.4223 8.85564 66.8845C9.55272 66.3378 10.5286 66.0252 11.6527 65.9901C21.0979 65.6956 47.1464 64.9392 72.9997 64.6892C88.5558 64.5387 104.035 64.5717 115.782 64.9984C121.657 65.2119 126.588 65.5234 130.125 65.9579C131.895 66.1755 133.3 66.4219 134.293 66.6968C134.79 66.8347 135.166 66.9747 135.428 67.1123C135.705 67.2581 135.782 67.3641 135.796 67.3942C136.416 68.7741 137.15 71.4682 137.299 74.7034C137.448 77.9336 137.012 81.6664 135.331 85.1435C131.996 92.0406 123.647 98.1385 104.53 97.0351C103.877 96.9974 103.201 96.8724 102.553 96.7002C100.489 96.1523 97.5154 95.5357 94.4549 95.257C91.4063 94.9793 88.2165 95.0313 85.7516 95.861C79.3083 98.0297 72.5344 99.6962 66.367 98.9281Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+													<path d="M10.4603 69.3725C11.2711 69.3321 11.9641 68.5858 12.4709 67.7572C13.1127 66.7081 13.2048 65.4396 13.1145 64.213L12.5537 56.5989C11.8172 56.2824 11.1577 56.0398 10.5709 55.8567C8.20765 55.1192 6.48202 56.9416 6.75098 59.4027C7.24158 63.8917 9.14739 69.4379 10.4603 69.3725Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M13.799 56.4968C13.9808 56.5015 14.1658 56.5123 14.3529 56.5287C17.98 56.8461 20.0746 60.4783 20.1072 64.1191L20.1178 65.3034C20.1328 66.9779 18.7839 69.5678 17.4018 70.5134C15.4733 71.8327 14.4485 70.1199 13.7531 67.8892C12.5004 63.871 12.262 60.1883 12.3549 57.9337C12.388 57.1311 12.996 56.4763 13.799 56.4968Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M21.0063 58.1096C23.0073 58.0009 24.6108 58.0222 25.8698 58.117C28.3814 58.3061 29.648 60.4479 29.648 62.9667L29.6479 66.271C29.6479 67.6278 29.3586 68.981 28.5071 70.0373C26.8881 72.0456 24.2271 74.4573 23.3681 74.3257C22.589 74.2062 21.368 71.4708 20.6337 69.5452C20.4146 68.9703 20.2697 68.3678 20.1881 67.758C19.5156 62.7347 19.5782 60.1164 19.811 58.9427C19.9216 58.3847 20.4382 58.1405 21.0063 58.1096Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M36.015 74.6879C38.8786 72.4046 40.8939 68.2186 41.1603 65.8966L41.073 59.2058C41.073 58.9663 35.4015 58.86 31.4133 58.9091C30.4178 58.9213 29.6186 59.7157 29.5996 60.711C29.5613 62.721 29.5458 65.787 29.6474 69.0248C29.7129 71.1138 30.2425 72.6971 30.9003 73.8429C31.951 75.6733 34.3648 76.0037 36.015 74.6879Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M43.2331 58.824C47.143 58.4645 52.0749 58.6784 55.1283 59.2252C55.578 59.3057 55.8873 59.7109 55.87 60.1674L55.6364 66.3313C55.6364 67.2881 55.4616 68.5259 55.2237 69.7402C54.7148 72.3378 53.3282 74.6935 51.0595 76.0573C50.9223 76.1397 50.784 76.2213 50.645 76.3018C47.7417 77.9832 44.0359 77.3308 42.8685 74.1854C41.4212 70.286 40.9715 65.1045 40.9451 61.3841C40.9357 60.0575 41.912 58.9455 43.2331 58.824Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M65.8311 79.6839C73.1861 76.4215 72.6258 68.1316 72.2974 59.3797C72.2762 58.7933 65.001 58.3872 60.0446 58.6505C57.2503 58.799 55.5357 60.993 55.5515 63.7912C55.6133 74.7175 59.6974 78.8949 62.8254 79.9487C63.81 80.2804 64.8814 80.1051 65.8311 79.6839Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M134.475 69.3725C133.664 69.3321 132.971 68.5858 132.464 67.7572C131.822 66.7081 131.73 65.4396 131.821 64.213L132.381 56.5989C133.118 56.2824 133.777 56.0398 134.364 55.8567C136.727 55.1192 138.453 56.9416 138.184 59.4027C137.693 63.8917 135.788 69.4379 134.475 69.3725Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M131.133 56.4968C130.951 56.5015 130.766 56.5123 130.579 56.5287C126.952 56.8461 124.858 60.4783 124.825 64.1191L124.814 65.3034C124.799 66.9779 126.148 69.5678 127.53 70.5134C129.459 71.8327 130.484 70.1199 131.179 67.8892C132.432 63.871 132.67 60.1883 132.577 57.9337C132.544 57.1311 131.936 56.4763 131.133 56.4968Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M123.928 58.1096C121.927 58.0009 120.323 58.0222 119.064 58.117C116.553 58.3061 115.286 60.4479 115.286 62.9667L115.286 66.271C115.286 67.6278 115.575 68.981 116.427 70.0373C118.046 72.0456 120.707 74.4573 121.566 74.3257C122.345 74.2062 123.566 71.4708 124.3 69.5452C124.52 68.9703 124.664 68.3678 124.746 67.758C125.418 62.7347 125.356 60.1164 125.123 58.9427C125.012 58.3847 124.496 58.1405 123.928 58.1096Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M108.918 74.6879C106.054 72.4046 104.039 68.2186 103.773 65.8966L103.86 59.2058C103.86 58.9663 109.532 58.86 113.52 58.9091C114.515 58.9213 115.314 59.7157 115.333 60.711C115.372 62.721 115.387 65.787 115.286 69.0248C115.22 71.1138 114.691 72.6971 114.033 73.8429C112.982 75.6733 110.568 76.0037 108.918 74.6879Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M101.699 58.824C97.7892 58.4645 92.8573 58.6784 89.8038 59.2252C89.3542 59.3057 89.0448 59.7109 89.0621 60.1674L89.2957 66.3313C89.2957 67.2881 89.4705 68.5259 89.7084 69.7402C90.2173 72.3378 91.6039 74.6935 93.8726 76.0573C94.0098 76.1397 94.1481 76.2213 94.2871 76.3018C97.1905 77.9832 100.896 77.3308 102.064 74.1854C103.511 70.286 103.961 65.1045 103.987 61.3841C103.996 60.0575 103.02 58.9455 101.699 58.824Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+													<path d="M79.103 79.6839C71.748 76.4215 72.3083 68.1316 72.6367 59.3797C72.6579 58.7933 79.9331 58.3872 84.8895 58.6505C87.6838 58.799 89.3984 60.993 89.3826 63.7912C89.3208 74.7175 85.2367 78.8949 82.1087 79.9487C81.1241 80.2804 80.0527 80.1051 79.103 79.6839Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+												</svg>
+											</div>
+											<div class="tooth-groupConfigurator__body">
+												<div class="tooth-groupConfigurator__line">
+													<div class="tooth-groupConfigurator__name">Выбранные зубы</div>
+													<div class="tooth-groupConfigurator__grey">16 шт</div>
+												</div>
+												<div class="tooth-groupConfigurator__line">
+													<div class="tooth-groupConfigurator__number">15</div>
+													<div class="tooth-groupConfigurator__number">14</div>
+													<div class="tooth-groupConfigurator__number">13</div>
+													<div class="tooth-groupConfigurator__number">12</div>
+													<div class="tooth-groupConfigurator__number">11</div>
+													<div class="tooth-groupConfigurator__dot"></div>
+													<div class="tooth-groupConfigurator__number">21</div>
+													<div class="tooth-groupConfigurator__number">22</div>
+													<div class="tooth-groupConfigurator__number">23</div>
+													<div class="tooth-groupConfigurator__number">24</div>
+													<div class="tooth-groupConfigurator__number">25</div>
+												</div>
+												<div class="tooth-groupConfigurator__line">
+													<div class="tooth-groupConfigurator__number tooth-groupConfigurator__number_disabled">45</div>
+													<div class="tooth-groupConfigurator__number tooth-groupConfigurator__number_disabled">44</div>
+													<div class="tooth-groupConfigurator__number">43</div>
+													<div class="tooth-groupConfigurator__number">42</div>
+													<div class="tooth-groupConfigurator__number">41</div>
+													<div class="tooth-groupConfigurator__dot"></div>
+													<div class="tooth-groupConfigurator__number">31</div>
+													<div class="tooth-groupConfigurator__number">32</div>
+													<div class="tooth-groupConfigurator__number">33</div>
+													<div class="tooth-groupConfigurator__number tooth-groupConfigurator__number_disabled">34</div>
+													<div class="tooth-groupConfigurator__number tooth-groupConfigurator__number_disabled">35</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="group-stepConfigurator__head">
+									<div class="group-stepConfigurator__title">Группа брекетов №2</div>
+									<div class="group-stepConfigurator__buttons">
+										<a href="#" class="group-stepConfigurator__button_delete group-stepConfigurator__button">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M5.25 5.25L6.1875 20.25C6.23203 21.1167 6.8625 21.75 7.6875 21.75H16.3125C17.1408 21.75 17.7595 21.1167 17.8125 20.25L18.75 5.25" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M3.75 5.25H20.25H3.75Z" fill="#FF3B30" />
+												<path d="M3.75 5.25H20.25" stroke="#FF3B30" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
+												<path d="M15.375 8.25L15 18.75M9 5.25V3.375C8.99957 3.22715 9.02837 3.08066 9.08475 2.94397C9.14114 2.80729 9.22399 2.6831 9.32854 2.57854C9.43309 2.47399 9.55728 2.39114 9.69397 2.33476C9.83066 2.27838 9.97714 2.24957 10.125 2.25H13.875C14.0229 2.24957 14.1693 2.27838 14.306 2.33476C14.4427 2.39114 14.5669 2.47399 14.6715 2.57854C14.776 2.6831 14.8589 2.80729 14.9152 2.94397C14.9716 3.08066 15.0004 3.22715 15 3.375V5.25H9ZM12 8.25V18.75V8.25ZM8.625 8.25L9 18.75L8.625 8.25Z" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+											<span>Удалить</span>
+										</a>
+									</div>
+								</div>
+								<div class="step-configurator__item item-stepConfigurator">
+									<div class="item-stepConfigurator__head">
+										<div class="item-stepConfigurator__title">
+											<span>1. Выберите зубной ряд</span>
+											<span class="item-stepConfigurator__attention">Пожалуйста, выберите группу зубов. Вы можете удалить группу брекетов, если дополнительная модель не требуется.</span>
+										</div>
+										<div class="item-stepConfigurator__switch switch-stepConfigurator" data-tippy-content="Вы уже выбрали брекеты для группы зубов. Нажмите «Редактировать» на первой группе брекетов, чтобы изменить этот параметр." data-position="top">
+											<input hidden checked type="checkbox" id="switch-stepConfigurator__checkbox" data-switch-tooth class="switch-stepConfigurator__checkbox">
+											<label for="switch-stepConfigurator__checkbox" class="switch-stepConfigurator__label">
+												<span class="switch-stepConfigurator__ball"><span></span></span>
+												<span class="switch-stepConfigurator__text">Разделить ряды на группы</span>
+												<!-- <span class="switch-stepConfigurator__tippy" data-tippy-content="Включите этот параметр, если хотите использовать две модели брекетов на одной челюсти.">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 0C4.03125 0 0 4.03125 0 9C0 13.9688 4.03125 18 9 18C13.9688 18 18 13.9688 18 9C18 4.03125 13.9688 0 9 0ZM8.71875 14.25C8.53333 14.25 8.35207 14.195 8.1979 14.092C8.04373 13.989 7.92357 13.8426 7.85261 13.6713C7.78166 13.5 7.76309 13.3115 7.79926 13.1296C7.83544 12.9477 7.92473 12.7807 8.05584 12.6496C8.18695 12.5185 8.354 12.4292 8.53585 12.393C8.71771 12.3568 8.90621 12.3754 9.07751 12.4464C9.24882 12.5173 9.39524 12.6375 9.49825 12.7917C9.60127 12.9458 9.65625 13.1271 9.65625 13.3125C9.65625 13.5611 9.55748 13.7996 9.38166 13.9754C9.20585 14.1512 8.96739 14.25 8.71875 14.25ZM10.2863 9.46875C9.52641 9.97875 9.42188 10.4461 9.42188 10.875C9.42188 11.049 9.35274 11.216 9.22966 11.339C9.10659 11.4621 8.93967 11.5312 8.76562 11.5312C8.59158 11.5312 8.42466 11.4621 8.30159 11.339C8.17852 11.216 8.10938 11.049 8.10938 10.875C8.10938 9.84797 8.58188 9.03141 9.55406 8.37844C10.4578 7.77188 10.9688 7.3875 10.9688 6.54234C10.9688 5.96766 10.6406 5.53125 9.96141 5.20828C9.80156 5.13234 9.44578 5.05828 9.00797 5.06344C8.45859 5.07047 8.03203 5.20172 7.70344 5.46609C7.08375 5.96484 7.03125 6.50766 7.03125 6.51562C7.02709 6.60181 7.00601 6.68632 6.96919 6.76435C6.93237 6.84238 6.88054 6.9124 6.81667 6.9704C6.75279 7.0284 6.67811 7.07325 6.5969 7.10239C6.51569 7.13153 6.42954 7.14439 6.34336 7.14023C6.25718 7.13608 6.17266 7.11499 6.09463 7.07817C6.0166 7.04135 5.94659 6.98953 5.88859 6.92565C5.83059 6.86177 5.78574 6.7871 5.7566 6.70589C5.72745 6.62468 5.71459 6.53852 5.71875 6.45234C5.72391 6.33844 5.80313 5.31234 6.87984 4.44609C7.43813 3.99703 8.14828 3.76359 8.98922 3.75328C9.58453 3.74625 10.1437 3.84703 10.523 4.02609C11.6578 4.56281 12.2812 5.45766 12.2812 6.54234C12.2812 8.12813 11.2214 8.84016 10.2863 9.46875Z" fill="#E0E0E3"/>
+                            </svg>
+                          </span> -->
+											</label>
+										</div>
+									</div>
+									<div class="item-stepConfigurator__body">
+										<div data-tooth="all" class="item-stepConfigurator__tooth tooth-stepConfigurator">
+											<div class="tooth-stepConfigurator__wrapper swiper-wrapper">
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<input type="checkbox" name="" id="tooth-stepConfigurator__checkbox_1" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_1" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Вверхний и нижний</span>
+														<span class="tooth-stepConfigurator__image">
+															<svg width="144" height="104" viewBox="0 0 144 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M5.65961 6.74667C-1.40412 11.1702 -0.71483 20.6464 1.6265 28.2491C3.15545 33.2138 7.51518 36.5685 12.5763 37.7395C24.2663 40.4442 47.4137 44.9858 71.3355 45.0674C105.056 45.1825 140.349 36.2357 141.459 35.6827C143.692 34.5705 144.076 23.6333 143.989 18.3037C143.849 5.25181 133.299 2.79415 122.079 3.1755C116.445 3.367 110.957 4.88426 105.421 5.94623C105.15 5.99824 104.882 6.04773 104.62 6.09478C97.697 7.3337 90.8926 5.01276 83.9994 3.61983C68.8617 0.56092 59.274 6.09879 57.4677 6.74667C55.7233 7.37232 52.031 7.00736 50.403 6.74667L36.7968 3.87913C30.488 2.28605 15.4281 0.629255 5.65961 6.74667Z" fill="#F5F5F5" />
+																<path d="M143.515 18.3088L143.515 18.3115C143.559 20.9646 143.485 25.0113 143.123 28.5262C142.942 30.2859 142.691 31.8938 142.352 33.1216C142.183 33.7363 141.996 34.2381 141.796 34.6106C141.59 34.9926 141.399 35.1838 141.248 35.2587C141.25 35.2576 141.25 35.2578 141.247 35.2592C141.243 35.261 141.233 35.2649 141.217 35.271C141.19 35.2808 141.154 35.2934 141.108 35.3088C141.015 35.3396 140.888 35.3787 140.726 35.4259C140.405 35.52 139.957 35.6432 139.391 35.7912C138.259 36.0871 136.663 36.4803 134.67 36.9368C130.686 37.8498 125.125 39.0147 118.545 40.1589C105.383 42.4478 88.1594 44.6511 71.3371 44.5937C47.4665 44.5123 24.3585 39.9793 12.6831 37.278C7.74814 36.1362 3.5479 32.8788 2.0792 28.1097C0.918387 24.3403 0.178721 20.14 0.587107 16.3565C0.99417 12.5853 2.53486 9.26241 5.91102 7.14813C10.6933 4.15327 16.8035 3.04528 22.538 2.89499C28.2665 2.74485 33.5654 3.55171 36.6808 4.3384L36.6899 4.3407L36.6991 4.34263L50.3053 7.21017L50.3166 7.21256L50.3281 7.21439C51.1585 7.34736 52.5084 7.50607 53.8757 7.55246C55.2227 7.59816 56.6626 7.53865 57.6276 7.19254C57.8604 7.10903 58.1892 6.96223 58.614 6.77252C59.9997 6.1537 62.4078 5.07832 65.8448 4.25382C70.302 3.18457 76.4131 2.57011 83.9056 4.08413C85.3401 4.37402 86.7704 4.70419 88.206 5.0356C88.4871 5.10047 88.7683 5.16539 89.0498 5.23007C90.766 5.62435 92.4896 6.00879 94.2169 6.31085C97.6715 6.91499 101.165 7.19428 104.703 6.56105C104.968 6.51366 105.237 6.46381 105.51 6.41143C106.947 6.13588 108.372 5.83193 109.791 5.52919C113.892 4.65454 117.946 3.78993 122.095 3.64891C127.684 3.45894 133.021 3.98267 136.964 6.11862C138.925 7.18146 140.539 8.64185 141.674 10.6161C142.81 12.5922 143.481 15.1099 143.515 18.3088Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth" d="M6.41121 30.9904C7.87648 30.0172 8.65516 34.8718 8.80053 37.4207L9.46387 46.8054C9.20221 47.6743 8.38235 49.3427 7.19618 49.0646C5.71346 48.7171 4.75405 44.4592 4.57961 41.4179C4.40517 38.3765 4.57961 32.207 6.41121 30.9904Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M13.6349 33.6901L14.523 34.9008L15.2207 47.4137C10.2727 53.6073 8.02962 44.6219 8.82552 36.7345C9.01589 34.848 9.29838 33.109 9.55148 31.7726C10.0554 29.1117 12.0331 31.5063 13.6349 33.6901Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M22.8085 40.7416V37.2032C22.8085 33.6321 23.4013 29.1466 26.9078 28.4705C33.4891 27.2014 34.6148 38.4151 34.1977 45.1046L33.9725 48.717C33.8451 49.9866 32.0836 52.1258 31.026 53.2155C30.8484 53.3986 30.6028 53.4962 30.3478 53.4962C30.2075 53.4962 30.0677 53.4663 29.941 53.4061C27.3883 52.1937 25.616 50.2909 24.4648 48.4994C23.0044 46.227 22.8085 43.4428 22.8085 40.7416Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M51.0137 37.5944C50.9845 35.184 50.0604 33.1648 48.778 31.5927C45.7304 27.8568 39.83 27.7725 36.8342 31.5501C35.2182 33.5878 33.9716 36.3985 33.9716 39.8538V52.888C33.9425 53.699 34.7161 55.1519 37.2859 55.4079C39.0449 55.5832 42.3015 55.6406 45.0953 55.6594C47.4383 55.6752 50.8392 55.5786 50.8392 53.2356L50.752 45.5019L51.0137 37.5944Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M18.0974 28.8182C18.9347 28.6791 21.5862 31.1933 22.8073 32.4678L24.0283 47.7613C20.8187 51.6542 19.1441 52.164 18.708 51.9322C17.0508 51.1791 13.8237 47.6049 14.1726 39.3324C14.6087 28.9919 17.0508 28.9919 18.0974 28.8182Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M69.1678 30.5633C73.8748 35.3924 73.3516 45.1872 72.4371 54.1045C71.1287 57.2327 56.9992 56.3638 54.121 56.1031C51.4159 55.8581 50.8067 52.7309 50.8067 50.0147V41.5047C50.6795 38.2732 50.877 32.7317 55.423 29.6976C59.552 26.9419 65.7029 27.0085 69.1678 30.5633Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M139.681 30.9904C138.215 30.0172 137.437 34.8718 137.291 37.4207L136.628 46.8054C136.89 47.6743 137.709 49.3427 138.896 49.0646C140.378 48.7171 141.338 44.4592 141.512 41.4179C141.687 38.3765 141.512 32.207 139.681 30.9904Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M132.457 33.6901L131.569 34.9008L130.871 47.4137C135.819 53.6073 138.062 44.6219 137.266 36.7345C137.076 34.848 136.793 33.109 136.54 31.7726C136.036 29.1117 134.059 31.5063 132.457 33.6901Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M123.282 40.7416V37.2032C123.282 33.6321 122.69 29.1466 119.183 28.4705C112.602 27.2014 111.476 38.4151 111.893 45.1046L112.118 48.717C112.246 49.9866 114.007 52.1258 115.065 53.2155C115.242 53.3986 115.488 53.4962 115.743 53.4962C115.883 53.4962 116.023 53.4663 116.15 53.4061C118.703 52.1937 120.475 50.2909 121.626 48.4994C123.086 46.227 123.282 43.4428 123.282 40.7416Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M95.0771 37.5944C95.1063 35.184 96.0304 33.1648 97.3129 31.5927C100.36 27.8568 106.261 27.7725 109.257 31.5501C110.873 33.5878 112.119 36.3985 112.119 39.8538V52.888C112.148 53.699 111.375 55.1519 108.805 55.4079C107.046 55.5832 103.789 55.6406 100.996 55.6594C98.6525 55.6752 95.2516 55.5786 95.2516 53.2356L95.3388 45.5019L95.0771 37.5944Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M127.994 28.8182C127.157 28.6791 124.506 31.1933 123.285 32.4678L122.063 47.7613C125.273 51.6542 126.948 52.164 127.384 51.9322C129.041 51.1791 132.268 47.6049 131.919 39.3324C131.483 28.9919 129.041 28.9919 127.994 28.8182Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M76.9259 30.5633C72.219 35.3924 72.7421 45.1872 73.6566 54.1045C74.965 57.2327 89.0945 56.3638 91.9727 56.1031C94.6779 55.8581 95.287 52.7309 95.287 50.0147V41.5047C95.4142 38.2732 95.2168 32.7317 90.6707 29.6976C86.5418 26.9419 80.3908 27.0085 76.9259 30.5633Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M104.503 99.508C142.955 101.727 138.821 74.9691 136.228 69.2C134.946 66.3471 104.111 65.9146 72.9951 66.2155C47.1367 66.4656 21.0843 67.2221 11.638 67.5167C9.2422 67.5914 7.31299 68.8522 7.20316 71.2466C6.98757 75.947 7.91118 84.2096 11.6148 90.6119C12.2471 91.7049 13.177 92.5961 14.2958 93.1815C23.5809 98.039 37.4338 97.7978 43.5143 97.0065C51.8001 94.921 58.546 101.398 66.3085 101.398C72.5883 102.18 79.4485 100.482 85.9027 98.3099C90.6432 96.7143 98.3441 98.073 102.431 99.158C103.102 99.3361 103.81 99.468 104.503 99.508Z" fill="#F5F5F5" />
+																<path class="_tooth" d="M66.367 100.928L66.3379 100.924H66.3085C63.075 100.924 60.0258 99.7701 56.8656 98.5737C56.3377 98.3738 55.8067 98.1727 55.2712 97.9757C51.5767 96.6164 47.7079 95.4715 43.426 96.5403C40.4151 96.9298 35.4791 97.184 30.146 96.7403C24.7915 96.2947 19.0783 95.1489 14.5154 92.7617C13.476 92.218 12.6122 91.39 12.0248 90.3747C8.38127 84.0762 7.46333 75.9127 7.67635 71.2683C7.72501 70.2073 8.16986 69.4223 8.85564 68.8845C9.55272 68.3378 10.5286 68.0252 11.6527 67.9901C21.0979 67.6956 47.1464 66.9392 72.9997 66.6892C88.5558 66.5387 104.035 66.5717 115.782 66.9984C121.657 67.2119 126.588 67.5234 130.125 67.9579C131.895 68.1755 133.3 68.4219 134.293 68.6968C134.79 68.8347 135.166 68.9747 135.428 69.1123C135.705 69.2581 135.782 69.3641 135.796 69.3942C136.416 70.7741 137.15 73.4682 137.299 76.7034C137.448 79.9336 137.012 83.6664 135.331 87.1435C131.996 94.0406 123.647 100.138 104.53 99.0351C103.877 98.9974 103.201 98.8724 102.553 98.7002C100.489 98.1523 97.5154 97.5357 94.4549 97.257C91.4063 96.9793 88.2165 97.0313 85.7516 97.861C79.3083 100.03 72.5344 101.696 66.367 100.928Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth" d="M10.4608 71.3725C11.2716 71.3321 11.9646 70.5858 12.4714 69.7572C13.1132 68.7081 13.2053 67.4396 13.115 66.213L12.5542 58.5989C11.8177 58.2824 11.1582 58.0398 10.5714 57.8567C8.20814 57.1192 6.4825 58.9416 6.75147 61.4027C7.24207 65.8917 9.14787 71.4379 10.4608 71.3725Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M13.7999 58.4968C13.9818 58.5015 14.1668 58.5123 14.3539 58.5287C17.981 58.8461 20.0756 62.4783 20.1082 66.1191L20.1187 67.3034C20.1337 68.9779 18.7848 71.5678 17.4027 72.5134C15.4743 73.8327 14.4495 72.1199 13.7541 69.8892C12.5014 65.871 12.263 62.1883 12.3559 59.9337C12.3889 59.1311 12.997 58.4763 13.7999 58.4968Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M21.0073 60.1096C23.0083 60.0009 24.6118 60.0222 25.8708 60.117C28.3824 60.3061 29.649 62.4479 29.649 64.9667L29.6489 68.271C29.6489 69.6278 29.3596 70.981 28.508 72.0373C26.8891 74.0456 24.2281 76.4573 23.3691 76.3257C22.5899 76.2062 21.3689 73.4708 20.6347 71.5452C20.4155 70.9703 20.2707 70.3678 20.1891 69.758C19.5166 64.7347 19.5792 62.1164 19.8119 60.9427C19.9226 60.3847 20.4392 60.1405 21.0073 60.1096Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M36.016 76.6879C38.8796 74.4046 40.8949 70.2186 41.1612 67.8966L41.074 61.2058C41.074 60.9663 35.4025 60.86 31.4142 60.9091C30.4187 60.9213 29.6196 61.7157 29.6006 62.711C29.5622 64.721 29.5468 67.787 29.6483 71.0248C29.7139 73.1138 30.2435 74.6971 30.9012 75.8429C31.952 77.6733 34.3658 78.0037 36.016 76.6879Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M43.2335 60.824C47.1435 60.4645 52.0753 60.6784 55.1288 61.2252C55.5785 61.3057 55.8878 61.7109 55.8705 62.1674L55.6369 68.3313C55.6369 69.2881 55.4621 70.5259 55.2242 71.7402C54.7153 74.3378 53.3287 76.6935 51.06 78.0573C50.9228 78.1397 50.7845 78.2213 50.6455 78.3018C47.7421 79.9832 44.0364 79.3308 42.869 76.1854C41.4217 72.286 40.9719 67.1045 40.9456 63.3841C40.9362 62.0575 41.9125 60.9455 43.2335 60.824Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M65.8321 81.6839C73.1871 78.4215 72.6268 70.1316 72.2984 61.3797C72.2772 60.7933 65.002 60.3872 60.0456 60.6505C57.2513 60.799 55.5366 62.993 55.5525 65.7912C55.6143 76.7175 59.6983 80.8949 62.8264 81.9487C63.811 82.2804 64.8824 82.1051 65.8321 81.6839Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M134.475 71.3725C133.664 71.3321 132.971 70.5858 132.464 69.7572C131.822 68.7081 131.73 67.4396 131.821 66.213L132.381 58.5989C133.118 58.2824 133.777 58.0398 134.364 57.8567C136.727 57.1192 138.453 58.9416 138.184 61.4027C137.693 65.8917 135.788 71.4379 134.475 71.3725Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M131.133 58.4968C130.951 58.5015 130.766 58.5123 130.579 58.5287C126.952 58.8461 124.857 62.4783 124.824 66.1191L124.814 67.3034C124.799 68.9779 126.148 71.5678 127.53 72.5134C129.458 73.8327 130.483 72.1199 131.179 69.8892C132.431 65.871 132.67 62.1883 132.577 59.9337C132.544 59.1311 131.936 58.4763 131.133 58.4968Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M123.927 60.1096C121.926 60.0009 120.323 60.0222 119.064 60.117C116.552 60.3061 115.286 62.4479 115.286 64.9667L115.286 68.271C115.286 69.6278 115.575 70.981 116.427 72.0373C118.045 74.0456 120.706 76.4573 121.565 76.3257C122.345 76.2062 123.566 73.4708 124.3 71.5452C124.519 70.9703 124.664 70.3678 124.746 69.758C125.418 64.7347 125.355 62.1164 125.123 60.9427C125.012 60.3847 124.495 60.1405 123.927 60.1096Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M108.919 76.6879C106.055 74.4046 104.04 70.2186 103.773 67.8966L103.861 61.2058C103.861 60.9663 109.532 60.86 113.52 60.9091C114.516 60.9213 115.315 61.7157 115.334 62.711C115.372 64.721 115.388 67.787 115.286 71.0248C115.221 73.1138 114.691 74.6971 114.033 75.8429C112.983 77.6733 110.569 78.0037 108.919 76.6879Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M101.699 60.824C97.7892 60.4645 92.8573 60.6784 89.8038 61.2252C89.3542 61.3057 89.0448 61.7109 89.0621 62.1674L89.2957 68.3313C89.2957 69.2881 89.4705 70.5259 89.7084 71.7402C90.2173 74.3378 91.6039 76.6935 93.8726 78.0573C94.0098 78.1397 94.1481 78.2213 94.2871 78.3018C97.1905 79.9832 100.896 79.3308 102.064 76.1854C103.511 72.286 103.961 67.1045 103.987 63.3841C103.996 62.0575 103.02 60.9455 101.699 60.824Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M79.1035 81.6839C71.7485 78.4215 72.3088 70.1316 72.6372 61.3797C72.6584 60.7933 79.9336 60.3872 84.89 60.6505C87.6843 60.799 89.3989 62.993 89.3831 65.7912C89.3213 76.7175 85.2372 80.8949 82.1092 81.9487C81.1246 82.2804 80.0532 82.1051 79.1035 81.6839Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+															</svg>
+														</span>
+													</label>
+												</div>
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<input type="checkbox" name="" id="tooth-stepConfigurator__checkbox_2" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_2" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Вверхний</span>
+														<span class="tooth-stepConfigurator__image">
+															<svg width="144" height="104" viewBox="0 0 144 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M5.65961 29.0098C-1.40412 33.4334 -0.71483 42.9095 1.6265 50.5122C3.15545 55.477 7.51518 58.8316 12.5763 60.0026C24.2663 62.7073 47.4137 67.2489 71.3355 67.3305C105.056 67.4456 140.349 58.4988 141.459 57.9458C143.692 56.8336 144.076 45.8964 143.989 40.5668C143.849 27.5149 133.299 25.0573 122.079 25.4386C116.445 25.6301 110.957 27.1474 105.421 28.2094C105.15 28.2614 104.882 28.3108 104.62 28.3579C97.697 29.5968 90.8926 27.2759 83.9994 25.883C68.8617 22.824 59.274 28.3619 57.4677 29.0098C55.7233 29.6354 52.031 29.2705 50.403 29.0098L36.7968 26.1423C30.488 24.5492 15.4281 22.8924 5.65961 29.0098Z" fill="#F5F5F5" />
+																<path d="M36.6808 26.6015L36.6899 26.6038L36.6991 26.6058L50.3053 29.4733L50.3166 29.4757L50.3281 29.4775C51.1585 29.6105 52.5084 29.7692 53.8757 29.8156C55.2227 29.8613 56.6626 29.8018 57.6276 29.4557C57.8604 29.3722 58.1892 29.2254 58.614 29.0356C59.9997 28.4168 62.4078 27.3414 65.8448 26.5169C70.302 25.4477 76.4131 24.8332 83.9056 26.3473C85.3401 26.6371 86.7704 26.9673 88.206 27.2987C88.4871 27.3636 88.7683 27.4285 89.0498 27.4932C90.766 27.8875 92.4896 28.2719 94.2169 28.574C97.6715 29.1781 101.165 29.4574 104.703 28.8242C104.968 28.7768 105.237 28.7269 105.51 28.6746C106.947 28.399 108.372 28.0951 109.791 27.7923C113.892 26.9177 117.946 26.053 122.095 25.912C127.684 25.7221 133.021 26.2458 136.964 28.3817C138.925 29.4446 140.539 30.905 141.674 32.8792C142.81 34.8553 143.481 37.373 143.515 40.5719L143.515 40.5746C143.559 43.2277 143.485 47.2745 143.123 50.7894C142.942 52.549 142.691 54.1569 142.352 55.3848C142.183 55.9994 141.996 56.5012 141.796 56.8737C141.59 57.2557 141.399 57.447 141.248 57.5219C141.25 57.5208 141.25 57.5209 141.247 57.5223C141.243 57.5241 141.233 57.528 141.217 57.5341C141.19 57.544 141.154 57.5565 141.108 57.5719C141.015 57.6027 140.888 57.6419 140.726 57.689C140.405 57.7831 139.957 57.9063 139.391 58.0543C138.259 58.3502 136.663 58.7434 134.67 59.2C130.686 60.1129 125.125 61.2778 118.545 62.422C105.383 64.7109 88.1594 66.9142 71.3371 66.8568C47.4665 66.7754 24.3585 62.2425 12.6831 59.5411C7.74814 58.3993 3.5479 55.1419 2.0792 50.3728C0.918387 46.6034 0.178721 42.4031 0.587107 38.6197C0.99417 34.8485 2.53486 31.5255 5.91102 29.4113C10.6933 26.4164 16.8035 25.3084 22.538 25.1581C28.2665 25.008 33.5654 25.8148 36.6808 26.6015Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth" d="M6.41121 53.2536C7.87648 52.2803 8.65516 57.1349 8.80053 59.6838L9.46387 69.0685C9.20221 69.9374 8.38235 71.6058 7.19618 71.3278C5.71346 70.9802 4.75405 66.7223 4.57961 63.681C4.40517 60.6397 4.57961 54.4701 6.41121 53.2536Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M13.6354 55.9532L14.5234 57.1639L15.2212 69.6768C10.2732 75.8705 8.03011 66.8851 8.82601 58.9977C9.01638 57.1111 9.29886 55.3722 9.55197 54.0357C10.0559 51.3748 12.0336 53.7694 13.6354 55.9532Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M22.8085 63.0047V59.4663C22.8085 55.8952 23.4013 51.4097 26.9078 50.7336C33.4891 49.4645 34.6148 60.6782 34.1977 67.3677L33.9725 70.9801C33.8451 72.2497 32.0836 74.3889 31.026 75.4786C30.8484 75.6617 30.6028 75.7594 30.3478 75.7594C30.2075 75.7594 30.0677 75.7295 29.941 75.6693C27.3883 74.4568 25.616 72.554 24.4648 70.7626C23.0044 68.4901 22.8085 65.7059 22.8085 63.0047Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M51.0137 59.8576C50.9845 57.4471 50.0604 55.428 48.778 53.8558C45.7304 50.1199 39.83 50.0357 36.8342 53.8132C35.2182 55.851 33.9716 58.6616 33.9716 62.1169V75.1511C33.9425 75.9621 34.7161 77.415 37.2859 77.6711C39.0449 77.8463 42.3015 77.9037 45.0953 77.9226C47.4383 77.9383 50.8392 77.8418 50.8392 75.4987L50.752 67.765L51.0137 59.8576Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M18.0984 51.0813C18.9357 50.9422 21.5872 53.4564 22.8082 54.7309L24.0293 70.0244C20.8196 73.9173 19.145 74.4271 18.7089 74.1954C17.0518 73.4423 13.8247 69.868 14.1736 61.5956C14.6097 51.2551 17.0518 51.2551 18.0984 51.0813Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M69.1683 52.8264C73.8753 57.6555 73.3521 67.4504 72.4376 76.3676C71.1292 79.4958 56.9997 78.6269 54.1215 78.3662C51.4163 78.1212 50.8072 74.994 50.8072 72.2778V63.7678C50.68 60.5364 50.8775 54.9948 55.4235 51.9607C59.5525 49.205 65.7034 49.2716 69.1683 52.8264Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M139.682 53.2536C138.216 52.2803 137.438 57.1349 137.292 59.6838L136.629 69.0685C136.891 69.9374 137.71 71.6058 138.897 71.3278C140.379 70.9802 141.339 66.7223 141.513 63.681C141.688 60.6397 141.513 54.4701 139.682 53.2536Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M132.457 55.9532L131.569 57.1639L130.872 69.6768C135.82 75.8705 138.063 66.8851 137.267 58.9977C137.076 57.1111 136.794 55.3722 136.541 54.0357C136.037 51.3748 134.059 53.7694 132.457 55.9532Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M123.283 63.0047V59.4663C123.283 55.8952 122.691 51.4097 119.184 50.7336C112.603 49.4645 111.477 60.6782 111.894 67.3677L112.119 70.9801C112.247 72.2497 114.008 74.3889 115.066 75.4786C115.243 75.6617 115.489 75.7594 115.744 75.7594C115.884 75.7594 116.024 75.7295 116.151 75.6693C118.703 74.4568 120.476 72.554 121.627 70.7626C123.087 68.4901 123.283 65.7059 123.283 63.0047Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M95.0781 59.8576C95.1073 57.4471 96.0314 55.428 97.3138 53.8558C100.361 50.1199 106.262 50.0357 109.258 53.8132C110.874 55.851 112.12 58.6616 112.12 62.1169V75.1511C112.149 75.9621 111.376 77.415 108.806 77.6711C107.047 77.8463 103.79 77.9037 100.996 77.9226C98.6535 77.9383 95.2526 77.8418 95.2526 75.4987L95.3398 67.765L95.0781 59.8576Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M127.995 51.0813C127.158 50.9422 124.506 53.4564 123.285 54.7309L122.064 70.0244C125.274 73.9173 126.948 74.4271 127.384 74.1954C129.041 73.4423 132.269 69.868 131.92 61.5956C131.484 51.2551 129.041 51.2551 127.995 51.0813Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M76.9264 52.8264C72.2195 57.6555 72.7426 67.4504 73.6571 76.3676C74.9655 79.4958 89.095 78.6269 91.9732 78.3662C94.6784 78.1212 95.2875 74.994 95.2875 72.2778V63.7678C95.4147 60.5364 95.2173 54.9948 90.6712 51.9607C86.5423 49.205 80.3913 49.2716 76.9264 52.8264Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+															</svg>
+														</span>
+													</label>
+												</div>
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<input type="checkbox" name="" id="tooth-stepConfigurator__checkbox_3" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_3" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Нижний</span>
+														<span class="tooth-stepConfigurator__image">
+															<svg width="144" height="104" viewBox="0 0 144 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M104.503 72.0343C142.955 74.2536 138.821 47.4954 136.228 41.7263C134.946 38.8734 104.111 38.4409 72.9951 38.7418C47.1367 38.9919 21.0843 39.7484 11.638 40.043C9.2422 40.1177 7.31299 41.3785 7.20316 43.7729C6.98757 48.4733 7.91118 56.7359 11.6148 63.1382C12.2471 64.2312 13.177 65.1224 14.2958 65.7078C23.5809 70.5653 37.4338 70.3241 43.5143 69.5328C51.8001 67.4473 58.546 73.9245 66.3085 73.9245C72.5883 74.7065 79.4485 73.0086 85.9027 70.8362C90.6432 69.2406 98.3441 70.5993 102.431 71.6843C103.102 71.8624 103.81 71.9943 104.503 72.0343Z" fill="#F5F5F5" />
+																<path d="M66.367 73.4544L66.3379 73.4508H66.3085C63.075 73.4508 60.0258 72.2964 56.8656 71.1C56.3377 70.9001 55.8067 70.6991 55.2712 70.502C51.5767 69.1427 47.7079 67.9978 43.426 69.0666C40.4151 69.4561 35.4791 69.7103 30.146 69.2666C24.7915 68.821 19.0783 67.6752 14.5154 65.2881C13.476 64.7443 12.6122 63.9164 12.0248 62.901C8.38127 56.6025 7.46333 48.439 7.67635 43.7946C7.72501 42.7336 8.16986 41.9486 8.85564 41.4108C9.55272 40.8641 10.5286 40.5515 11.6527 40.5164C21.0979 40.2219 47.1464 39.4655 72.9997 39.2155C88.5558 39.065 104.035 39.098 115.782 39.5247C121.657 39.7382 126.588 40.0497 130.125 40.4842C131.895 40.7018 133.3 40.9482 134.293 41.2232C134.79 41.361 135.166 41.501 135.428 41.6386C135.705 41.7844 135.782 41.8905 135.796 41.9205C136.416 43.3004 137.15 45.9945 137.299 49.2297C137.448 52.4599 137.012 56.1927 135.331 59.6698C131.996 66.5669 123.647 72.6648 104.53 71.5614C103.877 71.5237 103.201 71.3987 102.553 71.2265C100.489 70.6786 97.5154 70.062 94.4549 69.7833C91.4063 69.5056 88.2165 69.5576 85.7516 70.3873C79.3083 72.556 72.5344 74.2225 66.367 73.4544Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth" d="M10.4603 43.8988C11.2711 43.8584 11.9641 43.1121 12.4709 42.2836C13.1127 41.2344 13.2048 39.9659 13.1145 38.7394L12.5537 31.1252C11.8172 30.8087 11.1577 30.5661 10.5709 30.383C8.20765 29.6455 6.48202 31.4679 6.75098 33.929C7.24158 38.418 9.14739 43.9642 10.4603 43.8988Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M13.799 31.0231C13.9808 31.0278 14.1658 31.0386 14.3529 31.055C17.98 31.3724 20.0746 35.0047 20.1072 38.6454L20.1178 39.8297C20.1328 41.5042 18.7839 44.0941 17.4018 45.0397C15.4733 46.359 14.4485 44.6462 13.7531 42.4155C12.5004 38.3973 12.262 34.7146 12.3549 32.46C12.388 31.6574 12.996 31.0026 13.799 31.0231Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M21.0063 32.636C23.0073 32.5273 24.6108 32.5485 25.8698 32.6433C28.3814 32.8324 29.648 34.9742 29.648 37.493L29.6479 40.7973C29.6479 42.1541 29.3586 43.5073 28.5071 44.5636C26.8881 46.5719 24.2271 48.9836 23.3681 48.852C22.589 48.7326 21.368 45.9971 20.6337 44.0715C20.4146 43.4966 20.2697 42.8941 20.1881 42.2843C19.5156 37.261 19.5782 34.6427 19.811 33.469C19.9216 32.911 20.4382 32.6668 21.0063 32.636Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M36.015 49.2142C38.8786 46.9309 40.8939 42.7449 41.1603 40.4229L41.073 33.7321C41.073 33.4926 35.4015 33.3863 31.4133 33.4354C30.4178 33.4476 29.6186 34.242 29.5996 35.2373C29.5613 37.2473 29.5458 40.3133 29.6474 43.5511C29.7129 45.6401 30.2425 47.2234 30.9003 48.3692C31.951 50.1996 34.3648 50.53 36.015 49.2142Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M43.2331 33.3503C47.143 32.9908 52.0749 33.2047 55.1283 33.7515C55.578 33.832 55.8873 34.2372 55.87 34.6937L55.6364 40.8576C55.6364 41.8144 55.4616 43.0522 55.2237 44.2665C54.7148 46.8641 53.3282 49.2198 51.0595 50.5836C50.9223 50.666 50.784 50.7476 50.645 50.8281C47.7417 52.5095 44.0359 51.8571 42.8685 48.7117C41.4212 44.8123 40.9715 39.6308 40.9451 35.9104C40.9357 34.5838 41.912 33.4718 43.2331 33.3503Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M65.8311 54.2102C73.1861 50.9478 72.6258 42.6579 72.2974 33.906C72.2762 33.3196 65.001 32.9135 60.0446 33.1768C57.2503 33.3253 55.5357 35.5193 55.5515 38.3175C55.6133 49.2438 59.6974 53.4212 62.8254 54.475C63.81 54.8067 64.8814 54.6314 65.8311 54.2102Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M134.475 43.8988C133.664 43.8584 132.971 43.1121 132.464 42.2836C131.822 41.2344 131.73 39.9659 131.821 38.7394L132.381 31.1252C133.118 30.8087 133.777 30.5661 134.364 30.383C136.727 29.6455 138.453 31.4679 138.184 33.929C137.693 38.418 135.788 43.9642 134.475 43.8988Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M131.133 31.0231C130.951 31.0278 130.766 31.0386 130.579 31.055C126.952 31.3724 124.858 35.0046 124.825 38.6454L124.814 39.8297C124.799 41.5042 126.148 44.0941 127.53 45.0397C129.459 46.359 130.484 44.6462 131.179 42.4155C132.432 38.3973 132.67 34.7146 132.577 32.46C132.544 31.6574 131.936 31.0026 131.133 31.0231Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M123.928 32.636C121.927 32.5273 120.323 32.5485 119.064 32.6433C116.553 32.8324 115.286 34.9742 115.286 37.493L115.286 40.7973C115.286 42.1541 115.575 43.5073 116.427 44.5636C118.046 46.5719 120.707 48.9836 121.566 48.852C122.345 48.7326 123.566 45.9971 124.3 44.0715C124.52 43.4966 124.664 42.8941 124.746 42.2843C125.418 37.261 125.356 34.6427 125.123 33.469C125.012 32.911 124.496 32.6668 123.928 32.636Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M108.918 49.2142C106.054 46.9309 104.039 42.7449 103.773 40.4229L103.86 33.7321C103.86 33.4926 109.532 33.3863 113.52 33.4354C114.515 33.4476 115.314 34.242 115.333 35.2373C115.372 37.2473 115.387 40.3133 115.286 43.5511C115.22 45.6401 114.691 47.2234 114.033 48.3692C112.982 50.1996 110.568 50.53 108.918 49.2142Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M101.699 33.3503C97.7892 32.9908 92.8573 33.2047 89.8038 33.7515C89.3542 33.832 89.0448 34.2372 89.0621 34.6937L89.2957 40.8576C89.2957 41.8144 89.4705 43.0522 89.7084 44.2665C90.2173 46.8641 91.6039 49.2198 93.8726 50.5836C94.0098 50.666 94.1481 50.7476 94.2871 50.8281C97.1905 52.5095 100.896 51.8571 102.064 48.7117C103.511 44.8123 103.961 39.6308 103.987 35.9104C103.996 34.5838 103.02 33.4718 101.699 33.3503Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+																<path class="_tooth" d="M79.103 54.2102C71.748 50.9478 72.3083 42.6579 72.6367 33.906C72.6579 33.3196 79.9331 32.9135 84.8895 33.1768C87.6838 33.3253 89.3984 35.5193 89.3826 38.3175C89.3208 49.2438 85.2367 53.4212 82.1087 54.475C81.1241 54.8067 80.0527 54.6314 79.103 54.2102Z" fill="white" stroke="#E0E0E3" stroke-width="1.42105" />
+															</svg>
+														</span>
+													</label>
+												</div>
+											</div>
+										</div>
+										<div data-tooth="neall" class="item-stepConfigurator__tooth item-stepConfigurator__tooth_hidden tooth-stepConfigurator">
+											<div class="tooth-stepConfigurator__wrapper swiper-wrapper">
+												<div data-tippy-content="а вот нельзя" data-position="top" class="tooth-stepConfigurator__item swiper-slide">
+													<input checked type="checkbox" name="" id="tooth-stepConfigurator__checkbox_4" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_4" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Вверхние резцы <br> и&nbsp;клыки</span>
+														<span class="tooth-stepConfigurator__image">
+															<svg width="144" height="104" viewBox="0 0 144 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M5.65961 29.0098C-1.40412 33.4334 -0.71483 42.9095 1.6265 50.5122C3.15545 55.477 7.51518 58.8316 12.5763 60.0026C24.2663 62.7073 47.4137 67.2489 71.3355 67.3305C105.056 67.4456 140.349 58.4988 141.459 57.9458C143.692 56.8336 144.076 45.8964 143.989 40.5668C143.849 27.5149 133.299 25.0573 122.079 25.4386C116.445 25.6301 110.957 27.1474 105.421 28.2094C105.15 28.2614 104.882 28.3108 104.62 28.3579C97.697 29.5968 90.8926 27.2759 83.9994 25.883C68.8617 22.824 59.274 28.3619 57.4677 29.0098C55.7233 29.6354 52.031 29.2705 50.403 29.0098L36.7968 26.1423C30.488 24.5492 15.4281 22.8924 5.65961 29.0098Z" fill="#F5F5F5" />
+																<path d="M143.515 40.5719L143.515 40.5746C143.559 43.2277 143.485 47.2745 143.123 50.7894C142.942 52.549 142.691 54.1569 142.352 55.3848C142.183 55.9994 141.996 56.5012 141.796 56.8737C141.59 57.2557 141.399 57.447 141.248 57.5219C141.25 57.5208 141.25 57.5209 141.247 57.5223C141.243 57.5241 141.233 57.528 141.217 57.5341C141.19 57.544 141.154 57.5565 141.108 57.5719C141.015 57.6027 140.888 57.6419 140.726 57.689C140.405 57.7831 139.957 57.9063 139.391 58.0543C138.259 58.3502 136.663 58.7434 134.67 59.2C130.686 60.1129 125.125 61.2778 118.545 62.422C105.383 64.7109 88.1594 66.9142 71.3371 66.8568C47.4665 66.7754 24.3585 62.2425 12.6831 59.5411C7.74814 58.3993 3.5479 55.1419 2.0792 50.3728C0.918387 46.6034 0.178721 42.4031 0.587107 38.6197C0.99417 34.8485 2.53486 31.5255 5.91102 29.4113C10.6933 26.4164 16.8035 25.3084 22.538 25.1581C28.2665 25.008 33.5654 25.8148 36.6808 26.6015L36.6899 26.6038L36.6991 26.6058L50.3053 29.4733L50.3166 29.4757L50.3281 29.4775C51.1585 29.6105 52.5084 29.7692 53.8757 29.8156C55.2227 29.8613 56.6626 29.8018 57.6276 29.4557C57.8604 29.3722 58.1892 29.2254 58.614 29.0356C59.9997 28.4168 62.4078 27.3414 65.8448 26.5169C70.302 25.4477 76.4131 24.8332 83.9056 26.3473C85.3401 26.6371 86.7704 26.9673 88.206 27.2987C88.4871 27.3636 88.7683 27.4285 89.0498 27.4932C90.766 27.8875 92.4896 28.2719 94.2169 28.574C97.6715 29.1781 101.165 29.4574 104.703 28.8242C104.968 28.7768 105.237 28.7269 105.51 28.6746C106.947 28.399 108.372 28.0951 109.791 27.7923C113.892 26.9177 117.946 26.053 122.095 25.912C127.684 25.7221 133.021 26.2458 136.964 28.3817C138.925 29.4446 140.539 30.905 141.674 32.8792C142.81 34.8553 143.481 37.373 143.515 40.5719Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth" d="M6.41121 53.2536C7.87648 52.2803 8.65516 57.1349 8.80053 59.6838L9.46387 69.0685C9.20221 69.9374 8.38235 71.6058 7.19618 71.3278C5.71346 70.9802 4.75405 66.7223 4.57961 63.681C4.40517 60.6397 4.57961 54.4701 6.41121 53.2536Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M13.6354 55.9532L14.5234 57.1639L15.2212 69.6768C10.2732 75.8705 8.03011 66.8851 8.82601 58.9977C9.01638 57.1111 9.29886 55.3722 9.55197 54.0357C10.0559 51.3748 12.0336 53.7694 13.6354 55.9532Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M22.8085 63.0047V59.4663C22.8085 55.8952 23.4013 51.4097 26.9078 50.7336C33.4891 49.4645 34.6148 60.6782 34.1977 67.3677L33.9725 70.9801C33.8451 72.2497 32.0836 74.3889 31.026 75.4786C30.8484 75.6617 30.6028 75.7594 30.3478 75.7594C30.2075 75.7594 30.0677 75.7295 29.941 75.6693C27.3883 74.4568 25.616 72.554 24.4648 70.7626C23.0044 68.4901 22.8085 65.7059 22.8085 63.0047Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M51.0137 59.8576C50.9845 57.4471 50.0604 55.428 48.778 53.8558C45.7304 50.1199 39.83 50.0357 36.8342 53.8132C35.2182 55.851 33.9716 58.6616 33.9716 62.1169V75.1511C33.9425 75.9621 34.7161 77.415 37.2859 77.6711C39.0449 77.8463 42.3015 77.9037 45.0953 77.9226C47.4383 77.9383 50.8392 77.8418 50.8392 75.4987L50.752 67.765L51.0137 59.8576Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M18.0984 51.0813C18.9357 50.9422 21.5872 53.4564 22.8082 54.7309L24.0293 70.0244C20.8196 73.9173 19.145 74.4271 18.7089 74.1954C17.0518 73.4423 13.8247 69.868 14.1736 61.5956C14.6097 51.2551 17.0518 51.2551 18.0984 51.0813Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M69.1683 52.8264C73.8753 57.6555 73.3521 67.4504 72.4376 76.3676C71.1292 79.4958 56.9997 78.6269 54.1215 78.3662C51.4163 78.1212 50.8072 74.994 50.8072 72.2778V63.7678C50.68 60.5364 50.8775 54.9948 55.4235 51.9607C59.5525 49.205 65.7034 49.2716 69.1683 52.8264Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M139.682 53.2536C138.216 52.2803 137.438 57.1349 137.292 59.6838L136.629 69.0685C136.891 69.9374 137.71 71.6058 138.897 71.3278C140.379 70.9802 141.339 66.7223 141.513 63.681C141.688 60.6397 141.513 54.4701 139.682 53.2536Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M132.457 55.9532L131.569 57.1639L130.872 69.6768C135.82 75.8705 138.063 66.8851 137.267 58.9977C137.076 57.1111 136.794 55.3722 136.541 54.0357C136.037 51.3748 134.059 53.7694 132.457 55.9532Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M123.283 63.0047V59.4663C123.283 55.8952 122.691 51.4097 119.184 50.7336C112.603 49.4645 111.477 60.6782 111.894 67.3677L112.119 70.9801C112.247 72.2497 114.008 74.3889 115.066 75.4786C115.243 75.6617 115.489 75.7594 115.744 75.7594C115.884 75.7594 116.024 75.7295 116.151 75.6693C118.703 74.4568 120.476 72.554 121.627 70.7626C123.087 68.4901 123.283 65.7059 123.283 63.0047Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M95.0781 59.8576C95.1073 57.4471 96.0314 55.428 97.3138 53.8558C100.361 50.1199 106.262 50.0357 109.258 53.8132C110.874 55.851 112.12 58.6616 112.12 62.1169V75.1511C112.149 75.9621 111.376 77.415 108.806 77.6711C107.047 77.8463 103.79 77.9037 100.996 77.9226C98.6535 77.9383 95.2526 77.8418 95.2526 75.4987L95.3398 67.765L95.0781 59.8576Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M127.995 51.0813C127.158 50.9422 124.506 53.4564 123.285 54.7309L122.064 70.0244C125.274 73.9173 126.948 74.4271 127.384 74.1954C129.041 73.4423 132.269 69.868 131.92 61.5956C131.484 51.2551 129.041 51.2551 127.995 51.0813Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M76.9264 52.8264C72.2195 57.6555 72.7426 67.4504 73.6571 76.3676C74.9655 79.4958 89.095 78.6269 91.9732 78.3662C94.6784 78.1212 95.2875 74.994 95.2875 72.2778V63.7678C95.4147 60.5364 95.2173 54.9948 90.6712 51.9607C86.5423 49.205 80.3913 49.2716 76.9264 52.8264Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+															</svg>
+														</span>
+													</label>
+												</div>
+
+												<!-- data-position отвечает за позиционирование подсказки, добавленной через data-tippy-content
+                          Подробнее на https://atomiks.github.io/tippyjs/#placements -->
+
+												<div data-tippy-content="а вот нельзя" data-position="top" class="tooth-stepConfigurator__item swiper-slide">
+													<input checked type="checkbox" name="" id="tooth-stepConfigurator__checkbox_5" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_5" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Вверхние премоляры</span>
+														<span class="tooth-stepConfigurator__image">
+															<svg width="144" height="104" viewBox="0 0 144 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M5.65961 29.0098C-1.40412 33.4334 -0.71483 42.9095 1.6265 50.5122C3.15545 55.477 7.51518 58.8316 12.5763 60.0026C24.2663 62.7073 47.4137 67.2489 71.3355 67.3305C105.056 67.4456 140.349 58.4988 141.459 57.9458C143.692 56.8336 144.076 45.8964 143.989 40.5668C143.849 27.5149 133.299 25.0573 122.079 25.4386C116.445 25.6301 110.957 27.1474 105.421 28.2094C105.15 28.2614 104.882 28.3108 104.62 28.3579C97.697 29.5968 90.8926 27.2759 83.9994 25.883C68.8617 22.824 59.274 28.3619 57.4677 29.0098C55.7233 29.6354 52.031 29.2705 50.403 29.0098L36.7968 26.1423C30.488 24.5492 15.4281 22.8924 5.65961 29.0098Z" fill="#F5F5F5" />
+																<path d="M143.515 40.5719L143.515 40.5746C143.559 43.2277 143.485 47.2745 143.123 50.7894C142.942 52.549 142.691 54.1569 142.352 55.3848C142.183 55.9994 141.996 56.5012 141.796 56.8737C141.59 57.2557 141.399 57.447 141.248 57.5219C141.25 57.5208 141.25 57.5209 141.247 57.5223C141.243 57.5241 141.233 57.528 141.217 57.5341C141.19 57.544 141.154 57.5565 141.108 57.5719C141.015 57.6027 140.888 57.6419 140.726 57.689C140.405 57.7831 139.957 57.9063 139.391 58.0543C138.259 58.3502 136.663 58.7434 134.67 59.2C130.686 60.1129 125.125 61.2778 118.545 62.422C105.383 64.7109 88.1594 66.9142 71.3371 66.8568C47.4665 66.7754 24.3585 62.2425 12.6831 59.5411C7.74814 58.3993 3.5479 55.1419 2.0792 50.3728C0.918387 46.6034 0.178721 42.4031 0.587107 38.6197C0.99417 34.8485 2.53486 31.5255 5.91102 29.4113C10.6933 26.4164 16.8035 25.3084 22.538 25.1581C28.2665 25.008 33.5654 25.8148 36.6808 26.6015L36.6899 26.6038L36.6991 26.6058L50.3053 29.4733L50.3166 29.4757L50.3281 29.4775C51.1585 29.6105 52.5084 29.7692 53.8757 29.8156C55.2227 29.8613 56.6626 29.8018 57.6276 29.4557C57.8604 29.3722 58.1892 29.2254 58.614 29.0356C59.9997 28.4168 62.4078 27.3414 65.8448 26.5169C70.302 25.4477 76.4131 24.8332 83.9056 26.3473C85.3401 26.6371 86.7704 26.9673 88.206 27.2987C88.4871 27.3636 88.7683 27.4285 89.0498 27.4932C90.766 27.8875 92.4896 28.2719 94.2169 28.574C97.6715 29.1781 101.165 29.4574 104.703 28.8242C104.968 28.7768 105.237 28.7269 105.51 28.6746C106.947 28.399 108.372 28.0951 109.791 27.7923C113.892 26.9177 117.946 26.053 122.095 25.912C127.684 25.7221 133.021 26.2458 136.964 28.3817C138.925 29.4446 140.539 30.905 141.674 32.8792C142.81 34.8553 143.481 37.373 143.515 40.5719Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth _tooth_fill" d="M6.41121 53.2536C7.87648 52.2803 8.65516 57.1349 8.80053 59.6838L9.46387 69.0685C9.20221 69.9374 8.38235 71.6058 7.19618 71.3278C5.71346 70.9802 4.75405 66.7223 4.57961 63.681C4.40517 60.6397 4.57961 54.4701 6.41121 53.2536Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M13.6354 55.9532L14.5234 57.1639L15.2212 69.6768C10.2732 75.8705 8.03011 66.8851 8.82601 58.9977C9.01638 57.1111 9.29886 55.3722 9.55197 54.0357C10.0559 51.3748 12.0336 53.7694 13.6354 55.9532Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth " d="M22.8085 63.0047V59.4663C22.8085 55.8952 23.4013 51.4097 26.9078 50.7336C33.4891 49.4645 34.6148 60.6782 34.1977 67.3677L33.9725 70.9801C33.8451 72.2497 32.0836 74.3889 31.026 75.4786C30.8484 75.6617 30.6028 75.7594 30.3478 75.7594C30.2075 75.7594 30.0677 75.7295 29.941 75.6693C27.3883 74.4568 25.616 72.554 24.4648 70.7626C23.0044 68.4901 22.8085 65.7059 22.8085 63.0047Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth " d="M51.0137 59.8576C50.9845 57.4471 50.0604 55.428 48.778 53.8558C45.7304 50.1199 39.83 50.0357 36.8342 53.8132C35.2182 55.851 33.9716 58.6616 33.9716 62.1169V75.1511C33.9425 75.9621 34.7161 77.415 37.2859 77.6711C39.0449 77.8463 42.3015 77.9037 45.0953 77.9226C47.4383 77.9383 50.8392 77.8418 50.8392 75.4987L50.752 67.765L51.0137 59.8576Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M18.0984 51.0813C18.9357 50.9422 21.5872 53.4564 22.8082 54.7309L24.0293 70.0244C20.8196 73.9173 19.145 74.4271 18.7089 74.1954C17.0518 73.4423 13.8247 69.868 14.1736 61.5956C14.6097 51.2551 17.0518 51.2551 18.0984 51.0813Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth " d="M69.1683 52.8264C73.8753 57.6555 73.3521 67.4504 72.4376 76.3676C71.1292 79.4958 56.9997 78.6269 54.1215 78.3662C51.4163 78.1212 50.8072 74.994 50.8072 72.2778V63.7678C50.68 60.5364 50.8775 54.9948 55.4235 51.9607C59.5525 49.205 65.7034 49.2716 69.1683 52.8264Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M139.682 53.2536C138.216 52.2803 137.438 57.1349 137.292 59.6838L136.629 69.0685C136.891 69.9374 137.71 71.6058 138.897 71.3278C140.379 70.9802 141.339 66.7223 141.513 63.681C141.688 60.6397 141.513 54.4701 139.682 53.2536Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M132.457 55.9532L131.569 57.1639L130.872 69.6768C135.82 75.8705 138.063 66.8851 137.267 58.9977C137.076 57.1111 136.794 55.3722 136.541 54.0357C136.037 51.3748 134.059 53.7694 132.457 55.9532Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth " d="M123.283 63.0047V59.4663C123.283 55.8952 122.691 51.4097 119.184 50.7336C112.603 49.4645 111.477 60.6782 111.894 67.3677L112.119 70.9801C112.247 72.2497 114.008 74.3889 115.066 75.4786C115.243 75.6617 115.489 75.7594 115.744 75.7594C115.884 75.7594 116.024 75.7295 116.151 75.6693C118.703 74.4568 120.476 72.554 121.627 70.7626C123.087 68.4901 123.283 65.7059 123.283 63.0047Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth " d="M95.0781 59.8576C95.1073 57.4471 96.0314 55.428 97.3138 53.8558C100.361 50.1199 106.262 50.0357 109.258 53.8132C110.874 55.851 112.12 58.6616 112.12 62.1169V75.1511C112.149 75.9621 111.376 77.415 108.806 77.6711C107.047 77.8463 103.79 77.9037 100.996 77.9226C98.6535 77.9383 95.2526 77.8418 95.2526 75.4987L95.3398 67.765L95.0781 59.8576Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M127.995 51.0813C127.158 50.9422 124.506 53.4564 123.285 54.7309L122.064 70.0244C125.274 73.9173 126.948 74.4271 127.384 74.1954C129.041 73.4423 132.269 69.868 131.92 61.5956C131.484 51.2551 129.041 51.2551 127.995 51.0813Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth " d="M76.9264 52.8264C72.2195 57.6555 72.7426 67.4504 73.6571 76.3676C74.9655 79.4958 89.095 78.6269 91.9732 78.3662C94.6784 78.1212 95.2875 74.994 95.2875 72.2778V63.7678C95.4147 60.5364 95.2173 54.9948 90.6712 51.9607C86.5423 49.205 80.3913 49.2716 76.9264 52.8264Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+															</svg>
+														</span>
+													</label>
+												</div>
+												<div class="tooth-stepConfigurator__item tooth-stepConfigurator__item_disabled swiper-slide">
+													<input checked type="checkbox" name="" id="tooth-stepConfigurator__checkbox_6" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_6" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Нижние резцы и клыки</span>
+														<span class="tooth-stepConfigurator__image">
+															<svg width="144" height="104" viewBox="0 0 144 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M104.503 72.0343C142.955 74.2536 138.821 47.4954 136.228 41.7263C134.946 38.8734 104.111 38.4409 72.9951 38.7418C47.1367 38.9919 21.0843 39.7484 11.638 40.043C9.2422 40.1177 7.31299 41.3785 7.20316 43.7729C6.98757 48.4733 7.91118 56.7359 11.6148 63.1382C12.2471 64.2312 13.177 65.1224 14.2958 65.7078C23.5809 70.5653 37.4338 70.3241 43.5143 69.5328C51.8001 67.4473 58.546 73.9245 66.3085 73.9245C72.5883 74.7065 79.4485 73.0086 85.9027 70.8362C90.6432 69.2406 98.3441 70.5993 102.431 71.6843C103.102 71.8624 103.81 71.9943 104.503 72.0343Z" fill="#F5F5F5" />
+																<path d="M66.367 73.4544L66.3379 73.4508H66.3085C63.075 73.4508 60.0258 72.2964 56.8656 71.1C56.3377 70.9001 55.8067 70.6991 55.2712 70.502C51.5767 69.1427 47.7079 67.9978 43.426 69.0666C40.4151 69.4561 35.4791 69.7103 30.146 69.2666C24.7915 68.821 19.0783 67.6752 14.5154 65.2881C13.476 64.7443 12.6122 63.9164 12.0248 62.901C8.38127 56.6025 7.46333 48.439 7.67635 43.7946C7.72501 42.7336 8.16986 41.9486 8.85564 41.4108C9.55272 40.8641 10.5286 40.5515 11.6527 40.5164C21.0979 40.2219 47.1464 39.4655 72.9997 39.2155C88.5558 39.065 104.035 39.098 115.782 39.5247C121.657 39.7382 126.588 40.0497 130.125 40.4842C131.895 40.7018 133.3 40.9482 134.293 41.2232C134.79 41.361 135.166 41.501 135.428 41.6386C135.705 41.7844 135.782 41.8905 135.796 41.9205C136.416 43.3004 137.15 45.9945 137.299 49.2297C137.448 52.4599 137.012 56.1927 135.331 59.6698C131.996 66.5669 123.647 72.6648 104.53 71.5614C103.877 71.5237 103.201 71.3987 102.553 71.2265C100.489 70.6786 97.5154 70.062 94.4549 69.7833C91.4063 69.5056 88.2165 69.5576 85.7516 70.3873C79.3083 72.556 72.5344 74.2225 66.367 73.4544Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth" d="M10.4603 43.8988C11.2711 43.8584 11.9641 43.1121 12.4709 42.2836C13.1127 41.2344 13.2048 39.9659 13.1145 38.7394L12.5537 31.1252C11.8172 30.8087 11.1577 30.5661 10.5709 30.383C8.20765 29.6455 6.48202 31.4679 6.75098 33.929C7.24158 38.418 9.14739 43.9642 10.4603 43.8988Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M13.799 31.0231C13.9808 31.0278 14.1658 31.0386 14.3529 31.055C17.98 31.3724 20.0746 35.0047 20.1072 38.6454L20.1178 39.8297C20.1328 41.5042 18.7839 44.0941 17.4018 45.0397C15.4733 46.359 14.4485 44.6462 13.7531 42.4155C12.5004 38.3973 12.262 34.7146 12.3549 32.46C12.388 31.6574 12.996 31.0026 13.799 31.0231Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M21.0063 32.636C23.0073 32.5273 24.6108 32.5485 25.8698 32.6433C28.3814 32.8324 29.648 34.9742 29.648 37.493L29.6479 40.7973C29.6479 42.1541 29.3586 43.5073 28.5071 44.5636C26.8881 46.5719 24.2271 48.9836 23.3681 48.852C22.589 48.7326 21.368 45.9971 20.6337 44.0715C20.4146 43.4966 20.2697 42.8941 20.1881 42.2843C19.5156 37.261 19.5782 34.6427 19.811 33.469C19.9216 32.911 20.4382 32.6668 21.0063 32.636Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M36.015 49.2142C38.8786 46.9309 40.8939 42.7449 41.1603 40.4229L41.073 33.7321C41.073 33.4926 35.4015 33.3863 31.4133 33.4354C30.4178 33.4476 29.6186 34.242 29.5996 35.2373C29.5613 37.2473 29.5458 40.3133 29.6474 43.5511C29.7129 45.6401 30.2425 47.2234 30.9003 48.3692C31.951 50.1996 34.3648 50.53 36.015 49.2142Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M43.2331 33.3503C47.143 32.9908 52.0749 33.2047 55.1283 33.7515C55.578 33.832 55.8873 34.2372 55.87 34.6937L55.6364 40.8576C55.6364 41.8144 55.4616 43.0522 55.2237 44.2665C54.7148 46.8641 53.3282 49.2198 51.0595 50.5836C50.9223 50.666 50.784 50.7476 50.645 50.8281C47.7417 52.5095 44.0359 51.8571 42.8685 48.7117C41.4212 44.8123 40.9715 39.6308 40.9451 35.9104C40.9357 34.5838 41.912 33.4718 43.2331 33.3503Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M65.8311 54.2102C73.1861 50.9478 72.6258 42.6579 72.2974 33.906C72.2762 33.3196 65.001 32.9135 60.0446 33.1768C57.2503 33.3253 55.5357 35.5193 55.5515 38.3175C55.6133 49.2438 59.6974 53.4212 62.8254 54.475C63.81 54.8067 64.8814 54.6314 65.8311 54.2102Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M134.475 43.8988C133.664 43.8584 132.971 43.1121 132.464 42.2836C131.822 41.2344 131.73 39.9659 131.821 38.7394L132.381 31.1252C133.118 30.8087 133.777 30.5661 134.364 30.383C136.727 29.6455 138.453 31.4679 138.184 33.929C137.693 38.418 135.788 43.9642 134.475 43.8988Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M131.133 31.0231C130.951 31.0278 130.766 31.0386 130.579 31.055C126.952 31.3724 124.858 35.0046 124.825 38.6454L124.814 39.8297C124.799 41.5042 126.148 44.0941 127.53 45.0397C129.459 46.359 130.484 44.6462 131.179 42.4155C132.432 38.3973 132.67 34.7146 132.577 32.46C132.544 31.6574 131.936 31.0026 131.133 31.0231Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M123.928 32.636C121.927 32.5273 120.323 32.5485 119.064 32.6433C116.553 32.8324 115.286 34.9742 115.286 37.493L115.286 40.7973C115.286 42.1541 115.575 43.5073 116.427 44.5636C118.046 46.5719 120.707 48.9836 121.566 48.852C122.345 48.7326 123.566 45.9971 124.3 44.0715C124.52 43.4966 124.664 42.8941 124.746 42.2843C125.418 37.261 125.356 34.6427 125.123 33.469C125.012 32.911 124.496 32.6668 123.928 32.636Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M108.918 49.2142C106.054 46.9309 104.039 42.7449 103.773 40.4229L103.86 33.7321C103.86 33.4926 109.532 33.3863 113.52 33.4354C114.515 33.4476 115.314 34.242 115.333 35.2373C115.372 37.2473 115.387 40.3133 115.286 43.5511C115.22 45.6401 114.691 47.2234 114.033 48.3692C112.982 50.1996 110.568 50.53 108.918 49.2142Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M101.699 33.3503C97.7892 32.9908 92.8573 33.2047 89.8038 33.7515C89.3542 33.832 89.0448 34.2372 89.0621 34.6937L89.2957 40.8576C89.2957 41.8144 89.4705 43.0522 89.7084 44.2665C90.2173 46.8641 91.6039 49.2198 93.8726 50.5836C94.0098 50.666 94.1481 50.7476 94.2871 50.8281C97.1905 52.5095 100.896 51.8571 102.064 48.7117C103.511 44.8123 103.961 39.6308 103.987 35.9104C103.996 34.5838 103.02 33.4718 101.699 33.3503Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M79.103 54.2102C71.748 50.9478 72.3083 42.6579 72.6367 33.906C72.6579 33.3196 79.9331 32.9135 84.8895 33.1768C87.6838 33.3253 89.3984 35.5193 89.3826 38.3175C89.3208 49.2438 85.2367 53.4212 82.1087 54.475C81.1241 54.8067 80.0527 54.6314 79.103 54.2102Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+															</svg>
+														</span>
+													</label>
+												</div>
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<input type="checkbox" name="" id="tooth-stepConfigurator__checkbox_7" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_7" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Нижние премоляры</span>
+														<span class="tooth-stepConfigurator__image">
+															<svg width="144" height="104" viewBox="0 0 144 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M104.503 72.0343C142.955 74.2536 138.821 47.4954 136.228 41.7263C134.946 38.8734 104.111 38.4409 72.9951 38.7418C47.1367 38.9919 21.0843 39.7484 11.638 40.043C9.2422 40.1177 7.31299 41.3785 7.20316 43.7729C6.98757 48.4733 7.91118 56.7359 11.6148 63.1382C12.2471 64.2312 13.177 65.1224 14.2958 65.7078C23.5809 70.5653 37.4338 70.3241 43.5143 69.5328C51.8001 67.4473 58.546 73.9245 66.3085 73.9245C72.5883 74.7065 79.4485 73.0086 85.9027 70.8362C90.6432 69.2406 98.3441 70.5993 102.431 71.6843C103.102 71.8624 103.81 71.9943 104.503 72.0343Z" fill="#F5F5F5" />
+																<path d="M66.367 73.4544L66.3379 73.4508H66.3085C63.075 73.4508 60.0258 72.2964 56.8656 71.1C56.3377 70.9001 55.8067 70.6991 55.2712 70.502C51.5767 69.1427 47.7079 67.9978 43.426 69.0666C40.4151 69.4561 35.4791 69.7103 30.146 69.2666C24.7915 68.821 19.0783 67.6752 14.5154 65.2881C13.476 64.7443 12.6122 63.9164 12.0248 62.901C8.38127 56.6025 7.46333 48.439 7.67635 43.7946C7.72501 42.7336 8.16986 41.9486 8.85564 41.4108C9.55272 40.8641 10.5286 40.5515 11.6527 40.5164C21.0979 40.2219 47.1464 39.4655 72.9997 39.2155C88.5558 39.065 104.035 39.098 115.782 39.5247C121.657 39.7382 126.588 40.0497 130.125 40.4842C131.895 40.7018 133.3 40.9482 134.293 41.2232C134.79 41.361 135.166 41.501 135.428 41.6386C135.705 41.7844 135.782 41.8905 135.796 41.9205C136.416 43.3004 137.15 45.9945 137.299 49.2297C137.448 52.4599 137.012 56.1927 135.331 59.6698C131.996 66.5669 123.647 72.6648 104.53 71.5614C103.877 71.5237 103.201 71.3987 102.553 71.2265C100.489 70.6786 97.5154 70.062 94.4549 69.7833C91.4063 69.5056 88.2165 69.5576 85.7516 70.3873C79.3083 72.556 72.5344 74.2225 66.367 73.4544Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
+																<path class="_tooth _tooth_fill" d="M10.4603 43.8988C11.2711 43.8584 11.9641 43.1121 12.4709 42.2836C13.1127 41.2344 13.2048 39.9659 13.1145 38.7394L12.5537 31.1252C11.8172 30.8087 11.1577 30.5661 10.5709 30.383C8.20765 29.6455 6.48202 31.4679 6.75098 33.929C7.24158 38.418 9.14739 43.9642 10.4603 43.8988Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M13.799 31.0231C13.9808 31.0278 14.1658 31.0386 14.3529 31.055C17.98 31.3724 20.0746 35.0047 20.1072 38.6454L20.1178 39.8297C20.1328 41.5042 18.7839 44.0941 17.4018 45.0397C15.4733 46.359 14.4485 44.6462 13.7531 42.4155C12.5004 38.3973 12.262 34.7146 12.3549 32.46C12.388 31.6574 12.996 31.0026 13.799 31.0231Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M21.0063 32.636C23.0073 32.5273 24.6108 32.5485 25.8698 32.6433C28.3814 32.8324 29.648 34.9742 29.648 37.493L29.6479 40.7973C29.6479 42.1541 29.3586 43.5073 28.5071 44.5636C26.8881 46.5719 24.2271 48.9836 23.3681 48.852C22.589 48.7326 21.368 45.9971 20.6337 44.0715C20.4146 43.4966 20.2697 42.8941 20.1881 42.2843C19.5156 37.261 19.5782 34.6427 19.811 33.469C19.9216 32.911 20.4382 32.6668 21.0063 32.636Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M36.015 49.2142C38.8786 46.9309 40.8939 42.7449 41.1603 40.4229L41.073 33.7321C41.073 33.4926 35.4015 33.3863 31.4133 33.4354C30.4178 33.4476 29.6186 34.242 29.5996 35.2373C29.5613 37.2473 29.5458 40.3133 29.6474 43.5511C29.7129 45.6401 30.2425 47.2234 30.9003 48.3692C31.951 50.1996 34.3648 50.53 36.015 49.2142Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M43.2331 33.3503C47.143 32.9908 52.0749 33.2047 55.1283 33.7515C55.578 33.832 55.8873 34.2372 55.87 34.6937L55.6364 40.8576C55.6364 41.8144 55.4616 43.0522 55.2237 44.2665C54.7148 46.8641 53.3282 49.2198 51.0595 50.5836C50.9223 50.666 50.784 50.7476 50.645 50.8281C47.7417 52.5095 44.0359 51.8571 42.8685 48.7117C41.4212 44.8123 40.9715 39.6308 40.9451 35.9104C40.9357 34.5838 41.912 33.4718 43.2331 33.3503Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M65.8311 54.2102C73.1861 50.9478 72.6258 42.6579 72.2974 33.906C72.2762 33.3196 65.001 32.9135 60.0446 33.1768C57.2503 33.3253 55.5357 35.5193 55.5515 38.3175C55.6133 49.2438 59.6974 53.4212 62.8254 54.475C63.81 54.8067 64.8814 54.6314 65.8311 54.2102Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M134.475 43.8988C133.664 43.8584 132.971 43.1121 132.464 42.2836C131.822 41.2344 131.73 39.9659 131.821 38.7394L132.381 31.1252C133.118 30.8087 133.777 30.5661 134.364 30.383C136.727 29.6455 138.453 31.4679 138.184 33.929C137.693 38.418 135.788 43.9642 134.475 43.8988Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M131.133 31.0231C130.951 31.0278 130.766 31.0386 130.579 31.055C126.952 31.3724 124.858 35.0046 124.825 38.6454L124.814 39.8297C124.799 41.5042 126.148 44.0941 127.53 45.0397C129.459 46.359 130.484 44.6462 131.179 42.4155C132.432 38.3973 132.67 34.7146 132.577 32.46C132.544 31.6574 131.936 31.0026 131.133 31.0231Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth _tooth_fill" d="M123.928 32.636C121.927 32.5273 120.323 32.5485 119.064 32.6433C116.553 32.8324 115.286 34.9742 115.286 37.493L115.286 40.7973C115.286 42.1541 115.575 43.5073 116.427 44.5636C118.046 46.5719 120.707 48.9836 121.566 48.852C122.345 48.7326 123.566 45.9971 124.3 44.0715C124.52 43.4966 124.664 42.8941 124.746 42.2843C125.418 37.261 125.356 34.6427 125.123 33.469C125.012 32.911 124.496 32.6668 123.928 32.636Z" fill="white" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M108.918 49.2142C106.054 46.9309 104.039 42.7449 103.773 40.4229L103.86 33.7321C103.86 33.4926 109.532 33.3863 113.52 33.4354C114.515 33.4476 115.314 34.242 115.333 35.2373C115.372 37.2473 115.387 40.3133 115.286 43.5511C115.22 45.6401 114.691 47.2234 114.033 48.3692C112.982 50.1996 110.568 50.53 108.918 49.2142Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M101.699 33.3503C97.7892 32.9908 92.8573 33.2047 89.8038 33.7515C89.3542 33.832 89.0448 34.2372 89.0621 34.6937L89.2957 40.8576C89.2957 41.8144 89.4705 43.0522 89.7084 44.2665C90.2173 46.8641 91.6039 49.2198 93.8726 50.5836C94.0098 50.666 94.1481 50.7476 94.2871 50.8281C97.1905 52.5095 100.896 51.8571 102.064 48.7117C103.511 44.8123 103.961 39.6308 103.987 35.9104C103.996 34.5838 103.02 33.4718 101.699 33.3503Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+																<path class="_tooth" d="M79.103 54.2102C71.748 50.9478 72.3083 42.6579 72.6367 33.906C72.6579 33.3196 79.9331 32.9135 84.8895 33.1768C87.6838 33.3253 89.3984 35.5193 89.3826 38.3175C89.3208 49.2438 85.2367 53.4212 82.1087 54.475C81.1241 54.8067 80.0527 54.6314 79.103 54.2102Z" fill="#D5EDFD" stroke="#80C9F9" stroke-width="1.42105" />
+															</svg>
+														</span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="step-configurator__item item-stepConfigurator">
+									<div class="item-stepConfigurator__head">
+										<div class="item-stepConfigurator__title">2. Метод лигирования</div>
+									</div>
+									<div class="item-stepConfigurator__body">
+										<div class="item-stepConfigurator__tooth tooth-stepConfigurator">
+											<div class="tooth-stepConfigurator__wrapper swiper-wrapper">
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<input checked type="radio" name="tooth-stepConfigurator__method" id="tooth-stepConfigurator__radio_1" class="tooth-stepConfigurator__radio">
+													<label for="tooth-stepConfigurator__radio_1" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Cамолигирующий</span>
+													</label>
+												</div>
+												<div data-tippy-content="Разные методы лигирования не сочитаются на одном ряду." data-position="top" class="tooth-stepConfigurator__item swiper-slide">
+													<input type="radio" name="tooth-stepConfigurator__method" id="tooth-stepConfigurator__radio_2" class="tooth-stepConfigurator__radio">
+													<label for="tooth-stepConfigurator__radio_2" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Лигатуры</span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="step-configurator__item item-stepConfigurator">
+									<div class="item-stepConfigurator__head">
+										<div class="item-stepConfigurator__title">3. Материал</div>
+									</div>
+									<div class="item-stepConfigurator__body">
+										<div class="item-stepConfigurator__tooth tooth-stepConfigurator">
+											<div class="tooth-stepConfigurator__wrapper swiper-wrapper">
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<input checked type="radio" name="tooth-stepConfigurator__material" id="tooth-stepConfigurator__radio_3" class="tooth-stepConfigurator__radio">
+													<label for="tooth-stepConfigurator__radio_3" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Металл</span>
+													</label>
+												</div>
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<input type="radio" name="tooth-stepConfigurator__material" id="tooth-stepConfigurator__radio_4" class="tooth-stepConfigurator__radio">
+													<label for="tooth-stepConfigurator__radio_4" class="tooth-stepConfigurator__label">
+														<span class="tooth-stepConfigurator__name">Керамика</span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="step-configurator__item item-stepConfigurator">
+									<div class="item-stepConfigurator__head">
+										<div class="item-stepConfigurator__title">4. Модель</div>
+									</div>
+									<div class="item-stepConfigurator__body">
+										<div class="item-stepConfigurator__tooth item-stepConfigurator__tooth_model tooth-stepConfigurator">
+											<div class="tooth-stepConfigurator__wrapper swiper-wrapper">
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<!-- инпут обязательно должен быть перед селектом, иначе сигналка об отмеченном инпуте работать не будет -->
+													<input checked hidden type="checkbox" name="" id="tooth-stepConfigurator__checkbox_91" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_91" class="tooth-stepConfigurator__label">
+														<select data-show-selected name="form[]" data-class-modif="tooth-stepConfigurator__select">
+															<option value=".018">.018</option>
+															<option value=".022" selected>.022</option>
+														</select>
+														<span class="tooth-stepConfigurator__name">Damon Q2</span>
+														<span class="tooth-stepConfigurator__image">
+															<picture><source srcset="img/configurator/model_1.webp" type="image/webp"><img src="img/configurator/model_1.png" alt="image"></picture>
+														</span>
+													</label>
+												</div>
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<!-- инпут обязательно должен быть перед селектом, иначе сигналка об отмеченном инпуте работать не будет -->
+													<input hidden type="checkbox" name="" id="tooth-stepConfigurator__checkbox_92" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_92" class="tooth-stepConfigurator__label">
+														<div class="tooth-stepConfigurator__num">.022</div>
+														<span class="tooth-stepConfigurator__name">Damon Q</span>
+														<span class="tooth-stepConfigurator__image">
+															<picture><source srcset="img/configurator/model_2.webp" type="image/webp"><img src="img/configurator/model_2.png" alt="image"></picture>
+														</span>
+													</label>
+												</div>
+												<div class="tooth-stepConfigurator__item swiper-slide">
+													<!-- инпут обязательно должен быть перед селектом, иначе сигналка об отмеченном инпуте работать не будет -->
+													<input hidden type="checkbox" name="" id="tooth-stepConfigurator__checkbox_93" class="tooth-stepConfigurator__checkbox">
+													<label for="tooth-stepConfigurator__checkbox_93" class="tooth-stepConfigurator__label">
+														<div class="tooth-stepConfigurator__num">.022</div>
+														<span class="tooth-stepConfigurator__name">Damon 3MX</span>
+														<span class="tooth-stepConfigurator__image">
+															<picture><source srcset="img/configurator/model_3.webp" type="image/webp"><img src="img/configurator/model_3.png" alt="image"></picture>
+														</span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="step-configurator__submit">
+								<span>Продолжить</span>
+								<span class="step-configurator__circle">
+									<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M7.84069 17.1364L13.9771 11L7.84069 4.86363" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</main>
+		<footer class="footer undefined">
+			<div class="container">
+				<div class="footer_copy">© ООО «Ормко», 2021</div>
+				<ul class="footer_nav">
+					<li><a href="#">О компании</a></li>
+					<li><a href="#">Политика конфиденциальности</a></li>
+					<li><a href="#">Что такое сookies?</a></li>
+				</ul>
+				<div class="footer_text">
+					Не является офертой. Имеются противопоказания.<br> Проконсультируйтесь со специалистами
+				</div>
+			</div>
+		</footer><!-- /footer -->
+
+
+		<div class="mobile_footer undefined">
+			<div class="container">
+				<ul>
+					<li><a href="#" class=" ">Каталог</a></li>
+					<li><a href="#" class="js_search_mb undefined">Поиск</a></li>
+					<li><a href="#" class="undefined">Корзина</a></li>
+					<li><a href="#auth" class="js_auth undefined">Войти</a></li>
+				</ul>
+			</div>
+		</div><!-- /mobile_footer -->
+
+
+		<div class="modal" id="auth">
+			<div class="modal_header">
+				<div class="modal_title">Введите номер телефона</div>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="input-float">
+						<label>Ваш телефон</label>
+						<input type="tel" name="tel" class="input phone_input">
+					</div>
+				</div>
+				<div class="input-field">
+					<a href="#modal_code" class="btn btn-light btn-xl btn-block js_modal_code">Продолжить</a>
+					<a href="#authmail" class="btn btn-link btn-xl btn-reg btn-block js_authmail">Войти по почте</a>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- /modal -->
+
+
+		<div class="modal" id="authmail">
+			<div class="modal_header">
+				<div class="modal_title">Введите e-mail и пароль</div>
+				<p>Только для зарегистрированных пользователей</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="input-float">
+						<label>Электронная почта</label>
+						<input type="email" name="email" data-required="email" data-error="undefined" class="input ">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Пароль</label>
+						<input type="password" name="password" data-required="email" data-error="undefined" class="input ">
+					</div>
+				</div>
+				<div class="input-field">
+					<input type="button" value="Войти" class="btn btn-light btn-xl btn-block" disabled>
+					<div class="modal_links">
+						<p><a href="#signup" class="js_auth">Забыли пароль?</a></p>
+						<p><a href="#auth" class="js_auth">Войти по номеру телефона</a></p>
+					</div>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- /modal -->
+
+
+		<div class="modal" id="modal_code">
+			<div class="modal_header">
+				<div class="modal_title">Введите код из смс</div>
+				<p>Отправили на номер +7 (999) 804-49-22</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="codeinput codeinput-error">
+						<input type="text" class="codeinput_input">
+					</div><!-- /codeinput -->
+					<div class="input-text color-red text-center">Слишком много неудачных попыток ввода кода для активации. Запросите новую СМС.</div>
+				</div>
+				<div class="modal_links">
+					<p>Получить новый код можно через 00:59</p>
+					<p><a href="#">Не приходит код?</a></p>
+				</div>
+			</form>
+			<a href="#" class="btn-back"></a>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+
+			<!-- <div class="modal-loader">
+		<div class="modal-loader-circle">
+			<div class="loader"></div>
+		</div>
+	</div> -->
+		</div><!-- /modal -->
+
+
+
+		<div class="modal" id="signup">
+			<div class="modal_header">
+				<div class="modal_title">Вы врач?</div>
+				<p>Пожалуйста, ответьте на вопрос, для персональных рекомендаций</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Ортодонт</label>
+				</div>
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Хирург</label>
+				</div>
+				<div class="input-field input-field-hide">
+					<label class="check-field"><input type="radio" name="spec" value="another"> Другая специализация</label>
+					<div class="input-field-hidden">
+						<input type="text" class="input input-sm" placeholder="Ваша специализация">
+					</div>
+				</div>
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Студент</label>
+				</div>
+				<div class="input-field">
+					<label class="check-field"><input type="radio" name="spec"> Не врач</label>
+				</div>
+				<div class="input-field">
+					<a href="#signup2" class="btn btn-light btn-xl btn-block js_signup2">Продолжить</a>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+		<div class="modal" id="signup2">
+			<div class="modal_header">
+				<div class="modal_title">Расскажите о себе</div>
+				<p>Заполните поля для завершения регистрации</p>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<div class="input-float">
+						<label>Имя</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Фамилия</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Электронная почта</label>
+						<input type="email" name="email" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float">
+						<label>Адрес</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<input type="submit" value="Зарегистрироваться" class="btn btn-xl btn-light btn-block" disabled>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+
+		<div class="modal" id="choose_country">
+			<div class="modal_header">
+				<div class="modal_title">Please select your country</div>
+			</div>
+			<div class="countries">
+				<div class="countries_title">Americas</div>
+				<ul class="countries_list">
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/canada.svg" alt="">
+							<span>Canada</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/usa.svg" alt="">
+							<span>USA</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/mexico.svg" alt="">
+							<span>Mexico</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<div class="countries">
+				<div class="countries_title">EMEA</div>
+				<ul class="countries_list">
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/austria.svg" alt="">
+							<span>Austria</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/denmark.svg" alt="">
+							<span>Denmark</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/belgium.svg" alt="">
+							<span>Belgium</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/france.svg" alt="">
+							<span>France</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/germany.svg" alt="">
+							<span>Germany</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/ireland.svg" alt="">
+							<span>Ireland</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/india.svg" alt="">
+							<span>India</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/italy.svg" alt="">
+							<span>Italy</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/luxembourg.svg" alt="">
+							<span>Luxembourg</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/netherlands.svg" alt="">
+							<span>Netherlands</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/poland.svg" alt="">
+							<span>Poland</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/portugal.svg" alt="">
+							<span>Portugal</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/russia.svg" alt="">
+							<span>Russia</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/rsa.svg" alt="">
+							<span>South Africa</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/spain.svg" alt="">
+							<span>Spain</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/switzerland.svg" alt="">
+							<span>Switzerland</span>
+						</label>
+					</li>
+					<li>
+						<label class="countries_btn">
+							<input type="radio" name="countries">
+							<img src="img/flags/uk.svg" alt="">
+							<span>United Kingdom</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+		<div class="modal" id="freeconsult">
+			<div class="modal_header">
+				<div class="modal_title">Задать вопрос</div>
+			</div>
+			<form action="#" method="post">
+				<div class="input-field">
+					<select class="select_default" data-placeholder="Тема*">
+						<option>
+							&nbsp;
+						</option>
+						<option>Регистрация на сайте</option>
+						<option>Консультация по продукции</option>
+						<option>Доступ к матералам</option>
+						<option>Как оформить заказ</option>
+						<option>Статус заказа</option>
+						<option>Как оплатить заказ</option>
+						<option>Скидки на продукцию</option>
+					</select>
+				</div>
+				@@include('_input.htm', { "type": "text", "label": "ФИО*", "float": true },)
+				@@include('_input.htm', { "type": "email", "label": "E-mail*", "float": true },)
+				@@include('_input.htm', { "type": "tel", "label": "Телефон*", "float": true },)
+				<div class="input-field">
+					<div class="input-float">
+						<label>Город*</label>
+						<input type="text" name="text" data-required="email" data-error="undefined" class="input undefined">
+					</div>
+				</div>
+				<div class="input-field">
+					<div class="input-float input-float-text">
+						<label>Вопрос*</label>
+						<textarea class="input"></textarea>
+					</div>
+				</div>
+				<div class="input-field">
+					<label class="check-field">
+						<input type="checkbox" checked>
+						Согласен с <a href="#">политикой конфиденциальности</a>, на обработку предоставленных данных ООО «Ормко», передачу данных аффилированным лицам и получение информационных рассылок.
+					</label>
+				</div>
+				<div class="input-field">
+					<input type="submit" value="Зарегистрироваться" class="btn btn-xl btn-light btn-block" disabled>
+				</div>
+			</form>
+			<a href="#" data-fancybox-close class="btn-close"></a>
+		</div><!-- #signup -->
+
+
+		<a href="#" id="ontop">
+			<span class="ontop_inner"></span>
+			<span class="ontop_hover"></span>
+		</a>
+
+
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220810193040"></script>
+	<script src="js/app.min.js?_v=20220810193040"></script>
+</body>
+
+</html>
