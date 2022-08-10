@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Конфигуратор брекет-систем"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page page_configurator">
+
+        <div class="configurator">
+          <div class="configurator__head head-configurator">
+            <div class="head-configurator__container">
+              <div class="head-configurator__breadcumps">
+                <a href="#">Главная</a><span>Подборщик брекет-систем</span>
+              </div>
+              <div class="head-configurator__title pagehead__title">Подборщик брекет-системы</div>
+              <div class="head-configurator__stepsline stepsline">
+                <div class="stepsline_item checked"><span>Брекеты</span></div>
+                <div class="stepsline_item checked"><span>Торк</span></div>
+                <div class="stepsline_item checked"><span>Смещение</span></div>
+                <div class="stepsline_item checked"><span>Крючки</span></div>
+                <div class="stepsline_item active"><span>Щечные трубки</span></div>
+                <div class="stepsline_item"><span>Дуги</span></div>
+                <div class="stepsline_item"><span>Дополнительные товары</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="configurator__steps">
+            <form method="post" action="#" class="configurator__step configurator__step_one step-configurator" data-step="tubes">
+              <div class="step-configurator__container">
+                <div class="step-configurator__head _flex _jcsb">
+                  <h2 class="step-configurator__title">Выберите щечные трубки</h2>
+                  <div class="step-configurator__tippy" data-tippy-content="Как-то работает" data-position="top">
+                    <span>Как это работает</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 0C4.03125 0 0 4.03125 0 9C0 13.9688 4.03125 18 9 18C13.9688 18 18 13.9688 18 9C18 4.03125 13.9688 0 9 0ZM8.71875 14.25C8.53333 14.25 8.35207 14.195 8.1979 14.092C8.04373 13.989 7.92357 13.8426 7.85261 13.6713C7.78166 13.5 7.76309 13.3115 7.79926 13.1296C7.83544 12.9477 7.92473 12.7807 8.05584 12.6496C8.18695 12.5185 8.354 12.4292 8.53585 12.393C8.71771 12.3568 8.90621 12.3754 9.07751 12.4464C9.24882 12.5173 9.39524 12.6375 9.49825 12.7917C9.60127 12.9458 9.65625 13.1271 9.65625 13.3125C9.65625 13.5611 9.55748 13.7996 9.38166 13.9754C9.20585 14.1512 8.96739 14.25 8.71875 14.25ZM10.2863 9.46875C9.52641 9.97875 9.42188 10.4461 9.42188 10.875C9.42188 11.049 9.35274 11.216 9.22966 11.339C9.10659 11.4621 8.93967 11.5312 8.76562 11.5312C8.59158 11.5312 8.42466 11.4621 8.30159 11.339C8.17852 11.216 8.10938 11.049 8.10938 10.875C8.10938 9.84797 8.58188 9.03141 9.55406 8.37844C10.4578 7.77188 10.9688 7.3875 10.9688 6.54234C10.9688 5.96766 10.6406 5.53125 9.96141 5.20828C9.80156 5.13234 9.44578 5.05828 9.00797 5.06344C8.45859 5.07047 8.03203 5.20172 7.70344 5.46609C7.08375 5.96484 7.03125 6.50766 7.03125 6.51562C7.02709 6.60181 7.00601 6.68632 6.96919 6.76435C6.93237 6.84238 6.88054 6.9124 6.81667 6.9704C6.75279 7.0284 6.67811 7.07325 6.5969 7.10239C6.51569 7.13153 6.42954 7.14439 6.34336 7.14023C6.25718 7.13608 6.17266 7.11499 6.09463 7.07817C6.0166 7.04135 5.94659 6.98953 5.88859 6.92565C5.83059 6.86177 5.78574 6.7871 5.7566 6.70589C5.72745 6.62468 5.71459 6.53852 5.71875 6.45234C5.72391 6.33844 5.80313 5.31234 6.87984 4.44609C7.43813 3.99703 8.14828 3.76359 8.98922 3.75328C9.58453 3.74625 10.1437 3.84703 10.523 4.02609C11.6578 4.56281 12.2812 5.45766 12.2812 6.54234C12.2812 8.12813 11.2214 8.84016 10.2863 9.46875Z" fill="#E0E0E3"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="step-configurator__tork tork-configurator">
+                  <div class="tork-configurator__head head-torkConfigurator">
+                    <div data-tubes-parent data-before="Выбранные зубы" class="head-torkConfigurator__selectParent">
+                      <select data-option-data data-scroll="250" class="head-torkConfigurator__select" multiple>
+                        <option data-tube="without" data-teeth="all" data-tippy="Без щечной трубки" data-image="@img/configurator/tubes_without.svg" value="without" selected>
+                          Без щечной трубки</option>
+                        <option data-tube="damon_3" data-teeth="17||16" data-tippy="Damon 3 и 3MX (SL)" data-image="@img/configurator/tork_combinate.svg" value="damon_3">
+                          Damon 3 и 3MX (SL)</option>
+                        <option data-tube="accent_mini" data-teeth="46||47" data-tippy="Accent Mini" data-image="@img/configurator/tork_high.svg" value="accent_mini">
+                          Accent Mini</option>
+                        <option data-tube="snap_link" data-teeth="26||27" data-tippy="Snap Link" data-image="@img/configurator/tork_low.svg" value="snap_link">
+                          Snap Link</option>
+                        <option data-tube="titanium_orthos" data-teeth="36||37" data-tippy="Titanium Orthos" data-image="@img/configurator/tork_standart.svg" value="titanium_orthos">
+                          Titanium Orthos</option>
+                        <option data-tube="andrews" data-teeth="all" data-tippy="Andrews" data-image="@img/configurator/tubes_without.svg" value="andrews">
+                          Andrews</option>
+                      </select>
+                    </div>
+                    <a href="#" class="head-torkConfigurator__reset">Сбросить все</a>
+                  </div>
+                  <!-- таймаут в секундах -->
+                  <div data-timeout="3" class="tork-configurator__texts">
+                    <span data-grey-text hidden class="tork-configurator__grey">Выберите зубы, чтобы применить торк</span>
+                    <span data-unavaiable-text hidden class="tork-configurator__grey">Этот тип крючка недоступен для <span>34, 44</span> зубов</span>
+                  </div>
+                  <div class="tork-configurator__body body-torkConfigurator">
+                    <div class="body-torkConfigurator__teeth teeth-torkConfigurator">
+                      <div data-jaw="top" class="teeth-torkConfigurator__line teeth-torkConfigurator__line_top">
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input type="checkbox" hidden id="teeth-torkConfigurator__checkbox_17" data-tooth="17" data-tubes="without||andrews||damon_3" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_17" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">17</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth teeth-torkConfigurator__tooth_mr">
+                          <input type="hidden" name="" value="standart">
+                          <input checked type="checkbox" hidden id="teeth-torkConfigurator__checkbox_16" data-tooth="16" data-tubes="without||andrews||damon_3" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_16" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">16</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_15" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_15" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">15</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_14" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_14" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">14</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_13" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_13" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">13</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_12" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_12" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">12</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_11" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_11" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">11</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div data-jaw="bottom" class="teeth-torkConfigurator__line teeth-torkConfigurator__line_bottom">
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input type="checkbox" hidden id="teeth-torkConfigurator__checkbox_47" data-tooth="47" data-tubes="without||andrews||accent_mini" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_47" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">47</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth  teeth-torkConfigurator__tooth_mr">
+                          <input type="hidden" name="" value="standart">
+                          <input type="checkbox" hidden id="teeth-torkConfigurator__checkbox_46" data-tooth="46" data-tubes="without||andrews||accent_mini" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_46" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">46</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_45" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_45" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">45</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_44" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_44" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">44</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_43" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_43" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">43</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_42" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_42" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">42</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_41" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_41" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">41</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="body-torkConfigurator__buttons">
+                      <button type="button" data-teeth-button="top" class="body-torkConfigurator__button">Верхняя</button>
+                      <button type="button" data-teeth-button="all" class="body-torkConfigurator__button">Обе</button>
+                      <button type="button" data-teeth-button="bottom" class="body-torkConfigurator__button">Нижняя</button>
+                    </div>
+                    <div class="body-torkConfigurator__teeth teeth-torkConfigurator">
+                      <div data-jaw="top" class="teeth-torkConfigurator__line teeth-torkConfigurator__line_top">
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_21" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_21" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">21</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_22" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_22" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">22</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_23" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_23" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">23</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_24" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_24" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">24</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth  teeth-torkConfigurator__tooth_mr">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_25" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_25" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">25</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input type="checkbox" hidden id="teeth-torkConfigurator__checkbox_26" data-tooth="26" data-tubes="without||andrews||snap_link" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_26" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">26</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input type="checkbox" hidden id="teeth-torkConfigurator__checkbox_27" data-tooth="27" data-tubes="without||andrews||snap_link" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_27" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="top">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">27</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div data-jaw="bottom" class="teeth-torkConfigurator__line teeth-torkConfigurator__line_bottom">
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_31" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_31" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">31</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_32" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_32" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">32</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_33" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_33" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">33</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_34" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_34" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">34</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth  teeth-torkConfigurator__tooth_mr">
+                          <input type="hidden" name="" value="standart">
+                          <input disabled type="checkbox" hidden id="teeth-torkConfigurator__checkbox_35" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_35" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">35</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input type="checkbox" hidden id="teeth-torkConfigurator__checkbox_36" data-tooth="36" data-tubes="without||andrews||titanium_orthos" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_36" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">36</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                        <div data-tooth-parent class="teeth-torkConfigurator__tooth">
+                          <input type="hidden" name="" value="standart">
+                          <input type="checkbox" hidden id="teeth-torkConfigurator__checkbox_37" data-tooth="37" data-tubes="without||andrews||titanium_orthos" class="teeth-torkConfigurator__checkbox">
+                          <label for="teeth-torkConfigurator__checkbox_37" class="teeth-torkConfigurator__label">
+                            <span class="teeth-torkConfigurator__tork" data-tippy-content="Без щечной трубки" data-position="bottom">
+                              <img src="@img/configurator/tubes_without.svg" alt="image">
+                            </span>
+                            <span class="teeth-torkConfigurator__number">37</span>
+                            <span class="teeth-torkConfigurator__icon">
+                              <svg width="56" height="60" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6875 3.00001C36.6209 3.00001 34.9638 3.77852 33.4175 4.50713L33.4095 4.51089C31.9628 5.19258 30.6238 5.82347 28 5.82347C25.3756 5.82347 24.037 5.19259 22.5906 4.51094L22.5825 4.50716C21.0364 3.77852 19.3796 3 16.3125 3C10.0397 3 5 8.21246 5 14.5883C5 21.0768 6.14597 30.5082 8.01811 38.3274C8.95327 42.2332 10.0825 45.7924 11.3681 48.3972C12.0094 49.6965 12.7147 50.8106 13.4934 51.6136C14.2683 52.4128 15.2133 53 16.3125 53C18.3935 53 19.6538 51.3236 20.4922 49.5621C21.2699 47.9279 21.8739 45.8213 22.4609 43.7741C22.5256 43.5487 22.59 43.324 22.6544 43.1007C23.322 40.7873 23.9941 38.6083 24.8997 37.0069C25.803 35.4098 26.7837 34.6469 28 34.6469C29.2163 34.6469 30.1969 35.4098 31.1001 37.0068C32.0056 38.6082 32.6776 40.7872 33.3451 43.1007C33.4095 43.3238 33.4739 43.5482 33.5384 43.7734C34.1254 45.8208 34.7295 47.9278 35.5073 49.5621C36.3458 51.3237 37.6062 53 39.6875 53C40.7867 53 41.7317 52.4129 42.5067 51.6137C43.2854 50.8106 43.9908 49.6965 44.6321 48.3972C45.9177 45.7924 47.0469 42.2332 47.9821 38.3274C49.8541 30.5082 51 21.0768 51 14.5883C51 8.21244 45.9597 3.00001 39.6875 3.00001Z" fill="#2CA5F5" stroke="white" stroke-width="2"/>
+                                <path d="M22.0029 19.9706L25.9735 24.6765L34.0029 15.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="step-configurator__buttons">
+                  <a href="configurator.html" class="backlink">Назад</a>
+                  <button type="submit" class="step-configurator__submit">
+                    <span>Продолжить</span>
+                    <span class="step-configurator__circle">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.84069 17.1364L13.9771 11L7.84069 4.86363" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="configurator__order order-configurator">
+              <div class="order-configurator__container">
+                <div class="order-configurator__head head-orderConfigurator">
+                  <h2 class="head-orderConfigurator__title">Сведения о заказе</h2>
+                  <div class="head-orderConfigurator__prices">
+                    <div class="head-orderConfigurator__price_old">32 400 <font class="rub">i</font></div>
+                    <div class="head-orderConfigurator__price_actual">30 400 <font class="rub">i</font></div>
+                  </div>
+                </div>
+                <div data-spollers class="head-orderConfigurator__spollers spollers-orderConfigurator">
+                  <div class="spollers-orderConfigurator__spoller">
+                    <button type="button" data-spoller class="spollers-orderConfigurator__head _spoller-active">
+                      <div class="spollers-orderConfigurator__title">Брекеты</div>
+                      <a href="#" class="spollers-orderConfigurator__name">Damon Q2, <span>0.22</span></a>
+                      <div class="spollers-orderConfigurator__prices">
+                        <div class="spollers-orderConfigurator__price_old">30 400 <font class="rub">i</font></div>
+                        <div class="spollers-orderConfigurator__price_actual">28 400 <font class="rub">i</font></div>
+                      </div>
+                    </button>
+                    <div class="spollers-orderConfigurator__body">
+                      <div class="spollers-orderConfigurator__row spollers-orderConfigurator__row_first">
+                        <div class="spollers-orderConfigurator__item">Зуб</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Название товара</div>
+                        <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params">Параметры</div>
+                        <div class="spollers-orderConfigurator__item">Артикль</div>
+                        <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params  spollers-orderConfigurator__item_prices">Цена</div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">11</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">12</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">13</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="spollers-orderConfigurator__spoller">
+                    <button type="button" data-spoller class="spollers-orderConfigurator__head">
+                      <div class="spollers-orderConfigurator__title">Брекеты</div>
+                      <a href="#" class="spollers-orderConfigurator__name">Damon Q2, <span>0.22</span></a>
+                      <div class="spollers-orderConfigurator__prices">
+                        <div class="spollers-orderConfigurator__price_actual">2000 <font class="rub">i</font></div>
+                      </div>
+                    </button>
+                    <div class="spollers-orderConfigurator__body">
+                      <div class="spollers-orderConfigurator__row spollers-orderConfigurator__row_first">
+                        <div class="spollers-orderConfigurator__item">Зуб</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Название товара</div>
+                        <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params">Параметры</div>
+                        <div class="spollers-orderConfigurator__item">Артикль</div>
+                        <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params  spollers-orderConfigurator__item_prices">Цена</div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">11</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">12</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">13</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="spollers-orderConfigurator__spoller">
+                    <button type="button" data-spoller class="spollers-orderConfigurator__head">
+                      <div class="spollers-orderConfigurator__title">Щечные трубки</div>
+                      <div class="spollers-orderConfigurator__prices">
+                        <div class="spollers-orderConfigurator__price_actual">2000 <font class="rub">i</font></div>
+                      </div>
+                    </button>
+                    <div class="spollers-orderConfigurator__body">
+                      <div class="spollers-orderConfigurator__row spollers-orderConfigurator__row_first">
+                        <div class="spollers-orderConfigurator__item">Зуб</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Название товара</div>
+                        <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params">Параметры</div>
+                        <div class="spollers-orderConfigurator__item">Артикль</div>
+                        <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params  spollers-orderConfigurator__item_prices">Цена</div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">11</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">12</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                      <div class="spollers-orderConfigurator__row">
+                        <div class="spollers-orderConfigurator__item">13</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
+                          <img src="@img/configurator/tork_standart.svg" alt="image">
+                          <img src="@img/configurator/hook_soldered.svg" alt="image">
+                        </div>
+                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
+                          <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
+                          <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+			</main>
+			@@include('html/_footer.htm',{
+				"active": " "
+			})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

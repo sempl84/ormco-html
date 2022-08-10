@@ -193,6 +193,7 @@ export function spollers() {
 		let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
 		if (mdQueriesArray && mdQueriesArray.length) {
 			mdQueriesArray.forEach(mdQueriesItem => {
+				console.log(mdQueriesItem)
 				// Событие
 				mdQueriesItem.matchMedia.addEventListener("change", function () {
 					initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
@@ -450,7 +451,7 @@ export function showMore() {
 			window.addEventListener("resize", showMoreActions);
 
 			// Получение объектов с медиа запросами
-			mdQueriesArray = dataMediaQueries(showMoreBlocks, "showmoreMedia");
+			mdQueriesArray = (showMoreBlocks, "showmoreMedia");
 			if (mdQueriesArray && mdQueriesArray.length) {
 				mdQueriesArray.forEach(mdQueriesItem => {
 					// Событие

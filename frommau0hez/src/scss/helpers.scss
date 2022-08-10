@@ -434,10 +434,10 @@ input[type='checkbox'] {
 
 /* stepsline */
 .stepsline {
-	background: #F9F9F9; border-radius: 12px; height: 60px; display: flex;
+	background: #F9F9F9; border-radius: 12px; min-height: 60px; display: flex;
 	margin: 0 0 40px; color: var(--color-gray); font-weight: 600;
 	&_item {
-		flex: auto; display: flex; align-items: center; justify-content: center; position: relative;
+		flex: auto; display: flex; align-items: center; justify-content: center; position: relative; padding: rem(10) rem(15);
 		&::after {@include bf; @include icon(chevron,8px,14px, auto); right: 0; top: 50%; margin-top: -8px;}
 		&:last-child::after {content: none; display: none;}
 		&.active {color: #111;}
@@ -569,8 +569,10 @@ input[type='checkbox'] {
 		transition: all 200ms ease-in-out;
 	}
 	.ontop_hover {background-image: url(../img/svg/top-active.svg); opacity: 0;}
-	&:hover .ontop_inner {opacity: 0;}
-	&:hover .ontop_hover {opacity: 1;}
+  @media (any-hover: hover){
+    &:hover .ontop_inner {opacity: 0;}
+    &:hover .ontop_hover {opacity: 1;}
+  }
 }
 
 

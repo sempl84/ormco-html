@@ -71,6 +71,7 @@
 		"webpack-stream": "latest"
 	},
 	"dependencies": {
+		"clipboard-polyfill": "^4.0.0-rc1",
 		"simplebar": "latest"
 	}
 }

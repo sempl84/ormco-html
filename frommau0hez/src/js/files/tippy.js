@@ -15,12 +15,22 @@ import 'tippy.js/dist/backdrop.css';
 // Подключение cтилей из node_modules
 //import 'tippy.js/dist/tippy.css';
 
-function tippyInit() {
+export function tippyInit() {
   // Запускаем и добавляем в объект модулей
-  flsModules.tippy = tippy('[data-tippy-content]', {
-    theme: 'translucent',
-  
-  });
+  const tippies =document.querySelectorAll('[data-tippy-content]');
+  let thisTippy
+  if (tippies.length) {
+    flsModules.tippy = [];
+    tippies.forEach(tipp=>{
+      const place = tipp.dataset.position ? tipp.dataset.position : 'top-end'
+      thisTippy = tippy(tipp, {
+        allowHTML: true,
+        theme: 'translucent',
+        placement: place,
+      });
+      flsModules.tippy.push(tipp)
+    })
+  }
   const bottomTippies = document.querySelectorAll('[data-tippy-bottom]');
   if (bottomTippies.length) {
     bottomTippies.forEach(e => {

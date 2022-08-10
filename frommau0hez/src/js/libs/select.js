@@ -45,7 +45,7 @@ data-href-blank - откроет ссылку в новом окне
 */
 
 // Класс построения Select
-class SelectConstructor {
+export class SelectConstructor {
 	constructor(props, data = null) {
 		let defaultConfig = {
 			init: true,
@@ -105,7 +105,9 @@ class SelectConstructor {
 	// Функция инициализации всех селектов
 	selectsInit(selectItems) {
 		selectItems.forEach((originalSelect, index) => {
-			this.selectInit(originalSelect, index + 1);
+      if (!originalSelect.hasAttribute('data-no-js-select')) {
+        this.selectInit(originalSelect, index + 1);
+      }
 		});
 		// Обработчики событий...
 		// ...при клике
@@ -127,6 +129,11 @@ class SelectConstructor {
 	}
 	// Функция инициализации конкретного селекта
 	selectInit(originalSelect, index) {
+    if (originalSelect.parentElement.classList.contains('_select-active')) { 
+      let selectParent = originalSelect.parentElement;
+      selectParent.parentElement.insertBefore(originalSelect, selectParent.nextElementSibling);
+      selectParent.remove();
+    }
 		const _this = this;
 		// Создаем оболочку
 		let selectItem = document.createElement("div");
@@ -276,7 +283,15 @@ class SelectConstructor {
 			}
 		}
 		// Значение(я) или плейсхолдер
-		selectTitleValue = selectTitleValue.length ? selectTitleValue : (originalSelect.dataset.placeholder ? originalSelect.dataset.placeholder : '');
+    if (document.querySelector('.configurator .head-torkConfigurator__select')) {
+      if (selectTitleValue.length >=2) {
+        selectTitleValue = ['Несколько щечных трубок']
+      } else {
+        selectTitleValue = selectTitleValue.length ? selectTitleValue : (originalSelect.dataset.placeholder ? originalSelect.dataset.placeholder : '');
+      }
+    } else {
+      selectTitleValue = selectTitleValue.length ? selectTitleValue : (originalSelect.dataset.placeholder ? originalSelect.dataset.placeholder : '');
+    }
 		// Если включен режим pseudo
 		let pseudoAttribute = '';
 		let pseudoAttributeClass = '';
@@ -370,6 +385,13 @@ class SelectConstructor {
 	}
 	// Конструктор конкретного элемента списка
 	getOption(selectOption, originalSelect) {
+    let selectOptionDatas = '';
+    if (originalSelect.hasAttribute('data-option-data')) {
+      const selectOptionDataset = selectOption.dataset;
+      Object.keys(selectOptionDataset).forEach(key=>{
+        selectOptionDatas+=`data-${key}="${selectOptionDataset[key]}"`
+      })
+    }
 		// Если элемент выбран и включен режим мультивыбора, добавляем класс
 		const selectOptionSelected = selectOption.selected && originalSelect.multiple ? ` ${this.selectClasses.classSelectOptionSelected}` : '';
 		// Если элемент выбрани и нет настройки data-show-selected, скрываем элемент
@@ -381,7 +403,8 @@ class SelectConstructor {
 		const selectOptionLinkTarget = selectOption.hasAttribute('data-href-blank') ? `target="_blank"` : '';
 		// Строим и возвращаем конструкцию элемента
 		let selectOptionHTML = ``;
-		selectOptionHTML += selectOptionLink ? `<a ${selectOptionLinkTarget} ${selectOptionHide} href="${selectOptionLink}" data-value="${selectOption.value}" class="${this.selectClasses.classSelectOption}${selectOptionClass}${selectOptionSelected}">` : `<button ${selectOptionHide} class="${this.selectClasses.classSelectOption}${selectOptionClass}${selectOptionSelected}" data-value="${selectOption.value}" type="button">`;
+		selectOptionHTML += selectOptionLink ? `<a ${selectOptionLinkTarget} ${selectOptionHide} href="${selectOptionLink}" data-value="${selectOption.value}" class="${this.selectClasses.classSelectOption}${selectOptionClass}${selectOptionSelected}"` : `<button ${selectOptionHide} class="${this.selectClasses.classSelectOption}${selectOptionClass}${selectOptionSelected}" data-value="${selectOption.value}" type="button"`;
+		selectOptionHTML += selectOptionDatas + '>';
 		selectOptionHTML += this.getSelectElementContent(selectOption);
 		selectOptionHTML += selectOptionLink ? `</a>` : `</button>`;
 		return selectOptionHTML;
@@ -417,7 +440,12 @@ class SelectConstructor {
 				}
 				// Скрываем выбранную
 				optionItem.hidden = true;
-			}
+			} else {
+        selectItem.querySelectorAll('.select__option.select__option_selected').forEach(elem=>{
+          elem.classList.remove('select__option_selected');
+        })
+        optionItem.classList.add('select__option_selected');
+      }
 			originalSelect.value = optionItem.hasAttribute('data-value') ? optionItem.dataset.value : optionItem.textContent;
 			this.selectAction(selectItem);
 		}
@@ -483,7 +511,8 @@ class SelectConstructor {
 	selectCallback(selectItem, originalSelect) {
 		document.dispatchEvent(new CustomEvent("selectCallback", {
 			detail: {
-				select: originalSelect
+				select: selectItem,
+				originalSelect: originalSelect
 			}
 		}));
 	}
@@ -493,6 +522,7 @@ class SelectConstructor {
 	}
 }
 // Запускаем и добавляем в объект модулей
+
 flsModules.select = new SelectConstructor({});
 
 

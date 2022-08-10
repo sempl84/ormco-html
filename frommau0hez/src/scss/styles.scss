@@ -122,6 +122,9 @@
   background: #fff; box-shadow: 0px 0.5px 4px rgba(26, 26, 26, 0.08); display: none;
   position: fixed; top: 0; z-index: 1000; padding: 8px 0; left: 0;
   width: 100%;
+  .popup-show & {
+    z-index: 1;
+  }
   &_inner {display: flex; align-items: center; justify-content: space-between; height: 28px;}
   .logo img,
   .logo picture {display: block; height: 28px;}
@@ -158,6 +161,9 @@
 .mobile_footer {
   background: #fff; box-shadow: 0px -0.5px 4px rgba(26, 26, 26, 0.08); display: none;
   position: fixed; bottom: 0; left:0; width: 100%; z-index: 999;
+  .popup-show & {
+    z-index: 1;
+  }
   ul {display: flex;}
   li {width: 100%; text-align: center;}
   li a {
@@ -469,7 +475,9 @@ body.panel_opened .panel {transform: translateX(0);}
   &:last-child {margin: 0;}
   &_footer {display: flex; align-items: center; justify-content: space-between;}
   &_products {
-    background: #F9F9F9; border-radius: 12px; margin: 0 0 60px; padding: 16px 16px 1px;
+    background: #F9F9F9; border-radius: 12px; margin: 0 0 60px; padding: 16px;
+    &:not(:last-child) {
+    }
     .row {margin: 0 -8px;}
     .grid3 {padding: 0 8px; margin-bottom: 16px;}
     .pagination {margin-bottom: 16px;}
@@ -522,9 +530,11 @@ body.panel_opened .panel {transform: translateX(0);}
 
 /* filter_header */
 .filter_header {
-  display: flex; align-items: center; justify-content: space-between; margin: 0 0 28px;
+  display: flex; align-items: center; justify-content: space-between; margin: 0 0 28px;flex-wrap: wrap;
+  row-gap: rem(15);
   &_left {
-    display: flex; align-items: center;
+    display: flex; align-items: center;flex-wrap: wrap;
+    row-gap: rem(15);
     &.many {
       display: block; height: 40px; overflow: hidden; transition: height 200ms linear;
       .btn-icon {float: left; margin-bottom: 8px;}

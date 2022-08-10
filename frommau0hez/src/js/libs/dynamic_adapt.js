@@ -13,45 +13,50 @@ DynamicAdapt.prototype.init = function () {
 	// массив объектов
 	this.оbjects = [];
 	this.daClassname = "_dynamic_adapt_";
+	this.dynamicAllParents = document.querySelectorAll('[data-da-parent]').length ? document.querySelectorAll('[data-da-parent]') : document.querySelectorAll('body');
+	let dynamicAllParents = this.dynamicAllParents;
 	// массив DOM-элементов
-	this.nodes = document.querySelectorAll("[data-da]");
-	// наполнение оbjects объктами
-	for (let i = 0; i < this.nodes.length; i++) {
-		const node = this.nodes[i];
-		const data = node.dataset.da.trim();
-		const dataArray = data.split(",");
-		const оbject = {};
-		оbject.element = node;
-		оbject.parent = node.parentNode;
-		оbject.destination = document.querySelector(dataArray[0].trim());
-		оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
-		оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
-		оbject.index = this.indexInParent(оbject.parent, оbject.element);
-		this.оbjects.push(оbject);
-	}
-	this.arraySort(this.оbjects);
-	// массив уникальных медиа-запросов
-	this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
-		return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
-	}, this);
-	this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
-		return Array.prototype.indexOf.call(self, item) === index;
-	});
-	// навешивание слушателя на медиа-запрос
-	// и вызов обработчика при первом запуске
-	for (let i = 0; i < this.mediaQueries.length; i++) {
-		const media = this.mediaQueries[i];
-		const mediaSplit = String.prototype.split.call(media, ',');
-		const matchMedia = window.matchMedia(mediaSplit[0]);
-		const mediaBreakpoint = mediaSplit[1];
-		// массив объектов с подходящим брейкпоинтом
-		const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
-			return item.breakpoint === mediaBreakpoint;
+	for (let i = 0; i < dynamicAllParents.length; i++) {
+		this.dynamicAllParent = dynamicAllParents[i];
+		this.nodes = this.dynamicAllParent.querySelectorAll("[data-da]");
+		// наполнение оbjects объктами
+		for (let i = 0; i < this.nodes.length; i++) {
+			const node = this.nodes[i];
+			const data = node.dataset.da.trim();
+			const dataArray = data.split(",");
+			const оbject = {};
+			оbject.element = node;
+			оbject.parent = node.parentNode;
+			оbject.destination = this.dynamicAllParent.querySelector(dataArray[0].trim());
+			оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+			оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+			оbject.index = this.indexInParent(оbject.parent, оbject.element);
+			this.оbjects.push(оbject);
+		}
+		this.arraySort(this.оbjects);
+		// массив уникальных медиа-запросов
+		this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
+			return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
+		}, this);
+		this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
+			return Array.prototype.indexOf.call(self, item) === index;
 		});
-		matchMedia.addListener(function () {
-			_this.mediaHandler(matchMedia, оbjectsFilter);
-		});
-		this.mediaHandler(matchMedia, оbjectsFilter);
+		// навешивание слушателя на медиа-запрос
+		// и вызов обработчика при первом запуске
+		for (let i = 0; i < this.mediaQueries.length; i++) {
+			const media = this.mediaQueries[i];
+			const mediaSplit = String.prototype.split.call(media, ',');
+			const matchMedia = window.matchMedia(mediaSplit[0]);
+			const mediaBreakpoint = mediaSplit[1];
+			// массив объектов с подходящим брейкпоинтом
+			const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
+				return item.breakpoint === mediaBreakpoint;
+			});
+			matchMedia.addListener(function () {
+				_this.mediaHandler(matchMedia, оbjectsFilter);
+			});
+			this.mediaHandler(matchMedia, оbjectsFilter);
+		}
 	}
 };
 DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {

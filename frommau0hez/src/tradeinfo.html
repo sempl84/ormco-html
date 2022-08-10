@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Оплата, доставка, возврат"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page page_howorder">
+        <section class="tradeinfo">
+              <div class="howorder__head pagehead">
+                <div class="pagehead__container">
+                  <h1 class="howorder__title pagehead__title">Оплата, доставка, возврат</h1>
+                </div>
+              </div>
+          <div data-sticky="992" data-sticky-top="155" class="howorder__container">
+            <div class="howorder__cnt">
+              <div class="tradeinfo__body">
+                <div class="howorder__important important-howorder attention-howorder">
+                  <div class="important-howorder__body">
+                    <strong>Важная информация</strong>
+                    <p>Все заказы отправляются на предварительную обработку и проверку менеджером Ormco. Менеджер свяжется с вами для подтверждения состава заказа и способов оплаты и доставки. Затем вам придет e-mail, содержащий ссылку на онлайн-оплату или платежные документы (счет/квитанция), если вы выбрали один из этих способов оплаты.</p>
+                    <ul>
+                      <li><span>Если заказ оформлен после 17:00, он будет отправлен через 1 рабочий день.</span></li>
+                      <li><span>При доставке по России, оплата наличными, либо карточкой курьеру невозможны.</span></li>
+                      <li><span>Заказы обрабатываются и доставляются только по рабочим дням.</span></li>
+                      <li><span>Оплачивайте заказ только после того, как его подтвердил менеджер Ormco!</span></li>
+                      <li><span>Мы отправляем заказы <b>только по территории РФ</b> (кроме Крыма).</span></li>
+                      <li><span>Мы принимаем оплаты только с банковских/кредитных карт, эмитированных <br> <b>банками-резидентами РФ</b> (кроме Крыма) и только от юр.лиц, являющихся <b>резидентами РФ</b> (кроме Крыма).</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="howorder__body body-howorder" id="delivery">
+                  <div class="body-howorder__title">Доставка</div>
+                  <div class="howorder__attention attention-howorder">
+                    <div class="attention-howorder__title">Москва и Московская область</div>
+                    <div class="attention-howorder__body">
+                      <ul>
+                        <li>Стоимость доставки по Москве и Московской области - 500 р.</li>
+                        <li>При сумме заказа от 5 000 р., доставка по Москве бесплатная.</li>
+                        <li>При сумме заказа от 7 000 р., доставка по Московской области бесплатная.</li>
+                      </ul>
+                      <p>По Москве и Московской области доставка осуществляется курьерской службой КС Логистик.</p>
+                    </div>
+                  </div>
+                  <div class="howorder__attention attention-howorder">
+                    <div class="attention-howorder__title">Санкт-Петербург и Ленинградская область</div>
+                    <div class="attention-howorder__body">
+                      <ul>
+                        <li>Стоимость доставки по Санкт-Петербургу и Ленинградской области - 300 р. При сумме заказа более 3 000 р., доставка по Санкт-Петербургу бесплатная. </li>
+                        <li>При сумме заказа более 5 000 р., доставка по Ленинградской области бесплатная.</li>
+                      </ul>
+                      <p>По Санкт-Петербургу и Ленинградской области доставка осуществляется курьерской службой Контакт.</p>
+                    </div>
+                  </div>
+                  <div class="howorder__attention attention-howorder">
+                    <div class="attention-howorder__title">Другие регионы России</div>
+                    <div class="attention-howorder__body">
+                      <ul>
+                        <li>Стоимость доставки по Российской Федерации - 700 р.</li>
+                        <li>При сумме заказа от 20 000 р., доставка по Российской Федерации бесплатная.</li>
+                      </ul>
+                      <p>Доставка по Российской Федерации осуществляется службой экспресс-доставки DHL.</p>
+                      <p>Собранный заказ мы отправляем по адресу, указанному при оформлении заказа. В зависимости от региона, время в пути составляет 1-5 рабочих дней. Срок доставки зависит от региона - уточняйте подробности у наших менеджеров.</p>
+                    </div>
+                  </div>
+                  <div class="howorder__attention attention-howorder">
+                    <div class="attention-howorder__title">Самовывоз (бесплатно)</div>
+                    <div class="attention-howorder__body">
+                      <p>Покупки Интернет-магазина можно будет самостоятельно забрать только в офисе Ormco в Москве после окончания ограничительных мер, связанных с пандемией. В настощее время офисы закрыты для посещений. В офисе в Санкт-Петербурге опция самовывоза не предусмотрена.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="howorder__body body-howorder" id="payment">
+                  <div class="body-howorder__title">Оплата</div>
+                  <div class="howorder__attention attention-howorder">
+                    <div class="attention-howorder__body">
+                      <p>Получателем платежей является ООО "Ормко" <br>
+                      ИНН 7806182285 <br>
+                      КПП 780601001 <br>
+                      Р/С 40702810500390068001 в филиале АО КБ "Ситибанк" г.Санкт-Петербурге <br>
+                      К/С 30101810100000000765 <br>
+                      БИК 044030765 <br>
+                      ОГРН 1157847236073 <br>
+                      Адрес регистрации – 195112, Россия, г. Санкт-Петербург, Малоохтинский проспект, д.64, литер В, пом. 26Н</p>
+                      <span><a href="tel:+7 (812) 324-74-14 ">+7 (812) 324-74-14 </a></span>
+                      <span><a href="mailto:dc-sales@ormco.com">dc-sales@ormco.com</a></span>
+                    </div>
+                  </div>
+                  <div class="howorder__attention attention-howorder">
+                    <div class="attention-howorder__title">Способы оплаты</div>
+                    <div class="attention-howorder__body">
+                      <ul>
+                        <li><span>Банковской/кредитной картой онлайн через систему Pay Any Way. Онлайн платежи совершаются на сайте платежной системы и защищаются протоколом HTTPS и двухфакторной аутентификации пользователя 3D Secure. Ваши данные в безопасности;</span></li>
+                        <li><span>Наличными или банковской/кредитной картой курьеру при получении заказа;</span></li>
+                        <li><span>Наличными или банковской/кредитной картой в офисе Ormco в Москве с 9:30 до 17:00 с понедельника по пятницу. <b>После снятия ограничительных мер, сейчас недоступно;</b></span></li>
+                        <li><span>Наличными или банковской/кредитной картой по квитанции в любом городе в любом банке;</span></li>
+                        <li><span>Переводом денежных средств на расчетный счет ООО "Ормко" по счету для юридического лица.</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="howorder__attention attention-howorder">
+                    <div class="attention-howorder__title">Как оплатить заказ онлайн</div>
+                    <div class="attention-howorder__body">
+                      <ol>
+                        <li>Положите в корзину все нужные товары и оформите заказ.</li>
+                        <li>
+                          При оформлении выберите нужный способ доставки и вариант оплаты "Онлайн оплата".
+                        </li>
+                        <li>
+                          На ваш e-mail придет уведомление об успешном оформлении заказа.
+                        </li>
+                        <li>
+                          Дождитесь звонка менеджера Ormco для подтверждения заказа.
+                        </li>
+                        <li>
+                          После подтверждения заказа на ваш e-mail придет ссылка для онлайн оплаты. После перехода по ссылке откроется страница нашего сайта, на которой вам нужно подтвердить онлайн оплату. После этого вы будете переадресованы на страницу ввода реквизитов банковской карты.
+                        </li>
+                        <li>
+                          Введите реквизиты, проверочный код, полученный на телефон и завершите оплату.
+                        </li>
+                      </ol>
+                      <p>Форма для ввода данных карты выглядит следующим образом:</p>
+                      <img src="@img/static/howorder_4.png" alt="image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="howorder__important important-howorder">
+                <div class="important-howorder__body">
+                  <strong>Обратите внимание!</strong>
+                  <p>Для оплаты заказа на сайте банковской картой, у вас д.б. подключена услуга 3D Secure. Для карт Visa она называется Verified by Visa, для Mastercard - Mastercard SecureCode. Это подтверждение платежа через SMS-сообщение с проверочным кодом от банка. Эту услугу можете подключить только вы сами, обратившись в банк, выпустивший карту. Данная услуга бесплатная и является обязательной для всех онлайн платежей в любом Интернет-магазине. Если ранее вы оплачивали покупки в Интернете, значит к этой карте подключена данная услуга.</p>
+                </div>
+              </div>
+              <div class="howorder__attention body-howorder attention-howorder">
+                <div class="attention-howorder__body">
+                  <p>Подробности оплаты через систему Pay Any Way, список методов оплаты а также подробные инструкции по ним вы можете прочитать здесь: <a href="#">оплата через систему Pay Any Way</a></p>
+                </div>
+              </div>
+              
+              <div class="howorder__body body-howorder" id="refund">
+                <div class="body-howorder__title">Возврат товаров</div>
+                <div class="howorder__attention attention-howorder">
+                  <div class="attention-howorder__body">
+                    <p>Покупки подлежат возврату при соблюдении следующих условий:</p>
+                    <ol>
+                      <li>
+                        Вы сохранили документы (чек, накладная)
+                      </li>
+                      <li>
+                        Комплект возвращаемых товаров совпадает с изначальным заказом
+                      </li>
+                      <li>
+                        В случае возврата брекет-систем и другой индивидуальной аппаратуры она д.б. не использована
+                      </li>
+                      <li>
+                        Для юридических лиц возврат возможен в течение 30 календарных дней
+                      </li>
+                      <li>
+                        Для физических лиц возврат возможен в течение 15 календарных дней
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="howorder__attention attention-howorder">
+                <div class="attention-howorder__body">
+                  <p>По всем вопросам вы можете связаться с нашими менеджерами по работе с клиентами:</p>
+                  <p class="attention-howorder__paragraph">
+                    <span><b>СПб:</b> <a href="tel: +7 (812) 324-74-14">+7 (812) 324-74-14</a>, </span><span>E-mail: <a href="mailto:sales.stp@ormco.com">sales.stp@ormco.com</a>, </span><span>WhatsApp: <a href="#">+7 (931) 979-16-01</a>;</span> <br>
+                    <span><b>МСК:</b> <a href="tel: +7 (812) 324-74-14">+7 (812) 324-74-14</a>, </span><span>E-mail: <a href="mailto:sales.stp@ormco.com">sales.stp@ormco.com</a>, </span><span>WhatsApp: <a href="#">+7 (931) 979-16-01</a>;</span>
+                  </p>
+                  <p>Все подробности и нюансы вы всегда можете уточнить, обратившись в один из <a href="#">офисов Ormco</a>.</p>
+                  <a href="#">Как оформить заказ в Интернет-магазине</a>
+                  <a href="#">Перейти в каталог товаров</a>
+                </div>
+              </div>
+            </div>
+            <nav data-sticky-item class="howorder__anchors anchors-howorder">
+              <ul class="anchors-howorder__list">
+                <li class="anchors-howorder__item"><a href="#" data-goto-top="120" data-goto="#delivery" class="anchors-howorder__link">Доставка</a></li>
+                <li class="anchors-howorder__item"><a href="#" data-goto-top="120" data-goto="#payment" class="anchors-howorder__link">Оплата</a></li>
+                <li class="anchors-howorder__item"><a href="#" data-goto-top="120" data-goto="#refund" class="anchors-howorder__link">Возврат товара</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+
+
+				@@include('html/_subscribe.htm',{})
+				<div class="container _bottom">
+					<div class="h3">Контактные данные</div>
+					<div class="row contacts_row">
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">СПб, Малоохтинский пр., д.64, к.3</p>
+							<a href="tel:+78123247414">+7 (812) 324-74-14</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Москва, ул. Станиславского, д.21, стр. 3</p>
+							<a href="tel:+74956647555">+7 (495) 664-75-55</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Для звонков из регионов России</p>
+							<a href="tel:+78002227414">+7 (800) 222-74-14</a>
+						</div>
+						<div class="feedback_button_wrapper">
+							<a href="#" class="btn btn-xl btn-border  feedback_button">Обратная связь</a>
+						</div>
+					</div><!-- /contacts_row -->
+				
+					<div class="h3">Партнеры</div>
+					<div class="row partners_row">
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kerr.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kavo.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/nobel.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="https://med-resurs.org" target="_blank"><img src="@img/uploads/soyuz.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+					</div><!-- /partners_row -->
+				</div>
+
+			</main>
+			@@include('html/_footer.htm',{
+				"active": " "
+			})
+		</div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=c0e2bba9-a36a-4fd9-910d-626f0cefceb3" type="text/javascript"></script>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

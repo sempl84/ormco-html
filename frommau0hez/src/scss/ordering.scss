@@ -420,7 +420,7 @@
       max-width: none;
       min-height: calc(100vh - rem(80));
       border-radius: rem(20) rem(20) 0px 0px;
-      transform: none !important;
+      transform: none;
     }
     @media (max-width:$mobile){
       span[data-close] {
@@ -486,7 +486,7 @@
   }
 
   &__title {
-    @include adaptiveValue("font-size", 28, 20, 1920, 480, 1);
+    @include adaptiveValue("font-size", 28, 20, 1440, 480, 1);
     @media (max-width:$mobile){
       display: flex;
       flex-direction: column;
@@ -746,7 +746,7 @@
   }
 
   &__title {
-    @include adaptiveValue("font-size", 28, 20, 1920, 480, 1);
+    @include adaptiveValue("font-size", 28, 20, 1440, 480, 1);
   }
 
   &__more {

@@ -1,0 +1,637 @@
+.baloon-find {
+  padding: rem(8) rem(12);
+  background-color: #fff;
+  box-shadow: 0px rem(1) rem(4) rgba(26, 26, 26, 0.08);
+    border-radius: rem(4);
+  .popover-inner {
+      max-width: rem(320);
+      font-size: rem(13);
+      ymaps {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  @media (max-width:$mobile){
+    padding: rem(12) rem(16);
+  }
+
+  &__head {
+    &:not(:last-child) {margin-bottom: rem(8);}
+  }
+
+  &__type {
+    color: #8E8E93;
+  }
+
+  &__title {
+    font-weight: 600;
+    color: #111;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    @include adaptiveValue("column-gap", 12, 20, 1440, 480, 1);&:not(:last-child) {
+        margin-bottom: rem(8);
+      }
+  }
+  &__find {
+    @media (max-width:$mobile){
+      padding-bottom: rem(56);
+    }
+  }
+
+  &__location {
+    color: #8E8E93;
+  }
+
+  &__city {}
+
+  &__address {}
+
+  &__copy {
+    position: absolute;
+    right: 0;
+    transform: translateX(rem(25));
+    svg path {
+      transition: all 0.3s ease 0s;
+    }
+    @media (any-hover: hover){
+      &:hover{
+        svg path {
+          stroke: #2CA5F5;
+        }
+      }
+    }
+  }
+
+  &__link {
+    transition: font-weight 0.3s ease 0s;
+    color: #2CA5F5;
+    @media (any-hover: hover){
+      &:hover{
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media (min-width:$mobile) {
+  .popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    display: block;
+    max-width: 276px;
+    padding: 1px;
+    text-align: left;
+    white-space: normal;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+  }
+
+  .popover .arrow {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-top: rem(10) solid transparent;
+    border-left: rem(10) solid transparent;
+    border-right: rem(10) solid transparent;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .popover .close {
+    @media (min-width:$mobile) {
+      display: none;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.find {
+  @media (max-width:$tablet){
+    padding-top: rem(24);
+  }
+  &__container {}
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(4);
+    @media (min-width:$mobileSmall){
+      align-items: center;
+    }
+    @media (max-width:$mobileSmall){
+      flex-direction: column;
+    }
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 32, 1440, 480, 1);
+    }
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__refusal {}
+
+  &__search {}
+
+  &__map {}
+
+  &__bottom {
+    max-width: rem(793);
+    @include adaptiveValue("padding-top", 60, 0, 1440, 480, 1);
+    @include adaptiveValue("padding-bottom", 152, 60, 1920, 767, 1);
+    p {
+      &:not(:last-child) {margin-bottom: rem(20);}
+      a {
+        color: #2CA5F5;
+        text-decoration: underline !important;
+        @media (any-hover: hover){
+          &:hover{
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.refusal-find {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  font-size: rem(15);
+  color: #2CA5F5;
+
+  &__icon {}
+
+  &__text {}
+}
+
+.search-find {
+  &:not(:last-child) {margin-bottom: rem(40);}
+
+  &__head {
+    &:not(:last-child) {margin-bottom: rem(22);}
+    @media (max-width:$mobile){
+      display: none;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: rem(18);
+  }
+
+  &__body {}
+
+  &__boxes {}
+
+  &__selects {}
+  
+  &__button {
+    width: 100%;
+    color: #fff;
+    background-color: #2CA5F5;
+    margin-top: rem(20);
+    min-height: rem(54);
+    @media (min-width:$mobile) {
+      display: none;
+    }
+  }
+}
+
+.boxes-find {
+  display: flex;
+  flex-wrap: wrap;
+  @include adaptiveValue("gap", 31, 12, 1440, 480, 1);
+  &:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 24, 20, 1440, 480, 1);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: rem(7);
+  }
+
+  &__checkbox {}
+
+  &__label {
+    cursor: pointer;
+  }
+
+}
+
+
+.selects-find {
+  display: flex;
+  @include adaptiveValue("gap", 16, 12, 1440, 480, 1);
+  @media (max-width:$mobile){
+    flex-direction: column;
+  }
+
+  &__item {
+    button {
+      white-space: nowrap;
+    }
+    @media (min-width:$mobile){
+      flex: 0 0 rem(360);
+    }
+    @media (max-width:$mobile){
+      flex: 1 1 auto;
+    }
+    .select {
+      position: relative;
+    
+      // .select__body
+      &__body {
+        position: relative;
+      }
+    
+      // .select__title
+      &__title {
+        border: none;
+        background-color: #F5F5F5;
+        border-radius: rem(4);
+      }
+    
+      // .select__value
+      &__value {
+        height: auto;
+        padding: rem(17) rem(12);
+        color: #8E8E93;
+    
+        >* {
+          flex: 1 1 auto;
+        }
+    
+        &:after {
+          align-self: center;
+          flex: 0 0 10px;
+          transition: all 0.3s ease 0s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: rem(10);
+          border-bottom: rem(2) solid #8E8E93;
+          border-left: rem(2) solid #8E8E93;
+          transform: rotate(-45deg);
+        }
+    
+        &._select-pseudo-label {
+          &::before {
+            content: attr(data-pseudo-label);
+            opacity: 0.5;
+          }
+        }
+      }
+    
+      // .select__text
+      &__text {
+        flex: 1 1 auto;
+      }
+    
+      &__input {
+        width: 100%;
+        background-color: transparent;
+        height: 100%;
+      }
+    
+      // .select__options
+      &__options {
+        color: #000;
+        position: absolute;
+        top: calc(100% - rem(1));
+        border-radius: 0 0 4px 4px;
+        min-width: 100%;
+        left: 0;
+        background-color: #F5F5F5;
+        border-top: 0;
+        border: none;
+        border-top: 0;
+        padding: 10px 0px 5px 0px;
+        z-index: 909;
+      }
+    
+      // .select__scroll
+      &__scroll {
+        overflow-y: auto;
+        overflow-x: hidden;
+        // Максимальная высота
+        max-height: 200px;
+    
+        // Стили скроллбара
+        .simplebar-scrollbar {
+          &::before {
+            //opacity: 1;
+          }
+        }
+      }
+    
+      // .select__option
+      &__option {
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        padding: 5px 15px;
+        color: inherit;
+        &_selected {
+          display: none;
+        }
+    
+        &._select-selected {
+          background-color: #eee;
+        }
+    
+        @media (any-hover: hover) {
+          &:hover {
+            background: #d9d9d9;
+          }
+        }
+      }
+    
+      // Конструкция дополнительных данных
+      &__row {
+        display: inline-flex;
+        align-items: center;
+      }
+    
+      &__asset {}
+    
+      &__text {}
+    
+      // Состояния селекта
+      &._select-open {
+        z-index: 910;
+      }
+    
+      &._select-disabled {}
+    
+      &._select-active {}
+    
+      &._select-focus {}
+    
+      &._select-multiple {}
+    
+      &._select-checkbox {}
+    }
+  }
+
+  &__select {
+
+    &_region {}
+
+    &_city {}
+  }
+}
+
+.selects-find__item ._select-open .select__value:after {
+  transform: rotate(-225deg);
+}
+
+.map-find {
+  @media (max-width:$mobile){
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9000;
+    transition: transform 0.3s ease 0s;
+    transform: translateX(150%);
+    .find-map-open & {
+      transform: none;
+    }
+  }
+
+  &__head {
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0px 0.5px 4px rgba(26, 26, 26, 0.08);
+    text-align: center;
+    padding: rem(14);
+    font-weight: 600;
+    @media (min-width:$mobile){
+      display: none;
+    }
+  }
+
+  &__back {
+    position: absolute;
+    left: rem(16);
+    top: 50%;
+    transform: translateY(-50%);
+    width: rem(24);
+    height: rem(24);
+    display: flex;
+    justify-content:center;align-items: center;
+  }
+
+  &__title {}
+
+  &__body {
+    @media (min-width:$mobile){
+      height: rem(520);
+      border-radius: rem(20);
+      overflow: hidden;
+    }
+    @media (max-width:$mobile){
+      height: calc(100vh - rem(48));
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.refusalPopup {
+
+  &__content {
+    max-width: rem(480);
+    border-radius: rem(8);
+    position: relative;
+    padding: rem(52) rem(24) rem(32);
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(12);
+    right: 0;
+    background-color: transparent;
+    @media (min-width:$mobileSmall){
+      transform: translateX(50%);
+    }
+    @media (max-width:$mobileSmall){
+      right: rem(12);
+    }
+  }
+
+  &__text {}
+
+  &__head {
+    &:not(:last-child) {margin-bottom: rem(12);}
+  }
+
+  &__title {
+    color: #111;
+    font-weight: 600;
+    font-size: rem(20);
+  }
+
+  &__body {
+    font-size: rem(13);
+    &:not(:last-child) {
+      margin-bottom: rem(24);
+    }
+    p {
+      &:not(:last-child) {margin-bottom: rem(20);}
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    color: #fff;
+    background-color: #2CA5F5;
+    transition: all 0.3s ease 0s;
+    min-height: rem(54);
+    &:not(:last-child) {margin-bottom: rem(20);}
+    @media (any-hover: hover){
+      &:hover{
+        background-color: $blue2;
+      }
+    }
+  }
+
+  &__link {
+    text-align: center;
+    color: #2CA5F5;
+    @media (any-hover: hover){
+      &:hover{
+        text-decoration: underline !important;
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.list-dealers {
+  @media (min-width:$mobile){
+    padding-top: rem(60);
+  }
+  @include adaptiveValue("padding-bottom", 100, 40, 1440, 480, 1);
+
+  &_table {}
+
+  &__head {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 14, 1440, 480, 1);
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 28, 20, 1440, 480, 1);
+  }
+
+  &__body {
+    height: rem(444);
+    @media (min-width:$tablet){
+      border-radius: rem(29);
+      border: rem(1) solid rgba(142, 142, 147, 0.2);
+    }
+    @media (max-width:$mobile){
+      height: rem(767);
+    }
+  }
+
+  &__row {
+    line-height: 1.36;
+    border-bottom: rem(1) solid #f5f5f5;
+    @media (max-width:$tablet){
+      padding: rem(16) rem(0);
+    }
+    display: grid;
+    @media (min-width:$tablet){
+      padding: rem(20) rem(24);
+      @include adaptiveValue("gap", 40, 15, 1920, 992, 1);
+      grid-template-columns: 8.3% 16.6% auto 11.6% 21%;
+    }
+    a {
+      display: block;
+      transition: color 0.3s ease 0s;
+      color: #2CA5F5;
+      white-space: nowrap;
+      @media (any-hover: hover){
+        &:hover{
+          color: $blue2;
+        }
+      }
+    }
+
+    &_first {
+      @media (min-width:$tablet){
+        padding-top: rem(24);
+        padding-bottom: rem(12);
+        color: #8E8E93;
+      }
+      @media (max-width:$tablet){
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+
+    &_country {
+      @media (max-width:$tablet) {
+          color: #8E8E93;
+          font-size: rem(13);
+          grid-row-start: 2;
+          grid-row-end: 3;
+          &:not(:last-child) {margin-bottom: rem(8);}
+        }
+    }
+
+    &_name {
+      @media (max-width:$tablet){
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+    }
+
+    &_adress {
+      @media (max-width:$tablet){
+        &:not(:last-child) {margin-bottom: rem(12);}
+      }
+    }
+
+    &_phone {
+      &:not(:last-child) {margin-bottom: rem(8);}
+    }
+
+    &_email {}
+  }
+}

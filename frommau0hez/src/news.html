@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Оплата, доставка, возврат"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page page_howorder">
+        <section class="news">
+          <div class="news__container">
+            <div class="news__head pagehead">
+              <div class="news__title pagehead__title">Новости</div>
+            </div>
+            <div class="news__body">
+              <a href="#" class="news__item item-news">
+                <div class="item-news__image">
+                  <img src="@img/static/news_1.png" alt="image">
+                </div>
+                <div class="item-news__body">
+                  <div class="item-news__title">Опровергаем популярные мифы</div>
+                  <div class="item-news__label">30 марта 2022</div>
+                  <div class="item-news__preview">Сегодня появляется много мифов о ситуации в ортодонтии и в частности о режиме работы Ormco в России. На этой странице мы подготовили подборку опровержений самых распространенных мифов.</div>
+                </div>
+              </a>
+              <a href="#" class="news__item item-news">
+                <div class="item-news__image">
+                  <img src="@img/static/news_2.png" alt="image">
+                </div>
+                <div class="item-news__body">
+                  <div class="item-news__title">30 лет Ormco в России</div>
+                  <div class="item-news__label">30 марта 2022</div>
+                </div>
+              </a>
+              <a href="#" class="news__item item-news">
+                <div class="item-news__image">
+                  <img src="@img/static/news_3.png" alt="image">
+                </div>
+                <div class="item-news__body">
+                  <div class="item-news__title">Важная информация о порядке обработки заказов Интернет-магазина</div>
+                  <div class="item-news__label">30 марта 2022</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+				@@include('html/_subscribe.htm',{})
+				<div class="container _bottom">
+					<div class="h3">Контактные данные</div>
+					<div class="row contacts_row">
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">СПб, Малоохтинский пр., д.64, к.3</p>
+							<a href="tel:+78123247414">+7 (812) 324-74-14</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Москва, ул. Станиславского, д.21, стр. 3</p>
+							<a href="tel:+74956647555">+7 (495) 664-75-55</a>
+						</div>
+						<div class="grid3 tb6 sm12">
+							<p class="color-grey">Для звонков из регионов России</p>
+							<a href="tel:+78002227414">+7 (800) 222-74-14</a>
+						</div>
+						<div class="feedback_button_wrapper">
+							<a href="#" class="btn btn-xl btn-border  feedback_button">Обратная связь</a>
+						</div>
+					</div><!-- /contacts_row -->
+				
+					<div class="h3">Партнеры</div>
+					<div class="row partners_row">
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kerr.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/kavo.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="#"><img src="@img/uploads/nobel.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+						<div class="grid2 tb4 sm6">
+							<div class="partner">
+								<a href="https://med-resurs.org" target="_blank"><img src="@img/uploads/soyuz.png" alt=""></a>
+							</div>
+						</div><!-- /grid -->
+					</div><!-- /partners_row -->
+				</div>
+
+			</main>
+			@@include('html/_footer.htm',{
+				"active": " "
+			})
+		</div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=c0e2bba9-a36a-4fd9-910d-626f0cefceb3" type="text/javascript"></script>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

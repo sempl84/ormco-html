@@ -10,6 +10,7 @@ export function pageNavigation() {
 	// data-goto - указать ID блока
 	// data-goto-header - учитывать header
 	// data-goto-top - недокрутить на указанный размер
+	// data-goto-top-mobile - недокрутить на указанный размер на мобильном
 	// data-goto-speed - скорость (только если используется доп плагин)
 	// Работаем при клике на пункт
 	document.addEventListener("click", pageNavigationAction);
@@ -33,8 +34,16 @@ export function pageNavigation() {
 				}
 				if (gotoLink.dataset.gotoTopMobile && window.innerWidth > 1020) {
 					gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTopMobile);
+					document.querySelectorAll('[data-goto]').forEach(e => {
+						e.classList.remove('_goto-active');
+					});
+					targetElement.closest('[data-goto]').classList.add('_goto-active');
 				} else {
 					gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+					document.querySelectorAll('[data-goto]').forEach(e => {
+						e.classList.remove('_goto-active');
+					});
+					targetElement.closest('[data-goto]').classList.add('_goto-active');
 				}
 				e.preventDefault();
 			}
@@ -127,13 +136,16 @@ export function stickyBlock() {
 		const stickyParents = document.querySelectorAll('[data-sticky]');
 		if (stickyParents.length) {
 			stickyParents.forEach(stickyParent => {
-				let stickyConfig = {
-					media: stickyParent.dataset.sticky ? parseInt(stickyParent.dataset.sticky) : null,
-					top: stickyParent.dataset.stickyTop ? parseInt(stickyParent.dataset.stickyTop) : 0,
-					bottom: stickyParent.dataset.stickyBottom ? parseInt(stickyParent.dataset.stickyBottom) : 0,
-					header: stickyParent.hasAttribute('data-sticky-header') ? document.querySelector('header.header').offsetHeight : 0
+				let media = stickyParent.dataset.sticky;
+				if (media === '' || window.innerWidth >= media) {
+					let stickyConfig = {
+						media: stickyParent.dataset.sticky ? parseInt(stickyParent.dataset.sticky) : null,
+						top: stickyParent.dataset.stickyTop ? parseInt(stickyParent.dataset.stickyTop) : 0,
+						bottom: stickyParent.dataset.stickyBottom ? parseInt(stickyParent.dataset.stickyBottom) : 0,
+						header: stickyParent.hasAttribute('data-sticky-header') ? document.querySelector('header.header').offsetHeight : 0
+					}
+					stickyBlockItem(stickyParent, stickyConfig);
 				}
-				stickyBlockItem(stickyParent, stickyConfig);
 			});
 		}
 	}
@@ -144,7 +156,7 @@ export function stickyBlock() {
 		const startPoint = stickyBlockItem.getBoundingClientRect().top + scrollY - offsetTop + 50;
 
 		document.addEventListener("windowScroll", stickyBlockActions);
-		//window.addEventListener("resize", stickyBlockActions);
+		window.addEventListener("resize", stickyBlockActions);
 
 		function stickyBlockActions(e) {
 			const endPoint = (stickyParent.offsetHeight + stickyParent.getBoundingClientRect().top + scrollY) - (offsetTop + stickyBlockItem.offsetHeight + stickyConfig.bottom);
@@ -157,6 +169,8 @@ export function stickyBlock() {
 			}
 			if (!stickyConfig.media || stickyConfig.media < window.innerWidth) {
 				if (offsetTop + stickyConfig.bottom + stickyBlockItem.offsetHeight < window.innerHeight) {
+          console.log(scrollY)
+          console.log(startPoint)
 					if (scrollY >= startPoint && scrollY <= endPoint) {
 						stickyItemValues.position = `fixed`;
 						stickyItemValues.bottom = `auto`;
@@ -168,7 +182,7 @@ export function stickyBlock() {
 						stickyItemValues.position = `absolute`;
 						stickyItemValues.bottom = `${stickyConfig.bottom}px`;
 						stickyItemValues.top = `auto`;
-						stickyItemValues.left = `0px`;
+						stickyItemValues.left = `${stickyBlockItem.getBoundingClientRect().left}px`; // Учесть разницу в ширине экрана?
 						stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
 						stickyParent.classList.remove('_sticky');
 					} else if (scrollY <= startPoint) {
@@ -183,6 +197,7 @@ export function stickyBlock() {
 		stickyBlockItem.style.cssText = `position:${stickyItemValues.position};bottom:${stickyItemValues.bottom};top:${stickyItemValues.top};left:${stickyItemValues.left};width:${stickyItemValues.width};`;
 	}
 	stickyBlockInit();
+  // window.addEventListener('resize', stickyBlockInit);
 }
 // При подключении модуля обработчик события запустится автоматически
 setTimeout(() => {

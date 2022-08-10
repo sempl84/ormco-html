@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Конфигуратор брекет-систем"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page page_configurator">
+
+        <div class="configurator">
+          <div class="configurator__head head-configurator">
+            <div class="head-configurator__container">
+              <div class="head-configurator__breadcumps">
+                <a href="#">Главная</a><span>Подборщик брекет-систем</span>
+              </div>
+              <div class="head-configurator__title pagehead__title">Подборщик брекет-системы</div>
+              <div class="head-configurator__stepsline stepsline">
+                <div class="stepsline_item checked"><span>Брекеты</span></div>
+                <div class="stepsline_item active"><span>Лигатуры</span></div>
+                <div class="stepsline_item"><span>Торк</span></div>
+                <div class="stepsline_item"><span>Смещение</span></div>
+                <div class="stepsline_item"><span>Крючки</span></div>
+                <div class="stepsline_item"><span>Щечные трубки</span></div>
+                <div class="stepsline_item"><span>Дуги</span></div>
+                <div class="stepsline_item"><span>Дополнительные товары</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="configurator__steps">
+            <form method="post" action="#" data-ajax class="configurator__step configurator__step_one step-configurator">
+              <div class="step-configurator__container">
+                <div class="config_wrapper">
+                  
+                  <h2>Выберите лигатуры</h2>
+                  
+                  <div class="filter_header">
+                    <select data-no-js-select class="select_rounded">
+                      <option>Любой материал</option>
+                      <option>Любой материал</option>
+                      <option>Любой материал</option>
+                    </select>
+                    <a href="#" class="filter_header_clear">Очистить фильтры</a>
+                  </div><!-- /filter_header -->
+              
+                  <div class="config_wrapper_products">
+                    <div class="row">
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.", "price": "1 420", "pic":"1.jpg" } )
+                      </div>
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши", "price": "1 420", "pic":"1.jpg" } )
+                      </div>
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием", "price": "1 420", "pic":"2.jpg" } )
+                      </div>
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная", "price": "1 420", "pic":"1.jpg" } )
+                      </div>
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.", "price": "1 420", "pic":"2.jpg" } )
+                      </div>
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши", "price": "1 420", "pic":"2.jpg" } )
+                      </div>
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием", "price": "1 420", "pic":"1.jpg" } )
+                      </div>
+                      <div class="grid3 md4 tb6 xs12">
+                        @@include('inc/product.html', { "title": "Стальная полузакрученная", "price": "1 420", "pic":"2.jpg" } )
+                      </div>
+                    </div>
+                    <div class="items-tubes__pagination pagination-tubes">
+                      <!-- <a href="#" class="pagination-tubes__item">Назад</a> -->
+                      <div class="pagination-tubes__item pagination-tubes__item_active">1</div>
+                      <a href="#" class="pagination-tubes__item">2</a>
+                      <a href="#" class="pagination-tubes__item">3</a>
+                      <a href="#" class="pagination-tubes__item">4</a>
+                      <a href="#" class="pagination-tubes__item">5</a>
+                      <a href="#" class="pagination-tubes__item pagination-tubes__item_arrow">Вперед</a>
+                    </div>
+                  </div><!-- /config_wrapper_products -->
+                </div><!-- /config_wrapper -->
+                <div class="step-configurator__buttons">
+                  <a href="configurator.html" class="backlink">Назад</a>
+                  <button type="submit" class="step-configurator__submit">
+                    <span>Продолжить</span>
+                    <span class="step-configurator__circle">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.84069 17.1364L13.9771 11L7.84069 4.86363" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+			</main>
+			@@include('html/_footer.htm',{
+				"active": " "
+			})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>
