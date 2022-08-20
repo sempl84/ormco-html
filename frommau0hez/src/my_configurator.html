@@ -4,13 +4,30 @@
 	"title":"Конфигуратор брекет-систем"
 	})
 	<body>
-		<div class="wrapper">
+		<div class="wrapper wrapper_configurator">
 			@@include('html/_header.htm',{})
 			<main class="page page_configurator">
 
         <div class="configurator">
           <div class="configurator__head head-configurator">
             <div class="head-configurator__container">
+
+
+              <div class="head-configurator__mobtitle mobtitle-headConfigurator">
+                <a href="#" class="mobtitle-headConfigurator__back">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.4375 18.75L4.6875 12L11.4375 5.25M5.625 12L19.3125 12" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <span class="mobtitle-headConfigurator__name">Выбор брекет системы</span>
+                <a href="#" class="mobtitle-headConfigurator__close">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="12" fill="#F5F5F5"/>
+                    <path d="M15.2812 8.71875L8.71875 15.2812M15.2812 15.2812L8.71875 8.71875L15.2812 15.2812Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
               <div class="head-configurator__breadcumps">
                 <a href="#">Главная</a><span>Подборщик брекет-систем</span>
               </div>
@@ -243,7 +260,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="step-configurator__item item-stepConfigurator">
+                  <div class="step-configurator__item item-stepConfigurator item-stepConfigurator_wrap">
                     <div class="item-stepConfigurator__head">
                       <div class="item-stepConfigurator__title">2. Метод лигирования</div>
                     </div>
@@ -266,7 +283,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="step-configurator__item item-stepConfigurator">
+                  <div class="step-configurator__item item-stepConfigurator item-stepConfigurator_wrap">
                     <div class="item-stepConfigurator__head">
                       <div class="item-stepConfigurator__title">3. Материал</div>
                     </div>
@@ -356,7 +373,7 @@
 
 			</main>
 			@@include('html/_footer.htm',{
-				"active": " "
+				"md3": "_md3dn"
 			})
 		</div>
 		@@include('html/_js.htm',{})

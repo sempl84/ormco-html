@@ -113,8 +113,14 @@
     display: flex;
     align-items: center;
     gap: rem(8);
+    transition: all 0.3s ease;
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 12, 16, 1440, 480, 1);
+    }
+    @media (any-hover: hover){
+      &:hover{
+        color: $blue;
+      }
     }
   }
 

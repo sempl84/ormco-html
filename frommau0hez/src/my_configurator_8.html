@@ -4,13 +4,27 @@
 	"title":"Конфигуратор брекет-систем"
 	})
 	<body>
-		<div class="wrapper">
+		<div class="wrapper wrapper_configurator">
 			@@include('html/_header.htm',{})
 			<main class="page page_configurator">
 
         <div class="configurator">
           <div class="configurator__head head-configurator">
             <div class="head-configurator__container">
+              <div class="head-configurator__mobtitle mobtitle-headConfigurator">
+                <a href="#" class="mobtitle-headConfigurator__back">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.4375 18.75L4.6875 12L11.4375 5.25M5.625 12L19.3125 12" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <span class="mobtitle-headConfigurator__name">Выбор дуг</span>
+                <a href="#" class="mobtitle-headConfigurator__close">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="12" fill="#F5F5F5"/>
+                    <path d="M15.2812 8.71875L8.71875 15.2812M15.2812 15.2812L8.71875 8.71875L15.2812 15.2812Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
               <div class="head-configurator__breadcumps">
                 <a href="#">Главная</a><span>Подборщик брекет-систем</span>
               </div>
@@ -26,123 +40,243 @@
               </div>
             </div>
           </div>
-          <div class="configurator__steps">
+          <div data-sticky="768" data-sticky-top="44"  class="configurator__steps configurator__steps_ligatures">
+            <a data-sticky-item href="#allfilters" class="filtersButton js-allfilters">
+              <div class="container">
+                <div class="filtersButton__body">
+                  <span>Фильтры <span class="counter">0</span></span>
+                  <img src="@img/icons/filters.svg" alt="image">
+                </div>
+              </div>
+            </a>
             <form method="post" action="#" class="configurator__step configurator__step_one step-configurator">
               <div class="step-configurator__container">
-                <div class="step-configurator__head">
-                  <h2 class="step-configurator__title">Выберите дуги</h2>
-                </div>
-                <div class="step-configurator__arcs arcs-configurator">
-                  <div class="filter_header">
-                    <div class="filter_header_left">
-                      <div class="check-select">
-                        <button type="button" class="check-select__select btn btn btn-icon btn-select">Damon</button>
-                        <div class="check-select__dropdown">
-                          <ul>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
-                            </li>
-                          </ul>
-                          <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                <div class="config_wrapper">
+                  <div class="step-configurator__head">
+                    <h2 class="step-configurator__title">Выберите дуги</h2>
+                  </div>
+                  <div class="step-configurator__arcs arcs-configurator">
+                    <div class="filter_header">
+                      <div class="filter-header__body">
+                        <div class="filter_header_left">
+                          <div class="check-select">
+                            <button type="button" class="check-select__select btn btn btn-icon btn-select">Damon</button>
+                            <div class="check-select__dropdown">
+                              <ul>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
+                                </li>
+                              </ul>
+                              <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                            </div>
+                          </div><!-- /check-select -->
+                          <div class="check-select">
+                            <button type="button" class="check-select__select btn btn btn-icon btn-select">Материалы</button>
+                            <div class="check-select__dropdown">
+                              <ul>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="CuNi-Ti"> CuNi-Ti</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="D-rect"> D-rect</label>
+                                </li>
+                                <li>
+                                  <label disabled class="check-field"><input type="checkbox" value="SS"> SS</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Ni-Ti"> Ni-Ti</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Respond"> Respond</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Tripleflex"> Tripleflex</label>
+                                </li>
+                              </ul>
+                              <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                            </div>
+                          </div><!-- /check-select -->
+                          <div class="check-select">
+                            <button type="button" class="check-select__select btn btn btn-icon btn-select">Сечение</button>
+                            <div class="check-select__dropdown">
+                              <ul>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Сечение 1"> Сечение 1</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Сечение 2"> Сечение 2</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Сечение 3"> Сечение 3</label>
+                                </li>
+                              </ul>
+                              <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                            </div>
+                          </div><!-- /check-select -->
+                          <div class="check-select">
+                            <button type="button" class="check-select__select btn btn btn-icon btn-select">Челюсть</button>
+                            <div class="check-select__dropdown">
+                              <ul>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Челюсть 1"> Челюсть 1</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Челюсть 2"> Челюсть 2</label>
+                                </li>
+                                <li>
+                                  <label class="check-field"><input type="checkbox" value="Челюсть 3"> Челюсть 3</label>
+                                </li>
+                              </ul>
+                              <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                            </div>
+                          </div><!-- /check-select -->
+                          <a href="#allfilters" class="btn btn-icon btn-allfilter js-allfilters">Все фильтры</a>
                         </div>
-                      </div><!-- /check-select -->
-                      <div class="check-select">
-                        <button type="button" class="check-select__select btn btn btn-icon btn-select">Материалы</button>
-                        <div class="check-select__dropdown">
-                          <ul>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="CuNi-Ti"> CuNi-Ti</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="D-rect"> D-rect</label>
-                            </li>
-                            <li>
-                              <label disabled class="check-field"><input type="checkbox" value="SS"> SS</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Ni-Ti"> Ni-Ti</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Respond"> Respond</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Tripleflex"> Tripleflex</label>
-                            </li>
-                          </ul>
-                          <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                        <a href="#" class="filter_header_clear" id="clearConfig">Очистить фильтры</a>
+                      </div>
+                    </div><!-- /filter_header -->
+  
+  
+                    <div class="config_products">
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
                         </div>
-                      </div><!-- /check-select -->
-                      <div class="check-select">
-                        <button type="button" class="check-select__select btn btn btn-icon btn-select">Сечение</button>
-                        <div class="check-select__dropdown">
-                          <ul>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Сечение 1"> Сечение 1</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Сечение 2"> Сечение 2</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Сечение 3"> Сечение 3</label>
-                            </li>
-                          </ul>
-                          <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon <br>
+                            .014 х .025</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              <span>1420 <font class="rub">i</font></span>
+                            </div>
+                            <button class="slide-article__buy">В корзину</button>
+                          </div>
                         </div>
-                      </div><!-- /check-select -->
-                      <div class="check-select">
-                        <button type="button" class="check-select__select btn btn btn-icon btn-select">Челюсть</button>
-                        <div class="check-select__dropdown">
-                          <ul>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Челюсть 1"> Челюсть 1</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Челюсть 2"> Челюсть 2</label>
-                            </li>
-                            <li>
-                              <label class="check-field"><input type="checkbox" value="Челюсть 3"> Челюсть 3</label>
-                            </li>
-                          </ul>
-                          <button type="button" class="check-select__btn btn btn-blue btn-block btn-sm">Применить</button>
+                      </div>
+                      <div class="article__slide slide-article swiper-slide">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
                         </div>
-                      </div><!-- /check-select -->
-                      <a href="#allfilters" class="btn btn-icon btn-allfilter js-allfilters">Все фильтры</a>
-                    </div>
-                    <a href="#" class="filter_header_clear" id="clearConfig">Очистить фильтры</a>
-                  </div><!-- /filter_header -->
-
-
-                  <div class="config_wrapper_products">
-                    <div class="row">
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.", "price": "1 420", "pic":"3.jpg" } )
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon .016</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              <span>1420 <font class="rub">i</font></span>
+                            </div>
+                            <button class="slide-article__buy">В корзину</button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши", "price": "1 420", "pic":"3.jpg" } )
+                      <div class="article__slide slide-article">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon <br> .016х.025 торковый изгиб 20° 34 мм</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              <span>1420 <font class="rub">i</font></span>
+                            </div>
+                            <div class="slide-article__buy slide-article__buy_quantity">
+                              <div class="quantity">
+                                <button type="button" class="quantity__button quantity__button_minus"></button>
+                                <div class="quantity__input">
+                                  <input autocomplete="off" type="text" name="form[]" value="1">
+                                </div>
+                                <button type="button" class="quantity__button quantity__button_plus"></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием", "price": "1 420", "pic":"3.jpg" } )
+                      <div class="article__slide slide-article">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon <br>
+                            .014 х .025</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              <span>1420 <font class="rub">i</font></span>
+                            </div>
+                            <button class="slide-article__buy slide-article__buy_unavaiable">Нет в наличии</button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная", "price": "1 420", "pic":"3.jpg" } )
+                      <div class="article__slide slide-article">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon <br> .016х.025</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              <span>1420 <font class="rub">i</font></span>
+                            </div>
+                            <button class="slide-article__buy">В корзину</button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.", "price": "1 420", "pic":"3.jpg" } )
+                      <div class="article__slide slide-article">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon <br> .017х.025 торковый изгиб 20° 34 мм</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              <span>1420 <font class="rub">i</font></span>
+                            </div>
+                            <button class="slide-article__buy">В корзину</button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши", "price": "1 420", "pic":"3.jpg" } )
+                      <div class="article__slide slide-article">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon <br> .018х.025</a>
+                          <div class="slide-article__bottom">
+                            <div class="item-tubes__price price-tubes">
+                              <div class="price-tubes__actual" itemprop="price">670 <span itemprop="priceCurrency"><font class="rub">i</font></span></div>
+                              <div class="price-tubes__bot">
+                                <div class="price-tubes__discount" data-tippy-discount data-text="Персональная скидка||Промокод на всю продукцию" data-discount="15%||9%">-24%</div>
+                                <div class="price-tubes__old">1 600 <span><font class="rub">i</font></span></div>
+                              </div>
+                            </div>
+                            <button class="slide-article__buy">В корзину</button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием", "price": "1 420", "pic":"3.jpg" } )
-                      </div>
-                      <div class="grid3 md4 tb6 xs12">
-                        @@include('inc/product.html', { "title": "Стальная полузакрученная", "price": "1 420", "pic":"3.jpg" } )
+                      <div class="article__slide slide-article">
+                        <div class="slide-article__image">
+                          <img src="@img/configurator/2-3.jpg" alt="image">
+                        </div>
+                        <div class="slide-article__body">
+                          <div class="slide-article__art">Артикул: 227-1005</div>
+                          <a href="#" class="slide-article__name">Дуга Ni-Ti формы Damon <br>.017х.025 торковый изгиб 20° 38 мм</a>
+                          <div class="slide-article__bottom">
+                            <div class="slide-article__price">
+                              <span>1420 <font class="rub">i</font></span>
+                            </div>
+                            <button class="slide-article__buy">В корзину</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="items-tubes__pagination pagination-tubes">
@@ -154,7 +288,7 @@
                       <a href="#" class="pagination-tubes__item">5</a>
                       <a href="#" class="pagination-tubes__item pagination-tubes__item_arrow">Вперед</a>
                     </div>
-                  </div><!-- /config_wrapper_products -->
+                  </div>
                 </div>
                 <div class="step-configurator__buttons">
                   <a href="configurator.html" class="backlink">Назад</a>
@@ -170,7 +304,7 @@
               </div>
             </form>
             <div class="configurator__order order-configurator">
-              <div class="order-configurator__container">
+              <div data-da=".configuratorPopup__text, 767" class="order-configurator__container">
                 <div class="order-configurator__head head-orderConfigurator">
                   <h2 class="head-orderConfigurator__title">Сведения о заказе</h2>
                   <div class="head-orderConfigurator__prices">
@@ -180,7 +314,7 @@
                 </div>
                 <div data-spollers class="head-orderConfigurator__spollers spollers-orderConfigurator">
                   <div class="spollers-orderConfigurator__spoller">
-                    <button type="button" data-spoller class="spollers-orderConfigurator__head">
+                    <button type="button" data-spoller class="spollers-orderConfigurator__head _spoller-active">
                       <div class="spollers-orderConfigurator__title">Брекеты</div>
                       <a href="#" class="spollers-orderConfigurator__name">Damon Q2, <span>0.22</span></a>
                       <div class="spollers-orderConfigurator__prices">
@@ -197,39 +331,39 @@
                         <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params  spollers-orderConfigurator__item_prices">Цена</div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">11</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">11</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
                         </div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">12</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">12</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
                         </div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">13</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">13</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
@@ -240,6 +374,7 @@
                   <div class="spollers-orderConfigurator__spoller">
                     <button type="button" data-spoller class="spollers-orderConfigurator__head">
                       <div class="spollers-orderConfigurator__title">Замки</div>
+                      <a href="#" class="spollers-orderConfigurator__name">Damon Q2, <span>0.22</span></a>
                       <div class="spollers-orderConfigurator__prices">
                         <div class="spollers-orderConfigurator__price_actual">2000 <font class="rub">i</font></div>
                       </div>
@@ -253,39 +388,39 @@
                         <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params  spollers-orderConfigurator__item_prices">Цена</div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">11</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">11</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
                         </div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">12</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">12</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
                         </div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">13</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">13</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
@@ -309,39 +444,39 @@
                         <div class="spollers-orderConfigurator__item  spollers-orderConfigurator__item_params  spollers-orderConfigurator__item_prices">Цена</div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">11</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">11</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
                         </div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">12</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">12</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
                         </div>
                       </div>
                       <div class="spollers-orderConfigurator__row">
-                        <div class="spollers-orderConfigurator__item">13</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_tooth">13</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_name">Брекет накл. 022 ВЧ лев. Damon Q2</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_params">
                           <img src="@img/configurator/tork_standart.svg" alt="image">
                           <img src="@img/configurator/hook_soldered.svg" alt="image">
                         </div>
-                        <div class="spollers-orderConfigurator__item">438-2103</div>
+                        <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_article">438-2103</div>
                         <div class="spollers-orderConfigurator__item spollers-orderConfigurator__item_prices">
                           <div class="spollers-orderConfigurator__act">1420 <font class="rub">i</font></div>
                           <div class="spollers-orderConfigurator__old">1600 <font class="rub">i</font></div>
@@ -360,6 +495,9 @@
           <div class="filters_header">
             <div class="filters_title">Фильтры</div>
             <a href="#" class="btn-close" data-fancybox-close></a>
+          </div>
+          <div class="filters_label">
+            <div class="filters-count">Выбрано <span>0</span></div>
           </div>
           <div class="filters_content">
             <div class="row filters_list">
@@ -380,13 +518,14 @@
             </div>
           </div>
           <div class="filters_footer">
-            <button class="btn btn-link-dark">Сбросить все фильтры</button>
+            <button data-da=".filters_label, 767" class="btn btn-link-dark">Сбросить все <span>фильтры</span></button>
             <button class="btn btn-blue" data-fancybox-close>Применить</button>
           </div>
         </div>
       </div><!-- /filters -->
+      @@include('html/_popup_configurator_order.htm',{})
 			@@include('html/_footer.htm',{
-				"active": " "
+				"md3": "_md3dn"
 			})
 		</div>
 		@@include('html/_js.htm',{})

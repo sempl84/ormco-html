@@ -5,16 +5,16 @@
 	<title>Конфигуратор брекет-систем</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220810193040">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220810193040">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220810193040" rel="stylesheet" />
-	<link rel="stylesheet" href="css/style.min.css?_v=20220810193040">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220819010110">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220819010110">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220819010110" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20220819010110">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper wrapper_configurator">
 		<div itemscope itemtype="http://schema.org/Organization">
 			<meta itemprop="name" content="Интернет-магазин ортодонтической продукции Ormco (Санкт-Петербург)">
 			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -334,6 +334,20 @@
 			<div class="configurator">
 				<div class="configurator__head head-configurator">
 					<div class="head-configurator__container">
+						<div class="head-configurator__mobtitle mobtitle-headConfigurator">
+							<a href="#" class="mobtitle-headConfigurator__back">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.4375 18.75L4.6875 12L11.4375 5.25M5.625 12L19.3125 12" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</a>
+							<span class="mobtitle-headConfigurator__name">Выбор брекет системы</span>
+							<a href="#" class="mobtitle-headConfigurator__close">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="12" cy="12" r="12" fill="#F5F5F5" />
+									<path d="M15.2812 8.71875L8.71875 15.2812M15.2812 15.2812L8.71875 8.71875L15.2812 15.2812Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</a>
+						</div>
 						<div class="head-configurator__breadcumps">
 							<a href="#">Главная</a><span>Подборщик брекет-систем</span>
 						</div>
@@ -361,7 +375,7 @@
 								<div class="step-configurator__group group-stepConfigurator">
 									<div class="group-stepConfigurator__head">
 										<div class="group-stepConfigurator__title">Группа брекетов №1</div>
-										<div class="group-stepConfigurator__buttons">
+										<div data-da=".group-stepConfigurator__body, 767" class="group-stepConfigurator__buttons">
 											<a href="#" class="group-stepConfigurator__button_edit group-stepConfigurator__button">
 												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M18 10.5V19.125C18 19.3712 17.9515 19.615 17.8573 19.8425C17.763 20.07 17.6249 20.2767 17.4508 20.4508C17.2767 20.6249 17.07 20.763 16.8425 20.8573C16.615 20.9515 16.3712 21 16.125 21H4.875C4.37772 21 3.90081 20.8025 3.54917 20.4508C3.19754 20.0992 3 19.6223 3 19.125V7.875C3 7.37772 3.19754 6.90081 3.54917 6.54917C3.90081 6.19754 4.37772 6 4.875 6H12.7256" stroke="#2CA5F5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -401,7 +415,7 @@
 											</div>
 										</div>
 										<div class="group-stepConfigurator__tooth tooth-groupConfigurator">
-											<div class="tooth-groupConfigurator__image">
+											<div data-da=".product-groupConfigurator__image, 767" class="tooth-groupConfigurator__image">
 												<svg width="144" height="100" viewBox="0 0 144 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M5.65961 4.74667C-1.40412 9.17025 -0.71483 18.6464 1.6265 26.2491C3.15545 31.2138 7.51518 34.5685 12.5763 35.7395C24.2663 38.4442 47.4137 42.9858 71.3355 43.0674C105.056 43.1825 140.349 34.2357 141.459 33.6827C143.692 32.5705 144.076 21.6333 143.989 16.3037C143.849 3.25181 133.299 0.794151 122.079 1.1755C116.445 1.367 110.957 2.88426 105.421 3.94623C105.15 3.99824 104.882 4.04773 104.62 4.09478C97.697 5.3337 90.8926 3.01276 83.9994 1.61983C68.8617 -1.43908 59.274 4.09879 57.4677 4.74667C55.7233 5.37232 52.031 5.00736 50.403 4.74667L36.7968 1.87913C30.488 0.286054 15.4281 -1.37075 5.65961 4.74667Z" fill="#F5F5F5" />
 													<path d="M143.515 16.3088L143.515 16.3115C143.559 18.9646 143.485 23.0113 143.123 26.5262C142.942 28.2859 142.691 29.8938 142.352 31.1216C142.183 31.7363 141.996 32.2381 141.796 32.6106C141.59 32.9926 141.399 33.1838 141.248 33.2587C141.25 33.2576 141.25 33.2578 141.247 33.2592C141.243 33.261 141.233 33.2649 141.217 33.271C141.19 33.2808 141.154 33.2934 141.108 33.3088C141.015 33.3396 140.888 33.3787 140.726 33.4259C140.405 33.52 139.957 33.6432 139.391 33.7912C138.259 34.0871 136.663 34.4803 134.67 34.9368C130.686 35.8498 125.125 37.0147 118.545 38.1589C105.383 40.4478 88.1594 42.6511 71.3371 42.5937C47.4665 42.5123 24.3585 37.9793 12.6831 35.278C7.74814 34.1362 3.5479 30.8788 2.0792 26.1097C0.918387 22.3403 0.178721 18.14 0.587107 14.3565C0.99417 10.5853 2.53486 7.26241 5.91102 5.14813C10.6933 2.15327 16.8035 1.04528 22.538 0.894987C28.2665 0.744855 33.5654 1.55171 36.6808 2.3384L36.6899 2.3407L36.6991 2.34263L50.3053 5.21017L50.3166 5.21256L50.3281 5.21439C51.1585 5.34736 52.5084 5.50607 53.8757 5.55246C55.2227 5.59816 56.6626 5.53865 57.6276 5.19254C57.8604 5.10903 58.1892 4.96223 58.614 4.77252C59.9997 4.1537 62.4078 3.07832 65.8448 2.25382C70.302 1.18457 76.4131 0.570113 83.9056 2.08413C85.3401 2.37402 86.7704 2.70419 88.206 3.0356C88.4871 3.10047 88.7683 3.16539 89.0498 3.23007C90.766 3.62435 92.4896 4.00879 94.2169 4.31085C97.6715 4.91499 101.165 5.19428 104.703 4.56105C104.968 4.51366 105.237 4.46381 105.51 4.41143C106.947 4.13588 108.372 3.83193 109.791 3.52919C113.892 2.65454 117.946 1.78993 122.095 1.64891C127.684 1.45894 133.021 1.98267 136.964 4.11862C138.925 5.18146 140.539 6.64185 141.674 8.61608C142.81 10.5922 143.481 13.1099 143.515 16.3088Z" stroke="#C7C7CC" stroke-opacity="0.6" stroke-width="0.947368" />
@@ -700,14 +714,14 @@
 										</div>
 									</div>
 								</div>
-								<div class="step-configurator__item item-stepConfigurator">
+								<div class="step-configurator__item item-stepConfigurator item-stepConfigurator_wrap">
 									<div class="item-stepConfigurator__head">
 										<div class="item-stepConfigurator__title">2. Метод лигирования</div>
 									</div>
 									<div class="item-stepConfigurator__body">
 										<div class="item-stepConfigurator__tooth tooth-stepConfigurator">
 											<div class="tooth-stepConfigurator__wrapper swiper-wrapper">
-												<div class="tooth-stepConfigurator__item swiper-slide">
+												<div class="tooth-stepConfigurator__item swiper-slide" data-tippy-content="всё ещё нельзя">
 													<input checked type="radio" name="tooth-stepConfigurator__method" id="tooth-stepConfigurator__radio_1" class="tooth-stepConfigurator__radio">
 													<label for="tooth-stepConfigurator__radio_1" class="tooth-stepConfigurator__label">
 														<span class="tooth-stepConfigurator__name">Cамолигирующий</span>
@@ -723,7 +737,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="step-configurator__item item-stepConfigurator">
+								<div class="step-configurator__item item-stepConfigurator item-stepConfigurator_wrap">
 									<div class="item-stepConfigurator__head">
 										<div class="item-stepConfigurator__title">3. Материал</div>
 									</div>
@@ -794,6 +808,10 @@
 									</div>
 								</div>
 							</div>
+							<button type="submit" class="step-configurator__add">
+								<span class="_plus">+</span>
+								<span>Добавить группу брекетов</span>
+							</button>
 							<button type="submit" class="step-configurator__submit">
 								<span>Продолжить</span>
 								<span class="step-configurator__circle">
@@ -808,7 +826,7 @@
 			</div>
 
 		</main>
-		<footer class="footer undefined">
+		<footer class="footer _md3dn">
 			<div class="container">
 				<div class="footer_copy">© ООО «Ормко», 2021</div>
 				<ul class="footer_nav">
@@ -826,7 +844,7 @@
 		<div class="mobile_footer undefined">
 			<div class="container">
 				<ul>
-					<li><a href="#" class=" ">Каталог</a></li>
+					<li><a href="#" class="undefined">Каталог</a></li>
 					<li><a href="#" class="js_search_mb undefined">Поиск</a></li>
 					<li><a href="#" class="undefined">Корзина</a></li>
 					<li><a href="#auth" class="js_auth undefined">Войти</a></li>
@@ -1200,12 +1218,12 @@
 
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220810193040"></script>
-	<script src="js/app.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220819010110"></script>
+	<script src="js/app.min.js?_v=20220819010110"></script>
 </body>
 
 </html>

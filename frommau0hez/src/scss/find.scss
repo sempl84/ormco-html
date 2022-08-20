@@ -39,7 +39,7 @@
   }
   &__find {
     @media (max-width:$mobile){
-      padding-bottom: rem(56);
+      padding-bottom: rem(76);
     }
   }
 
@@ -64,6 +64,9 @@
           stroke: #2CA5F5;
         }
       }
+    }
+    @media (min-width: $mobile) {
+      display: none;
     }
   }
 
@@ -543,7 +546,11 @@
   }
   @include adaptiveValue("padding-bottom", 100, 40, 1440, 480, 1);
 
-  &_table {}
+  &_table {
+    @media (max-width:$mobile){
+      max-width: calc(100vw - rem(30));
+    }
+  }
 
   &__head {
     &:not(:last-child) {
@@ -558,18 +565,29 @@
 
   &__body {
     height: rem(444);
+    transition: all 0.3s ease 0s;
+    // overflow: hidden;
     @media (min-width:$tablet){
       border-radius: rem(29);
       border: rem(1) solid rgba(142, 142, 147, 0.2);
     }
     @media (max-width:$mobile){
-      height: rem(767);
+      height: rem(600);
+      max-width: calc(100vw - rem(30));
+      overflow-x: hidden;
+    }
+    .simplebar-track.simplebar-vertical {
+      width: rem(7);
+    }
+    .simplebar-track.simplebar-horizontal {
+      display: none !important;
     }
   }
 
   &__row {
     line-height: 1.36;
     border-bottom: rem(1) solid #f5f5f5;
+    max-width: calc(100vw - rem(30));
     @media (max-width:$tablet){
       padding: rem(16) rem(0);
     }

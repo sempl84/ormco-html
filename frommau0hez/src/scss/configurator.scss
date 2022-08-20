@@ -4,7 +4,7 @@
   }
 
   &__steps {
-    @include adaptiveValue("padding-bottom", 160, 40, 1440, 480, 1);
+    @include adaptiveValue("padding-bottom", 160, 78, 1440, 480, 1);
   }
 
   &__step {
@@ -37,7 +37,7 @@
           color: #80C9F9;
         }
       }
-      &::before{
+      &::after{
         content:'';
         display: block;
         flex: 0 0 rem(4);
@@ -47,27 +47,48 @@
         background-color: #8E8E93;
       }
     }
+    @media (max-width: $mobile) {
+      display: none;
+    }
   }
 
   &__title {
     &:not(:last-child) {margin-bottom: rem(40);}
+    @media (max-width:$mobile){
+      display: none;
+    }
   }
 
   &__stepsline {
-    flex-wrap: wrap;
     min-width: rem(60);
+    overflow-x: auto;
+    @media (max-width:$mobile){
+      min-height: 0;
+      margin-bottom: rem(20);
+    }
+    .stepsline_item {
+      white-space: nowrap;
+      @media (max-width:$mobile){
+        font-size: rem(13);
+        padding: rem(11) rem(22);
+        &:first-child {
+          padding-left: 0;
+        }
+        &::after{
+          margin-top: rem(-6);
+        }
+      }
+    }
   }
 }
 .step-configurator {
   
   &__container {
-    &:not(:last-child) {
-    }
     border: 0.5px solid #F9F9F9;
     box-shadow: 0px rem(4) rem(8) rgba(26, 26, 26, 0.08);
     border-radius: rem(12);
-    @include adaptiveValue("padding-top", 40, 0, 1200, 480, 1);
-    @include adaptiveValue("padding-bottom", 40, 15, 1200, 480, 1);
+    @include adaptiveValue("padding-top", 40, 0, 1200, 767, 1);
+    @include adaptiveValue("padding-bottom", 40, 15, 1200, 767, 1);
     @include adaptiveValue("padding-left", 40, 15, 1200, 480, 1);
     @include adaptiveValue("padding-right", 40, 15, 1200, 480, 1);
     overflow-x: hidden;
@@ -78,10 +99,23 @@
       @include adaptiveValue("padding-bottom", 30, 0, 1200, 480, 1);
       &:not(:last-child) {margin-bottom: rem(30);}
       .pagination-tubes {
-        margin-top: rem(12);
+        margin-top: rem(28);
       }
       &_products {
         margin-bottom: 0;
+      }
+      @media (max-width:$mobile){
+        padding-left: 0;
+        padding-right: 0;
+        &_products {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+    h2 {
+      @media (max-width:$mobile){
+        display: none;
       }
     }
   }
@@ -98,12 +132,18 @@
     [data-step="tork"] & {
       &:not(:last-child) {margin-bottom: rem(28);}
     }
+    @media (max-width:$mobile){
+      display: none;
+    }
   }
 
   &__title {
     &:not(:last-child) {margin-bottom: rem(4);}
     font-weight: 600;
     @include adaptiveValue("font-size", 28, 20, 1440, 480, 1);
+    @media (max-width:$mobile){
+      display: none;
+    }
   }
 
   &__label {
@@ -114,6 +154,9 @@
 
   &__body {
     @include adaptiveValue("padding", 32, 0, 1200, 480, 1);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 72, 60, 1920, 480, 1);
+    }
   }
 
   &__item {
@@ -136,13 +179,17 @@
       font-size: rem(24);
     }
     &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 60, 20, 1440, 480, 1);
+      @include adaptiveValue("margin-bottom", 60, 12, 1440, 480, 1);
     }
     @media (any-hover: hover){
       &:hover{
         background-color: $blue;
         color: #fff;
       }
+    }
+    @media (max-width:$mobile){
+      font-size: rem(15);
+      padding: rem(17);
     }
   }
   &__buttons {
@@ -157,6 +204,22 @@
         &:hover{
           background-color: #F5F5F5;
         }
+      }
+      @media (max-width:$mobile){
+        display: none;
+      }
+    }
+    @media (max-width:$mobile){
+      .configurator__steps_ligatures & {
+        position: fixed;
+        bottom: rem(62);
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: 100vw;
+        padding: rem(10) rem(15);
+        z-index: 2;
+        background-color: #fff;
       }
     }
   }
@@ -174,10 +237,20 @@
     min-width: rem(177);
     border: rem(1) solid $blue;
     transition: all 0.3s ease 0s;
+    font-weight: 600;
     @media (any-hover: hover){
       &:hover{
         background-color: #fff;
         color:#000;
+      }
+    }
+    @media (max-width:$mobile){
+      width: 100%;
+      justify-content: center;
+      border-radius: rem(12);
+      padding: rem(17);
+      &_thin {
+        padding: rem(10);
       }
     }
   }
@@ -189,6 +262,9 @@
     display: flex;
     justify-content:center;align-items: center;
     background-color: #56b7f7;
+    @media (max-width:$mobile){
+      display: none;
+    }
   }
 
   &__tippy {
@@ -205,9 +281,28 @@
       }
     }
   }
+  &__mobbot {
+    @media (min-width:$mobile){
+      display: none;
+    }
+    @media (max-width:$mobile){
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:not(:last-child) {margin-bottom: rem(40);}
+    }
+  }
 }
 .item-stepConfigurator {
   &:not(:last-child) {margin-bottom: rem(32);}
+  &_wrap {
+    .swiper-wrapper {
+      @media (max-width:$mobile){
+        flex-direction: column;
+        gap: rem(12);
+      }
+    }
+  }
 
   &__head {
     display: flex;
@@ -329,6 +424,12 @@
     position: relative;
     flex: 0 0 rem(249);
     min-width: rem(249);
+    @media (max-width:$mobile){
+      .item-stepConfigurator_wrap & {
+        min-width: 0;
+        flex: 1 1 auto;
+      }
+    }
     @media (any-hover: hover){
       &:hover{
         label {
@@ -497,7 +598,16 @@
 //========================================================================================================================================================
 
 .group-stepConfigurator {
-  &:not(:last-child) {margin-bottom: rem(56);}
+  &:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 56, 32, 1920, 480, 1);
+    @media (max-width:$mobile){
+      margin-left: rem(-15);
+      margin-right: rem(-15);
+      padding-left: rem(16);
+      padding-right: rem(16);
+      border-bottom: 1px solid #F5F5F5;
+    }
+  }
   padding-bottom: rem(28);
 
   &__head {
@@ -506,7 +616,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: rem(20);
-    &:not(:last-child) {margin-bottom: rem(36);}
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 36, 28, 1920, 480, 1);
+    }
     padding-left: rem(16);
   }
 
@@ -514,6 +626,9 @@
     font-weight: 600;
     font-size: rem(20);
     line-height: 1.2;
+    @media (max-width:$mobile){
+      font-size: rem(15);
+    }
   }
 
   &__buttons {
@@ -562,6 +677,9 @@
     display: flex;
     flex-wrap: wrap;
     @include adaptiveValue("gap", 40, 20, 1440, 480, 1);
+    @media (max-width:$mobileSmall){
+      flex-direction: column;
+    }
   }
 
   &__product {
@@ -577,18 +695,33 @@
   @media (min-width:$mobileSmall){
     min-width: rem(360);
   }
+  @media (max-width:$mobile){
+    align-items: center;
+  }
 
   &__image {
     position: relative;
-    width: rem(100);
-    height: rem(100);
-    flex: 0 0 rem(100);
+    @media (min-width:$mobile){
+      width: rem(100);
+      height: rem(100);
+      flex: 0 0 rem(100);
+    }
+    @media (max-width:$mobile){
+      width: rem(115);
+      flex: 0 0 rem(115);
+      svg {
+        max-width: 100%;
+      }
+    }
     img {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      @media (max-width:$mobile){
+        display: none;
+      }
     }
   }
 
@@ -625,6 +758,7 @@
   @media (max-width:$mobileSmall){
     flex-direction: column;
     align-items: center;
+    align-self: center;
   }
 
   &__image {
@@ -637,6 +771,9 @@
     display: flex;
     gap: rem(8);
     &:not(:last-child) {margin-bottom: rem(8);}
+    @media (max-width:$mobile){
+      gap: rem(5);
+    }
   }
 
   &__name {
@@ -652,11 +789,18 @@
     font-size: rem(13);
     display: flex;
     justify-content:center;align-items: center;
-    height: rem(24);
-    width: rem(24);
-    flex: 0 0 rem(24);
     background-color: #F9F9F9;
     border-radius: rem(4);
+    @media (min-width:$mobile){
+      height: rem(24);
+      width: rem(24);
+      flex: 0 0 rem(24);
+    }
+    @media (max-width:$mobile){
+      height: rem(28);
+      width: rem(28);
+      flex: 0 0 rem(28);
+    }
 
     &_disabled {
       color: #E0E0E3;
@@ -676,7 +820,12 @@
 //========================================================================================================================================================
 
 .tork-configurator {
-  &:not(:last-child) {margin-bottom: rem(60);}
+  @media (min-width:$mobile){
+    &:not(:last-child) {margin-bottom: rem(60);}
+  }
+  @media (max-width:$mobile){
+    &:not(:last-child) {margin-bottom: rem(130);}
+  }
 
   &__head {
   }
@@ -883,6 +1032,9 @@
 
   &__item {
     position: relative;
+    @media (max-width:$mobile){
+      font-size: rem(13);
+    }
   }
 
   &__checkbox {
@@ -929,12 +1081,24 @@
     }
   }
 }
+:root {
+  --torkBodyGap: rem(43);
+  @media (max-width:$mobile){
+    --torkBodyGap: rem(19);
+  }
+}
 .body-torkConfigurator {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: rem(43);
   max-width: 100vw;
-  overflow-x: auto;
+  @media (max-width:$mobile){
+    gap: rem(59);
+    [data-step="tork"] & {
+      gap: rem(19);
+    }
+  }
 
   &__teeth {
   }
@@ -943,6 +1107,9 @@
     display: flex;
     flex-direction: column;
     gap: rem(43);
+    @media (max-width:$pc){
+      display: none;
+    }
   }
 
   &__button {
@@ -971,6 +1138,9 @@
   &__line {
     display: flex;
     gap: rem(16);
+    @media (max-width:$mobile){
+      gap: rem(6);
+    }
 
     &_top {
       .teeth-torkConfigurator__icon svg {
@@ -985,7 +1155,9 @@
   &__tooth {
 
     &_mr {
-      margin-right: rem(24);
+      @media (min-width:$pc){
+        margin-right: rem(24);
+      }
     }
   }
 
@@ -1038,10 +1210,19 @@
   &__number {
     color: #2CA5F5;
     font-weight: 600;
+    @media (max-width:$mobile){
+      font-size: rem(13);
+    }
   }
 
   &__icon {
     filter: drop-shadow(0px 2px 4px rgba(17, 17, 17, 0.2));
+    svg {
+      @media (max-width:$pc){
+        max-width: calc((100vw - rem(109)) / 8);
+        height: fit-content;
+      }
+    }
   }
 }
 
@@ -1066,10 +1247,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: rem(15);
+  gap: rem(12);
   padding-bottom: rem(16);
-  @media (max-width:$mobileSmall){
-    flex-wrap: wrap;
+  @media (max-width:$mobile){
+    flex-direction: column;
+    align-items: start;
   }
 
   &__title {
@@ -1131,15 +1313,24 @@
       border-right: 1.5px solid #8E8E93;
       border-bottom: 1.5px solid #8E8E93;
       align-self: center;
-      transform: translateY(-50%) rotate(45deg);
       transition: transform 0.3s ease 0s;
-      position: absolute;
-      top: 50%;
-      right: rem(25);
-      z-index: 22;
+      @media (min-width:$mobile){
+        transform: translateY(-50%) rotate(45deg);
+        position: absolute;
+        top: 50%;
+        right: rem(25);
+        z-index: 22;
+      }
+      @media (max-width:$mobile){
+        transform: translateY(-50%) rotate(45deg);
+      }
     }
     &._spoller-active::after {
-      transform: translateY(-50%) rotate(225deg);
+      transform: translateY(50%) rotate(225deg);
+    }
+    @media (max-width:$mobile){
+      padding: rem(16) 0;
+      column-gap: rem(12);
     }
   }
 
@@ -1185,10 +1376,6 @@
 
   &__body {
     padding-bottom: rem(4);
-    @media (max-width:$mobile){
-      max-height: rem(213);
-      overflow-y: auto;
-    }
   }
 
   &__row {
@@ -1206,7 +1393,10 @@
       box-shadow: 0px rem(4) rem(8) rgba(26, 26, 26, 0.08);
       border-radius: rem(12);
       @media (max-width:$mobile){
-        justify-content: end;
+        display: grid;
+        grid-template-columns:rem(20) repeat(2, 1fr) rem(20);
+        gap: rem(6);
+        padding: rem(16) 0;
       }
     }
 
@@ -1215,12 +1405,6 @@
       color: #8E8E93;
       font-size: rem(13);
       @media (max-width:$mobile){
-        position: absolute;
-        left: 0;
-        top: rem(50);
-        grid-template-rows: repeat(2, rem(19)) rem(24) rem(19) rem(37);
-      }
-      @media (max-width: em(460)){
         display: none;
       }
     }
@@ -1230,7 +1414,23 @@
     justify-content: start;
     align-items: center;
 
+    &_tooth {
+      @media (max-width:$mobile){
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-end: 2;
+        color: #8E8E93;
+      }
+    }
+
     &_name {
+      @media (max-width:$mobile){
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 2;
+        grid-column-end: 5;
+      }
     }
 
     &_params {
@@ -1242,14 +1442,28 @@
       }
       @media (max-width:$mobile){
         min-height: rem(24);
+        grid-column-start: 1;
+        grid-column-end: 5;
+      }
+    }
+
+    &_article {
+      @media (max-width:$mobile){
+        grid-column-start: 1;
+        grid-column-end: 3;
       }
     }
 
     &_prices {
-      flex-direction: column;
-      align-items: start;
+      align-items: end;
       @media (min-width:$mobile){
-        align-items: end;
+        flex-direction: column;
+      }
+      @media (max-width:$mobile){
+        grid-column-start: 3;
+        grid-column-end: 5;
+        justify-content: end;
+        flex-direction: row-reverse;
       }
     }
   }
@@ -1276,10 +1490,15 @@
   &__content {
     max-width: rem(735);
     display: flex;
-    flex-wrap: wrap;
     gap: rem(12);
     @media (min-width:$mobile){
+      flex-wrap: wrap;
       flex: 0 1 rem(735);
+    }
+    @media (max-width:$mobile){
+      max-width: 100vw;
+      padding-bottom: rem(10);
+      overflow-x: auto;
     }
   }
 
@@ -1313,6 +1532,10 @@
         border-color: #2CA5F5;
       }
     }
+    @media (max-width:$mobile){
+      white-space: nowrap;
+      font-size: rem(13);
+    }
   }
 
   &__more {
@@ -1334,6 +1557,191 @@
     }
     & span:last-child::after {
       transform: rotate(180deg);
+    }
+  }
+}
+
+
+.mobtitle-headConfigurator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(15);
+  padding: rem(12) rem(16);
+  margin: 0 rem(-15);
+  box-shadow: 0px rem(1) rem(4) rgba(26, 26, 26, 0.08);
+  @media (min-width:$mobile){
+    display: none;
+  }
+
+  &__back {
+  }
+
+  &__name {
+    flex: 1 1 auto;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__close {
+  }
+}
+
+:root {
+  @include adaptiveValue("--confItemWidht", 268, 138);
+}
+.config_products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--confItemWidht));
+  @include adaptiveValue("gap", 16, 12, 1440, 480, 1);
+  justify-content: center;
+}
+
+.page_configurator {
+  .filtersPopup__content {
+    padding-top: rem(15);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .filtersPopup__close {
+    top: 2.125rem;
+  }
+  .filtersPopup__text {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    .filter_header {
+      @media (max-width:$mobile){
+        flex: 1 1 auto;
+        padding: rem(17) rem(15);
+      }
+    }
+    .filter-header__head {
+      @media (max-width:$mobile){
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: rem(50);
+        padding-bottom: rem(20);
+      }
+    }
+    .filter-header__title {
+      font-weight: 600;
+      text-align: center;
+    }
+    .filtersPopup__show  {
+      margin-top: auto;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.configuratorPopup {
+  padding: 10vh 0 0;
+
+  &__wrapper {
+  }
+
+  &__content {
+    padding: 0;
+    position: relative;
+    min-height: 90vh;
+    border-radius: rem(20) rem(20) 0 0;
+  }
+
+  &__close {
+    position: absolute;
+    top: rem(16);
+    right: rem(16);
+  }
+
+  &__text {
+  }
+
+  &__link {
+    display: flex;
+    justify-content:center;align-items: center;
+    font-size: rem(20);
+    color: $blue;
+    font-weight: 600;
+    transition: color 0.3s ease 0s;
+    @media (min-width:$mobile){
+      display: none;
+    }
+  }
+}
+
+.fancybox-slide {
+  .filters-count {
+    display: none;
+  }
+  @media (max-width:$mobile){
+    padding: 0;
+    .filters {
+      height: 100vh;
+      border-radius: 0;
+      &_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(14) rem(12);
+        box-shadow: 0px 0.5px rem(4) rgba(26, 26, 26, 0.08);
+        &::before{
+          content:'';
+          display: block;
+          width: rem(32);
+        }
+      }
+      &_title {
+        font-size: rem(15);
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      &_label {
+        display: flex;
+        align-items: center;
+        gap: rem(15);
+        justify-content: space-between;
+        padding: rem(22) rem(16);
+        .btn-link-dark {
+          color: $blue;
+          font-size: rem(15);
+          span {
+            display: none;
+          }
+        }
+        .filters-count {
+          display: block;
+          color: #8E8E93;
+          font-size: rem(15);
+        }
+      }
+      &_content {
+        padding: rem(0) rem(16) rem(10);
+      }
+      &_list {
+        flex-direction: column;
+        .grid4 {
+          flex: 1 1 auto;
+          max-width: none;
+        }
+      }
+      &_item_title {
+        pointer-events: none;
+        &::after{
+          display: none;
+        }
+      }
+      &_footer {
+        padding: 0 rem(16) rem(16);
+        .btn.btn-blue {
+          width: 100%;
+          padding: rem(17);
+          border-radius: rem(8);
+        }
+      }
     }
   }
 }

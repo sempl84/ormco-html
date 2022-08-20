@@ -169,8 +169,6 @@ export function stickyBlock() {
 			}
 			if (!stickyConfig.media || stickyConfig.media < window.innerWidth) {
 				if (offsetTop + stickyConfig.bottom + stickyBlockItem.offsetHeight < window.innerHeight) {
-          console.log(scrollY)
-          console.log(startPoint)
 					if (scrollY >= startPoint && scrollY <= endPoint) {
 						stickyItemValues.position = `fixed`;
 						stickyItemValues.bottom = `auto`;

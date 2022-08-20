@@ -411,6 +411,11 @@ input[type="number"] {
   .lock & {
     z-index: 1;
   }
+  .wrapper_configurator & {
+    @media (max-width:$mobile){
+      display: none !important;
+    }
+  }
 }
 
 .header_sticky.shadow {
@@ -448,4 +453,10 @@ input[type="number"] {
 
 ._mb16 {
   margin-bottom: 16px;
+}
+
+._mmd3dn {
+  @media (min-width:$mobile){
+    display: none;
+  }
 }

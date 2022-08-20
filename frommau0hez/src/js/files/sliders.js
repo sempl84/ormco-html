@@ -422,76 +422,94 @@ function initSliders() {
 			}
 		});
 	}
-	if (document.querySelectorAll('.tooth-stepConfigurator')) { // Указываем скласс нужного слайдера
+	if (document.querySelectorAll('.tooth-stepConfigurator').length) { // Указываем скласс нужного слайдера
 		// Создаем слайдер
     document.querySelectorAll('.tooth-stepConfigurator').forEach(slider=>{
-      new Swiper(slider, { // Указываем скласс нужного слайдера
-        // Подключаем модули слайдера
-        // для конкретного случая
-        modules: [Navigation],
-        observer: true,
-        observeParents: true,
-        spaceBetween: 20,
-        slidesPerView: 'auto',
-        speed: 800,
-        autoHeight: false,
-  
-        //touchRatio: 0,
-        //simulateTouch: false,
-        //loop: true,
-        //preloadImages: false,
-        //lazy: true,
-  
-        /*
-        // Эффекты
-        effect: 'fade',
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-        */
-  
-        // Пагинация
-        // pagination: {
-        // 	el: '.sliders-model__pagination',
-        // 	type: 'fraction',
-        // },
-  
-        // Скроллбар
-        /*
-        scrollbar: {
-          el: '.swiper-scrollbar',
-          draggable: true,
-        },
-        */
-  
-        // Кнопки "влево/вправо"
-        // navigation: {
-        //   prevEl: '.swiper-button-prev',
-        //   nextEl: '.swiper-button-next',
-        // },
-        
-        // Брейкпоинты
-        // breakpoints: {
-        // 	319: {
-        // 		slidesPerView: 1,
-        // 		spaceBetween: 0,
-        // 	},
-        // 	480: {
-        // 		slidesPerView: 2,
-        // 		spaceBetween: 10,
-        // 	},
-        // 	1020: {
-        // 		slidesPerView: 3,
-        // 		spaceBetween: 20,
-        // 	},
-        // 	1200: {
-        // 		slidesPerView: 4,
-        // 		spaceBetween: 20,
-        // 	},
-        // },
-        // События
-        on: {
+      let toothSlider = null;
+      function toothSliderInit() {
+        toothSlider = new Swiper(slider, { // Указываем скласс нужного слайдера
+          // Подключаем модули слайдера
+          // для конкретного случая
+          modules: [Navigation],
+          observer: true,
+          observeParents: true,
+          spaceBetween: 20,
+          slidesPerView: 'auto',
+          speed: 800,
+          autoHeight: false,
+    
+          //touchRatio: 0,
+          //simulateTouch: false,
+          //loop: true,
+          //preloadImages: false,
+          //lazy: true,
+    
+          /*
+          // Эффекты
+          effect: 'fade',
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          */
+    
+          // Пагинация
+          // pagination: {
+          // 	el: '.sliders-model__pagination',
+          // 	type: 'fraction',
+          // },
+    
+          // Скроллбар
+          /*
+          scrollbar: {
+            el: '.swiper-scrollbar',
+            draggable: true,
+          },
+          */
+    
+          // Кнопки "влево/вправо"
+          // navigation: {
+          //   prevEl: '.swiper-button-prev',
+          //   nextEl: '.swiper-button-next',
+          // },
+          
+          // Брейкпоинты
+          // breakpoints: {
+          // 	319: {
+          // 		slidesPerView: 1,
+          // 		spaceBetween: 0,
+          // 	},
+          // 	480: {
+          // 		slidesPerView: 2,
+          // 		spaceBetween: 10,
+          // 	},
+          // 	1020: {
+          // 		slidesPerView: 3,
+          // 		spaceBetween: 20,
+          // 	},
+          // 	1200: {
+          // 		slidesPerView: 4,
+          // 		spaceBetween: 20,
+          // 	},
+          // },
+          // События
+          on: {
+          }
+        });
+      }
+      toothSliderInit();
+      let x = window.matchMedia("(max-width: 767px)");
+      if (x.matches && toothSlider !== null && toothSlider.el.closest('.item-stepConfigurator_wrap')) { 
+        toothSlider.destroy();
+      } else {
+        toothSliderInit();
+      }
+      x.addListener(function (e) {
+        if (x.matches && toothSlider !== null && toothSlider.el.closest('.item-stepConfigurator_wrap')) { 
+          toothSlider.destroy();
+        } else {
+          console.log(toothSlider)
+          toothSliderInit();
         }
       });
     })

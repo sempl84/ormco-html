@@ -18,6 +18,7 @@ if (iframes.length) {
     e.loading = 'lazy';
   });
 }
+let x = window.matchMedia("(max-width: 767px)");
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -921,7 +922,12 @@ function findActions() {
     });
   }
 
-    ymaps.ready(init);
+    try {
+      ymaps.ready(init);
+    } catch (err) {
+      console.error(err)
+    }
+
     let findObjectManager;
 
     function init() {
@@ -972,7 +978,7 @@ function findActions() {
       // }
       findMap.geoObjects.add(findObjectManager);
       findObjectConstructor();
-  }
+    }
   
   function findObjectsAdd() {
 
@@ -1103,22 +1109,24 @@ function findActions() {
     if (document.querySelector('.find_dealers')) {
       MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
         `
-        <div class="baloon-find__head">
-            <div class="baloon-find__title">$[properties.title]</div>
+        <div class="baloon-find__find">
+          <div class="baloon-find__head">
+              <div class="baloon-find__title">$[properties.title]</div>
+          </div>
+          <div class="baloon-find__body">
+              <div class="baloon-find__location">
+                  <span class="baloon-find__city">г. $[properties.city]</span>, 
+                  <span class="baloon-find__address">$[properties.address]</span>
+              </div>
+              <button class="baloon-find__copy">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.8984 5H7.22656C5.99687 5 5 5.99687 5 7.22656V15.8984C5 17.1281 5.99687 18.125 7.22656 18.125H15.8984C17.1281 18.125 18.125 17.1281 18.125 15.8984V7.22656C18.125 5.99687 17.1281 5 15.8984 5Z" stroke="#8E8E93" stroke-linejoin="round"/>
+                      <path d="M14.9805 5L15 4.0625C14.9984 3.48285 14.7674 2.9274 14.3575 2.51753C13.9476 2.10765 13.3922 1.87665 12.8125 1.875H4.375C3.71256 1.87696 3.07781 2.14098 2.6094 2.6094C2.14098 3.07781 1.87696 3.71256 1.875 4.375V12.8125C1.87665 13.3922 2.10765 13.9476 2.51753 14.3575C2.9274 14.7674 3.48285 14.9984 4.0625 15H5" stroke="#8E8E93" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </button>
+          </div>
+          <a href="tel:$[properties.phone]" class="baloon-find__link">$[properties.phone]</a>
         </div>
-        <div class="baloon-find__body">
-            <div class="baloon-find__location">
-                <span class="baloon-find__city">г. $[properties.city]</span>, 
-                <span class="baloon-find__address">$[properties.address]</span>
-            </div>
-            <button class="baloon-find__copy">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.8984 5H7.22656C5.99687 5 5 5.99687 5 7.22656V15.8984C5 17.1281 5.99687 18.125 7.22656 18.125H15.8984C17.1281 18.125 18.125 17.1281 18.125 15.8984V7.22656C18.125 5.99687 17.1281 5 15.8984 5Z" stroke="#8E8E93" stroke-linejoin="round"/>
-                    <path d="M14.9805 5L15 4.0625C14.9984 3.48285 14.7674 2.9274 14.3575 2.51753C13.9476 2.10765 13.3922 1.87665 12.8125 1.875H4.375C3.71256 1.87696 3.07781 2.14098 2.6094 2.6094C2.14098 3.07781 1.87696 3.71256 1.875 4.375V12.8125C1.87665 13.3922 2.10765 13.9476 2.51753 14.3575C2.9274 14.7674 3.48285 14.9984 4.0625 15H5" stroke="#8E8E93" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </div>
-        <a href="tel:$[properties.phone]" class="baloon-find__link">$[properties.phone]</a>
             `
       );
     } else {
@@ -1173,7 +1181,6 @@ function findActions() {
       }
     }
 
-    let x = window.matchMedia("(max-width: 767px)");
     setBalloonPanelMaxMapArea(x);
     x.addListener(function (e) {
       setBalloonPanelMaxMapArea(x);
@@ -1188,17 +1195,13 @@ function findActions() {
       if (target.classList.contains('baloon-find__copy') || target.closest('.baloon-find__copy')) {
         let text = '';
         let baloon = target.closest('.baloon-find__find');
-        text += baloon.querySelector('.baloon-find__type').textContent + '\n';
-        text += baloon.querySelector('.baloon-find__title').textContent + '\n';
-        text += baloon.querySelector('.baloon-find__location').textContent + '\n';
-        text += baloon.querySelector('.baloon-find__link').textContent + '\n';
+        // text += baloon.querySelector('.baloon-find__type').textContent + '\n';
+        // text += baloon.querySelector('.baloon-find__title').textContent + '\n';
+        // text += baloon.querySelector('.baloon-find__location').textContent + '\n';
+        text += baloon.querySelector('.baloon-find__link').textContent;
         copyTextToClipboard(text);
       }
     })
-
-    // document.getElementById("copy").onclick = function() {
-    //   var text = document.getElementById("content").value;
-    // }
     
   }
 
@@ -1247,7 +1250,6 @@ function findActions() {
     findDealers ? findDealersTableRender(findDealers, findFeatureArr) : null
   }
 
-    
   function findCheck(findFeature, findFeatureArr) {
     const checkedBoxes = document.querySelectorAll('[data-find-checkbox]:checked');
     const regionElement = document.querySelector('.select_region .select__value .select__content');
@@ -1260,7 +1262,7 @@ function findActions() {
         }
       })
     } else {
-      findFeatureArr.push(findFeature);
+      document.querySelector('.find_dealers') ? findFeatureArr.push(findFeature) : null
     }
     for (let i = 0; i < findFeatureArr.length; i++) {
       let findFeature = findFeatureArr[i];
@@ -1268,13 +1270,13 @@ function findActions() {
         if (findFeature.properties.region !== regionElement.textContent) {
           findFeatureArr.splice(i, 1);
         }
-          }
+      }
       if (!cityElement.classList.contains('selectCityAll')) {
         if (findFeature.properties.city !== cityElement.textContent) {
           findFeatureArr.splice(i, 1);
         }
-          }
-        }
+      }
+    }
     return findFeatureArr;
   }
   
@@ -1395,7 +1397,7 @@ function findActions() {
       postindex = obj.postindex ? `${obj.postindex}, ` : '';
 
       if (obj.phone.indexOf(',') !== -1) {
-        obj.phone.split(', ').forEach(e => {
+        obj.phone.split(', ', '; ').forEach(e => {
           let link = `<a href="tel:${e.trim()}">${e.trim()}</a>`;
           phone += link;
         })
@@ -1423,6 +1425,18 @@ function findActions() {
       findDealerRow += str;
     })
     document.querySelector('[data-dealers-table]').innerHTML = findDealerRow;
+    findDealersHeightSet(document.querySelector('.list-dealers__body'), document.querySelector('[data-dealers-table]'));
+  }
+  function findDealersHeightSet(tableParent, table) {
+    const height = table.scrollHeight;
+    const maxHeight = window.innerWidth >= 767 ? 444 : 600;
+    tableParent.style.height = '0px';
+    if (height < maxHeight) {
+      tableParent.style.height = `${height}px`;
+    } else {
+      tableParent.style.height = `${maxHeight}px`;
+      tableParent.style.overflow = ``
+    }
   }
 }
 
@@ -1538,7 +1552,7 @@ function configuratorActions(configuratorEl) {
       timeOutDataset: 'data-timeout'
     };
     toothItems = configuratorEl.querySelectorAll(`${options.toothAttribute}`);
-    configuratorTorkActions(configuratorBias, options)
+    configuratorTorkActions(configuratorBias, options);
   }
   
   const configuratorHook = document.querySelector('[data-step="hook"]');
@@ -1558,7 +1572,7 @@ function configuratorActions(configuratorEl) {
       timeOutDataset: 'data-timeout'
     };
     toothItems = configuratorEl.querySelectorAll(`${options.toothAttribute}`);
-    configuratorTorkActions(configuratorHook, options)
+    configuratorTorkActions(configuratorHook, options);
   }
   const configuratorTube = document.querySelector('[data-step="tubes"]');
   if (configuratorTube) {
@@ -1579,8 +1593,9 @@ function configuratorActions(configuratorEl) {
       timeOutDataset: 'data-timeout'
     };
     toothItems = configuratorEl.querySelectorAll(`${options.toothAttribute}`);
-    configuratorTubesActions(configuratorTube, options)
+    configuratorTubesActions(configuratorTube, options);
   }
+  configuratorBiasActions();
   function configuratorTorkActions(configuratorTork, options) {
 
     let teethArr = [];
@@ -1977,7 +1992,95 @@ function configuratorActions(configuratorEl) {
       }
     }
   }
+//========================================================================================================================================================
+  function configuratorBiasActions() {
+    const biasCheckboxes =document.querySelectorAll('.teeth-torkConfigurator__checkbox');
+    if (biasCheckboxes.length) {
+      x.addListener(function(e) {
+        biasCheckboxes.forEach(biasCheckbox=>{
+          if (biasCheckbox.disabled && x.matches) {
+            biasCheckbox.closest('[data-tooth-parent]').hidden = true;
+          } else {
+            biasCheckbox.closest('[data-tooth-parent]').hidden = false;
+          }
+        })
+      })
+      biasCheckboxes.forEach(biasCheckbox=>{
+        if (biasCheckbox.disabled && x.matches) {
+          biasCheckbox.closest('[data-tooth-parent]').hidden = true;
+        } else {
+          biasCheckbox.closest('[data-tooth-parent]').hidden = false;
+        }
+      })
+    }
+    stepsLineScroll(x);
+    x.addListener(function(e) {
+      stepsLineScroll(x);
+    })
+    function stepsLineScroll(x) {
+      const targetBlock = document.querySelector('.stepsline');
+      const targetBlockElement = document.querySelector('.stepsline_item.active');
+      if (targetBlock && targetBlockElement) {
+        let headerItem = '';
+        let offsetLeft = targetBlockElement.offsetLeft;
+        let options = {
+          speedAsDuration: false,
+          speed: 500,
+          header: headerItem,
+          offset: offsetLeft,
+          easing: 'easeOutQuad',
+        };
+        if (x.matches) {
+          if (typeof SmoothScroll !== 'undefined') {
+            new SmoothScroll().animateScroll(targetBlockElement, '', options);
+          } else {
+            let targetBlockElementPosition = (targetBlockElement.getBoundingClientRect().left + scrollY - (window.innerWidth / 2) + (targetBlockElement.offsetWidth / 2));
+            targetBlock.scrollTo({
+              left: targetBlockElementPosition,
+              behavior: "smooth"
+            });
+          }
+        }
+      }
+    }
 
+    const allFilltersBtn = document.querySelector('.js-allfilters');
+    if (allFilltersBtn) {
+      $(document).on('afterShow.fb', function( e, instance, slide ) {
+        slide.$slide[0].classList.add('fancybox-slide--allfilters');
+        bodyLock();
+        filtersCrutch(x);
+        filtersCheckedCount();
+        const filtersChecboxes = document.querySelectorAll('.fancybox-slide input[type="checkbox"]');
+        if (filtersChecboxes.length) {
+          filtersChecboxes.forEach(e=>{
+            e.addEventListener('change', ()=>{
+              filtersCheckedCount()
+            })
+          })
+        }
+      });
+      $(document).on('beforeClose.fb', function( e, instance, slide ) {
+        bodyUnlock();
+      });
+    }
+
+    function filtersCrutch(x) {
+      const filtersItemTitles =document.querySelectorAll('.filters_item_title');
+      if (filtersItemTitles.length && x.matches) {
+        filtersItemTitles.forEach(filtersItemTitle=>{
+          !filtersItemTitle.classList.contains('opened') ? filtersItemTitle.click() : null;
+        })
+      }
+    }
+    function filtersCheckedCount() {
+      const checkedBoxes =document.querySelectorAll('.fancybox-slide input:checked');
+      const count = document.querySelector('.fancybox-slide .filters-count span');
+      const countOut = document.querySelector('.filtersButton__body .counter');
+      count.innerHTML = checkedBoxes.length;
+      countOut.innerHTML = checkedBoxes.length;
+    }
+  }
 }
 
 document.addEventListener("afterPopupOpen", function (e) {

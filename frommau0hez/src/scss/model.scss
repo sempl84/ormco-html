@@ -244,9 +244,7 @@
   }
 }
 .configurator {
-  &:not(:last-child) {
-    @include adaptiveValue("margin-bottom", 85, 40);
-  }
+  @include adaptiveValue("margin-bottom", 85, 40);
 }
 .item-model {
   display: flex;

@@ -5,16 +5,16 @@
 	<title>Конфигуратор брекет-систем</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220810193040">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220810193040">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220810193040" rel="stylesheet" />
-	<link rel="stylesheet" href="css/style.min.css?_v=20220810193040">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220819010110">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220819010110">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220819010110" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20220819010110">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper wrapper_configurator">
 		<div itemscope itemtype="http://schema.org/Organization">
 			<meta itemprop="name" content="Интернет-магазин ортодонтической продукции Ormco (Санкт-Петербург)">
 			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -334,6 +334,20 @@
 			<div class="configurator">
 				<div class="configurator__head head-configurator">
 					<div class="head-configurator__container">
+						<div class="head-configurator__mobtitle mobtitle-headConfigurator">
+							<a href="#" class="mobtitle-headConfigurator__back">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.4375 18.75L4.6875 12L11.4375 5.25M5.625 12L19.3125 12" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</a>
+							<span class="mobtitle-headConfigurator__name">Выберите лигатуры</span>
+							<a href="#" class="mobtitle-headConfigurator__close">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="12" cy="12" r="12" fill="#F5F5F5" />
+									<path d="M15.2812 8.71875L8.71875 15.2812M15.2812 15.2812L8.71875 8.71875L15.2812 15.2812Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</a>
+						</div>
 						<div class="head-configurator__breadcumps">
 							<a href="#">Главная</a><span>Подборщик брекет-систем</span>
 						</div>
@@ -350,155 +364,172 @@
 						</div>
 					</div>
 				</div>
-				<div class="configurator__steps">
+				<div data-sticky="768" data-sticky-top="44" class="configurator__steps configurator__steps_ligatures">
+					<a data-sticky-item href="#" data-popup="#filtersPopup" class="filtersButton">
+						<div class="container">
+							<div class="filtersButton__body">
+								<span>Фильтры</span>
+								<img src="img/icons/filters.svg" alt="image">
+							</div>
+						</div>
+					</a>
 					<form method="post" action="#" data-ajax class="configurator__step configurator__step_one step-configurator">
 						<div class="step-configurator__container">
 							<div class="config_wrapper">
 
 								<h2>Выберите лигатуры</h2>
 
-								<div class="filter_header">
-									<select data-no-js-select class="select_rounded">
-										<option>Любой материал</option>
-										<option>Любой материал</option>
-										<option>Любой материал</option>
-									</select>
-									<a href="#" class="filter_header_clear">Очистить фильтры</a>
+								<div data-da=".filtersPopup__text, 767, 0" class="filter_header">
+									<div class="filter-header__head">
+										<div class="filter-header__title">Фильтры</div>
+									</div>
+									<div class="filter-header__body">
+										<select data-no-js-select class="select_rounded">
+											<option>Любой материал</option>
+											<option>Любой материал2</option>
+											<option>Любой материал3</option>
+										</select>
+										<a href="#" data-da=".filter-header__head, 767" class="filter_header_clear">Очистить фильтры</a>
+									</div>
 								</div><!-- /filter_header -->
 
-								<div class="config_wrapper_products">
-									<div class="row">
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-1.webp" type="image/webp"><img src="img/configurator/2-1.jpg" alt=""></picture></a>
-													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.</a></div>
-												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
+								<div class="config_products">
+									<div class="article__slide slide-article swiper-slide">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_1.webp" type="image/webp"><img src="img/static/article_slider_1.png" alt="image"></picture>
 										</div>
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-1.webp" type="image/webp"><img src="img/configurator/2-1.jpg" alt=""></picture></a>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<div class="slide-article__actprice">1420 <font class="rub">i</font>
 													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная лигатура кобаяши</a></div>
-												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
-										</div>
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-2.webp" type="image/webp"><img src="img/configurator/2-2.jpg" alt=""></picture></a>
+													<div class="slide-article__oldprice">1 600 <font class="rub">i</font>
 													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием</a></div>
 												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
-										</div>
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-1.webp" type="image/webp"><img src="img/configurator/2-1.jpg" alt=""></picture></a>
-													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная</a></div>
-												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
-										</div>
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-2.webp" type="image/webp"><img src="img/configurator/2-2.jpg" alt=""></picture></a>
-													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.</a></div>
-												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
-										</div>
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-2.webp" type="image/webp"><img src="img/configurator/2-2.jpg" alt=""></picture></a>
-													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная лигатура кобаяши</a></div>
-												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
-										</div>
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-1.webp" type="image/webp"><img src="img/configurator/2-1.jpg" alt=""></picture></a>
-													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием</a></div>
-												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
-										</div>
-										<div class="grid3 md4 tb6 xs12">
-											<div class="product">
-												<div class="product_top">
-													<div class="product_img">
-														<a href="#"><picture><source srcset="img/configurator/2-2.webp" type="image/webp"><img src="img/configurator/2-2.jpg" alt=""></picture></a>
-													</div>
-													<div class="product_art">Артикул: 227-1005</div>
-													<div class="product_title"><a href="#">Стальная полузакрученная</a></div>
-												</div>
-												<div class="product_foot">
-													<div class="product_price">1 420 ₽</div>
-													<a href="#" class="btn btn-light">Купить</a>
-												</div>
-											</div><!-- /product -->
+												<button class="slide-article__buy">В корзину</button>
+											</div>
 										</div>
 									</div>
-									<div class="items-tubes__pagination pagination-tubes">
-										<!-- <a href="#" class="pagination-tubes__item">Назад</a> -->
-										<div class="pagination-tubes__item pagination-tubes__item_active">1</div>
-										<a href="#" class="pagination-tubes__item">2</a>
-										<a href="#" class="pagination-tubes__item">3</a>
-										<a href="#" class="pagination-tubes__item">4</a>
-										<a href="#" class="pagination-tubes__item">5</a>
-										<a href="#" class="pagination-tubes__item pagination-tubes__item_arrow">Вперед</a>
+									<div class="article__slide slide-article swiper-slide">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_1.webp" type="image/webp"><img src="img/static/article_slider_1.png" alt="image"></picture>
+										</div>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .014, в коробке 100 шт.</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<span>1420 <font class="rub">i</font></span>
+												</div>
+												<button class="slide-article__buy">В корзину</button>
+											</div>
+										</div>
 									</div>
-								</div><!-- /config_wrapper_products -->
+									<div class="article__slide slide-article">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_2.webp" type="image/webp"><img src="img/static/article_slider_2.png" alt="image"></picture>
+										</div>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<span>1420 <font class="rub">i</font></span>
+												</div>
+												<button class="slide-article__buy">В корзину</button>
+											</div>
+										</div>
+									</div>
+									<div class="article__slide slide-article">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_1.webp" type="image/webp"><img src="img/static/article_slider_1.png" alt="image"></picture>
+										</div>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .014, в коробке 100 шт.</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<span>1420 <font class="rub">i</font></span>
+												</div>
+												<button class="slide-article__buy">В корзину</button>
+											</div>
+										</div>
+									</div>
+									<div class="article__slide slide-article">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_2.webp" type="image/webp"><img src="img/static/article_slider_2.png" alt="image"></picture>
+										</div>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<span>1420 <font class="rub">i</font></span>
+												</div>
+												<button class="slide-article__buy">В корзину</button>
+											</div>
+										</div>
+									</div>
+									<div class="article__slide slide-article">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_2.webp" type="image/webp"><img src="img/static/article_slider_2.png" alt="image"></picture>
+										</div>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<span>1420 <font class="rub">i</font></span>
+												</div>
+												<button class="slide-article__buy">В корзину</button>
+											</div>
+										</div>
+									</div>
+									<div class="article__slide slide-article">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_1.webp" type="image/webp"><img src="img/static/article_slider_1.png" alt="image"></picture>
+										</div>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .012, в коробке 100 шт.</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<div class="slide-article__actprice">1420 <font class="rub">i</font>
+													</div>
+													<div class="slide-article__oldprice">1 600 <font class="rub">i</font>
+													</div>
+												</div>
+												<button class="slide-article__buy">В корзину</button>
+											</div>
+										</div>
+									</div>
+									<div class="article__slide slide-article">
+										<div class="slide-article__image">
+											<picture><source srcset="img/static/article_slider_2.webp" type="image/webp"><img src="img/static/article_slider_2.png" alt="image"></picture>
+										</div>
+										<div class="slide-article__body">
+											<div class="slide-article__art">Артикул: 227-1005</div>
+											<a href="#" class="slide-article__name">Стальная полузакрученная лигатура кобаяши, диаметр .016 с тефлоновым покрытием</a>
+											<div class="slide-article__bottom">
+												<div class="slide-article__price">
+													<span>1420 <font class="rub">i</font></span>
+												</div>
+												<button class="slide-article__buy">В корзину</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="items-tubes__pagination pagination-tubes">
+									<!-- <a href="#" class="pagination-tubes__item">Назад</a> -->
+									<div class="pagination-tubes__item pagination-tubes__item_active">1</div>
+									<a href="#" class="pagination-tubes__item">2</a>
+									<a href="#" class="pagination-tubes__item">3</a>
+									<a href="#" class="pagination-tubes__item">4</a>
+									<a href="#" class="pagination-tubes__item">5</a>
+									<a href="#" class="pagination-tubes__item pagination-tubes__item_arrow">Вперед</a>
+								</div>
 							</div><!-- /config_wrapper -->
 							<div class="step-configurator__buttons">
 								<a href="configurator.html" class="backlink">Назад</a>
@@ -515,9 +546,20 @@
 					</form>
 				</div>
 			</div>
-
+			<div id="filtersPopup" aria-hidden="true" class="popup filtersPopup">
+				<div class="popup__wrapper filtersPopup__wrapper">
+					<div class="popup__content filtersPopup__content">
+						<button data-close type="button" class="popup__close filtersPopup__close">
+							<img src="img/icons/close.svg" alt="close">
+						</button>
+						<div class="popup__text filtersPopup__text">
+							<button data-close class="filtersPopup__show try_btn">Показать <span>15</span> товаров</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
-		<footer class="footer undefined">
+		<footer class="footer _md3dn ">
 			<div class="container">
 				<div class="footer_copy">© ООО «Ормко», 2021</div>
 				<ul class="footer_nav">
@@ -535,7 +577,7 @@
 		<div class="mobile_footer undefined">
 			<div class="container">
 				<ul>
-					<li><a href="#" class=" ">Каталог</a></li>
+					<li><a href="#" class="undefined">Каталог</a></li>
 					<li><a href="#" class="js_search_mb undefined">Поиск</a></li>
 					<li><a href="#" class="undefined">Корзина</a></li>
 					<li><a href="#auth" class="js_auth undefined">Войти</a></li>
@@ -909,12 +951,12 @@
 
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220810193040"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220810193040"></script>
-	<script src="js/app.min.js?_v=20220810193040"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220819010110"></script>
+	<script src="js/app.min.js?_v=20220819010110"></script>
 </body>
 
 </html>
