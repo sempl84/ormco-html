@@ -77,12 +77,13 @@
 			</div><!-- /codeinput -->
 			<div class="input-text color-red text-center">Слишком много неудачных попыток ввода кода для активации. Запросите новую СМС.</div>
 		</div>
-		<div class="modal_links">
+		<div class="modal_links @@cab">
 			<p>Получить новый код можно через 00:59</p>
 			<p><a href="#">Не приходит код?</a></p>
 		</div>
 	</form>
-	<a href="#" class="btn-back"></a>
+  <!-- Если находимся на странице личного кабинета то кнопке ниже стоит накинуть атрибут data-popup="#changePassPopup" и класс js-fancybox-close, если нет то нужно их убрать -->
+	<a href="#" data-popup="#changePassPopup" class="btn-back js-fancybox-close"></a>
 	<a href="#" data-fancybox-close class="btn-close"></a>
 
 	<!-- <div class="modal-loader">

@@ -87,7 +87,7 @@ export function homePageFunctions() {
 	
 	
 	// Fancybox
-	$('.js_auth, .js_authmail, .js_modal_code, .js_signup2').on('click', function() {
+	$('.js_auth, .js_authmail, .js_modal_code, .js_signup2, .js-fancybox-close').on('click', function() {
 		$.fancybox.close();
 	});
 	$('.js_auth, .js_authmail, .js_modal_code, .js_signup2, .js_choose_country, .js_freeconsult, .js-allfilters').fancybox({

@@ -6,6 +6,7 @@ import { _slideDown } from "./functions.js";
 import { flsModules } from "./modules.js";
 import { inputmaslFirstInit } from "./forms/inputmask.js";
 import { tippyInit } from "./tippy.js";
+import { formValidate } from "./forms/forms.js";
 import '../libs/datepicker-full.min.js';
 /* Модуль работы с select. */
 import '../libs/select.js';
@@ -150,17 +151,17 @@ function popupContentsActions(popupContents) {
 }
 
 function cabinetActions() {
-  const cabinetPersonalDatas = document.querySelectorAll('[data-cabinet-personaldata]');
-  if (cabinetPersonalDatas.length) {
-    cabinetPersonalDatas.forEach(cabinetPersonalData => {
-      const cabinetPersonalDataChange = cabinetPersonalData.querySelector('[data-cabinet-changepersonaldata]');
-      cabinetPersonalDataChange.addEventListener('click', (e) => {
-        e.preventDefault();
-        cabinetPersonalData.classList.toggle('main-cabinet__row_change');
-        checkPersonalDataStatus(cabinetPersonalData);
-      })
-    })
-  }
+  // const cabinetPersonalDatas = document.querySelectorAll('[data-cabinet-personaldata]');
+  // if (cabinetPersonalDatas.length) {
+  //   cabinetPersonalDatas.forEach(cabinetPersonalData => {
+  //     const cabinetPersonalDataChange = cabinetPersonalData.querySelector('[data-cabinet-changepersonaldata]');
+  //     cabinetPersonalDataChange.addEventListener('click', (e) => {
+  //       e.preventDefault();
+  //       cabinetPersonalData.classList.toggle('main-cabinet__row_change');
+  //       checkPersonalDataStatus(cabinetPersonalData);
+  //     })
+  //   })
+  // }
   const cabinetDelButtons = document.querySelectorAll('.popupAddress__del');
   if (cabinetDelButtons.length) {
     cabinetDelButtons.forEach(cabinetDelButton => {
@@ -175,6 +176,11 @@ function cabinetActions() {
         }
       })
     })
+  }
+
+  const changePassPopup = document.querySelector('#changePassPopup');
+  if (changePassPopup) {
+    cabineеChangePass(changePassPopup);
   }
 
   const cabinetArrows = document.querySelectorAll('.popupAddress__arrow');
@@ -199,26 +205,43 @@ function cabinetActions() {
     })
   }
   
-  function checkPersonalDataStatus(cabinetPersonalData) {
-    const cabinetPersonalDataInputs = document.querySelectorAll('.info-cabinet__input');
-    if (cabinetPersonalData.classList.contains('main-cabinet__row_change')) {
-      cabinetPersonalDataInputs.forEach(e => {
-        _slideDown(e)
-        inputmaslFirstInit()
-      });
-      cabinetPersonalDataInputs[0].focus();
-    } else {
-      cabinetPersonalDataInputs.forEach(e => {
-        _slideUp(e)
-      });
-    }
-    cabinetPersonalDataInputs.forEach(e => {
-      e.addEventListener('change', () => {
-        e.closest('form').querySelector('button[type="submit"]').click();
+  // function checkPersonalDataStatus(cabinetPersonalData) {
+  //   const cabinetPersonalDataInputs = document.querySelectorAll('.info-cabinet__input');
+  //   if (cabinetPersonalData.classList.contains('main-cabinet__row_change')) {
+  //     cabinetPersonalDataInputs.forEach(e => {
+  //       _slideDown(e)
+  //       inputmaslFirstInit()
+  //     });
+  //     cabinetPersonalDataInputs[0].focus();
+  //   } else {
+  //     cabinetPersonalDataInputs.forEach(e => {
+  //       _slideUp(e)
+  //     });
+  //   }
+  //   cabinetPersonalDataInputs.forEach(e => {
+  //     e.addEventListener('change', () => {
+  //       e.closest('form').querySelector('button[type="submit"]').click();
+  //     })
+  //   })
+  // }
+
+  function cabineеChangePass(changePassPopup) {
+    const changePassInputs = changePassPopup.querySelectorAll('[data-pass]');
+    const regFormBtn = changePassPopup.querySelector('.form-changeDataPopup__button');
+    changePassInputs.forEach(e => {
+      e.addEventListener('input', () => {
+        if ((changePassInputs[0].value !== changePassInputs[1].value)) {
+          formValidate.addError(changePassInputs[0]);
+          formValidate.addError(changePassInputs[1]);
+          regFormBtn.setAttribute('disabled', '');
+        } else {
+          formValidate.removeError(changePassInputs[0]);
+          formValidate.removeError(changePassInputs[1]);
+          regFormBtn.removeAttribute('disabled');
+        }
       })
     })
   }
-
 }
 
 function cabinetOrdersActions(cabinetOrders) {

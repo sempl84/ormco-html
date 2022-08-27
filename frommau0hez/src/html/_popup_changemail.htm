@@ -1,0 +1,36 @@
+<div id="changeMailPopup" aria-hidden="true" class="popup changeDataPopup">
+	<div class="popup__wrapper changeDataPopup__wrapper">
+		<div class="popup__content changeDataPopup__content">
+			<button data-close type="button" class="popup__close changeDataPopup__close">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="16" cy="16" r="16" fill="#F5F5F5"/>
+					<path d="M20.375 11.625L11.625 20.375M20.375 20.375L11.625 11.625L20.375 20.375Z" stroke="#8E8E93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+      </button>
+			<div class="popup__text changeDataPopup__text">
+        <form action="#" data-dev method="post" class="changeDataPopup__form form-changeDataPopup">
+          <h3 class="form-changeDataPopup__title">Изменение email</h3>
+          <div class="form-changeDataPopup__body">
+            <div class="form-changeDataPopup__row">
+              <div class="input-field">
+                <div class="input-float">
+                  <label>Старый email</label>
+                  <input type="text" data-inputmask="'alias': 'email'" data-inputmask-clearincomplete="true" data-inputmask-showmaskonhover="false" data-required data-error="Обязательное поле" class="input">
+                </div>
+              </div>
+            </div>
+            <div class="form-changeDataPopup__row">
+              <div class="input-field">
+                <div class="input-float">
+                  <label>Новый email</label>
+                  <input type="text" data-inputmask="'alias': 'email'" data-inputmask-clearincomplete="true" data-inputmask-showmaskonhover="false" data-required data-error="Обязательное поле" class="input">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="form-changeDataPopup__button btn btn-light btn-xl btn-block">Сохранить изменения</button>
+          </div>
+        </form>
+			</div>
+		</div>
+	</div>
+</div>

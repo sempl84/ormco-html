@@ -14645,8 +14645,10 @@
             }
             if (getHash()) {
                 let goToHash;
-                if (document.querySelector(`#${getHash()}`)) goToHash = `#${getHash()}`; else if (document.querySelector(`.${getHash()}`)) goToHash = `.${getHash()}`;
-                goToHash ? gotoBlock(goToHash, true, 500, 20) : null;
+                if (document.querySelector(`[data-goto="#${getHash()}"]`) || document.querySelector(`[data-goto=".${getHash()}"]`)) {
+                    if (document.querySelector(`#${getHash()}`)) goToHash = `#${getHash()}`; else if (document.querySelector(`.${getHash()}`)) goToHash = `.${getHash()}`;
+                    goToHash ? gotoBlock(goToHash, true, 500, 20) : null;
+                }
             }
         }
         function headerScroll() {
@@ -17778,15 +17780,6 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         }
         function cabinetActions() {
-            const cabinetPersonalDatas = document.querySelectorAll("[data-cabinet-personaldata]");
-            if (cabinetPersonalDatas.length) cabinetPersonalDatas.forEach((cabinetPersonalData => {
-                const cabinetPersonalDataChange = cabinetPersonalData.querySelector("[data-cabinet-changepersonaldata]");
-                cabinetPersonalDataChange.addEventListener("click", (e => {
-                    e.preventDefault();
-                    cabinetPersonalData.classList.toggle("main-cabinet__row_change");
-                    checkPersonalDataStatus(cabinetPersonalData);
-                }));
-            }));
             const cabinetDelButtons = document.querySelectorAll(".popupAddress__del");
             if (cabinetDelButtons.length) cabinetDelButtons.forEach((cabinetDelButton => {
                 cabinetDelButton.addEventListener("click", (e => {
@@ -17800,6 +17793,8 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }));
             }));
+            const changePassPopup = document.querySelector("#changePassPopup");
+            if (changePassPopup) cabineеChangePass(changePassPopup);
             const cabinetArrows = document.querySelectorAll(".popupAddress__arrow");
             if (cabinetArrows.length && isMobile.any()) cabinetArrows.forEach((cabinetArrow => {
                 cabinetArrow.addEventListener("click", (e => {
@@ -17812,20 +17807,20 @@ PERFORMANCE OF THIS SOFTWARE.
                     } else if (cabinetArrowParent && cabinetArrowParent.classList.contains("item-cabinet__line")) cabinetArrowParent.classList.toggle("item-cabinet__line_deledit");
                 }));
             }));
-            function checkPersonalDataStatus(cabinetPersonalData) {
-                const cabinetPersonalDataInputs = document.querySelectorAll(".info-cabinet__input");
-                if (cabinetPersonalData.classList.contains("main-cabinet__row_change")) {
-                    cabinetPersonalDataInputs.forEach((e => {
-                        _slideDown(e);
-                        inputmaslFirstInit();
-                    }));
-                    cabinetPersonalDataInputs[0].focus();
-                } else cabinetPersonalDataInputs.forEach((e => {
-                    _slideUp(e);
-                }));
-                cabinetPersonalDataInputs.forEach((e => {
-                    e.addEventListener("change", (() => {
-                        e.closest("form").querySelector('button[type="submit"]').click();
+            function cabineеChangePass(changePassPopup) {
+                const changePassInputs = changePassPopup.querySelectorAll("[data-pass]");
+                const regFormBtn = changePassPopup.querySelector(".form-changeDataPopup__button");
+                changePassInputs.forEach((e => {
+                    e.addEventListener("input", (() => {
+                        if (changePassInputs[0].value !== changePassInputs[1].value) {
+                            formValidate.addError(changePassInputs[0]);
+                            formValidate.addError(changePassInputs[1]);
+                            regFormBtn.setAttribute("disabled", "");
+                        } else {
+                            formValidate.removeError(changePassInputs[0]);
+                            formValidate.removeError(changePassInputs[1]);
+                            regFormBtn.removeAttribute("disabled");
+                        }
                     }));
                 }));
             }
@@ -19089,7 +19084,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     if (0 === $(this).val().length || "+7 (___) ___-__-__" === $(this).val()) $(this).closest(".input-float").removeClass("focused");
                 }));
             }));
-            $(".js_auth, .js_authmail, .js_modal_code, .js_signup2").on("click", (function() {
+            $(".js_auth, .js_authmail, .js_modal_code, .js_signup2, .js-fancybox-close").on("click", (function() {
                 $.fancybox.close();
             }));
             $(".js_auth, .js_authmail, .js_modal_code, .js_signup2, .js_choose_country, .js_freeconsult, .js-allfilters").fancybox({
@@ -19326,7 +19321,7 @@ PERFORMANCE OF THIS SOFTWARE.
         spollers();
         showMore();
         formFieldsInit({
-            viewPass: false
+            viewPass: true
         });
         formSubmit();
         formQuantity();

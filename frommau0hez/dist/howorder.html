@@ -5,10 +5,10 @@
 	<title>Как оформить заказ</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220819010110">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220819010110">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220819010110" rel="stylesheet" />
-	<link rel="stylesheet" href="css/style.min.css?_v=20220819010110">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220827172554">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220827172554">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220827172554" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20220827172554">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </head>
@@ -562,12 +562,13 @@
 					</div><!-- /codeinput -->
 					<div class="input-text color-red text-center">Слишком много неудачных попыток ввода кода для активации. Запросите новую СМС.</div>
 				</div>
-				<div class="modal_links">
+				<div class="modal_links undefined">
 					<p>Получить новый код можно через 00:59</p>
 					<p><a href="#">Не приходит код?</a></p>
 				</div>
 			</form>
-			<a href="#" class="btn-back"></a>
+			<!-- Если находимся на странице личного кабинета то кнопке ниже стоит накинуть атрибут data-popup="#changePassPopup" и класс js-fancybox-close, если нет то нужно их убрать -->
+			<a href="#" data-popup="#changePassPopup" class="btn-back js-fancybox-close"></a>
 			<a href="#" data-fancybox-close class="btn-close"></a>
 
 			<!-- <div class="modal-loader">
@@ -864,14 +865,14 @@
 
 
 	</div>
-	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=c0e2bba9-a36a-4fd9-910d-626f0cefceb3&_v=20220819010110" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=c0e2bba9-a36a-4fd9-910d-626f0cefceb3&_v=20220827172554" type="text/javascript"></script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220819010110"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220819010110"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220819010110"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220819010110"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220819010110"></script>
-	<script src="js/app.min.js?_v=20220819010110"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220827172554"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220827172554"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220827172554"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220827172554"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220827172554"></script>
+	<script src="js/app.min.js?_v=20220827172554"></script>
 </body>
 
 </html>

@@ -3863,6 +3863,11 @@ input[type=checkbox]:checked {
   padding-top: 20px;
 }
 
+.modal_links.modal_cabinet {
+  color: #2CA5F5;
+  font-size: 0.9375rem;
+}
+
 .modal_links a {
   text-decoration: none;
 }
@@ -5153,9 +5158,15 @@ input[type=checkbox]:checked + .teeth-count + .teeth-img::before {
   border: 0.0625rem solid rgba(142, 142, 147, 0.2);
 }
 
+.partner a {
+  max-width: 90%;
+}
+
 .partner img,
 .partner picture {
   height: 5.5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .feedback_button {
@@ -10477,13 +10488,20 @@ input[type=number] {
   }
 }
 
+.top-cabinet__head svg path {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
 .top-cabinet__icon {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 1.5rem;
           flex: 0 0 1.5rem;
 }
 
-.top-cabinet__icon img {
+.top-cabinet__icon img,
+.top-cabinet__icon svg {
   max-width: 100%;
 }
 
@@ -10646,6 +10664,12 @@ input[type=number] {
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+}
+
+.info-cabinet__row .info-cabinet__change {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .info-cabinet__body {
@@ -11866,6 +11890,136 @@ input[type=number] {
 
 .mobile-ordersCabinet__top:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+.changeDataPopup__wrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.changeDataPopup__content {
+  max-width: 23.125rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0px 8px 20px rgba(26, 26, 26, 0.1);
+          box-shadow: 0px 8px 20px rgba(26, 26, 26, 0.1);
+  padding: 0.75rem 1.5rem 1.75rem;
+}
+
+.changeDataPopup__close {
+  margin-left: auto;
+  display: block;
+  margin-right: -0.75rem;
+}
+
+.changeDataPopup__close:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.changeDataPopup__text p {
+  color: #8E8E93;
+  font-size: 0.8125rem;
+}
+
+.changeDataPopup__text p:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+.form-changeDataPopup__title {
+  color: #111;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.form-changeDataPopup__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 0.75rem;
+}
+
+.form-changeDataPopup__row .input._form-error {
+  -webkit-box-shadow: inset 0 0 0 1px red;
+          box-shadow: inset 0 0 0 1px red;
+}
+
+.form-changeDataPopup__row .form__error {
+  font-size: 0.625rem;
+  color: red;
+  padding-top: 0.3125rem;
+  padding-left: 0.3125rem;
+}
+
+.form-changeDataPopup__radios {
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  max-height: 11.5rem;
+}
+
+.form-changeDataPopup__radios .simplebar-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 1rem;
+}
+
+.form-changeDataPopup__radios .simplebar-content::after,
+.form-changeDataPopup__radios .simplebar-content::before {
+  content: "";
+  display: none;
+}
+
+.form-changeDataPopup__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.form-changeDataPopup__label {
+  cursor: pointer;
+}
+
+.form-changeDataPopup__button {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.form-changeDataPopup__button[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.form-changeDataPopup__viewpass {
+  position: absolute;
+  cursor: pointer;
+  width: 1.375rem;
+  height: 3.25rem;
+  right: 0.75rem;
+  top: 0.0625rem;
+  display: block;
+  z-index: 9;
+}
+
+.form-changeDataPopup__viewpass._viewpass-active svg path {
+  stroke: #2CA5F5;
+}
+
+.form-changeDataPopup__icon {
+  pointer-events: none;
 }
 
 .qs-datepicker-container {
@@ -20076,6 +20230,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     color: #2CA5F5;
   }
 
+  .top-cabinet__head:hover svg path {
+    stroke: #2CA5F5;
+  }
+
   .info-cabinet__head:hover > .info-cabinet__change {
     opacity: 1;
     visibility: visible;
@@ -20092,6 +20250,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .info-cabinet__change {
     opacity: 0;
     visibility: hidden;
+  }
+
+  .info-cabinet__row:hover > .info-cabinet__change {
+    opacity: 1;
+    visibility: visible;
   }
 
   .info-cabinet__tippy svg:hover path {

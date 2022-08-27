@@ -421,6 +421,10 @@
   .btn-close {position: absolute; right: 12px; top: 12px;}
   &_links {
     color: var(--color-gray); font-size: 13px; line-height: 18px; text-align: center; padding-top: 20px;
+    &.modal_cabinet {
+      color: $blue;
+      font-size: rem(15);
+    }
     a {text-decoration: none;}
     a:hover {text-decoration: underline;}
   }

@@ -79,12 +79,14 @@ export function pageNavigation() {
 	// Прокрутка по хешу
 	if (getHash()) {
 		let goToHash;
-		if (document.querySelector(`#${getHash()}`)) {
-			goToHash = `#${getHash()}`;
-		} else if (document.querySelector(`.${getHash()}`)) {
-			goToHash = `.${getHash()}`;
-		}
-		goToHash ? gotoBlock(goToHash, true, 500, 20) : null;
+    if (document.querySelector(`[data-goto="#${getHash()}"]`) || document.querySelector(`[data-goto=".${getHash()}"]`)) {
+      if (document.querySelector(`#${getHash()}`)) {
+        goToHash = `#${getHash()}`;
+      } else if (document.querySelector(`.${getHash()}`)) {
+        goToHash = `.${getHash()}`;
+      }
+      goToHash ? gotoBlock(goToHash, true, 500, 20) : null;
+    }
 	}
 }
 // Работа с шапкой при скроле
