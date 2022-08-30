@@ -259,6 +259,7 @@ input[type='checkbox'] {
 	background: #f9f9f9; border-radius: 4px; position: relative;
 	&.notvalid {background: linear-gradient(0deg, rgba(255, 59, 48, 0.1), rgba(255, 59, 48, 0.1)), #FFFFFF;}
 	label {
+    background-color: #f9f9f9;
 		position: absolute; margin: 0; font-size: 15px; line-height: 20px; @include anim(150ms);
 		color: var(--color-gray); left: 16px; top: 16px;
 		transform-origin: 0 100%;

@@ -10,7 +10,9 @@ import "inputmask/dist/inputmask.min.js";
 export function inputmaslFirstInit() {
 	const inputMasks = document.querySelectorAll('[data-inputmask]');
 	if (inputMasks.length) {
-		flsModules.inputmask = Inputmask().mask(inputMasks);
+		flsModules.inputmask = Inputmask({
+      positionCaretOnClick: 'none',
+    }).mask(inputMasks);
 	}
 }
 inputmaslFirstInit();

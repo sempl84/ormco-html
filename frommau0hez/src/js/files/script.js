@@ -226,21 +226,22 @@ function cabinetActions() {
   // }
 
   function cabineеChangePass(changePassPopup) {
-    const changePassInputs = changePassPopup.querySelectorAll('[data-pass]');
-    const regFormBtn = changePassPopup.querySelector('.form-changeDataPopup__button');
-    changePassInputs.forEach(e => {
-      e.addEventListener('input', () => {
-        if ((changePassInputs[0].value !== changePassInputs[1].value)) {
-          formValidate.addError(changePassInputs[0]);
-          formValidate.addError(changePassInputs[1]);
-          regFormBtn.setAttribute('disabled', '');
-        } else {
-          formValidate.removeError(changePassInputs[0]);
-          formValidate.removeError(changePassInputs[1]);
-          regFormBtn.removeAttribute('disabled');
-        }
-      })
-    })
+    console.log('Если нужна проверка паролей на соответствие то двум инпутам стоит накинуть атрибут "data-pass" и раскомментировать всё, что внутри функции cabineеChangePass')
+    // const changePassInputs = changePassPopup.querySelectorAll('[data-pass]');
+    // const regFormBtn = changePassPopup.querySelector('.form-changeDataPopup__button');
+    // changePassInputs.forEach(e => {
+    //   e.addEventListener('input', () => {
+    //     if ((changePassInputs[0].value !== changePassInputs[1].value)) {
+    //       formValidate.addError(changePassInputs[0]);
+    //       formValidate.addError(changePassInputs[1]);
+    //       regFormBtn.setAttribute('disabled', '');
+    //     } else {
+    //       formValidate.removeError(changePassInputs[0]);
+    //       formValidate.removeError(changePassInputs[1]);
+    //       regFormBtn.removeAttribute('disabled');
+    //     }
+    //   })
+    // })
   }
 }
 
@@ -649,10 +650,15 @@ function customDatePickerInit(datePickers = document.querySelectorAll('[data-dat
         input.value = date.toLocaleDateString();
         input.parentElement.querySelector('[data-date]').innerHTML = value;
         input.closest('.buyers-ordering__item').querySelector('.buyers-ordering__dateshort').innerHTML = shortValue;
+      },
+      onSelect: (instance, date) => {
+        console.log(instance)
+        console.log(date)
       }
     })
   })
 }
+
 
 function orderingAdressesActions(orderingAdresses) {
   const editAdresses = document.querySelectorAll('.popupAddress__edit');

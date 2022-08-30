@@ -7629,7 +7629,9 @@
         __webpack_require__(125);
         function inputmaslFirstInit() {
             const inputMasks = document.querySelectorAll("[data-inputmask]");
-            if (inputMasks.length) flsModules.inputmask = Inputmask().mask(inputMasks);
+            if (inputMasks.length) flsModules.inputmask = Inputmask({
+                positionCaretOnClick: "none"
+            }).mask(inputMasks);
         }
         inputmaslFirstInit();
         function getWindow_getWindow(node) {
@@ -17808,21 +17810,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
             }));
             function cabineеChangePass(changePassPopup) {
-                const changePassInputs = changePassPopup.querySelectorAll("[data-pass]");
-                const regFormBtn = changePassPopup.querySelector(".form-changeDataPopup__button");
-                changePassInputs.forEach((e => {
-                    e.addEventListener("input", (() => {
-                        if (changePassInputs[0].value !== changePassInputs[1].value) {
-                            formValidate.addError(changePassInputs[0]);
-                            formValidate.addError(changePassInputs[1]);
-                            regFormBtn.setAttribute("disabled", "");
-                        } else {
-                            formValidate.removeError(changePassInputs[0]);
-                            formValidate.removeError(changePassInputs[1]);
-                            regFormBtn.removeAttribute("disabled");
-                        }
-                    }));
-                }));
+                console.log('Если нужна проверка паролей на соответствие то двум инпутам стоит накинуть атрибут "data-pass" и раскомментировать всё, что внутри функции cabineеChangePass');
             }
         }
         function cabinetOrdersActions(cabinetOrders) {
@@ -18107,6 +18095,10 @@ PERFORMANCE OF THIS SOFTWARE.
                         input.value = date.toLocaleDateString();
                         input.parentElement.querySelector("[data-date]").innerHTML = value;
                         input.closest(".buyers-ordering__item").querySelector(".buyers-ordering__dateshort").innerHTML = shortValue;
+                    },
+                    onSelect: (instance, date) => {
+                        console.log(instance);
+                        console.log(date);
                     }
                 });
             }));
@@ -19162,6 +19154,9 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
             $(".codeinput_input").pincodeInput({
                 inputs: 6
+            });
+            $(".codeinput_input_four").pincodeInput({
+                inputs: 4
             });
             let scrollbox_slider = new Swiper(".scrollbox", {
                 direction: "vertical",

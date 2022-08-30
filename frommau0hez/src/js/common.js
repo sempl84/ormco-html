@@ -177,6 +177,9 @@ export function homePageFunctions() {
 	$('.codeinput_input').pincodeInput({
 		inputs: 6
 	});
+	$('.codeinput_input_four').pincodeInput({
+		inputs: 4
+	});
 
 
 	// ScrollBox
