@@ -49,7 +49,7 @@
                 </div>
               </div>
             </a>
-            <form method="post" action="#" class="configurator__step configurator__step_one step-configurator">
+            <form method="post" action="#" class="configurator__step configurator__step_one step-configurator" data-step="arcs">
               <div class="step-configurator__container">
                 <div class="config_wrapper">
                   <div class="step-configurator__head">
@@ -60,11 +60,11 @@
                       <div class="filter-header__body">
                         <div class="filter_header_left">
                           <div class="check-select">
-                            <button type="button" class="check-select__select btn btn btn-icon btn-select">Damon</button>
-                            <div class="check-select__dropdown">
+                            <button type="button" class="check-select__select btn btn btn-icon btn-select">Форма</button>
+                            <div data-configurator-filter="Форма" class="check-select__dropdown">
                               <ul>
                                 <li>
-                                  <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
+                                  <label class="check-field"><input checked type="checkbox" value="Damon"> Damon</label>
                                 </li>
                                 <li>
                                   <label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
@@ -78,10 +78,10 @@
                           </div><!-- /check-select -->
                           <div class="check-select">
                             <button type="button" class="check-select__select btn btn btn-icon btn-select">Материалы</button>
-                            <div class="check-select__dropdown">
+                            <div data-configurator-filter="Материал" class="check-select__dropdown">
                               <ul>
                                 <li>
-                                  <label class="check-field"><input type="checkbox" value="CuNi-Ti"> CuNi-Ti</label>
+                                  <label class="check-field"><input checked type="checkbox" value="CuNi-Ti"> CuNi-Ti</label>
                                 </li>
                                 <li>
                                   <label class="check-field"><input type="checkbox" value="D-rect"> D-rect</label>
@@ -104,10 +104,10 @@
                           </div><!-- /check-select -->
                           <div class="check-select">
                             <button type="button" class="check-select__select btn btn btn-icon btn-select">Сечение</button>
-                            <div class="check-select__dropdown">
+                            <div data-configurator-filter="Сечение" class="check-select__dropdown">
                               <ul>
                                 <li>
-                                  <label class="check-field"><input type="checkbox" value="Сечение 1"> Сечение 1</label>
+                                  <label class="check-field"><input checked type="checkbox" value="Сечение 1"> Сечение 1</label>
                                 </li>
                                 <li>
                                   <label class="check-field"><input type="checkbox" value="Сечение 2"> Сечение 2</label>
@@ -121,10 +121,10 @@
                           </div><!-- /check-select -->
                           <div class="check-select">
                             <button type="button" class="check-select__select btn btn btn-icon btn-select">Челюсть</button>
-                            <div class="check-select__dropdown">
+                            <div data-configurator-filter="Челюсть" class="check-select__dropdown">
                               <ul>
                                 <li>
-                                  <label class="check-field"><input type="checkbox" value="Челюсть 1"> Челюсть 1</label>
+                                  <label class="check-field"><input checked type="checkbox" value="Челюсть 1"> Челюсть 1</label>
                                 </li>
                                 <li>
                                   <label class="check-field"><input type="checkbox" value="Челюсть 2"> Челюсть 2</label>
@@ -138,7 +138,14 @@
                           </div><!-- /check-select -->
                           <a href="#allfilters" class="btn btn-icon btn-allfilter js-allfilters">Все фильтры</a>
                         </div>
-                        <a href="#" class="filter_header_clear" id="clearConfig">Очистить фильтры</a>
+                        <a href="#" class="filter_header_clear" data-reset>Очистить фильтры</a>
+                      </div>
+                      <div class="filter-header__checked checked-filterHeader">
+                        <div class="checked-filterHeader__item">
+                          <span class="checked-filterHeader__name">Материал:</span>
+                          <span class="checked-filterHeader__value">Ni-Ti</span>
+                          <span class="checked-filterHeader__del"></span>
+                        </div>
                       </div>
                     </div><!-- /filter_header -->
   
@@ -518,7 +525,7 @@
             </div>
           </div>
           <div class="filters_footer">
-            <button data-da=".filters_label, 767" class="btn btn-link-dark">Сбросить все <span>фильтры</span></button>
+            <button data-da=".filters_label, 767" data-reset class="btn btn-link-dark">Сбросить все <span>фильтры</span></button>
             <button class="btn btn-blue" data-fancybox-close>Применить</button>
           </div>
         </div>

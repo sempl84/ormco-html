@@ -210,9 +210,9 @@ export function formSubmit(options = { validate: true }) {
 		} else {
 			e.preventDefault();
 			const formError = form.querySelector('._form-error');
-			if (formError && form.hasAttribute('data-goto-error')) {
-				gotoBlock(formError, true, 1000);
-			}
+			// if (formError && form.hasAttribute('data-goto-error')) {
+			// 	gotoBlock(formError, true, 1000);
+			// }
 		}
 	}
 	// Действия после отправки формы

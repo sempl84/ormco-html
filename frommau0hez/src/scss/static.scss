@@ -383,6 +383,11 @@
       padding: 0;
       background-color: transparent;
       align-self: flex-end;
+      @media (any-hover: hover){
+        &:hover{
+          background-color: transparent;
+        }
+      }
       @media (max-width:$mobile){
         text-align: left;
         justify-content: flex-start;

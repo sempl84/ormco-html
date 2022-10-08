@@ -537,11 +537,9 @@ body.panel_opened .panel {transform: translateX(0);}
 
 /* filter_header */
 .filter_header {
-  @media (max-width:$mobile){
-    display: none;
-  }
   .filter-header__body {
-    display: flex; align-items: center; justify-content: space-between; margin: 0 0 28px;flex-wrap: wrap;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    margin-bottom: rem(16);
   }
   .filter-header__title  {
     @media (min-width:$mobile){
@@ -558,7 +556,7 @@ body.panel_opened .panel {transform: translateX(0);}
       .many_inner {@include clr;}
     }
   }
-  .btn {
+  .btn:not(._md3dib) {
     @media (max-width:$mobile){
       display: none !important;
     }
@@ -577,7 +575,10 @@ body.panel_opened .panel {transform: translateX(0);}
   }
   h2 {margin: 0;}
   .btn-icon {
+    transition: all 0.3s ease 0s;
     margin-right: 12px;
+    box-shadow: none;
+    border: 1px solid #E0E0E3;
     &:last-child {margin-right: 0;}
   }
   &_price {
@@ -727,13 +728,16 @@ body.panel_opened .panel {transform: translateX(0);}
   &_item {
     border-bottom: 1px solid #F5F5F5; display: inline-block; width: 100%;
     &_title {
-      font-weight: 600; font-size: 15px; line-height: 20px; padding: 16px 32px 16px 0;
+      font-weight: 600; font-size: 15px; line-height: 20px; padding: 16px 32px 16px 16px;
+      border-radius: rem(10);
+      border: 1px solid transparent;
       position: relative; cursor: pointer;
-      &::after {@include bf; @include icon(select,14px,8px, auto); right: 0; top: 50%; margin-top: -4px;}
+      transition: all 0.3s ease 0s;
+      &::after {@include bf; @include icon(select,14px,8px, auto); right: 6px; top: 50%; margin-top: -4px;}
       &.opened::after {transform: matrix(1,0,0,-1,0,0);}
     }
     &_hide {
-      display: none; padding-bottom: 16px;
+      display: none; padding: 16px 0;
       li {margin: 0 0 12px;}
       li:last-child {margin: 0;}
     }

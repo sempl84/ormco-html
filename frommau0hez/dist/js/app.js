@@ -7571,8 +7571,7 @@
                     }
                 } else {
                     e.preventDefault();
-                    const formError = form.querySelector("._form-error");
-                    if (formError && form.hasAttribute("data-goto-error")) gotoBlock(formError, true, 1e3);
+                    form.querySelector("._form-error");
                 }
             }
             function formSent(form, responseResult = ``) {
@@ -13307,6 +13306,165 @@
                 update
             });
         }
+        function freeMode(_ref) {
+            let {swiper, extendParams, emit, once} = _ref;
+            extendParams({
+                freeMode: {
+                    enabled: false,
+                    momentum: true,
+                    momentumRatio: 1,
+                    momentumBounce: true,
+                    momentumBounceRatio: 1,
+                    momentumVelocityRatio: 1,
+                    sticky: false,
+                    minimumVelocity: .02
+                }
+            });
+            function onTouchStart() {
+                const translate = swiper.getTranslate();
+                swiper.setTranslate(translate);
+                swiper.setTransition(0);
+                swiper.touchEventsData.velocities.length = 0;
+                swiper.freeMode.onTouchEnd({
+                    currentPos: swiper.rtl ? swiper.translate : -swiper.translate
+                });
+            }
+            function onTouchMove() {
+                const {touchEventsData: data, touches} = swiper;
+                if (0 === data.velocities.length) data.velocities.push({
+                    position: touches[swiper.isHorizontal() ? "startX" : "startY"],
+                    time: data.touchStartTime
+                });
+                data.velocities.push({
+                    position: touches[swiper.isHorizontal() ? "currentX" : "currentY"],
+                    time: utils_now()
+                });
+            }
+            function onTouchEnd(_ref2) {
+                let {currentPos} = _ref2;
+                const {params, $wrapperEl, rtlTranslate: rtl, snapGrid, touchEventsData: data} = swiper;
+                const touchEndTime = utils_now();
+                const timeDiff = touchEndTime - data.touchStartTime;
+                if (currentPos < -swiper.minTranslate()) {
+                    swiper.slideTo(swiper.activeIndex);
+                    return;
+                }
+                if (currentPos > -swiper.maxTranslate()) {
+                    if (swiper.slides.length < snapGrid.length) swiper.slideTo(snapGrid.length - 1); else swiper.slideTo(swiper.slides.length - 1);
+                    return;
+                }
+                if (params.freeMode.momentum) {
+                    if (data.velocities.length > 1) {
+                        const lastMoveEvent = data.velocities.pop();
+                        const velocityEvent = data.velocities.pop();
+                        const distance = lastMoveEvent.position - velocityEvent.position;
+                        const time = lastMoveEvent.time - velocityEvent.time;
+                        swiper.velocity = distance / time;
+                        swiper.velocity /= 2;
+                        if (Math.abs(swiper.velocity) < params.freeMode.minimumVelocity) swiper.velocity = 0;
+                        if (time > 150 || utils_now() - lastMoveEvent.time > 300) swiper.velocity = 0;
+                    } else swiper.velocity = 0;
+                    swiper.velocity *= params.freeMode.momentumVelocityRatio;
+                    data.velocities.length = 0;
+                    let momentumDuration = 1e3 * params.freeMode.momentumRatio;
+                    const momentumDistance = swiper.velocity * momentumDuration;
+                    let newPosition = swiper.translate + momentumDistance;
+                    if (rtl) newPosition = -newPosition;
+                    let doBounce = false;
+                    let afterBouncePosition;
+                    const bounceAmount = 20 * Math.abs(swiper.velocity) * params.freeMode.momentumBounceRatio;
+                    let needsLoopFix;
+                    if (newPosition < swiper.maxTranslate()) {
+                        if (params.freeMode.momentumBounce) {
+                            if (newPosition + swiper.maxTranslate() < -bounceAmount) newPosition = swiper.maxTranslate() - bounceAmount;
+                            afterBouncePosition = swiper.maxTranslate();
+                            doBounce = true;
+                            data.allowMomentumBounce = true;
+                        } else newPosition = swiper.maxTranslate();
+                        if (params.loop && params.centeredSlides) needsLoopFix = true;
+                    } else if (newPosition > swiper.minTranslate()) {
+                        if (params.freeMode.momentumBounce) {
+                            if (newPosition - swiper.minTranslate() > bounceAmount) newPosition = swiper.minTranslate() + bounceAmount;
+                            afterBouncePosition = swiper.minTranslate();
+                            doBounce = true;
+                            data.allowMomentumBounce = true;
+                        } else newPosition = swiper.minTranslate();
+                        if (params.loop && params.centeredSlides) needsLoopFix = true;
+                    } else if (params.freeMode.sticky) {
+                        let nextSlide;
+                        for (let j = 0; j < snapGrid.length; j += 1) if (snapGrid[j] > -newPosition) {
+                            nextSlide = j;
+                            break;
+                        }
+                        if (Math.abs(snapGrid[nextSlide] - newPosition) < Math.abs(snapGrid[nextSlide - 1] - newPosition) || "next" === swiper.swipeDirection) newPosition = snapGrid[nextSlide]; else newPosition = snapGrid[nextSlide - 1];
+                        newPosition = -newPosition;
+                    }
+                    if (needsLoopFix) once("transitionEnd", (() => {
+                        swiper.loopFix();
+                    }));
+                    if (0 !== swiper.velocity) {
+                        if (rtl) momentumDuration = Math.abs((-newPosition - swiper.translate) / swiper.velocity); else momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
+                        if (params.freeMode.sticky) {
+                            const moveDistance = Math.abs((rtl ? -newPosition : newPosition) - swiper.translate);
+                            const currentSlideSize = swiper.slidesSizesGrid[swiper.activeIndex];
+                            if (moveDistance < currentSlideSize) momentumDuration = params.speed; else if (moveDistance < 2 * currentSlideSize) momentumDuration = 1.5 * params.speed; else momentumDuration = 2.5 * params.speed;
+                        }
+                    } else if (params.freeMode.sticky) {
+                        swiper.slideToClosest();
+                        return;
+                    }
+                    if (params.freeMode.momentumBounce && doBounce) {
+                        swiper.updateProgress(afterBouncePosition);
+                        swiper.setTransition(momentumDuration);
+                        swiper.setTranslate(newPosition);
+                        swiper.transitionStart(true, swiper.swipeDirection);
+                        swiper.animating = true;
+                        $wrapperEl.transitionEnd((() => {
+                            if (!swiper || swiper.destroyed || !data.allowMomentumBounce) return;
+                            emit("momentumBounce");
+                            swiper.setTransition(params.speed);
+                            setTimeout((() => {
+                                swiper.setTranslate(afterBouncePosition);
+                                $wrapperEl.transitionEnd((() => {
+                                    if (!swiper || swiper.destroyed) return;
+                                    swiper.transitionEnd();
+                                }));
+                            }), 0);
+                        }));
+                    } else if (swiper.velocity) {
+                        emit("_freeModeNoMomentumRelease");
+                        swiper.updateProgress(newPosition);
+                        swiper.setTransition(momentumDuration);
+                        swiper.setTranslate(newPosition);
+                        swiper.transitionStart(true, swiper.swipeDirection);
+                        if (!swiper.animating) {
+                            swiper.animating = true;
+                            $wrapperEl.transitionEnd((() => {
+                                if (!swiper || swiper.destroyed) return;
+                                swiper.transitionEnd();
+                            }));
+                        }
+                    } else swiper.updateProgress(newPosition);
+                    swiper.updateActiveIndex();
+                    swiper.updateSlidesClasses();
+                } else if (params.freeMode.sticky) {
+                    swiper.slideToClosest();
+                    return;
+                } else if (params.freeMode) emit("_freeModeNoMomentumRelease");
+                if (!params.freeMode.momentum || timeDiff >= params.longSwipesMs) {
+                    swiper.updateProgress();
+                    swiper.updateActiveIndex();
+                    swiper.updateSlidesClasses();
+                }
+            }
+            Object.assign(swiper, {
+                freeMode: {
+                    onTouchStart,
+                    onTouchMove,
+                    onTouchEnd
+                }
+            });
+        }
         function initSliders() {
             if (document.querySelectorAll(".row-breckets").length) {
                 const brecketsSliders = document.querySelectorAll(".row-breckets");
@@ -13462,7 +13620,7 @@
                 let toothSlider = null;
                 function toothSliderInit() {
                     toothSlider = new core(slider, {
-                        modules: [ Navigation ],
+                        modules: [ Navigation, freeMode ],
                         observer: true,
                         observeParents: true,
                         spaceBetween: 20,
@@ -13476,10 +13634,7 @@
                 let x = window.matchMedia("(max-width: 767px)");
                 if (x.matches && null !== toothSlider && toothSlider.el.closest(".item-stepConfigurator_wrap")) toothSlider.destroy(); else toothSliderInit();
                 x.addListener((function(e) {
-                    if (x.matches && null !== toothSlider && toothSlider.el.closest(".item-stepConfigurator_wrap")) toothSlider.destroy(); else {
-                        console.log(toothSlider);
-                        toothSliderInit();
-                    }
+                    if (x.matches && null !== toothSlider && toothSlider.el.closest(".item-stepConfigurator_wrap")) toothSlider.destroy(); else toothSliderInit();
                 }));
             }));
         }
@@ -18524,9 +18679,26 @@ PERFORMANCE OF THIS SOFTWARE.
         function configuratorActions(configuratorEl) {
             const toothSwitcher = configuratorEl.querySelector("[data-switch-tooth]");
             let toothItems = configuratorEl.querySelectorAll(`[data-tooth]`);
-            if (toothSwitcher && toothItems) {
+            if (toothSwitcher && toothItems.length) {
                 toothSwitchCheck();
                 toothSwitcher.addEventListener("change", toothSwitchCheck);
+            }
+            const configuratorFilters = configuratorEl.querySelectorAll("[data-configurator-filter]");
+            if (configuratorFilters.length) {
+                dugesFiltersRender();
+                document.addEventListener("change", (e => {
+                    if (e.target.closest(".check-field")) dugesFiltersRender();
+                }));
+                configuratorEl.querySelector(".checked-filterHeader").addEventListener("click", (e => {
+                    if (e.target.closest(".checked-filterHeader__del")) {
+                        let checkedItem = e.target.closest(".checked-filterHeader__item");
+                        let checkedItemName = checkedItem.querySelector(".checked-filterHeader__name").textContent.replaceAll(":", "").trim();
+                        document.querySelectorAll(`[data-configurator-filter="${checkedItemName}"] input`).forEach((e => {
+                            e.checked = false;
+                        }));
+                        dugesFiltersRender();
+                    }
+                }));
             }
             function toothSwitchCheck() {
                 if (toothSwitcher.checked) toothItems.forEach((el => {
@@ -18546,6 +18718,13 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
             }
             let options = {};
+            const resetBtns = document.querySelectorAll("[data-reset]");
+            if (resetBtns.length) resetBtns.forEach((resetBtn => {
+                resetBtn.addEventListener("click", (e => {
+                    e.preventDefault();
+                    configuratorReset(resetBtn.dataset.image, document.querySelector("[data-step]").dataset.step);
+                }));
+            }));
             const configuratorTork = document.querySelector('[data-step="tork"]');
             if (configuratorTork) {
                 options = {
@@ -18655,7 +18834,7 @@ PERFORMANCE OF THIS SOFTWARE.
                         torkParent.addEventListener("mouseenter", (e => {
                             const checkedTeeth = configuratorTork.querySelectorAll(`[${options.toothAttribute}]:checked`);
                             if (!checkedTeeth.length) {
-                                torkParent.querySelector("label").classList.add("_pen");
+                                if (!isMobile.any()) torkParent.querySelector("label").classList.add("_pen");
                                 configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = false;
                             } else {
                                 checkOneTork(torkParent, tork, checkedTeeth, false);
@@ -18821,8 +19000,12 @@ PERFORMANCE OF THIS SOFTWARE.
                 function tubesActions() {
                     const tubesParent = document.querySelector(`[${options.torkParentAttribute}]`);
                     const checkedTeeth = document.querySelectorAll(`[${options.toothAttribute}]:checked`);
+                    let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : "";
                     if (checkedTeeth.length) {
-                        if (index <= 1) configuratorTork.querySelector(`.select__title .select__content`).innerHTML = configuratorTork.querySelector(".select__option._select-selected").innerHTML;
+                        if (index <= 1) {
+                            configuratorTork.querySelector(`.select__title .select__content`).innerHTML = podskazka;
+                            tubesParent.classList.add("_nobefore");
+                        } else tubesParent.classList.remove("_nobefore");
                         tubesParent.classList.remove("_pen");
                         const timeout = document.querySelector(`[${options.timeOutDataset}]`) ? 1e3 * parseInt(document.querySelector(`[${options.timeOutDataset}]`).getAttribute(`${options.timeOutDataset}`)) : 3e3;
                         setTimeout((() => {
@@ -18848,6 +19031,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                 tube.querySelector(".option-unavaiable") ? tube.querySelector(".option-unavaiable").remove() : null;
                                 checkOneTork(tubesParent, tube, checkedTeeth, true, e);
                                 checkTorks();
+                                document.querySelector(".step-configurator__title").click();
                             }));
                         }));
                     } else {
@@ -18996,6 +19180,56 @@ PERFORMANCE OF THIS SOFTWARE.
                     count.innerHTML = checkedBoxes.length;
                     countOut.innerHTML = checkedBoxes.length;
                 }
+            }
+            function configuratorReset(source, type) {
+                document.querySelectorAll("input[data-tooth]").forEach((e => {
+                    e.checked = false;
+                }));
+                document.querySelectorAll(".teeth-torkConfigurator__tork img").forEach((e => {
+                    e.setAttribute("src", source);
+                }));
+                document.querySelectorAll('input[type="hidden"]').forEach((e => {
+                    e.value = "";
+                }));
+                console.log(type);
+                if (document.querySelectorAll(`[data-${type}-parent]`)) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
+                    e.hidden = false;
+                }));
+                if ("tubes" === type) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
+                    e.classList.add("_pen");
+                }));
+                if ("arcs" === type) document.querySelectorAll("input:checked").forEach((e => {
+                    e.click();
+                }));
+            }
+            function dugesFiltersRender() {
+                let filters = document.querySelectorAll("[data-configurator-filter]");
+                const checkFiltersParent = document.querySelector(".checked-filterHeader");
+                let itemsArr = [];
+                let itemsStr = "";
+                filters.forEach((filter => {
+                    let checkedFiltersArr = [];
+                    let strValues = "";
+                    const checkedFilters = filter.querySelectorAll("input:checked");
+                    const filterParent = filter.closest(".check-select") ? filter.closest(".check-select") : filter.closest(".filters_item");
+                    const filterButton = filterParent.querySelector(".check-select__select") ? filterParent.querySelector(".check-select__select") : filterParent.querySelector(".filters_item_title");
+                    if (checkedFilters.length) filterButton.classList.add("_bluebd"); else filterButton.classList.remove("_bluebd");
+                    checkedFilters.forEach((checkedFilter => {
+                        checkedFiltersArr.push(checkedFilter);
+                    }));
+                    checkedFiltersArr.forEach(((checkedFilterToStr, index) => {
+                        const checkedFilterToStrText = checkedFilterToStr.closest(".check-field").textContent;
+                        if (index + 1 !== checkedFiltersArr.length) strValues += checkedFilterToStrText + ", "; else strValues += checkedFilterToStrText;
+                    }));
+                    if ("" !== strValues) {
+                        let str = `<div class="checked-filterHeader__item">\n          <span class="checked-filterHeader__name">${filter.getAttribute("data-configurator-filter")}:</span>\n          <span class="checked-filterHeader__value">${strValues}</span>\n          <span class="checked-filterHeader__del"></span>\n        </div>`;
+                        itemsArr.push(str);
+                    }
+                }));
+                itemsArr.forEach((item => {
+                    itemsStr += item;
+                }));
+                checkFiltersParent.innerHTML = itemsStr;
             }
         }
         document.addEventListener("afterPopupOpen", (function(e) {

@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, Thumbs, Pagination } from 'swiper';
+import Swiper, { Navigation, Thumbs, Pagination, FreeMode } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -430,13 +430,18 @@ function initSliders() {
         toothSlider = new Swiper(slider, { // Указываем скласс нужного слайдера
           // Подключаем модули слайдера
           // для конкретного случая
-          modules: [Navigation],
+          modules: [Navigation, FreeMode],
           observer: true,
           observeParents: true,
           spaceBetween: 20,
           slidesPerView: 'auto',
           speed: 800,
           autoHeight: false,
+          // slideToClickedSlide: true,
+          // freeMode: {
+          //   enabled: true,
+          //   sticky: false,
+          // },
     
           //touchRatio: 0,
           //simulateTouch: false,
@@ -476,20 +481,6 @@ function initSliders() {
           // Брейкпоинты
           // breakpoints: {
           // 	319: {
-          // 		slidesPerView: 1,
-          // 		spaceBetween: 0,
-          // 	},
-          // 	480: {
-          // 		slidesPerView: 2,
-          // 		spaceBetween: 10,
-          // 	},
-          // 	1020: {
-          // 		slidesPerView: 3,
-          // 		spaceBetween: 20,
-          // 	},
-          // 	1200: {
-          // 		slidesPerView: 4,
-          // 		spaceBetween: 20,
           // 	},
           // },
           // События
@@ -508,7 +499,6 @@ function initSliders() {
         if (x.matches && toothSlider !== null && toothSlider.el.closest('.item-stepConfigurator_wrap')) { 
           toothSlider.destroy();
         } else {
-          console.log(toothSlider)
           toothSliderInit();
         }
       });

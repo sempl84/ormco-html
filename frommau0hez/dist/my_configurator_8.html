@@ -5,10 +5,10 @@
 	<title>Конфигуратор брекет-систем</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20220830220842">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20220830220842">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20220830220842" rel="stylesheet" />
-	<link rel="stylesheet" href="css/style.min.css?_v=20220830220842">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20221008202738">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20221008202738">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20221008202738" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20221008202738">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </head>
@@ -372,7 +372,7 @@
 							</div>
 						</div>
 					</a>
-					<form method="post" action="#" class="configurator__step configurator__step_one step-configurator">
+					<form method="post" action="#" class="configurator__step configurator__step_one step-configurator" data-step="arcs">
 						<div class="step-configurator__container">
 							<div class="config_wrapper">
 								<div class="step-configurator__head">
@@ -383,11 +383,11 @@
 										<div class="filter-header__body">
 											<div class="filter_header_left">
 												<div class="check-select">
-													<button type="button" class="check-select__select btn btn btn-icon btn-select">Damon</button>
-													<div class="check-select__dropdown">
+													<button type="button" class="check-select__select btn btn btn-icon btn-select">Форма</button>
+													<div data-configurator-filter="Форма" class="check-select__dropdown">
 														<ul>
 															<li>
-																<label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
+																<label class="check-field"><input checked type="checkbox" value="Damon"> Damon</label>
 															</li>
 															<li>
 																<label class="check-field"><input type="checkbox" value="Damon"> Damon</label>
@@ -401,10 +401,10 @@
 												</div><!-- /check-select -->
 												<div class="check-select">
 													<button type="button" class="check-select__select btn btn btn-icon btn-select">Материалы</button>
-													<div class="check-select__dropdown">
+													<div data-configurator-filter="Материал" class="check-select__dropdown">
 														<ul>
 															<li>
-																<label class="check-field"><input type="checkbox" value="CuNi-Ti"> CuNi-Ti</label>
+																<label class="check-field"><input checked type="checkbox" value="CuNi-Ti"> CuNi-Ti</label>
 															</li>
 															<li>
 																<label class="check-field"><input type="checkbox" value="D-rect"> D-rect</label>
@@ -427,10 +427,10 @@
 												</div><!-- /check-select -->
 												<div class="check-select">
 													<button type="button" class="check-select__select btn btn btn-icon btn-select">Сечение</button>
-													<div class="check-select__dropdown">
+													<div data-configurator-filter="Сечение" class="check-select__dropdown">
 														<ul>
 															<li>
-																<label class="check-field"><input type="checkbox" value="Сечение 1"> Сечение 1</label>
+																<label class="check-field"><input checked type="checkbox" value="Сечение 1"> Сечение 1</label>
 															</li>
 															<li>
 																<label class="check-field"><input type="checkbox" value="Сечение 2"> Сечение 2</label>
@@ -444,10 +444,10 @@
 												</div><!-- /check-select -->
 												<div class="check-select">
 													<button type="button" class="check-select__select btn btn btn-icon btn-select">Челюсть</button>
-													<div class="check-select__dropdown">
+													<div data-configurator-filter="Челюсть" class="check-select__dropdown">
 														<ul>
 															<li>
-																<label class="check-field"><input type="checkbox" value="Челюсть 1"> Челюсть 1</label>
+																<label class="check-field"><input checked type="checkbox" value="Челюсть 1"> Челюсть 1</label>
 															</li>
 															<li>
 																<label class="check-field"><input type="checkbox" value="Челюсть 2"> Челюсть 2</label>
@@ -461,7 +461,14 @@
 												</div><!-- /check-select -->
 												<a href="#allfilters" class="btn btn-icon btn-allfilter js-allfilters">Все фильтры</a>
 											</div>
-											<a href="#" class="filter_header_clear" id="clearConfig">Очистить фильтры</a>
+											<a href="#" class="filter_header_clear" data-reset>Очистить фильтры</a>
+										</div>
+										<div class="filter-header__checked checked-filterHeader">
+											<div class="checked-filterHeader__item">
+												<span class="checked-filterHeader__name">Материал:</span>
+												<span class="checked-filterHeader__value">Ni-Ti</span>
+												<span class="checked-filterHeader__del"></span>
+											</div>
 										</div>
 									</div><!-- /filter_header -->
 
@@ -855,7 +862,7 @@
 						<div class="grid4">
 							<div class="filters_item">
 								<div class="filters_item_title">Форма</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Форма" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -868,7 +875,7 @@
 							</div>
 							<div class="filters_item">
 								<div class="filters_item_title">Челюсть</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Челюсть" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -881,7 +888,7 @@
 							</div>
 							<div class="filters_item">
 								<div class="filters_item_title">Температура трансофрмации</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Температура трансофрмации" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -896,7 +903,7 @@
 						<div class="grid4">
 							<div class="filters_item">
 								<div class="filters_item_title">Материалы</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Материалы" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -909,7 +916,7 @@
 							</div>
 							<div class="filters_item">
 								<div class="filters_item_title">Расстояние между петлями</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Расстояние между петлями" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -922,7 +929,7 @@
 							</div>
 							<div class="filters_item">
 								<div class="filters_item_title">Цвет</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Цвет" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -937,7 +944,7 @@
 						<div class="grid4">
 							<div class="filters_item">
 								<div class="filters_item_title">Сечение дуги</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Сечение дуги" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -950,7 +957,7 @@
 							</div>
 							<div class="filters_item">
 								<div class="filters_item_title">Размер дуги</div>
-								<div class="filters_item_hide">
+								<div data-configurator-filter="Размер дуги" class="filters_item_hide">
 									<ul>
 										<li><label class="check-field"><input type="checkbox">CuNi-Ti</label></li>
 										<li><label class="check-field"><input type="checkbox">D-rect</label></li>
@@ -965,7 +972,7 @@
 					</div>
 				</div>
 				<div class="filters_footer">
-					<button data-da=".filters_label, 767" class="btn btn-link-dark">Сбросить все <span>фильтры</span></button>
+					<button data-da=".filters_label, 767" data-reset class="btn btn-link-dark">Сбросить все <span>фильтры</span></button>
 					<button class="btn btn-blue" data-fancybox-close>Применить</button>
 				</div>
 			</div>
@@ -1377,12 +1384,12 @@
 
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20220830220842"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20220830220842"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20220830220842"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20220830220842"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20220830220842"></script>
-	<script src="js/app.min.js?_v=20220830220842"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20221008202738"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20221008202738"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20221008202738"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20221008202738"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20221008202738"></script>
+	<script src="js/app.min.js?_v=20221008202738"></script>
 </body>
 
 </html>

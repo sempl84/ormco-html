@@ -1507,9 +1507,28 @@ function contactsActions() {
 function configuratorActions(configuratorEl) {
   const toothSwitcher = configuratorEl.querySelector('[data-switch-tooth]');
   let toothItems = configuratorEl.querySelectorAll(`[data-tooth]`);
-  if (toothSwitcher && toothItems) {
+  if (toothSwitcher && toothItems.length) {
     toothSwitchCheck()
     toothSwitcher.addEventListener('change', toothSwitchCheck)
+  }
+  const configuratorFilters =configuratorEl.querySelectorAll('[data-configurator-filter]');
+  if (configuratorFilters.length) {
+    dugesFiltersRender();
+    document.addEventListener('change', (e)=>{
+      if (e.target.closest('.check-field')) {
+        dugesFiltersRender();
+      }
+    })
+    configuratorEl.querySelector('.checked-filterHeader').addEventListener('click', (e)=>{
+      if (e.target.closest('.checked-filterHeader__del')) {
+        let checkedItem = e.target.closest('.checked-filterHeader__item');
+        let checkedItemName = checkedItem.querySelector('.checked-filterHeader__name').textContent.replaceAll(':', '').trim();
+        document.querySelectorAll(`[data-configurator-filter="${checkedItemName}"] input`).forEach(e=>{
+          e.checked = false;
+        })
+        dugesFiltersRender();
+      }
+    })
   }
 
   function toothSwitchCheck() {
@@ -1545,6 +1564,16 @@ function configuratorActions(configuratorEl) {
   
   let options = {};
 
+  const resetBtns = document.querySelectorAll('[data-reset]');
+  if (resetBtns.length) {
+    resetBtns.forEach(resetBtn => {
+      resetBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        configuratorReset(resetBtn.dataset.image, document.querySelector('[data-step]').dataset.step);
+      })
+    })
+  }
+
   const configuratorTork = document.querySelector('[data-step="tork"]');
   if (configuratorTork) {
     options = {
@@ -1562,7 +1591,7 @@ function configuratorActions(configuratorEl) {
       timeOutDataset: 'data-timeout'
     };
     toothItems = configuratorEl.querySelectorAll(`${options.toothAttribute}`);
-    configuratorTorkActions(configuratorTork, options)
+    configuratorTorkActions(configuratorTork, options);
   }
   const configuratorBias = document.querySelector('[data-step="bias"]');
   if (configuratorBias) {
@@ -1669,7 +1698,9 @@ function configuratorActions(configuratorEl) {
         torkParent.addEventListener('mouseenter', (e)=>{
           const checkedTeeth = configuratorTork.querySelectorAll(`[${options.toothAttribute}]:checked`);
           if (!checkedTeeth.length) {
-            torkParent.querySelector('label').classList.add('_pen');
+            if (!isMobile.any()) {
+              torkParent.querySelector('label').classList.add('_pen');
+            }
             configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = false;
           } else {
             checkOneTork(torkParent, tork, checkedTeeth, false);
@@ -1892,9 +1923,14 @@ function configuratorActions(configuratorEl) {
     function tubesActions() {
       const tubesParent = document.querySelector(`[${options.torkParentAttribute}]`);
       const checkedTeeth = document.querySelectorAll(`[${options.toothAttribute}]:checked`);
+      let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : ''
       if (checkedTeeth.length) {
         if (index <= 1) {
-          configuratorTork.querySelector(`.select__title .select__content`).innerHTML = configuratorTork.querySelector('.select__option._select-selected').innerHTML;
+          // configuratorTork.querySelector(`.select__title .select__content`).innerHTML = configuratorTork.querySelector('.select__option._select-selected').innerHTML;
+          configuratorTork.querySelector(`.select__title .select__content`).innerHTML = podskazka;
+          tubesParent.classList.add('_nobefore');
+        } else {
+          tubesParent.classList.remove('_nobefore');
         }
         tubesParent.classList.remove('_pen');
         const timeout = document.querySelector(`[${options.timeOutDataset}]`) ? parseInt(document.querySelector(`[${options.timeOutDataset}]`).getAttribute(`${options.timeOutDataset}`)) * 1000 : 3000;
@@ -1923,6 +1959,7 @@ function configuratorActions(configuratorEl) {
             tube.querySelector('.option-unavaiable') ? tube.querySelector('.option-unavaiable').remove() : null;
             checkOneTork(tubesParent, tube, checkedTeeth, true, e);
             checkTorks();
+            document.querySelector('.step-configurator__title').click();
           })
         })
       } else {
@@ -2020,6 +2057,7 @@ function configuratorActions(configuratorEl) {
         })
       }
     }
+    
   }
 //========================================================================================================================================================
   function configuratorBiasActions() {
@@ -2109,6 +2147,76 @@ function configuratorActions(configuratorEl) {
       count.innerHTML = checkedBoxes.length;
       countOut.innerHTML = checkedBoxes.length;
     }
+  }
+//========================================================================================================================================================
+  function configuratorReset(source, type) {
+    document.querySelectorAll('input[data-tooth]').forEach(e=>{
+      e.checked = false;
+    })
+    document.querySelectorAll('.teeth-torkConfigurator__tork img').forEach(e=>{
+      e.setAttribute('src', source)
+    })
+    document.querySelectorAll('input[type="hidden"]').forEach(e=>{
+      e.value = ''
+    })
+    console.log(type)
+    if (document.querySelectorAll(`[data-${type}-parent]`)) {
+      document.querySelectorAll(`[data-${type}-parent]`).forEach(e=>{
+        e.hidden = false;
+      });
+    }
+    if (type === 'tubes') {
+      document.querySelectorAll(`[data-${type}-parent]`).forEach(e=>{
+        e.classList.add('_pen');
+      })
+    }
+    if (type === 'arcs') {
+      document.querySelectorAll('input:checked').forEach(e=>{
+        e.click();
+      })
+    }
+  }
+//========================================================================================================================================================
+  function dugesFiltersRender() {
+    let filters = document.querySelectorAll('[data-configurator-filter]')
+    const checkFiltersParent = document.querySelector('.checked-filterHeader');
+    let itemsArr = [];
+    let itemsStr = '';
+    filters.forEach(filter=>{
+      let checkedFiltersArr = [];
+      let strValues = '';
+      const checkedFilters = filter.querySelectorAll('input:checked');
+      const filterParent = filter.closest('.check-select') ? filter.closest('.check-select') : filter.closest('.filters_item')
+      const filterButton = filterParent.querySelector('.check-select__select') ? filterParent.querySelector('.check-select__select') : filterParent.querySelector('.filters_item_title')
+      if (checkedFilters.length) {
+        filterButton.classList.add('_bluebd');
+      } else {
+        filterButton.classList.remove('_bluebd');
+      }
+      checkedFilters.forEach(checkedFilter=>{
+        checkedFiltersArr.push(checkedFilter);
+      });
+      checkedFiltersArr.forEach((checkedFilterToStr, index)=>{
+        const checkedFilterToStrText = checkedFilterToStr.closest('.check-field').textContent;
+        if (index + 1 !== checkedFiltersArr.length) {
+          strValues += checkedFilterToStrText + ', ';
+        } else {
+          strValues += checkedFilterToStrText;
+        }
+      })
+      if (strValues !== '') {
+        let str = `<div class="checked-filterHeader__item">
+          <span class="checked-filterHeader__name">${filter.getAttribute('data-configurator-filter')}:</span>
+          <span class="checked-filterHeader__value">${strValues}</span>
+          <span class="checked-filterHeader__del"></span>
+        </div>`
+        itemsArr.push(str);
+      }
+    })
+    itemsArr.forEach(item=>{
+      itemsStr+=item;
+    })
+    checkFiltersParent.innerHTML = itemsStr;
   }
 }
 

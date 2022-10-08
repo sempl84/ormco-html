@@ -4,7 +4,7 @@
   }
 
   &__steps {
-    @include adaptiveValue("padding-bottom", 160, 78, 1440, 480, 1);
+    @include adaptiveValue("padding-bottom", 160, 38, 1440, 480, 1);
   }
 
   &__step {
@@ -29,7 +29,7 @@
     }
     a {
       display: flex;
-      align-items: center;
+      align-items: end;
       gap: rem(6);
       transition: color 0.3s ease 0s;
       @media (any-hover: hover){
@@ -44,7 +44,8 @@
         width: rem(4);
         height: rem(4);
         border-radius: 50%;
-        background-color: #8E8E93;
+        background-color: #E0E0E3;
+        margin-bottom: rem(5);
       }
     }
     @media (max-width: $mobile) {
@@ -89,14 +90,14 @@
     border-radius: rem(12);
     @include adaptiveValue("padding-top", 40, 0, 1200, 767, 1);
     @include adaptiveValue("padding-bottom", 40, 15, 1200, 767, 1);
-    @include adaptiveValue("padding-left", 40, 15, 1200, 480, 1);
-    @include adaptiveValue("padding-right", 40, 15, 1200, 480, 1);
+    @include adaptiveValue("padding-left", 40, 10, 1200, 480, 1);
+    @include adaptiveValue("padding-right", 40, 10, 1200, 480, 1);
     overflow-x: hidden;
     position: relative;
     .config_wrapper {
       border: none;
       box-shadow: none;
-      @include adaptiveValue("padding-bottom", 30, 0, 1200, 480, 1);
+      padding-bottom: rem(30);
       &:not(:last-child) {margin-bottom: rem(30);}
       .pagination-tubes {
         margin-top: rem(28);
@@ -131,9 +132,6 @@
 
     [data-step="tork"] & {
       &:not(:last-child) {margin-bottom: rem(28);}
-    }
-    @media (max-width:$mobile){
-      display: none;
     }
   }
 
@@ -251,6 +249,7 @@
       padding: rem(17);
       &_thin {
         padding: rem(10);
+        border-radius: rem(4);
       }
     }
   }
@@ -326,6 +325,9 @@
     max-width: rem(460);
     line-height: 1.3;
     font-weight: 400;
+    @media (max-width:$mobile){
+      display: none !important;
+    }
   }
 
   &__switch {
@@ -336,6 +338,8 @@
   }
 
   &__tooth {
+    max-width: 100vw;
+    overflow: hidden;
     &_hidden {
       position: absolute;
       bottom: 0;
@@ -344,11 +348,14 @@
       height: 100%;
       transform: translateX(-100%);
       opacity: 0;
+      pointer-events: none;
     }
   }
 }
 .switch-stepConfigurator {
   position: relative;
+  display: flex;
+  gap: rem(9);
   &[data-tippy-content] {
     opacity: 0.4;
     label {
@@ -488,6 +495,11 @@
         color: #2CA5F5;
       }
     }
+    @media (min-width:$mobile) {
+      width: 0 !important;
+      height: 0 !important;
+      opacity: 0 !important;
+    }
   }
 
   &__radio {
@@ -626,6 +638,9 @@
     font-weight: 600;
     font-size: rem(20);
     line-height: 1.2;
+    padding: rem(8) rem(16);
+    background-color: #F5F5F5;
+    border-radius: rem(100);
     @media (max-width:$mobile){
       font-size: rem(15);
     }
@@ -1028,6 +1043,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: rem(12);
+    @media (max-width:$mobile){
+      min-height: rem(100);
+    }
+    @media (max-width:$mobileSmall){
+      min-height: rem(150);
+    }
   }
 
   &__item {
@@ -1039,10 +1060,10 @@
 
   &__checkbox {
     display: none;
-    &:checked+label {
-      color: #2CA5F5;
-      border-color: #2CA5F5;
-    }
+    // &:checked+label {
+    //   color: #2CA5F5;
+    //   border-color: #2CA5F5;
+    // }
   }
 
   &__label {
@@ -1133,18 +1154,28 @@
 .teeth-torkConfigurator {
   display: flex;
   flex-direction: column;
-  gap: rem(10);
+  gap: 10px;
 
   &__line {
     display: flex;
-    gap: rem(16);
+    gap: 16px;
     @media (max-width:$mobile){
-      gap: rem(6);
+      gap: 6px;
+    }
+    .teeth-torkConfigurator_left & {
+      justify-content: flex-end;
+    }
+    .teeth-torkConfigurator_right {
+      justify-content: flex-start;
     }
 
     &_top {
       .teeth-torkConfigurator__icon svg {
         transform: rotate(.5turn);
+      }
+      .galka {
+        transform: rotate(.5turn) translate(0, 30%);
+        transform-origin: center;
       }
     }
 
@@ -1183,7 +1214,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: rem(8);
+    gap: 8px;
     cursor: pointer;
     svg {
       path[stroke-width="2"] {
@@ -1220,7 +1251,7 @@
     svg {
       @media (max-width:$pc){
         max-width: calc((100vw - rem(109)) / 8);
-        height: fit-content;
+        height: calc(((100vw - rem(109)) / 8) * 1.07);
       }
     }
   }
@@ -1238,6 +1269,7 @@
     @include adaptiveValue("padding-top", 40, 16, 1440, 480, 1);
     @include adaptiveValue("padding-left", 20, 16, 1440, 480, 1);
     @include adaptiveValue("padding-right", 20, 16, 1440, 480, 1);
+    padding-bottom: rem(20);
   }
 
   &__head {
@@ -1588,12 +1620,12 @@
 }
 
 :root {
-  @include adaptiveValue("--confItemWidht", 268, 138);
+  @include adaptiveValue("--confItemWidht", 268, 165, 1920, 480, 1);
 }
 .config_products {
   display: grid;
   grid-template-columns: repeat(auto-fit, var(--confItemWidht));
-  @include adaptiveValue("gap", 16, 12, 1440, 480, 1);
+  @include adaptiveValue("gap", 16, 8, 1440, 480, 1);
   justify-content: center;
 }
 
@@ -1742,6 +1774,89 @@
           border-radius: rem(8);
         }
       }
+    }
+  }
+}
+
+.checked-filterHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(12);
+  margin-bottom: rem(28);
+  min-height: rem(44);
+  @media (max-width:$mobile){
+    display: none;
+  }
+
+  &__item {
+    display: inline-block;
+    background-color: #F5F5F5;
+    border-radius: rem(100);
+    padding: rem(10) rem(14);
+    font-size: rem(15);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: rem(4);
+  }
+
+  &__name {
+    color: #8E8E93;
+  }
+
+  &__value {
+    color: #111;
+  }
+
+  &__del {
+    flex: 0 0 rem(24);
+    width: rem(24);
+    height: rem(24);
+    border-radius: 50%;
+    position: relative;
+    margin-left: rem(4);
+    transition: background-color 0.3s ease 0s;
+    cursor: pointer;
+    @media (any-hover: hover){
+      &:hover{
+        background-color: #E0E0E3;
+      }
+    }
+    @media (any-hover: none){
+      background-color: #E0E0E3;
+    }
+    &::after,
+    &::before{
+      content:'';
+      display: inline-block;
+      width: rem(15);
+      height: rem(2);
+      background-color: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    &::before{
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &::after{
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+
+.filter_header .check-select__select,
+.btn-allfilter {
+  font-size: rem(15);
+}
+
+.check-select__dropdown a {
+  font-size: rem(13);
+  transition: color 0.3s ease 0s;
+  @media (any-hover: hover){
+    &:hover{
+      color: $blue;
     }
   }
 }

@@ -330,7 +330,7 @@
 }
 ._md3dn {
   @media (max-width:$mobile){
-    display: none;
+    display: none !important;
   }
 }
 
@@ -462,5 +462,32 @@ input[type="number"] {
 ._mmd3dn {
   @media (min-width:$mobile){
     display: none;
+  }
+}
+
+._nobefore {
+  &::before{
+    display: none;
+  }
+}
+
+.check-field[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+._bluebd {
+  border: 1px solid var(--color-blue2) !important;
+}
+
+._md3db {
+  @media (max-width:$mobile){
+    display: block !important;
+  }
+}
+
+._md3dib {
+  @media (max-width:$mobile){
+    display: inline-block !important;
   }
 }
