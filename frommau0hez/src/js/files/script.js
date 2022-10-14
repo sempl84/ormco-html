@@ -1550,10 +1550,11 @@ function contactsActions() {
 
 //==================new================================================================================
 function configuratorActions(configuratorEl) {
+  let toothSwitchIndex = 1;
   const toothSwitcher = configuratorEl.querySelector('[data-switch-tooth]');
   let toothItems = configuratorEl.querySelectorAll(`[data-tooth]`);
   if (toothSwitcher && toothItems.length) {
-    toothSwitchCheck()
+    toothSwitchCheck();
     toothSwitcher.addEventListener('change', toothSwitchCheck)
   }
   const configuratorFilters =configuratorEl.querySelectorAll('[data-configurator-filter]');
@@ -1575,7 +1576,6 @@ function configuratorActions(configuratorEl) {
       }
     })
   }
-
   function toothSwitchCheck() {
     if (toothSwitcher.checked) {
       toothItems.forEach(el=>{
@@ -1583,25 +1583,37 @@ function configuratorActions(configuratorEl) {
           el.classList.add('item-stepConfigurator__tooth_hidden');
         } else {
           el.classList.remove('item-stepConfigurator__tooth_hidden');
-          el.querySelectorAll('input').forEach(e=>{
-            if (!e.closest('[data-tippy-content]') && !e.closest('.tooth-stepConfigurator__item_disabled')) {
-              e.checked = false;
-            }
-          })
+          if (toothSwitchIndex !==1) {
+            el.querySelectorAll('input').forEach(e=>{
+              if (!e.closest('[data-tippy-content]') && !e.closest('.tooth-stepConfigurator__item_disabled')) {
+                e.checked = false;
+              }
+            })
+          }
         }
       })
     } else {
       toothItems.forEach(el=>{
         if (el.getAttribute('data-tooth') == 'all') {
           el.classList.remove('item-stepConfigurator__tooth_hidden');
-          el.querySelectorAll('input').forEach(e=>{
-            if (!e.closest('[data-tippy-content]') && !e.closest('.tooth-stepConfigurator__item_disabled')) {
-              e.checked = false;
-            }
-          })
+          if (toothSwitchIndex !==1) {
+            el.querySelectorAll('input').forEach(e=>{
+              if (!e.closest('[data-tippy-content]') && !e.closest('.tooth-stepConfigurator__item_disabled')) {
+                e.checked = false;
+              }
+            })
+          }
         } else {
-          el.classList.add('item-stepConfigurator__tooth_hidden')
+          el.classList.add('item-stepConfigurator__tooth_hidden');
         }
+      })
+    }
+    const checkboxes =document.querySelectorAll('input.tooth-stepConfigurator__checkbox');
+    if (checkboxes.length) {
+      checkboxes.forEach(e=>{
+        e.addEventListener('change', ()=>{
+          toothSwitchIndex++;
+        })
       })
     }
   }

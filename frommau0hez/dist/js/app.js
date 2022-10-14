@@ -18707,6 +18707,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }
         }
         function configuratorActions(configuratorEl) {
+            let toothSwitchIndex = 1;
             const toothSwitcher = configuratorEl.querySelector("[data-switch-tooth]");
             let toothItems = configuratorEl.querySelectorAll(`[data-tooth]`);
             if (toothSwitcher && toothItems.length) {
@@ -18734,17 +18735,23 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (toothSwitcher.checked) toothItems.forEach((el => {
                     if ("all" == el.getAttribute("data-tooth")) el.classList.add("item-stepConfigurator__tooth_hidden"); else {
                         el.classList.remove("item-stepConfigurator__tooth_hidden");
-                        el.querySelectorAll("input").forEach((e => {
+                        if (1 !== toothSwitchIndex) el.querySelectorAll("input").forEach((e => {
                             if (!e.closest("[data-tippy-content]") && !e.closest(".tooth-stepConfigurator__item_disabled")) e.checked = false;
                         }));
                     }
                 })); else toothItems.forEach((el => {
                     if ("all" == el.getAttribute("data-tooth")) {
                         el.classList.remove("item-stepConfigurator__tooth_hidden");
-                        el.querySelectorAll("input").forEach((e => {
+                        if (1 !== toothSwitchIndex) el.querySelectorAll("input").forEach((e => {
                             if (!e.closest("[data-tippy-content]") && !e.closest(".tooth-stepConfigurator__item_disabled")) e.checked = false;
                         }));
                     } else el.classList.add("item-stepConfigurator__tooth_hidden");
+                }));
+                const checkboxes = document.querySelectorAll("input.tooth-stepConfigurator__checkbox");
+                if (checkboxes.length) checkboxes.forEach((e => {
+                    e.addEventListener("change", (() => {
+                        toothSwitchIndex++;
+                    }));
                 }));
             }
             let options = {};
