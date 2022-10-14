@@ -5,6 +5,9 @@
 
   &__steps {
     @include adaptiveValue("padding-bottom", 160, 38, 1440, 480, 1);
+    &_ligatures {
+      @include adaptiveValue("padding-bottom", 160, 100, 1440, 480, 1);
+    }
   }
 
   &__step {
@@ -1286,9 +1289,16 @@
     align-items: start;
   }
 
-  &__title {
+  &__titles {
     @include adaptiveValue("padding-left", 20, 0, 1440, 480, 1);
     @include adaptiveValue("padding-right", 20, 0, 1440, 480, 1);
+    span {
+      color: #8E8E93;
+      font-size: rem(13);
+    }
+  }
+  
+  &__title {
     @include adaptiveValue("font-size", 28, 18, 1440, 480, 1);
     margin: 0 !important;
   }
@@ -1389,6 +1399,7 @@
   &__prices {
     display: flex;align-items: end;
     gap: rem(12);
+    margin-left: auto;
   }
 
   &__price {
@@ -1418,7 +1429,10 @@
     @media (min-width:$mobile){
       justify-content: space-between;
       gap: rem(20);
-      grid-template-columns: rem(30) 46% rem(100) rem(80) rem(60);
+      grid-template-columns: rem(30) rem(100) 46% rem(100) rem(80) rem(60);
+      .spollers-orderConfigurator__spoller_bezcount & {
+        grid-template-columns: rem(30) 46% rem(100) rem(80) rem(60);
+      }
     }
     &:not(.spollers-orderConfigurator__row_first) {
       border: 0.5px solid #F9F9F9;
@@ -1496,6 +1510,19 @@
         grid-column-end: 5;
         justify-content: end;
         flex-direction: row-reverse;
+      }
+    }
+    &_count {
+      @media (max-width:$mobile){
+        display: flex;
+        align-items: flex-end;
+        &::before{
+          content:'Количество: ';
+          display: inline-block;
+          margin-right: rem(10);
+          color: #8E8E93;
+          font-size: rem(13);
+        }
       }
     }
   }

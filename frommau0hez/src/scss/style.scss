@@ -64,6 +64,9 @@ body {
 	// Сайт загружен
 	.loaded & {
 	}
+  main {
+    background-color: #fff;
+  }
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

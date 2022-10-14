@@ -107,8 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const contacts = document.querySelector('.contacts');
   contacts ? contactsActions() : null;
 
+  //==================new================================================================================
   const configuratorEl = document.querySelector('.configurator');
   configuratorEl ? configuratorActions(configuratorEl) : null
+  const contentVideos = document.querySelectorAll('.content-block video');
+  const contentIframes =document.querySelectorAll('.content-block iframe');
+  if (contentVideos || contentIframes) {
+    let contentMedias = [];
+    contentVideos.forEach(e=>{
+      contentMedias.push(e)
+    });
+    contentIframes.forEach(e=>{
+      contentMedias.push(e)
+    });
+    contentMedias.forEach(contentMedia=>{
+      let width = contentMedia.offsetWidth;
+      contentMedia.style.width = width * 0.5625;
+    })
+  }
+  //==================/new================================================================================
+  
 })
 
 
@@ -989,17 +1007,43 @@ function findActions() {
       });
       findObjectManager.objects.events.add(['balloonclose', 'balloonopen'], function (e) {
         var objectId = e.get('objectId');
+        let addedObject = findObjectManager.objects.getById(objectId);
         if (e.get('type') == 'balloonopen') {
             // Метод setObjectOptions позволяет задавать опции объекта "на лету".
+          if (addedObject.properties.type.toUpperCase().indexOf('Клинический'.toUpperCase()) !== -1) {
             findObjectManager.objects.setObjectOptions(objectId, {
               iconImageHref: 'img/icons/map_object_active.svg',
             });
+          } else if (addedObject.properties.type.toUpperCase().indexOf('референс'.toUpperCase()) !== -1) {
+            findObjectManager.objects.setObjectOptions(objectId, {
+              iconImageHref: 'img/icons/map_reference_active.svg',
+            });
+          }
         } else {
+          if (addedObject.properties.type.toUpperCase().indexOf('Клинический'.toUpperCase()) !== -1) {
             findObjectManager.objects.setObjectOptions(objectId, {
               iconImageHref: 'img/icons/map_object.svg',
             });
+          } else if (addedObject.properties.type.toUpperCase().indexOf('референс'.toUpperCase()) !== -1) {
+            findObjectManager.objects.setObjectOptions(objectId, {
+              iconImageHref: 'img/icons/map_reference.svg',
+            });
+          }
         }
       });
+      findObjectManager.objects.events.add('add', function(e) {
+        var objectId = e.get('objectId');
+        let addedObject = findObjectManager.objects.getById(objectId);
+        if (addedObject.properties.type.toUpperCase().indexOf('Клинический'.toUpperCase()) !== -1) {
+          findObjectManager.objects.setObjectOptions(objectId, {
+            iconImageHref: 'img/icons/map_object.svg',
+          });
+        } else if (addedObject.properties.type.toUpperCase().indexOf('референс'.toUpperCase()) !== -1) {
+          findObjectManager.objects.setObjectOptions(objectId, {
+            iconImageHref: 'img/icons/map_reference.svg',
+          });
+        }
+      })
       // if (window.innerWidth <= 767) {
       //   findObjectManager.objects.options.set({
       //     balloonPanelMaxMapArea: 'Infinity'
@@ -1193,7 +1237,7 @@ function findActions() {
         balloonContentLayout: MyBalloonContentLayout,
         hideIconOnBalloonOpen: false,
         iconLayout: 'default#image',
-        iconImageHref: 'img/icons/map_object.svg',
+        // iconImageHref: 'img/icons/map_object.svg',
         iconImageSize: [24, 24],
         iconImageOffset: [-12, -12]
       });
@@ -1316,7 +1360,7 @@ function findActions() {
     if (!findRegion.classList.contains('selectRegionAll')) {
       document.querySelector('.select_city .select__title .select__content').click();
       document.querySelector('.select_city .select__options .selectCityAll').click();
-      document.querySelector('.select_city._select-open').classList.remove('_select-open');
+      document.querySelector('.select_city._select-open') ? document.querySelector('.select_city._select-open').classList.remove('_select-open') : null;
       document.querySelector('.select_city .select__options').hidden = true;
       let findRegionId = null;
       findRegions.forEach(region => {
@@ -1504,6 +1548,7 @@ function contactsActions() {
     }
 }
 
+//==================new================================================================================
 function configuratorActions(configuratorEl) {
   const toothSwitcher = configuratorEl.querySelector('[data-switch-tooth]');
   let toothItems = configuratorEl.querySelectorAll(`[data-tooth]`);
@@ -1538,7 +1583,7 @@ function configuratorActions(configuratorEl) {
           el.classList.add('item-stepConfigurator__tooth_hidden');
         } else {
           el.classList.remove('item-stepConfigurator__tooth_hidden');
-          el.querySelectorAll('input[type="checkbox"]').forEach(e=>{
+          el.querySelectorAll('input').forEach(e=>{
             if (!e.closest('[data-tippy-content]') && !e.closest('.tooth-stepConfigurator__item_disabled')) {
               e.checked = false;
             }
@@ -1549,7 +1594,7 @@ function configuratorActions(configuratorEl) {
       toothItems.forEach(el=>{
         if (el.getAttribute('data-tooth') == 'all') {
           el.classList.remove('item-stepConfigurator__tooth_hidden');
-          el.querySelectorAll('input[type="checkbox"]').forEach(e=>{
+          el.querySelectorAll('input').forEach(e=>{
             if (!e.closest('[data-tippy-content]') && !e.closest('.tooth-stepConfigurator__item_disabled')) {
               e.checked = false;
             }
@@ -2219,6 +2264,7 @@ function configuratorActions(configuratorEl) {
     checkFiltersParent.innerHTML = itemsStr;
   }
 }
+//==================/new================================================================================
 
 document.addEventListener("afterPopupOpen", function (e) {
 	// Попап

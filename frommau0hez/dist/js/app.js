@@ -17906,6 +17906,21 @@ PERFORMANCE OF THIS SOFTWARE.
             contacts ? contactsActions() : null;
             const configuratorEl = document.querySelector(".configurator");
             configuratorEl ? configuratorActions(configuratorEl) : null;
+            const contentVideos = document.querySelectorAll(".content-block video");
+            const contentIframes = document.querySelectorAll(".content-block iframe");
+            if (contentVideos || contentIframes) {
+                let contentMedias = [];
+                contentVideos.forEach((e => {
+                    contentMedias.push(e);
+                }));
+                contentIframes.forEach((e => {
+                    contentMedias.push(e);
+                }));
+                contentMedias.forEach((contentMedia => {
+                    let width = contentMedia.offsetWidth;
+                    contentMedia.style.width = .5625 * width;
+                }));
+            }
         }));
         function copyTextToClipboard(text) {
             C(text).then((() => {
@@ -18393,10 +18408,26 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
                 findObjectManager.objects.events.add([ "balloonclose", "balloonopen" ], (function(e) {
                     var objectId = e.get("objectId");
-                    if ("balloonopen" == e.get("type")) findObjectManager.objects.setObjectOptions(objectId, {
-                        iconImageHref: "img/icons/map_object_active.svg"
-                    }); else findObjectManager.objects.setObjectOptions(objectId, {
+                    let addedObject = findObjectManager.objects.getById(objectId);
+                    if ("balloonopen" == e.get("type")) {
+                        if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                            iconImageHref: "img/icons/map_object_active.svg"
+                        }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("референс".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                            iconImageHref: "img/icons/map_reference_active.svg"
+                        });
+                    } else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
                         iconImageHref: "img/icons/map_object.svg"
+                    }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("референс".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                        iconImageHref: "img/icons/map_reference.svg"
+                    });
+                }));
+                findObjectManager.objects.events.add("add", (function(e) {
+                    var objectId = e.get("objectId");
+                    let addedObject = findObjectManager.objects.getById(objectId);
+                    if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                        iconImageHref: "img/icons/map_object.svg"
+                    }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("референс".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                        iconImageHref: "img/icons/map_reference.svg"
                     });
                 }));
                 findMap.geoObjects.add(findObjectManager);
@@ -18449,7 +18480,6 @@ PERFORMANCE OF THIS SOFTWARE.
                     balloonContentLayout: MyBalloonContentLayout,
                     hideIconOnBalloonOpen: false,
                     iconLayout: "default#image",
-                    iconImageHref: "img/icons/map_object.svg",
                     iconImageSize: [ 24, 24 ],
                     iconImageOffset: [ -12, -12 ]
                 });
@@ -18540,7 +18570,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (!findRegion.classList.contains("selectRegionAll")) {
                     document.querySelector(".select_city .select__title .select__content").click();
                     document.querySelector(".select_city .select__options .selectCityAll").click();
-                    document.querySelector(".select_city._select-open").classList.remove("_select-open");
+                    document.querySelector(".select_city._select-open") ? document.querySelector(".select_city._select-open").classList.remove("_select-open") : null;
                     document.querySelector(".select_city .select__options").hidden = true;
                     let findRegionId = null;
                     findRegions.forEach((region => {
@@ -18704,14 +18734,14 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (toothSwitcher.checked) toothItems.forEach((el => {
                     if ("all" == el.getAttribute("data-tooth")) el.classList.add("item-stepConfigurator__tooth_hidden"); else {
                         el.classList.remove("item-stepConfigurator__tooth_hidden");
-                        el.querySelectorAll('input[type="checkbox"]').forEach((e => {
+                        el.querySelectorAll("input").forEach((e => {
                             if (!e.closest("[data-tippy-content]") && !e.closest(".tooth-stepConfigurator__item_disabled")) e.checked = false;
                         }));
                     }
                 })); else toothItems.forEach((el => {
                     if ("all" == el.getAttribute("data-tooth")) {
                         el.classList.remove("item-stepConfigurator__tooth_hidden");
-                        el.querySelectorAll('input[type="checkbox"]').forEach((e => {
+                        el.querySelectorAll("input").forEach((e => {
                             if (!e.closest("[data-tippy-content]") && !e.closest(".tooth-stepConfigurator__item_disabled")) e.checked = false;
                         }));
                     } else el.classList.add("item-stepConfigurator__tooth_hidden");
