@@ -74,10 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const orderingCart = document.querySelector('.ordering-cart');
   if (orderingCart) {
+    checkOrderingStatus();
     orderingCart.querySelector('.ordering-cart__link').addEventListener('click', (e) => {
       e.preventDefault();
-      checkOrderingStatus()
+      checkOrderingStatus();
     })
+    document.addEventListener('click', checkOrderingStatus);
   }
 
   const cabinet = document.querySelector('section.cabinet');
@@ -315,6 +317,9 @@ function legalFaceCheck(legalFaceInput) {
           _slideUp(legalFaceAttrs, 200);
         }
       }, 200);
+      setTimeout(() => {
+        checkOrderingStatus();
+      }, 450);
     })
   })
 }
@@ -941,6 +946,7 @@ function checkOrderingStatus() {
 }
 
 function findActions() {
+  let actualCollection = null;
 
   if (findRegions && findCities) {
     findCities.forEach(findCity => {
@@ -1012,6 +1018,11 @@ function findActions() {
         var objectId = e.get('objectId');
         let addedObject = findObjectManager.objects.getById(objectId);
         if (e.get('type') == 'balloonopen') {
+          if (document.querySelector('.find_dealers')) {
+            findObjectManager.objects.setObjectOptions(objectId, {
+              iconImageHref: 'img/icons/map_object.svg',
+            });
+          } else {
             // Метод setObjectOptions позволяет задавать опции объекта "на лету".
           if (addedObject.properties.type.toUpperCase().indexOf('Клинический'.toUpperCase()) !== -1) {
             findObjectManager.objects.setObjectOptions(objectId, {
@@ -1022,6 +1033,32 @@ function findActions() {
               iconImageHref: 'img/icons/map_reference_active.svg',
             });
           }
+          }
+        } else {
+          if (document.querySelector('.find_dealers')) {
+            findObjectManager.objects.setObjectOptions(objectId, {
+              iconImageHref: 'img/icons/map_object.svg',
+            });
+          } else {
+            if (addedObject.properties.type.toUpperCase().indexOf('Клинический'.toUpperCase()) !== -1) {
+              findObjectManager.objects.setObjectOptions(objectId, {
+                iconImageHref: 'img/icons/map_object.svg',
+              });
+            } else if (addedObject.properties.type.toUpperCase().indexOf('референс'.toUpperCase()) !== -1) {
+              findObjectManager.objects.setObjectOptions(objectId, {
+                iconImageHref: 'img/icons/map_reference.svg',
+              });
+            }
+          }
+        }
+      });
+      findObjectManager.objects.events.add('add', function(e) {
+        var objectId = e.get('objectId');
+        let addedObject = findObjectManager.objects.getById(objectId);
+        if (document.querySelector('.find_dealers')) {
+          findObjectManager.objects.setObjectOptions(objectId, {
+            iconImageHref: 'img/icons/map_object.svg',
+          });
         } else {
           if (addedObject.properties.type.toUpperCase().indexOf('Клинический'.toUpperCase()) !== -1) {
             findObjectManager.objects.setObjectOptions(objectId, {
@@ -1032,19 +1069,6 @@ function findActions() {
               iconImageHref: 'img/icons/map_reference.svg',
             });
           }
-        }
-      });
-      findObjectManager.objects.events.add('add', function(e) {
-        var objectId = e.get('objectId');
-        let addedObject = findObjectManager.objects.getById(objectId);
-        if (addedObject.properties.type.toUpperCase().indexOf('Клинический'.toUpperCase()) !== -1) {
-          findObjectManager.objects.setObjectOptions(objectId, {
-            iconImageHref: 'img/icons/map_object.svg',
-          });
-        } else if (addedObject.properties.type.toUpperCase().indexOf('референс'.toUpperCase()) !== -1) {
-          findObjectManager.objects.setObjectOptions(objectId, {
-            iconImageHref: 'img/icons/map_reference.svg',
-          });
         }
       })
       // if (window.innerWidth <= 767) {
@@ -1283,44 +1307,66 @@ function findActions() {
 
   function findObjectConstructor() {
     let findFeatureArr = [];
-    findClinics.forEach(findClinic => {
-      let city;
-      let region;
-      findCities.forEach(e => {
-        if (e.id === findClinic.city_id) {
-          city = e.title;
-          region = e.regionTitle;
-        }
+    if (document.querySelector('.find_dealers')) {
+      findClinics.forEach((findClinic,index) => {
+          let findFeature = {
+            type: "Feature",
+            id: index,
+            geometry: {
+                type: "Point",
+                coordinates: [ findClinic.lat, findClinic.lng ]
+            },
+            properties: {
+                id: index,
+                title: findClinic.name ? findClinic.name : "",
+                address: findClinic.address ? findClinic.address : "",
+                phone: findClinic.phone ? findClinic.phone : "",
+                url: findClinic.webaddress ? findClinic.webaddress : "",
+                type: findClinic.type ? findClinic.type : "",
+                city: findClinic.city ? findClinic.city : "",
+                region: findClinic.country ? findClinic.country : "",
+                email: findClinic.email ? findClinic.email : "",
+                postindex: findClinic.postindex ? findClinic.postindex : ""
+            }
+        };
+        findCheck(findFeature, findFeatureArr);
       })
-      findRegions.forEach(e => {
-        if (e.id === findClinic.city_id) {
-          city = e.title;
-        }
-      })
-      let findFeature = {
-        type: 'Feature',
-        id: findClinic.id,
-        geometry: {
-          type: "Point",
-          coordinates: [findClinic.lat, findClinic.lng]
-        },
-        properties: {
-          id: findClinic.id ? findClinic.id : '',
-          title: findClinic.title ? findClinic.title : '',
-          address: findClinic.address ? findClinic.address : '',
-          phone: findClinic.phone ? findClinic.phone : '',
-          url: findClinic.url ? findClinic.url : '',
-          type: findClinic.type ? findClinic.type: '',
-          city: city ? city: '',
-          region: region ? region : '',
-          email: findClinic.email ? findClinic.email : '',
-          postindex: findClinic.postindex ? findClinic.postindex : ''
-        }
-      };
-      findCheck(findFeature, findFeatureArr)
-    });
+    } else {
+      findClinics.forEach(findClinic => {
+        let city;
+        let region;
+        findCities.forEach(e => {
+          if (e.id === findClinic.city_id) {
+            city = e.title;
+            region = e.regionTitle;
+          }
+        })
+        let findFeature = {
+          type: 'Feature',
+          id: findClinic.id,
+          geometry: {
+            type: "Point",
+            coordinates: [findClinic.lat, findClinic.lng]
+          },
+          properties: {
+            id: findClinic.id ? findClinic.id : '',
+            title: findClinic.title ? findClinic.title : '',
+            address: findClinic.address ? findClinic.address : '',
+            phone: findClinic.phone ? findClinic.phone : '',
+            url: findClinic.url ? findClinic.url : '',
+            type: findClinic.type ? findClinic.type: '',
+            city: city ? city: '',
+            region: region ? region : '',
+            email: findClinic.email ? findClinic.email : '',
+            postindex: findClinic.postindex ? findClinic.postindex : ''
+          }
+        };
+        findCheck(findFeature, findFeatureArr)
+      });
+    }
     findObjects.features = findFeatureArr;
     findObjectsAdd();
+    actualCollection = findFeatureArr;
 
     const findDealers = document.querySelector('.find_dealers');
     findDealers ? findDealersTableRender(findDealers, findFeatureArr) : null
@@ -1365,32 +1411,51 @@ function findActions() {
       document.querySelector('.select_city .select__options .selectCityAll').click();
       document.querySelector('.select_city._select-open') ? document.querySelector('.select_city._select-open').classList.remove('_select-open') : null;
       document.querySelector('.select_city .select__options').hidden = true;
-      let findRegionId = null;
-      findRegions.forEach(region => {
-        if (findRegion.textContent === region.title) {
-          findRegionId = region.id
+      let currentCities = [];
+      actualCollection.forEach(e=>{
+        let city = e.properties.city;
+        if (currentCities.indexOf(city) === -1) {
+          currentCities.push(city);
         }
       })
-      let wrongCities = [];
-      findCities.forEach(city => {
-        if (city.region_id !== findRegionId) {
-          wrongCities.push(city.title)
-        }
-      })
-      findCitySelectOptions.forEach(findCitySelectOption => {
-        findCitySelectOption.hidden = false;
-        findCitySelectOption.style = '';
-      })
-      wrongCities.forEach(wrongCity => {
-        findCitySelectOptions.forEach(findCitySelectOption => {
-          if (!findCitySelectOption.classList.contains('selectCityAll')) {
-            if (findCitySelectOption.textContent === wrongCity) {
-              findCitySelectOption.hidden = true;
-              findCitySelectOption.style.display = 'none';
-            }
+      findCitySelectOptions.forEach(findCitySelectOption=>{
+        if (!findCitySelectOption.classList.contains('selectCityAll')) {
+          let city = findCitySelectOption.textContent;
+          if (currentCities.indexOf(city) === -1) {
+            findCitySelectOption.hidden = true;
+            findCitySelectOption.style.display = 'none';
+          } else {
+            findCitySelectOption.hidden = false;
+            findCitySelectOption.style = '';
           }
-        })
+        }
       })
+
+
+      // findRegions.forEach(region => {
+      //   if (findRegion.textContent === region.title) {
+      //     findRegionId = region.id
+      //   }
+      // })
+      // findCities.forEach(city => {
+      //   if (city.region_id !== findRegionId) {
+      //     wrongCities.push(city.title)
+      //   }
+      // })
+      // findCitySelectOptions.forEach(findCitySelectOption => {
+        // findCitySelectOption.hidden = false;
+        // findCitySelectOption.style = '';
+      // })
+      // wrongCities.forEach(wrongCity => {
+      //   findCitySelectOptions.forEach(findCitySelectOption => {
+      //     if (!findCitySelectOption.classList.contains('selectCityAll')) {
+      //       if (findCitySelectOption.textContent === wrongCity) {
+              // findCitySelectOption.hidden = true;
+              // findCitySelectOption.style.display = 'none';
+      //       }
+      //     }
+      //   })
+      // })
     } else {
       findCitySelectOptions.forEach(findCitySelectOption => {
         findCitySelectOption.hidden = false;

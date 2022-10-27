@@ -17909,10 +17909,14 @@ PERFORMANCE OF THIS SOFTWARE.
             const datePickers = document.querySelectorAll("[data-datepicker]");
             if (datePickers.length) customDatePickerInit(datePickers);
             const orderingCart = document.querySelector(".ordering-cart");
-            if (orderingCart) orderingCart.querySelector(".ordering-cart__link").addEventListener("click", (e => {
-                e.preventDefault();
+            if (orderingCart) {
                 checkOrderingStatus();
-            }));
+                orderingCart.querySelector(".ordering-cart__link").addEventListener("click", (e => {
+                    e.preventDefault();
+                    checkOrderingStatus();
+                }));
+                document.addEventListener("click", checkOrderingStatus);
+            }
             const cabinet = document.querySelector("section.cabinet");
             cabinet ? cabinetActions(cabinet) : null;
             const cabinetOrders = document.querySelectorAll(".ordersCabinet__order");
@@ -18038,6 +18042,9 @@ PERFORMANCE OF THIS SOFTWARE.
                     setTimeout((() => {
                         if (legalFaceInput.checked) _slideDown(legalFaceAttrs, 200); else _slideUp(legalFaceAttrs, 200);
                     }), 200);
+                    setTimeout((() => {
+                        checkOrderingStatus();
+                    }), 450);
                 }));
             }));
         }
@@ -18390,6 +18397,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }
         }
         function findActions() {
+            let actualCollection = null;
             if (findRegions && findCities) findCities.forEach((findCity => {
                 findRegions.forEach((e => {
                     if (e.id === findCity.region_id) findCity.regionTitle = e.title;
@@ -18442,12 +18450,16 @@ PERFORMANCE OF THIS SOFTWARE.
                     var objectId = e.get("objectId");
                     let addedObject = findObjectManager.objects.getById(objectId);
                     if ("balloonopen" == e.get("type")) {
-                        if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                        if (document.querySelector(".find_dealers")) findObjectManager.objects.setObjectOptions(objectId, {
+                            iconImageHref: "img/icons/map_object.svg"
+                        }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
                             iconImageHref: "img/icons/map_object_active.svg"
                         }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("референс".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
                             iconImageHref: "img/icons/map_reference_active.svg"
                         });
-                    } else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                    } else if (document.querySelector(".find_dealers")) findObjectManager.objects.setObjectOptions(objectId, {
+                        iconImageHref: "img/icons/map_object.svg"
+                    }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
                         iconImageHref: "img/icons/map_object.svg"
                     }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("референс".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
                         iconImageHref: "img/icons/map_reference.svg"
@@ -18456,7 +18468,9 @@ PERFORMANCE OF THIS SOFTWARE.
                 findObjectManager.objects.events.add("add", (function(e) {
                     var objectId = e.get("objectId");
                     let addedObject = findObjectManager.objects.getById(objectId);
-                    if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
+                    if (document.querySelector(".find_dealers")) findObjectManager.objects.setObjectOptions(objectId, {
+                        iconImageHref: "img/icons/map_object.svg"
+                    }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("Клинический".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
                         iconImageHref: "img/icons/map_object.svg"
                     }); else if (-1 !== addedObject.properties.type.toUpperCase().indexOf("референс".toUpperCase())) findObjectManager.objects.setObjectOptions(objectId, {
                         iconImageHref: "img/icons/map_reference.svg"
@@ -18541,7 +18555,29 @@ PERFORMANCE OF THIS SOFTWARE.
             }
             function findObjectConstructor() {
                 let findFeatureArr = [];
-                findClinics.forEach((findClinic => {
+                if (document.querySelector(".find_dealers")) findClinics.forEach(((findClinic, index) => {
+                    let findFeature = {
+                        type: "Feature",
+                        id: index,
+                        geometry: {
+                            type: "Point",
+                            coordinates: [ findClinic.lat, findClinic.lng ]
+                        },
+                        properties: {
+                            id: index,
+                            title: findClinic.name ? findClinic.name : "",
+                            address: findClinic.address ? findClinic.address : "",
+                            phone: findClinic.phone ? findClinic.phone : "",
+                            url: findClinic.webaddress ? findClinic.webaddress : "",
+                            type: findClinic.type ? findClinic.type : "",
+                            city: findClinic.city ? findClinic.city : "",
+                            region: findClinic.country ? findClinic.country : "",
+                            email: findClinic.email ? findClinic.email : "",
+                            postindex: findClinic.postindex ? findClinic.postindex : ""
+                        }
+                    };
+                    findCheck(findFeature, findFeatureArr);
+                })); else findClinics.forEach((findClinic => {
                     let city;
                     let region;
                     findCities.forEach((e => {
@@ -18549,9 +18585,6 @@ PERFORMANCE OF THIS SOFTWARE.
                             city = e.title;
                             region = e.regionTitle;
                         }
-                    }));
-                    findRegions.forEach((e => {
-                        if (e.id === findClinic.city_id) city = e.title;
                     }));
                     let findFeature = {
                         type: "Feature",
@@ -18577,6 +18610,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
                 findObjects.features = findFeatureArr;
                 findObjectsAdd();
+                actualCollection = findFeatureArr;
                 const findDealers = document.querySelector(".find_dealers");
                 findDealers ? findDealersTableRender(findDealers, findFeatureArr) : null;
             }
@@ -18604,25 +18638,22 @@ PERFORMANCE OF THIS SOFTWARE.
                     document.querySelector(".select_city .select__options .selectCityAll").click();
                     document.querySelector(".select_city._select-open") ? document.querySelector(".select_city._select-open").classList.remove("_select-open") : null;
                     document.querySelector(".select_city .select__options").hidden = true;
-                    let findRegionId = null;
-                    findRegions.forEach((region => {
-                        if (findRegion.textContent === region.title) findRegionId = region.id;
-                    }));
-                    let wrongCities = [];
-                    findCities.forEach((city => {
-                        if (city.region_id !== findRegionId) wrongCities.push(city.title);
+                    let currentCities = [];
+                    actualCollection.forEach((e => {
+                        let city = e.properties.city;
+                        if (-1 === currentCities.indexOf(city)) currentCities.push(city);
                     }));
                     findCitySelectOptions.forEach((findCitySelectOption => {
-                        findCitySelectOption.hidden = false;
-                        findCitySelectOption.style = "";
-                    }));
-                    wrongCities.forEach((wrongCity => {
-                        findCitySelectOptions.forEach((findCitySelectOption => {
-                            if (!findCitySelectOption.classList.contains("selectCityAll")) if (findCitySelectOption.textContent === wrongCity) {
+                        if (!findCitySelectOption.classList.contains("selectCityAll")) {
+                            let city = findCitySelectOption.textContent;
+                            if (-1 === currentCities.indexOf(city)) {
                                 findCitySelectOption.hidden = true;
                                 findCitySelectOption.style.display = "none";
+                            } else {
+                                findCitySelectOption.hidden = false;
+                                findCitySelectOption.style = "";
                             }
-                        }));
+                        }
                     }));
                 } else findCitySelectOptions.forEach((findCitySelectOption => {
                     findCitySelectOption.hidden = false;
