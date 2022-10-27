@@ -652,6 +652,9 @@ function cartActions(cartElement) {
 
 function customDatePickerInit(datePickers = document.querySelectorAll('[data-datepicker]')) {
   let picker;
+  let today = new Date().getDate() + 1;
+  let tomonth = new Date().getMonth();
+  let toyear = new Date().getFullYear();
   datePickers.forEach(el => {
     picker = datepicker(el, {
       position: 'tl',
@@ -660,7 +663,8 @@ function customDatePickerInit(datePickers = document.querySelectorAll('[data-dat
       customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
       customOverlayMonths: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт ', 'Ноя', 'Дек'],
       defaultView: 'overlay',
-      dateSelected: new Date(), // Today is selected.
+      dateSelected: new Date(toyear, tomonth, today),
+      minDate: new Date(toyear, tomonth, today),
       disableYearOverlay: true, // Clicking the year or month will *not* bring up the year overlay.
       formatter: (input, date, instance) => {
         const value = date.toLocaleDateString('ru-RU', { weekday: 'long', month: 'long', day: 'numeric' })
@@ -961,7 +965,6 @@ function findActions() {
       selectCityHide(select, originalSelect);
     }
     setRegionCenter(select, originalSelect);
-    
   });
   if (document.querySelectorAll('[data-find-checkbox]').length) {
     document.querySelectorAll('[data-find-checkbox]').forEach(e => {
@@ -1980,7 +1983,7 @@ function configuratorActions(configuratorEl) {
     function tubesActions() {
       const tubesParent = document.querySelector(`[${options.torkParentAttribute}]`);
       const checkedTeeth = document.querySelectorAll(`[${options.toothAttribute}]:checked`);
-      let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : ''
+      let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : 'qwe'
       if (checkedTeeth.length) {
         if (index <= 1) {
           // configuratorTork.querySelector(`.select__title .select__content`).innerHTML = configuratorTork.querySelector('.select__option._select-selected').innerHTML;
@@ -2017,6 +2020,12 @@ function configuratorActions(configuratorEl) {
             checkOneTork(tubesParent, tube, checkedTeeth, true, e);
             checkTorks();
             document.querySelector('.step-configurator__title').click();
+            setTimeout(() => {
+              const selectedOptions =document.querySelectorAll('.select__option._select-selected');
+              if (!selectedOptions.length) {
+                configuratorTork.querySelector(`.select__title .select__content`).innerHTML = podskazka;
+              }
+            }, 50);
           })
         })
       } else {
@@ -2053,7 +2062,13 @@ function configuratorActions(configuratorEl) {
               tippyInit();
               if (check === true) {
                 tooth.checked = false;
-                hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+                const selectedOption = document.querySelector(`._select-selected[data-value="${hiddenInput.value}"]`)
+                if (selectedOption) {
+                  selectedOption.click();
+                }
+                setTimeout(() => {
+                  hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+                }, 150);
                 tubesActions();
                 // document.documentElement.click();
                 index++;
@@ -2073,7 +2088,13 @@ function configuratorActions(configuratorEl) {
             tippyInit();
             if (check === true) {
               tooth.checked = false;
-              hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+              const selectedOption = document.querySelector(`._select-selected[data-value="${hiddenInput.value}"]`)
+              if (selectedOption) {
+                selectedOption.click();
+              }
+              setTimeout(() => {
+                hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+              }, 150);
               tubesActions()
               // document.documentElement.click();
               index++;
@@ -2216,7 +2237,6 @@ function configuratorActions(configuratorEl) {
     document.querySelectorAll('input[type="hidden"]').forEach(e=>{
       e.value = ''
     })
-    console.log(type)
     if (document.querySelectorAll(`[data-${type}-parent]`)) {
       document.querySelectorAll(`[data-${type}-parent]`).forEach(e=>{
         e.hidden = false;
@@ -2231,6 +2251,11 @@ function configuratorActions(configuratorEl) {
       document.querySelectorAll('input:checked').forEach(e=>{
         e.click();
       })
+    }
+    if (document.querySelectorAll('.check-select__btn').length) {
+      document.querySelectorAll('.check-select__btn').forEach(e=>{
+        e.click();
+      });
     }
   }
 //========================================================================================================================================================

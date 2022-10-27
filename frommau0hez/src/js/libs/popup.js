@@ -352,7 +352,7 @@ class Popup {
 	}
 	// Функция вывода в консоль
 	popupLogging(message) {
-		this.options.logging ? FLS(`[Попапос]: ${message}`) : null;
+		this.options.logging ? console.log(`[Попапос]: ${message}`) : null;
 	}
 }
 // Запускаем и добавляем в объект модулей

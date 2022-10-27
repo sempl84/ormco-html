@@ -491,3 +491,17 @@ input[type="number"] {
     display: inline-block !important;
   }
 }
+._fbw {
+  flex-wrap: wrap;
+}
+
+[data-reset] {
+  white-space: nowrap;
+}
+
+._fbnw {
+  flex-wrap: nowrap;
+  .check-select {
+    white-space: nowrap;
+  }
+}

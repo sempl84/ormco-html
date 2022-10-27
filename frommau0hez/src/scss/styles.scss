@@ -538,7 +538,8 @@ body.panel_opened .panel {transform: translateX(0);}
 /* filter_header */
 .filter_header {
   .filter-header__body {
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: rem(20);
     margin-bottom: rem(16);
   }
   .filter-header__title  {
@@ -710,7 +711,7 @@ body.panel_opened .panel {transform: translateX(0);}
 /* filters */
 .filters {
   background: #fff; box-shadow: 0px 8px 20px rgba(26, 26, 26, 0.1); border-radius: 8px;
-  position: relative; max-width: 1000px; display: none; padding: 0; height: 90vh;
+  position: relative; max-width: 1000px; display: none; padding: 0; max-height: 90vh;
   &_inner {display: flex; flex-direction: column; height: 100%;}
   &_header {
     border-bottom: 1px solid #f5f5f5; padding: 20px 40px; display: flex; align-items: center;

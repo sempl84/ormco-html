@@ -7378,7 +7378,7 @@
                 if (!this.isOpen && this.lastFocusEl) this.lastFocusEl.focus(); else focusable[0].focus();
             }
             popupLogging(message) {
-                this.options.logging ? FLS(`[Попапос]: ${message}`) : null;
+                this.options.logging ? console.log(`[Попапос]: ${message}`) : null;
             }
         }
         flsModules.popup = new Popup({});
@@ -17296,6 +17296,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 };
             }, function(e, t, n) {} ]);
         }));
+        let selectCallbacksIndexes = [];
         class SelectConstructor {
             constructor(props, data = null) {
                 let defaultConfig = {
@@ -17330,7 +17331,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 };
                 this._this = this;
                 if (this.config.init) {
-                    const selectItems = data ? document.querySelectorAll(data) : document.querySelectorAll("select");
+                    const selectItems = data ? data : document.querySelectorAll("[data-custom-select]");
                     if (selectItems.length) {
                         this.selectsInit(selectItems);
                         this.setLogging(`Проснулся, построил селектов: (${selectItems.length})`);
@@ -17551,6 +17552,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 selectItemOptions.innerHTML = this.getOptions(originalSelect);
             }
             optionAction(selectItem, originalSelect, optionItem) {
+                let value = null;
                 if (originalSelect.multiple) {
                     optionItem.classList.toggle(this.selectClasses.classSelectOptionSelected);
                     const originalSelectSelectedItems = this.getSelectedOptionsData(originalSelect).elements;
@@ -17572,17 +17574,25 @@ PERFORMANCE OF THIS SOFTWARE.
                         optionItem.classList.add("select__option_selected");
                     }
                     originalSelect.value = optionItem.hasAttribute("data-value") ? optionItem.dataset.value : optionItem.textContent;
+                    value = optionItem.hasAttribute("data-value") ? optionItem.dataset.value : optionItem.textContent;
+                    originalSelect.querySelectorAll("option").forEach((option => {
+                        if (option.textContent === optionItem.textContent) {
+                            originalSelect.click();
+                            option.click();
+                        }
+                    }));
                     this.selectAction(selectItem);
                 }
                 this.setSelectTitleValue(selectItem, originalSelect);
-                this.setSelectChange(originalSelect);
+                this.setSelectChange(originalSelect, value);
             }
             selectChange(e) {
                 const originalSelect = e.target;
+                const value = e.target.value;
                 this.selectBuild(originalSelect);
-                this.setSelectChange(originalSelect);
+                this.setSelectChange(originalSelect, value);
             }
-            setSelectChange(originalSelect) {
+            setSelectChange(originalSelect, value) {
                 if (originalSelect.hasAttribute("data-validate")) formValidate.validateInput(originalSelect);
                 if (originalSelect.hasAttribute("data-submit") && originalSelect.value) {
                     let tempButton = document.createElement("button");
@@ -17592,7 +17602,18 @@ PERFORMANCE OF THIS SOFTWARE.
                     tempButton.remove();
                 }
                 const selectItem = originalSelect.parentElement;
-                this.selectCallback(selectItem, originalSelect);
+                let selectItemId = selectItem.dataset.id;
+                let mozhno = true;
+                if (selectCallbacksIndexes.length) selectCallbacksIndexes.forEach((e => {
+                    if (e === selectItemId) mozhno = false;
+                }));
+                if (mozhno) {
+                    this.selectCallback(selectItem, originalSelect, value);
+                    selectCallbacksIndexes.push(selectItemId);
+                    setTimeout((() => {
+                        selectCallbacksIndexes = [];
+                    }), 300);
+                }
             }
             selectDisabled(selectItem, originalSelect) {
                 if (originalSelect.disabled) {
@@ -17616,16 +17637,23 @@ PERFORMANCE OF THIS SOFTWARE.
                     true === selectOptions.hidden ? _this.selectAction(selectItem) : null;
                 }));
             }
-            selectCallback(selectItem, originalSelect) {
+            selectCallback(selectItem, originalSelect, value) {
                 document.dispatchEvent(new CustomEvent("selectCallback", {
                     detail: {
                         select: selectItem,
                         originalSelect
                     }
                 }));
+                originalSelect.dispatchEvent(new CustomEvent("originalSelectCallback", {
+                    detail: {
+                        select: selectItem,
+                        originalSelect,
+                        value
+                    }
+                }));
             }
             setLogging(message) {
-                this.config.logging ? FLS(`[select]: ${message}`) : null;
+                this.config.logging ? console.log(`[select]: ${message}`) : null;
             }
         }
         flsModules.select = new SelectConstructor({});
@@ -18242,6 +18270,9 @@ PERFORMANCE OF THIS SOFTWARE.
         }
         function customDatePickerInit(datePickers = document.querySelectorAll("[data-datepicker]")) {
             let picker;
+            let today = (new Date).getDate() + 1;
+            let tomonth = (new Date).getMonth();
+            let toyear = (new Date).getFullYear();
             datePickers.forEach((el => {
                 picker = datepicker(el, {
                     position: "tl",
@@ -18250,7 +18281,8 @@ PERFORMANCE OF THIS SOFTWARE.
                     customMonths: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
                     customOverlayMonths: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт ", "Ноя", "Дек" ],
                     defaultView: "overlay",
-                    dateSelected: new Date,
+                    dateSelected: new Date(toyear, tomonth, today),
+                    minDate: new Date(toyear, tomonth, today),
                     disableYearOverlay: true,
                     formatter: (input, date, instance) => {
                         const value = date.toLocaleDateString("ru-RU", {
@@ -19037,7 +19069,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 function tubesActions() {
                     const tubesParent = document.querySelector(`[${options.torkParentAttribute}]`);
                     const checkedTeeth = document.querySelectorAll(`[${options.toothAttribute}]:checked`);
-                    let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : "";
+                    let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : "qwe";
                     if (checkedTeeth.length) {
                         if (index <= 1) {
                             configuratorTork.querySelector(`.select__title .select__content`).innerHTML = podskazka;
@@ -19069,6 +19101,10 @@ PERFORMANCE OF THIS SOFTWARE.
                                 checkOneTork(tubesParent, tube, checkedTeeth, true, e);
                                 checkTorks();
                                 document.querySelector(".step-configurator__title").click();
+                                setTimeout((() => {
+                                    const selectedOptions = document.querySelectorAll(".select__option._select-selected");
+                                    if (!selectedOptions.length) configuratorTork.querySelector(`.select__title .select__content`).innerHTML = podskazka;
+                                }), 50);
                             }));
                         }));
                     } else {
@@ -19099,7 +19135,11 @@ PERFORMANCE OF THIS SOFTWARE.
                                 tippyInit();
                                 if (true === check) {
                                     tooth.checked = false;
-                                    hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+                                    const selectedOption = document.querySelector(`._select-selected[data-value="${hiddenInput.value}"]`);
+                                    if (selectedOption) selectedOption.click();
+                                    setTimeout((() => {
+                                        hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+                                    }), 150);
                                     tubesActions();
                                     index++;
                                 }
@@ -19116,7 +19156,11 @@ PERFORMANCE OF THIS SOFTWARE.
                             tippyInit();
                             if (true === check) {
                                 tooth.checked = false;
-                                hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+                                const selectedOption = document.querySelector(`._select-selected[data-value="${hiddenInput.value}"]`);
+                                if (selectedOption) selectedOption.click();
+                                setTimeout((() => {
+                                    hiddenInput.value = tube.getAttribute(`${options.torkAttribute}`);
+                                }), 150);
                                 tubesActions();
                                 index++;
                             }
@@ -19228,7 +19272,6 @@ PERFORMANCE OF THIS SOFTWARE.
                 document.querySelectorAll('input[type="hidden"]').forEach((e => {
                     e.value = "";
                 }));
-                console.log(type);
                 if (document.querySelectorAll(`[data-${type}-parent]`)) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
                     e.hidden = false;
                 }));
@@ -19236,6 +19279,9 @@ PERFORMANCE OF THIS SOFTWARE.
                     e.classList.add("_pen");
                 }));
                 if ("arcs" === type) document.querySelectorAll("input:checked").forEach((e => {
+                    e.click();
+                }));
+                if (document.querySelectorAll(".check-select__btn").length) document.querySelectorAll(".check-select__btn").forEach((e => {
                     e.click();
                 }));
             }

@@ -1,4 +1,5 @@
 // Подключение функционала "Чертогов Фрилансера"
+// Подключение функционала "Чертогов Фрилансера"
 import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 import { formValidate } from "../files/forms/forms.js";
@@ -45,6 +46,7 @@ data-href-blank - откроет ссылку в новом окне
 */
 
 // Класс построения Select
+let selectCallbacksIndexes = [];
 export class SelectConstructor {
 	constructor(props, data = null) {
 		let defaultConfig = {
@@ -82,7 +84,7 @@ export class SelectConstructor {
 		// Запуск инициализации
 		if (this.config.init) {
 			// Получение всех select на странице
-			const selectItems = data ? document.querySelectorAll(data) : document.querySelectorAll('select');
+			const selectItems = data ? data : document.querySelectorAll('[data-custom-select]');
 			if (selectItems.length) {
 				this.selectsInit(selectItems);
 				this.setLogging(`Проснулся, построил селектов: (${selectItems.length})`);
@@ -418,6 +420,7 @@ export class SelectConstructor {
 	}
 	// Обработчик клика на элемент списка
 	optionAction(selectItem, originalSelect, optionItem) {
+    let value = null;
 		if (originalSelect.multiple) { // Если мультивыбор
 			// Выделяем классом элемент
 			optionItem.classList.toggle(this.selectClasses.classSelectOptionSelected);
@@ -447,21 +450,29 @@ export class SelectConstructor {
         optionItem.classList.add('select__option_selected');
       }
 			originalSelect.value = optionItem.hasAttribute('data-value') ? optionItem.dataset.value : optionItem.textContent;
+      value = optionItem.hasAttribute("data-value") ? optionItem.dataset.value : optionItem.textContent;
+      originalSelect.querySelectorAll('option').forEach(option=>{
+        if (option.textContent === optionItem.textContent) {
+          originalSelect.click();
+          option.click();
+        }
+      })
 			this.selectAction(selectItem);
 		}
 		// Обновляем заголовок селекта
 		this.setSelectTitleValue(selectItem, originalSelect);
 		// Вызываем реакцию на изменение селекта
-		this.setSelectChange(originalSelect);
+		this.setSelectChange(originalSelect, value);
 	}
 	// Реакция на измененение оригинального select
 	selectChange(e) {
 		const originalSelect = e.target;
+    const value = e.target.value;
 		this.selectBuild(originalSelect);
-		this.setSelectChange(originalSelect);
+		this.setSelectChange(originalSelect, value);
 	}
 	// Обработчик изменения в селекте
-	setSelectChange(originalSelect) {
+	setSelectChange(originalSelect, value) {
 		// Моментальная валидация селекта
 		if (originalSelect.hasAttribute('data-validate')) {
 			formValidate.validateInput(originalSelect);
@@ -475,8 +486,23 @@ export class SelectConstructor {
 			tempButton.remove();
 		}
 		const selectItem = originalSelect.parentElement;
-		// Вызов коллбэк функции
-		this.selectCallback(selectItem, originalSelect);
+    let selectItemId = selectItem.dataset.id;
+    let mozhno = true;
+    if (selectCallbacksIndexes.length) {
+      selectCallbacksIndexes.forEach(e=>{
+        if (e === selectItemId) {
+          mozhno = false;
+        }
+      })
+    }
+    if (mozhno) {
+      // Вызов коллбэк функции
+      this.selectCallback(selectItem, originalSelect, value);
+      selectCallbacksIndexes.push(selectItemId);
+      setTimeout(() => {
+        selectCallbacksIndexes = [];
+      }, 300);
+    }
 	}
 	// Обработчик disabled
 	selectDisabled(selectItem, originalSelect) {
@@ -508,17 +534,24 @@ export class SelectConstructor {
 		});
 	}
 	// Коллбэк функция
-	selectCallback(selectItem, originalSelect) {
-		document.dispatchEvent(new CustomEvent("selectCallback", {
-			detail: {
-				select: selectItem,
-				originalSelect: originalSelect
-			}
-		}));
+	selectCallback(selectItem, originalSelect, value) {
+    document.dispatchEvent(new CustomEvent("selectCallback", {
+        detail: {
+            select: selectItem,
+            originalSelect: originalSelect
+        }
+    }));
+    originalSelect.dispatchEvent(new CustomEvent("originalSelectCallback", {
+        detail: {
+            select: selectItem,
+            originalSelect: originalSelect,
+            value: value
+        }
+    }));
 	}
 	// Логгинг в консоль
 	setLogging(message) {
-		this.config.logging ? FLS(`[select]: ${message}`) : null;
+		this.config.logging ? console.log(`[select]: ${message}`) : null;
 	}
 }
 // Запускаем и добавляем в объект модулей

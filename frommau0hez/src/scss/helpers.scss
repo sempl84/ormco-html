@@ -444,8 +444,25 @@ input[type='checkbox'] {
 		&.active {color: #111;}
 		&.checked {
 			color: #80C9F9;
-			span {padding-left: 32px; position: relative;}
-			span::before {@include bf; @include icon(check-o,24px,24px, auto); left: 0; top: -2px;}
+			span {
+        padding-left: 32px; 
+        position: relative;
+        @media (max-width:$mobile){
+          padding-left: 22px;
+        }
+      }
+			span::before {
+        @include bf; 
+        left: 0; 
+        @media (min-width:$mobile){
+          top: -2px;
+          @include icon(check-o,24px,24px, auto); 
+        }
+        @media (max-width:$mobile){
+          top: rem(1);
+          @include icon(check-o,16px,16px, contain); 
+        }
+      }
 		}
 	}
 }
