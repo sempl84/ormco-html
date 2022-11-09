@@ -2388,3 +2388,18 @@ document.addEventListener("afterPopupOpen", function (e) {
     popupPrice.innerHTML = itemPrice;
   }
 });
+
+document.addEventListener('click', function(e) {
+  const target = e.target;
+  if (target.closest('.confirm-tippy__no')) {
+    const tippy = target.closest('[data-tippy-root]');
+    if (tippy) {
+      let tippyId = parseInt(tippy.id.replaceAll('tippy-', ''));
+      flsModules.tippy.forEach(tippy=>{
+        if (tippyId === tippy.id) {
+          tippy.hide();
+        }
+      })
+    }
+  }
+})

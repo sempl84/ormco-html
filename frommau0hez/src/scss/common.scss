@@ -505,3 +505,42 @@ input[type="number"] {
     white-space: nowrap;
   }
 }
+
+.confirm-tippy {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  padding: rem(25);
+
+  &__title {
+    font-weight: 700;
+    text-align: center;
+    @include adaptiveValue("font-size", 16, 12, 1920, 480, 1);
+  }
+
+  &__buttons {
+    display: flex;
+    gap: rem(7);
+    button {
+      border-radius: rem(6);
+      padding: rem(6);
+      transition: all 0.3s ease 0s;
+      min-width: rem(105);
+      @media (any-hover: hover){
+        &:hover{
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &__yes {
+    background-color: #115DA3;
+    border: rem(2) solid #115DA3;
+  }
+
+  &__no {
+    background-color: #FF3B30;
+    border: rem(2) solid #FF3B30;
+  }
+}

@@ -9774,29 +9774,29 @@
             render
         });
         const tippy_esm = tippy;
+        flsModules.tippy = [];
         function tippyInit() {
             const tippies = document.querySelectorAll("[data-tippy-content]");
-            let thisTippy;
-            if (tippies.length) {
-                flsModules.tippy = [];
-                tippies.forEach((tipp => {
-                    const place = tipp.dataset.position ? tipp.dataset.position : "top-end";
-                    thisTippy = tippy_esm(tipp, {
-                        allowHTML: true,
-                        theme: "translucent",
-                        placement: place
-                    });
-                    flsModules.tippy.push(tipp);
-                }));
-            }
+            if (tippies.length) tippies.forEach((tipp => {
+                let thisTippy = null;
+                const place = tipp.dataset.position ? tipp.dataset.position : "top-end";
+                thisTippy = tippy_esm(tipp, {
+                    allowHTML: true,
+                    theme: "translucent",
+                    placement: place
+                });
+                flsModules.tippy.push(thisTippy);
+            }));
             const bottomTippies = document.querySelectorAll("[data-tippy-bottom]");
             if (bottomTippies.length) bottomTippies.forEach((e => {
                 let content = e.getAttribute("data-tippy-bottom");
-                flsModules.tippy = tippy_esm(e, {
+                let thisTippy = null;
+                thisTippy = tippy_esm(e, {
                     theme: "translucent",
                     placement: "bottom",
                     content: `${content}`
                 });
+                flsModules.tippy.push(thisTippy);
             }));
             const tippys = document.querySelectorAll("[data-tippy-discount]");
             if (tippys.length) tippys.forEach((elem => {
@@ -9806,6 +9806,7 @@
                 let secondDiscount = elem.dataset.secondDiscount;
                 let tippyTexts = elem.dataset.text;
                 let tippyDiscounts = elem.dataset.discount;
+                let thisTippy = null;
                 let firstRow = ``;
                 let secondRow = ``;
                 let tippyContent = ``;
@@ -9821,13 +9822,30 @@
                     if (secondText && secondDiscount) secondRow = `\n          <div class="discount-tippy__row">\n            <div class="discount-tippy__text">${secondText}</div>\n            <div class="discount-tippy__discount">${secondDiscount}</div>\n          </div>\n          `; else secondRow = ``;
                     tippyContent = `\n        <div class="discount-tippy">\n          ${firstRow}\n          ${secondRow}\n        </div>`;
                 }
-                flsModules.tippy = tippy_esm(elem, {
+                thisTippy = tippy_esm(elem, {
                     content: tippyContent,
                     allowHTML: true,
                     theme: "translucent",
                     interactive: true,
                     placement: "top-start"
                 });
+                flsModules.tippy.push(thisTippy);
+            }));
+            const tippysConfirm = document.querySelectorAll("[data-tippy-confirm]");
+            if (tippysConfirm.length) tippysConfirm.forEach((tippyConfirm => {
+                tippyConfirm.addEventListener("click", (e => {
+                    e.preventDefault();
+                }));
+                let tippyConfirmTitle = tippyConfirm.getAttribute("data-tippy-confirm");
+                let tippyConfirmOnclick = tippyConfirm.getAttribute("data-onclick");
+                let tippyConfirmThis = null;
+                tippyConfirmThis = tippy_esm(tippyConfirm, {
+                    trigger: "click",
+                    interactive: true,
+                    allowHTML: true,
+                    content: `\n        <div class="confirm-tippy">\n          <div class="confirm-tippy__title">${tippyConfirmTitle}</div>\n          <div class="confirm-tippy__buttons">\n          <button type="button" class="confirm-tippy__yes" onclick="${tippyConfirmOnclick}">Подтвердить</button>\n          <button type="button" class="confirm-tippy__no">Закрыть</button>\n          </div>\n        </div>`
+                });
+                flsModules.tippy.push(tippyConfirmThis);
             }));
         }
         tippyInit();
@@ -19363,6 +19381,18 @@ PERFORMANCE OF THIS SOFTWARE.
                 popupName.innerHTML = itemName;
                 popupArticle.innerHTML = itemArticle;
                 popupPrice.innerHTML = itemPrice;
+            }
+        }));
+        document.addEventListener("click", (function(e) {
+            const target = e.target;
+            if (target.closest(".confirm-tippy__no")) {
+                const tippy = target.closest("[data-tippy-root]");
+                if (tippy) {
+                    let tippyId = parseInt(tippy.id.replaceAll("tippy-", ""));
+                    flsModules.tippy.forEach((tippy => {
+                        if (tippyId === tippy.id) tippy.hide();
+                    }));
+                }
             }
         }));
         function homePageFunctions() {

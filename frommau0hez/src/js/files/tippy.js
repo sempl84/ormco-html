@@ -15,31 +15,33 @@ import 'tippy.js/dist/backdrop.css';
 // Подключение cтилей из node_modules
 //import 'tippy.js/dist/tippy.css';
 
+flsModules.tippy = [];
 export function tippyInit() {
   // Запускаем и добавляем в объект модулей
   const tippies =document.querySelectorAll('[data-tippy-content]');
-  let thisTippy
   if (tippies.length) {
-    flsModules.tippy = [];
     tippies.forEach(tipp=>{
+      let thisTippy = null;
       const place = tipp.dataset.position ? tipp.dataset.position : 'top-end'
       thisTippy = tippy(tipp, {
         allowHTML: true,
         theme: 'translucent',
         placement: place,
       });
-      flsModules.tippy.push(tipp)
+      flsModules.tippy.push(thisTippy);
     })
   }
   const bottomTippies = document.querySelectorAll('[data-tippy-bottom]');
   if (bottomTippies.length) {
     bottomTippies.forEach(e => {
       let content = e.getAttribute('data-tippy-bottom');
-      flsModules.tippy = tippy(e, {
+      let thisTippy = null;
+      thisTippy = tippy(e, {
         theme: 'translucent',
         placement: 'bottom',
         content: `${content}`,
       });
+      flsModules.tippy.push(thisTippy);
     })
   }
 
@@ -54,6 +56,7 @@ export function tippyInit() {
       let tippyTexts = elem.dataset.text;
       let tippyDiscounts = elem.dataset.discount;
       
+      let thisTippy = null;
       let firstRow = ``;
       let secondRow = ``;
       let tippyContent = ``;
@@ -95,13 +98,41 @@ export function tippyInit() {
           ${secondRow}
         </div>`;
       }
-      flsModules.tippy = tippy(elem, {
+      thisTippy = tippy(elem, {
         content: tippyContent,
         allowHTML: true,
         theme: 'translucent',
         interactive: true,
         placement: 'top-start',
       });
+      
+      flsModules.tippy.push(thisTippy);
+    })
+  }
+
+  const tippysConfirm =document.querySelectorAll('[data-tippy-confirm]');
+  if (tippysConfirm.length) {
+    tippysConfirm.forEach(tippyConfirm=>{
+      tippyConfirm.addEventListener('click', (e)=>{
+        e.preventDefault();
+      });
+      let tippyConfirmTitle = tippyConfirm.getAttribute('data-tippy-confirm');
+      let tippyConfirmOnclick = tippyConfirm.getAttribute('data-onclick');
+      let tippyConfirmThis = null;
+      tippyConfirmThis = tippy(tippyConfirm, {
+        trigger: 'click',
+        interactive: true,
+        allowHTML: true,
+        content: `
+        <div class="confirm-tippy">
+          <div class="confirm-tippy__title">${tippyConfirmTitle}</div>
+          <div class="confirm-tippy__buttons">
+          <button type="button" class="confirm-tippy__yes" onclick="${tippyConfirmOnclick}">Подтвердить</button>
+          <button type="button" class="confirm-tippy__no">Закрыть</button>
+          </div>
+        </div>`
+      });
+      flsModules.tippy.push(tippyConfirmThis);
     })
   }
 }

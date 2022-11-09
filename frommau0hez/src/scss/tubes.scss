@@ -96,6 +96,29 @@
 
   &__head {
     font-weight: 600;
+    &[data-spoller] {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      &::after{
+        content:'';
+        display: inline-block;
+        flex: 0 0 rem(8);
+        width: rem(8);
+        height: rem(8);
+        border-bottom: rem(2) solid #000;
+        border-right: rem(2) solid #000;
+        transform: rotate(45deg) translate(-25%);
+        transition: all 0.3s ease 0s;
+      }
+      &._spoller-active {
+        &::after{
+          content:'';
+          transform: rotate(-135deg) translate(25%);
+        }
+      }
+    }
   }
 
   &__body {
