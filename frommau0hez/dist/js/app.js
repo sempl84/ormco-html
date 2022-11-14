@@ -9774,79 +9774,84 @@
             render
         });
         const tippy_esm = tippy;
-        flsModules.tippy = [];
         function tippyInit() {
-            const tippies = document.querySelectorAll("[data-tippy-content]");
-            if (tippies.length) tippies.forEach((tipp => {
-                let thisTippy = null;
-                const place = tipp.dataset.position ? tipp.dataset.position : "top-end";
-                thisTippy = tippy_esm(tipp, {
-                    allowHTML: true,
-                    theme: "translucent",
-                    placement: place
-                });
-                flsModules.tippy.push(thisTippy);
+            if ("undefined" !== typeof flsModules.tippy && flsModules.tippy.length) flsModules.tippy.forEach(((e, index) => {
+                e.destroy();
             }));
-            const bottomTippies = document.querySelectorAll("[data-tippy-bottom]");
-            if (bottomTippies.length) bottomTippies.forEach((e => {
-                let content = e.getAttribute("data-tippy-bottom");
-                let thisTippy = null;
-                thisTippy = tippy_esm(e, {
-                    theme: "translucent",
-                    placement: "bottom",
-                    content: `${content}`
-                });
-                flsModules.tippy.push(thisTippy);
-            }));
-            const tippys = document.querySelectorAll("[data-tippy-discount]");
-            if (tippys.length) tippys.forEach((elem => {
-                let firstText = elem.dataset.firstText;
-                let secondText = elem.dataset.secondText;
-                let firstDiscount = elem.dataset.firstDiscount;
-                let secondDiscount = elem.dataset.secondDiscount;
-                let tippyTexts = elem.dataset.text;
-                let tippyDiscounts = elem.dataset.discount;
-                let thisTippy = null;
-                let firstRow = ``;
-                let secondRow = ``;
-                let tippyContent = ``;
-                if (tippyTexts && tippyDiscounts) {
-                    tippyTexts = tippyTexts.split("||");
-                    tippyDiscounts = tippyDiscounts.split("||");
-                    for (let i = 0; i < tippyTexts.length; i++) {
-                        let row = `\n          <div class="discount-tippy__row">\n            <div class="discount-tippy__text">${tippyTexts[i]}</div>\n            <div class="discount-tippy__discount">${tippyDiscounts[i]}</div>\n          </div>`;
-                        tippyContent += row;
-                    }
-                } else if (firstText && firstDiscount && secondText && secondDiscount) {
-                    if (firstText && firstDiscount) firstRow = `\n          <div class="discount-tippy__row">\n            <div class="discount-tippy__text">${firstText}</div>\n            <div class="discount-tippy__discount">${firstDiscount}</div>\n          </div>\n          `; else firstRow = ``;
-                    if (secondText && secondDiscount) secondRow = `\n          <div class="discount-tippy__row">\n            <div class="discount-tippy__text">${secondText}</div>\n            <div class="discount-tippy__discount">${secondDiscount}</div>\n          </div>\n          `; else secondRow = ``;
-                    tippyContent = `\n        <div class="discount-tippy">\n          ${firstRow}\n          ${secondRow}\n        </div>`;
-                }
-                thisTippy = tippy_esm(elem, {
-                    content: tippyContent,
-                    allowHTML: true,
-                    theme: "translucent",
-                    interactive: true,
-                    placement: "top-start"
-                });
-                flsModules.tippy.push(thisTippy);
-            }));
-            const tippysConfirm = document.querySelectorAll("[data-tippy-confirm]");
-            if (tippysConfirm.length) tippysConfirm.forEach((tippyConfirm => {
-                tippyConfirm.addEventListener("click", (e => {
-                    e.preventDefault();
+            flsModules.tippy = [];
+            setTimeout((() => {
+                const tippies = document.querySelectorAll("[data-tippy-content]");
+                if (tippies.length) tippies.forEach((tipp => {
+                    let thisTippy = null;
+                    const place = tipp.dataset.position ? tipp.dataset.position : "top-end";
+                    thisTippy = tippy_esm(tipp, {
+                        allowHTML: true,
+                        theme: "translucent",
+                        placement: place
+                    });
+                    flsModules.tippy.push(thisTippy);
                 }));
-                let tippyConfirmTitle = tippyConfirm.getAttribute("data-tippy-confirm");
-                let tippyConfirmOnclick = tippyConfirm.getAttribute("data-onclick");
-                let tippyConfirmThis = null;
-                tippyConfirmThis = tippy_esm(tippyConfirm, {
-                    trigger: "click",
-                    interactive: true,
-                    allowHTML: true,
-                    content: `\n        <div class="confirm-tippy">\n          <div class="confirm-tippy__title">${tippyConfirmTitle}</div>\n          <div class="confirm-tippy__buttons">\n          <button type="button" class="confirm-tippy__yes" onclick="${tippyConfirmOnclick}">Подтвердить</button>\n          <button type="button" class="confirm-tippy__no">Закрыть</button>\n          </div>\n        </div>`
-                });
-                flsModules.tippy.push(tippyConfirmThis);
-            }));
+                const bottomTippies = document.querySelectorAll("[data-tippy-bottom]");
+                if (bottomTippies.length) bottomTippies.forEach((e => {
+                    let content = e.getAttribute("data-tippy-bottom");
+                    let thisTippy = null;
+                    thisTippy = tippy_esm(e, {
+                        theme: "translucent",
+                        placement: "bottom",
+                        content: `${content}`
+                    });
+                    flsModules.tippy.push(thisTippy);
+                }));
+                const tippys = document.querySelectorAll("[data-tippy-discount]");
+                if (tippys.length) tippys.forEach((elem => {
+                    let firstText = elem.dataset.firstText;
+                    let secondText = elem.dataset.secondText;
+                    let firstDiscount = elem.dataset.firstDiscount;
+                    let secondDiscount = elem.dataset.secondDiscount;
+                    let tippyTexts = elem.dataset.text;
+                    let tippyDiscounts = elem.dataset.discount;
+                    let thisTippy = null;
+                    let firstRow = ``;
+                    let secondRow = ``;
+                    let tippyContent = ``;
+                    if (tippyTexts && tippyDiscounts) {
+                        tippyTexts = tippyTexts.split("||");
+                        tippyDiscounts = tippyDiscounts.split("||");
+                        for (let i = 0; i < tippyTexts.length; i++) {
+                            let row = `\n            <div class="discount-tippy__row">\n              <div class="discount-tippy__text">${tippyTexts[i]}</div>\n              <div class="discount-tippy__discount">${tippyDiscounts[i]}</div>\n            </div>`;
+                            tippyContent += row;
+                        }
+                    } else if (firstText && firstDiscount && secondText && secondDiscount) {
+                        if (firstText && firstDiscount) firstRow = `\n            <div class="discount-tippy__row">\n              <div class="discount-tippy__text">${firstText}</div>\n              <div class="discount-tippy__discount">${firstDiscount}</div>\n            </div>\n            `; else firstRow = ``;
+                        if (secondText && secondDiscount) secondRow = `\n            <div class="discount-tippy__row">\n              <div class="discount-tippy__text">${secondText}</div>\n              <div class="discount-tippy__discount">${secondDiscount}</div>\n            </div>\n            `; else secondRow = ``;
+                        tippyContent = `\n          <div class="discount-tippy">\n            ${firstRow}\n            ${secondRow}\n          </div>`;
+                    }
+                    thisTippy = tippy_esm(elem, {
+                        content: tippyContent,
+                        allowHTML: true,
+                        theme: "translucent",
+                        interactive: true,
+                        placement: "top-start"
+                    });
+                    flsModules.tippy.push(thisTippy);
+                }));
+                const tippysConfirm = document.querySelectorAll("[data-tippy-confirm]");
+                if (tippysConfirm.length) tippysConfirm.forEach((tippyConfirm => {
+                    tippyConfirm.addEventListener("click", (e => {
+                        e.preventDefault();
+                    }));
+                    let tippyConfirmTitle = tippyConfirm.getAttribute("data-tippy-confirm");
+                    let tippyConfirmOnclick = tippyConfirm.getAttribute("data-onclick");
+                    let tippyConfirmThis = null;
+                    tippyConfirmThis = tippy_esm(tippyConfirm, {
+                        trigger: "click",
+                        interactive: true,
+                        allowHTML: true,
+                        content: `\n          <div class="confirm-tippy">\n            <div class="confirm-tippy__title">${tippyConfirmTitle}</div>\n            <div class="confirm-tippy__buttons">\n            <button type="button" class="confirm-tippy__yes" onclick="${tippyConfirmOnclick}">Подтвердить</button>\n            <button type="button" class="confirm-tippy__no">Закрыть</button>\n            </div>\n          </div>`
+                    });
+                    flsModules.tippy.push(tippyConfirmThis);
+                }));
+            }), 50);
         }
         tippyInit();
         function isObject(obj) {
@@ -18452,17 +18457,20 @@ PERFORMANCE OF THIS SOFTWARE.
                 findObjectManager = new ymaps.ObjectManager({
                     clusterize: true,
                     gridSize: 32,
-                    clusterDisableClickZoom: false
+                    clusterDisableClickZoom: false,
+                    minClusterSize: 3
                 });
                 findObjectManager.clusters.options.set("preset", "islands#invertedGreenClusterIcons");
                 findObjectManager.clusters.events.add("add", (function(e) {
                     var cluster = findObjectManager.clusters.getById(e.get("objectId"));
                     cluster.properties.geoObjects;
-                    cluster.options.clusterIcons = [ {
-                        href: `img/icons/map_pin.svg`,
-                        size: [ 40, 40 ],
-                        offset: [ -20, -20 ]
-                    } ];
+                    findObjectManager.clusters.setClusterOptions(cluster.id, {
+                        clusterIcons: [ {
+                            href: `img/icons/map_pin.svg`,
+                            size: [ 40, 40 ],
+                            offset: [ -20, -20 ]
+                        } ]
+                    });
                 }));
                 findObjectManager.objects.events.add([ "balloonclose", "balloonopen" ], (function(e) {
                     var objectId = e.get("objectId");
@@ -18535,7 +18543,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 });
                 let MyBalloonContentLayout;
-                if (document.querySelector(".find_dealers")) MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(`\n        <div class="baloon-find__find">\n          <div class="baloon-find__head">\n              <div class="baloon-find__title">$[properties.title]</div>\n          </div>\n          <div class="baloon-find__body">\n              <div class="baloon-find__location">\n                  <span class="baloon-find__city">г. $[properties.city]</span>, \n                  <span class="baloon-find__address">$[properties.address]</span>\n              </div>\n              <button class="baloon-find__copy">\n                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">\n                      <path d="M15.8984 5H7.22656C5.99687 5 5 5.99687 5 7.22656V15.8984C5 17.1281 5.99687 18.125 7.22656 18.125H15.8984C17.1281 18.125 18.125 17.1281 18.125 15.8984V7.22656C18.125 5.99687 17.1281 5 15.8984 5Z" stroke="#8E8E93" stroke-linejoin="round"/>\n                      <path d="M14.9805 5L15 4.0625C14.9984 3.48285 14.7674 2.9274 14.3575 2.51753C13.9476 2.10765 13.3922 1.87665 12.8125 1.875H4.375C3.71256 1.87696 3.07781 2.14098 2.6094 2.6094C2.14098 3.07781 1.87696 3.71256 1.875 4.375V12.8125C1.87665 13.3922 2.10765 13.9476 2.51753 14.3575C2.9274 14.7674 3.48285 14.9984 4.0625 15H5" stroke="#8E8E93" stroke-linecap="round" stroke-linejoin="round"/>\n                  </svg>\n              </button>\n          </div>\n          <a href="tel:$[properties.phone]" class="baloon-find__link">$[properties.phone]</a>\n        </div>\n            `); else MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(`\n        <div class="baloon-find__find">\n          <div class="baloon-find__head">\n              <div class="baloon-find__type">$[properties.type]</div>\n              <div class="baloon-find__title">$[properties.title]</div>\n          </div>\n          <div class="baloon-find__body">\n              <div class="baloon-find__location">\n                  <span class="baloon-find__city">г. $[properties.city]</span>, \n                  <span class="baloon-find__address">$[properties.address]</span>\n              </div>\n              <button class="baloon-find__copy">\n                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">\n                      <path d="M15.8984 5H7.22656C5.99687 5 5 5.99687 5 7.22656V15.8984C5 17.1281 5.99687 18.125 7.22656 18.125H15.8984C17.1281 18.125 18.125 17.1281 18.125 15.8984V7.22656C18.125 5.99687 17.1281 5 15.8984 5Z" stroke="#8E8E93" stroke-linejoin="round"/>\n                      <path d="M14.9805 5L15 4.0625C14.9984 3.48285 14.7674 2.9274 14.3575 2.51753C13.9476 2.10765 13.3922 1.87665 12.8125 1.875H4.375C3.71256 1.87696 3.07781 2.14098 2.6094 2.6094C2.14098 3.07781 1.87696 3.71256 1.875 4.375V12.8125C1.87665 13.3922 2.10765 13.9476 2.51753 14.3575C2.9274 14.7674 3.48285 14.9984 4.0625 15H5" stroke="#8E8E93" stroke-linecap="round" stroke-linejoin="round"/>\n                  </svg>\n              </button>\n          </div>\n          <a href="tel:$[properties.phone]" class="baloon-find__link">$[properties.phone]</a>\n        </div>\n            `);
+                if (document.querySelector(".find_dealers")) MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(`\n        <div class="baloon-find__find">\n          <div class="baloon-find__head">\n              <div class="baloon-find__title">$[properties.title]</div>\n          </div>\n          <div class="baloon-find__body">\n              <div class="baloon-find__location">\n                  <span class="baloon-find__address">$[properties.address]</span>\n              </div>\n              <button class="baloon-find__copy">\n                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">\n                      <path d="M15.8984 5H7.22656C5.99687 5 5 5.99687 5 7.22656V15.8984C5 17.1281 5.99687 18.125 7.22656 18.125H15.8984C17.1281 18.125 18.125 17.1281 18.125 15.8984V7.22656C18.125 5.99687 17.1281 5 15.8984 5Z" stroke="#8E8E93" stroke-linejoin="round"/>\n                      <path d="M14.9805 5L15 4.0625C14.9984 3.48285 14.7674 2.9274 14.3575 2.51753C13.9476 2.10765 13.3922 1.87665 12.8125 1.875H4.375C3.71256 1.87696 3.07781 2.14098 2.6094 2.6094C2.14098 3.07781 1.87696 3.71256 1.875 4.375V12.8125C1.87665 13.3922 2.10765 13.9476 2.51753 14.3575C2.9274 14.7674 3.48285 14.9984 4.0625 15H5" stroke="#8E8E93" stroke-linecap="round" stroke-linejoin="round"/>\n                  </svg>\n              </button>\n          </div>\n          <a href="tel:$[properties.phone]" class="baloon-find__link">$[properties.phone]</a>\n        </div>\n            `); else MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(`\n        <div class="baloon-find__find">\n          <div class="baloon-find__head">\n              <div class="baloon-find__type">$[properties.type]</div>\n              <div class="baloon-find__title">$[properties.title]</div>\n          </div>\n          <div class="baloon-find__body">\n              <div class="baloon-find__location">\n                  <span class="baloon-find__city">г. $[properties.city]</span>, \n                  <span class="baloon-find__address">$[properties.address]</span>\n              </div>\n              <button class="baloon-find__copy">\n                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">\n                      <path d="M15.8984 5H7.22656C5.99687 5 5 5.99687 5 7.22656V15.8984C5 17.1281 5.99687 18.125 7.22656 18.125H15.8984C17.1281 18.125 18.125 17.1281 18.125 15.8984V7.22656C18.125 5.99687 17.1281 5 15.8984 5Z" stroke="#8E8E93" stroke-linejoin="round"/>\n                      <path d="M14.9805 5L15 4.0625C14.9984 3.48285 14.7674 2.9274 14.3575 2.51753C13.9476 2.10765 13.3922 1.87665 12.8125 1.875H4.375C3.71256 1.87696 3.07781 2.14098 2.6094 2.6094C2.14098 3.07781 1.87696 3.71256 1.875 4.375V12.8125C1.87665 13.3922 2.10765 13.9476 2.51753 14.3575C2.9274 14.7674 3.48285 14.9984 4.0625 15H5" stroke="#8E8E93" stroke-linecap="round" stroke-linejoin="round"/>\n                  </svg>\n              </button>\n          </div>\n          <a href="tel:$[properties.phone]" class="baloon-find__link">$[properties.phone]</a>\n        </div>\n            `);
                 findObjectManager.removeAll();
                 findObjectManager.add(findObjects);
                 findObjectManager.objects.options.set({
@@ -18573,6 +18581,18 @@ PERFORMANCE OF THIS SOFTWARE.
             }
             function findObjectConstructor() {
                 let findFeatureArr = [];
+                findClinics.forEach(((clinic, index) => {
+                    let lat = clinic.lat;
+                    let lng = clinic.lng;
+                    findClinics.forEach(((cliniq, indexx) => {
+                        if (indexx !== index) {
+                            let latCliniq = cliniq.lat;
+                            let lngCliniq = cliniq.lng;
+                            clinic.lat = lat === latCliniq ? clinic.lat = clinic.lat + 9e-5 : clinic.lat;
+                            clinic.lng = lng === lngCliniq ? clinic.lng = clinic.lng + 9e-5 : clinic.lng;
+                        }
+                    }));
+                }));
                 if (document.querySelector(".find_dealers")) findClinics.forEach(((findClinic, index) => {
                     let findFeature = {
                         type: "Feature",
@@ -18720,7 +18740,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 } else bodyUnlock();
             }
             function findDealersTableRender(findDealers, findFeatureArr) {
-                let findDealerRow = `\n                  <div class="list-dealers__row list-dealers__row_first">\n                    <div class="list-dealers__item list-dealers__item_country">Страна</div>\n                    <div class="list-dealers__item list-dealers__item_name">Диллеры</div>\n                    <div class="list-dealers__item list-dealers__item_adress">Адрес</div>\n                    <div class="list-dealers__item list-dealers__item_phone">Телефон</div>\n                    <div class="list-dealers__item list-dealers__item_email">Email</div>\n                  </div>\n                  `;
+                let findDealerRow = `\n                  <div class="list-dealers__row list-dealers__row_first">\n                    <div class="list-dealers__item list-dealers__item_country">Страна</div>\n                    <div class="list-dealers__item list-dealers__item_name">Дилеры</div>\n                    <div class="list-dealers__item list-dealers__item_adress">Адрес</div>\n                    <div class="list-dealers__item list-dealers__item_phone">Телефон</div>\n                    <div class="list-dealers__item list-dealers__item_email">Email</div>\n                  </div>\n                  `;
                 findFeatureArr.forEach((findFeature => {
                     let obj = findFeature.properties;
                     let region = "";
@@ -18730,8 +18750,8 @@ PERFORMANCE OF THIS SOFTWARE.
                     let email = "";
                     let address = "";
                     let postindex = "";
+                    console.log(obj.city);
                     region = obj.region ? obj.region : "";
-                    title = obj.title ? obj.title : "";
                     title = obj.title ? obj.title : "";
                     city = obj.city ? obj.city : "";
                     address = obj.address ? obj.address : "";
@@ -18744,7 +18764,7 @@ PERFORMANCE OF THIS SOFTWARE.
                         let link = `<a href="tel:${e.trim()}">${e.trim()}</a>`;
                         email += link;
                     })); else email = `<a href="mailto:${obj.email.trim()}">${obj.email.trim()}</a>`;
-                    let str = `\n                  <div class="list-dealers__row">\n                    <div class="list-dealers__item list-dealers__item_country">${region}</div>\n                    <div class="list-dealers__item list-dealers__item_name">${title}</div>\n                    <div class="list-dealers__item list-dealers__item_adress">${postindex}г. ${city}, ${address}</div>\n                    <div class="list-dealers__item list-dealers__item_phone">${phone}</div>\n                    <div class="list-dealers__item list-dealers__item_email">${email}</div>\n                  </div>\n      `;
+                    let str = `\n                  <div class="list-dealers__row">\n                    <div class="list-dealers__item list-dealers__item_country">${region}</div>\n                    <div class="list-dealers__item list-dealers__item_name">${title}</div>\n                    <div class="list-dealers__item list-dealers__item_adress">${postindex} ${address}</div>\n                    <div class="list-dealers__item list-dealers__item_phone">${phone}</div>\n                    <div class="list-dealers__item list-dealers__item_email">${email}</div>\n                  </div>\n      `;
                     findDealerRow += str;
                 }));
                 document.querySelector("[data-dealers-table]").innerHTML = findDealerRow;
@@ -18840,7 +18860,7 @@ PERFORMANCE OF THIS SOFTWARE.
             if (resetBtns.length) resetBtns.forEach((resetBtn => {
                 resetBtn.addEventListener("click", (e => {
                     e.preventDefault();
-                    configuratorReset(resetBtn.dataset.image, document.querySelector("[data-step]").dataset.step);
+                    configuratorReset(resetBtn.dataset.image, document.querySelector("[data-step]").dataset.step, resetBtn.dataset.tippy);
                 }));
             }));
             const configuratorTork = document.querySelector('[data-step="tork"]');
@@ -18947,12 +18967,14 @@ PERFORMANCE OF THIS SOFTWARE.
                     }));
                 }));
                 function torksActions(torks = configuratorTork.querySelectorAll(`[${options.torkAttribute}]`)) {
+                    let greyTextsTimeout = null;
                     torks.forEach((tork => {
                         let torkParent = tork.closest(`[${options.torkParentAttribute}]`);
                         torkParent.addEventListener("mouseenter", (e => {
                             const checkedTeeth = configuratorTork.querySelectorAll(`[${options.toothAttribute}]:checked`);
                             if (!checkedTeeth.length) {
                                 if (!isMobile.any()) torkParent.querySelector("label").classList.add("_pen");
+                                if (null !== greyTextsTimeout) clearTimeout(greyTextsTimeout);
                                 configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = false;
                             } else {
                                 checkOneTork(torkParent, tork, checkedTeeth, false);
@@ -18961,7 +18983,7 @@ PERFORMANCE OF THIS SOFTWARE.
                         }));
                         torkParent.addEventListener("mouseleave", (e => {
                             let timeout = 1e3 * parseInt(configuratorTork.querySelector(`[${options.timeOutDataset}]`).getAttribute(options.timeOutDataset));
-                            setTimeout((() => {
+                            greyTextsTimeout = setTimeout((() => {
                                 configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = true;
                                 configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = true;
                             }), timeout);
@@ -18992,9 +19014,6 @@ PERFORMANCE OF THIS SOFTWARE.
                             if (toothLabel) {
                                 toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, torkName);
                                 toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute("src", torkImageSrc);
-                                flsModules.tippy.forEach((e => {
-                                    e._tippy.destroy();
-                                }));
                                 tippyInit();
                                 if (true === check) {
                                     tooth.checked = false;
@@ -19007,9 +19026,6 @@ PERFORMANCE OF THIS SOFTWARE.
                         } else if (toothLabel) {
                             toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, torkName);
                             toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute("src", torkImageSrc);
-                            flsModules.tippy.forEach((e => {
-                                e._tippy.destroy();
-                            }));
                             tippyInit();
                             if (true === check) {
                                 tooth.checked = false;
@@ -19119,6 +19135,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     const tubesParent = document.querySelector(`[${options.torkParentAttribute}]`);
                     const checkedTeeth = document.querySelectorAll(`[${options.toothAttribute}]:checked`);
                     let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : "qwe";
+                    let greyTextsTimeout = null;
                     if (checkedTeeth.length) {
                         if (index <= 1) {
                             configuratorTork.querySelector(`.select__title .select__content`).innerHTML = podskazka;
@@ -19132,12 +19149,13 @@ PERFORMANCE OF THIS SOFTWARE.
                         tubes.forEach((tube => {
                             tube.addEventListener("mouseenter", (e => {
                                 tube.insertAdjacentHTML("beforeend", `\n            <span class="option-unavaiable"></span>\n            `);
+                                if (null !== greyTextsTimeout) clearTimeout(greyTextsTimeout);
                                 checkOneTork(tubesParent, tube, checkedTeeth, false, e);
                                 checkTorks();
                             }));
                             tube.addEventListener("mouseleave", (() => {
                                 let timeout = 1e3 * parseInt(configuratorTork.querySelector(`[${options.timeOutDataset}]`).getAttribute(options.timeOutDataset));
-                                setTimeout((() => {
+                                greyTextsTimeout = setTimeout((() => {
                                     configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = true;
                                     configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = true;
                                 }), timeout);
@@ -19178,9 +19196,6 @@ PERFORMANCE OF THIS SOFTWARE.
                             if (toothLabel) {
                                 toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, tubeTippy);
                                 toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute("src", tubeImage);
-                                flsModules.tippy.forEach((e => {
-                                    e._tippy.destroy();
-                                }));
                                 tippyInit();
                                 if (true === check) {
                                     tooth.checked = false;
@@ -19199,9 +19214,6 @@ PERFORMANCE OF THIS SOFTWARE.
                         } else if (toothLabel) {
                             toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, tubeTippy);
                             toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute("src", tubeImage);
-                            flsModules.tippy.forEach((e => {
-                                e._tippy.destroy();
-                            }));
                             tippyInit();
                             if (true === check) {
                                 tooth.checked = false;
@@ -19311,7 +19323,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     countOut.innerHTML = checkedBoxes.length;
                 }
             }
-            function configuratorReset(source, type) {
+            function configuratorReset(source, type, tippy = "Стандартный") {
                 document.querySelectorAll("input[data-tooth]").forEach((e => {
                     e.checked = false;
                 }));
@@ -19330,8 +19342,14 @@ PERFORMANCE OF THIS SOFTWARE.
                 if ("arcs" === type) document.querySelectorAll("input:checked").forEach((e => {
                     e.click();
                 }));
-                if (document.querySelectorAll(".check-select__btn").length) document.querySelectorAll(".check-select__btn").forEach((e => {
-                    e.click();
+                if (tippy) if (document.querySelectorAll(".teeth-torkConfigurator__label [data-tippy-content]").length) document.querySelectorAll(".teeth-torkConfigurator__label [data-tippy-content]").forEach((e => {
+                    e.setAttribute("data-tippy-content", tippy);
+                    setTimeout((() => {
+                        tippyInit();
+                    }), 50);
+                }));
+                if (document.querySelectorAll("input[data-default]").length) document.querySelectorAll("input[data-default]").forEach((e => {
+                    e.value = e.dataset.default;
                 }));
             }
             function dugesFiltersRender() {

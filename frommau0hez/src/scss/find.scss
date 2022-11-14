@@ -119,8 +119,14 @@
   }
 
   .popover .close {
-    @media (min-width:$mobile) {
+    @media (max-width:$mobile) {
       display: none;
+    }
+    @media (min-width:$mobile) {
+      position: absolute;
+      top: rem(8);
+      right: rem(12);
+      color: #8E8E93;
     }
   }
 }

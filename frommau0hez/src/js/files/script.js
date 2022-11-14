@@ -1002,17 +1002,19 @@ function findActions() {
             // ObjectManager принимает те же опции, что и кластеризатор.
             gridSize: 32,
             clusterDisableClickZoom: false,
+            minClusterSize: 3,
       });
       findObjectManager.clusters.options.set('preset', 'islands#invertedGreenClusterIcons');
       findObjectManager.clusters.events.add('add', function (e) {
           var cluster = findObjectManager.clusters.getById(e.get('objectId')),
-      
           objects = cluster.properties.geoObjects;
-          cluster.options.clusterIcons = [{
-              href: `img/icons/map_pin.svg`,
-              size: [40, 40],
-              offset: [-20, -20]
-          }];
+          findObjectManager.clusters.setClusterOptions(cluster.id, {
+            clusterIcons: [{
+                href: `img/icons/map_pin.svg`,
+                size: [40, 40],
+                offset: [-20, -20]
+            }],
+          })
       });
       findObjectManager.objects.events.add(['balloonclose', 'balloonopen'], function (e) {
         var objectId = e.get('objectId');
@@ -1071,11 +1073,6 @@ function findActions() {
           }
         }
       })
-      // if (window.innerWidth <= 767) {
-      //   findObjectManager.objects.options.set({
-      //     balloonPanelMaxMapArea: 'Infinity'
-      //   })
-      // }
       findMap.geoObjects.add(findObjectManager);
       findObjectConstructor();
     }
@@ -1215,7 +1212,6 @@ function findActions() {
           </div>
           <div class="baloon-find__body">
               <div class="baloon-find__location">
-                  <span class="baloon-find__city">г. $[properties.city]</span>, 
                   <span class="baloon-find__address">$[properties.address]</span>
               </div>
               <button class="baloon-find__copy">
@@ -1307,6 +1303,19 @@ function findActions() {
 
   function findObjectConstructor() {
     let findFeatureArr = [];
+    findClinics.forEach((clinic, index) =>{
+      let lat = clinic.lat;
+      let lng = clinic.lng;
+      findClinics.forEach((cliniq, indexx) =>{
+        if (indexx !== index) {
+          let latCliniq = cliniq.lat;
+          let lngCliniq = cliniq.lng;
+
+          clinic.lat = lat === latCliniq ? clinic.lat = clinic.lat+.00009 : clinic.lat;
+          clinic.lng = lng === lngCliniq ? clinic.lng = clinic.lng+.00009 : clinic.lng;
+        }
+      });
+    });
     if (document.querySelector('.find_dealers')) {
       findClinics.forEach((findClinic,index) => {
           let findFeature = {
@@ -1515,7 +1524,7 @@ function findActions() {
     let findDealerRow = `
                   <div class="list-dealers__row list-dealers__row_first">
                     <div class="list-dealers__item list-dealers__item_country">Страна</div>
-                    <div class="list-dealers__item list-dealers__item_name">Диллеры</div>
+                    <div class="list-dealers__item list-dealers__item_name">Дилеры</div>
                     <div class="list-dealers__item list-dealers__item_adress">Адрес</div>
                     <div class="list-dealers__item list-dealers__item_phone">Телефон</div>
                     <div class="list-dealers__item list-dealers__item_email">Email</div>
@@ -1530,8 +1539,8 @@ function findActions() {
       let email = '';
       let address = '';
       let postindex = '';
+      console.log(obj.city)
       region = obj.region ? obj.region : '';
-      title = obj.title ? obj.title : '';
       title = obj.title ? obj.title : '';
       city = obj.city ? obj.city : '';
       address = obj.address ? obj.address : '';
@@ -1558,7 +1567,7 @@ function findActions() {
                   <div class="list-dealers__row">
                     <div class="list-dealers__item list-dealers__item_country">${region}</div>
                     <div class="list-dealers__item list-dealers__item_name">${title}</div>
-                    <div class="list-dealers__item list-dealers__item_adress">${postindex}г. ${city}, ${address}</div>
+                    <div class="list-dealers__item list-dealers__item_adress">${postindex} ${address}</div>
                     <div class="list-dealers__item list-dealers__item_phone">${phone}</div>
                     <div class="list-dealers__item list-dealers__item_email">${email}</div>
                   </div>
@@ -1694,7 +1703,7 @@ function configuratorActions(configuratorEl) {
     resetBtns.forEach(resetBtn => {
       resetBtn.addEventListener('click', (e)=>{
         e.preventDefault();
-        configuratorReset(resetBtn.dataset.image, document.querySelector('[data-step]').dataset.step);
+        configuratorReset(resetBtn.dataset.image, document.querySelector("[data-step]").dataset.step, resetBtn.dataset.tippy);
       })
     })
   }
@@ -1818,6 +1827,7 @@ function configuratorActions(configuratorEl) {
     }
 
     function torksActions(torks = configuratorTork.querySelectorAll(`[${options.torkAttribute}]`)) {
+      let greyTextsTimeout = null;
       torks.forEach(tork=>{
         let torkParent = tork.closest(`[${options.torkParentAttribute}]`);
         torkParent.addEventListener('mouseenter', (e)=>{
@@ -1825,6 +1835,9 @@ function configuratorActions(configuratorEl) {
           if (!checkedTeeth.length) {
             if (!isMobile.any()) {
               torkParent.querySelector('label').classList.add('_pen');
+            }
+            if (greyTextsTimeout !== null) {
+              clearTimeout(greyTextsTimeout);
             }
             configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = false;
           } else {
@@ -1834,7 +1847,7 @@ function configuratorActions(configuratorEl) {
         });
         torkParent.addEventListener('mouseleave', (e)=>{
           let timeout = parseInt(configuratorTork.querySelector(`[${options.timeOutDataset}]`).getAttribute(options.timeOutDataset)) * 1000
-          setTimeout(() => {
+          greyTextsTimeout = setTimeout(() => {
             configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = true;
             configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = true;
           }, timeout);
@@ -1869,9 +1882,10 @@ function configuratorActions(configuratorEl) {
             if (toothLabel) {
               toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, torkName);
               toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', torkImageSrc);
-              flsModules.tippy.forEach(e=>{
-                e._tippy.destroy()
-              })
+              // flsModules.tippy.forEach((e, index)=>{
+              //   e.destroy();
+              // });
+              // flsModules.tippy = [];
               tippyInit();
               if (check === true) {
                 tooth.checked = false;
@@ -1886,9 +1900,10 @@ function configuratorActions(configuratorEl) {
           if (toothLabel) {
             toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, torkName);
             toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', torkImageSrc);
-            flsModules.tippy.forEach(e=>{
-              e._tippy.destroy()
-            })
+            // flsModules.tippy.forEach((e, index)=>{
+            //   e.destroy();
+            // });
+            // flsModules.tippy = [];
             tippyInit();
             if (check === true) {
               tooth.checked = false;
@@ -2048,7 +2063,8 @@ function configuratorActions(configuratorEl) {
     function tubesActions() {
       const tubesParent = document.querySelector(`[${options.torkParentAttribute}]`);
       const checkedTeeth = document.querySelectorAll(`[${options.toothAttribute}]:checked`);
-      let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : 'qwe'
+      let podskazka = tubesParent.dataset.podskazka ? tubesParent.dataset.podskazka : 'qwe';
+      let greyTextsTimeout = null;
       if (checkedTeeth.length) {
         if (index <= 1) {
           // configuratorTork.querySelector(`.select__title .select__content`).innerHTML = configuratorTork.querySelector('.select__option._select-selected').innerHTML;
@@ -2066,13 +2082,16 @@ function configuratorActions(configuratorEl) {
           tube.addEventListener('mouseenter', (e)=>{
             tube.insertAdjacentHTML('beforeend', `
             <span class="option-unavaiable"></span>
-            `)
+            `);
+            if (greyTextsTimeout !== null) {
+              clearTimeout(greyTextsTimeout);
+            }
             checkOneTork(tubesParent, tube, checkedTeeth, false, e);
             checkTorks();
           })
           tube.addEventListener('mouseleave', ()=>{
             let timeout = parseInt(configuratorTork.querySelector(`[${options.timeOutDataset}]`).getAttribute(options.timeOutDataset)) * 1000
-            setTimeout(() => {
+            greyTextsTimeout = setTimeout(() => {
               configuratorTork.querySelector(`[${options.greyTextAttribute}]`).hidden = true;
               configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = true;
             }, timeout);
@@ -2121,9 +2140,10 @@ function configuratorActions(configuratorEl) {
             if (toothLabel) {
               toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, tubeTippy);
               toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', tubeImage);
-              flsModules.tippy.forEach(e=>{
-                e._tippy.destroy()
-              })
+              // flsModules.tippy.forEach((e, index)=>{
+              //   e.destroy();
+              // });
+              // flsModules.tippy = [];
               tippyInit();
               if (check === true) {
                 tooth.checked = false;
@@ -2147,9 +2167,10 @@ function configuratorActions(configuratorEl) {
           if (toothLabel) {
             toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, tubeTippy);
             toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', tubeImage);
-            flsModules.tippy.forEach(e=>{
-              e._tippy.destroy()
-            })
+            // flsModules.tippy.forEach((e, index)=>{
+            //   e.destroy();
+            // });
+            // flsModules.tippy = [];
             tippyInit();
             if (check === true) {
               tooth.checked = false;
@@ -2292,36 +2313,44 @@ function configuratorActions(configuratorEl) {
     }
   }
 //========================================================================================================================================================
-  function configuratorReset(source, type) {
-    document.querySelectorAll('input[data-tooth]').forEach(e=>{
-      e.checked = false;
-    })
-    document.querySelectorAll('.teeth-torkConfigurator__tork img').forEach(e=>{
-      e.setAttribute('src', source)
-    })
-    document.querySelectorAll('input[type="hidden"]').forEach(e=>{
-      e.value = ''
-    })
-    if (document.querySelectorAll(`[data-${type}-parent]`)) {
-      document.querySelectorAll(`[data-${type}-parent]`).forEach(e=>{
-        e.hidden = false;
-      });
-    }
-    if (type === 'tubes') {
-      document.querySelectorAll(`[data-${type}-parent]`).forEach(e=>{
-        e.classList.add('_pen');
-      })
-    }
-    if (type === 'arcs') {
-      document.querySelectorAll('input:checked').forEach(e=>{
-        e.click();
-      })
-    }
-    if (document.querySelectorAll('.check-select__btn').length) {
-      document.querySelectorAll('.check-select__btn').forEach(e=>{
-        e.click();
-      });
-    }
+  function configuratorReset(source, type, tippy = "Стандартный") {
+      document.querySelectorAll("input[data-tooth]").forEach((e => {
+          e.checked = false;
+      }));
+      // if (typeof flsModules.tippy !== 'undefined') {
+      //   flsModules.tippy.forEach((e, index)=>{
+      //     e.destroy();
+      //   });
+      //   flsModules.tippy = [];
+      // }
+      document.querySelectorAll(".teeth-torkConfigurator__tork img").forEach((e => {
+          e.setAttribute("src", source);
+      }));
+      document.querySelectorAll('input[type="hidden"]').forEach((e => {
+          e.value = "";
+      }));
+      if (document.querySelectorAll(`[data-${type}-parent]`)) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
+          e.hidden = false;
+      }));
+      if ("tubes" === type) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
+          e.classList.add("_pen");
+      }));
+      if ("arcs" === type) document.querySelectorAll("input:checked").forEach((e => {
+          e.click();
+      }));
+      if (tippy) {
+        if (document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').length) {
+          document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').forEach(e=>{
+            e.setAttribute('data-tippy-content', tippy);
+            setTimeout(() => {
+              tippyInit();
+            }, 50);
+          })
+        }
+      }
+      if (document.querySelectorAll("input[data-default]").length) document.querySelectorAll("input[data-default]").forEach((e => {
+          e.value = e.dataset.default;
+      }));
   }
 //========================================================================================================================================================
   function dugesFiltersRender() {

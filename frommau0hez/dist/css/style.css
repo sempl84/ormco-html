@@ -15241,6 +15241,11 @@ input[type=number] {
   padding: 0.4375rem;
 }
 
+.body-torkConfigurator__button[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .teeth-torkConfigurator {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18323,7 +18328,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
 @media (min-width: 47.99875em) and (min-width: 47.99875em) {
   .popover .close {
-    display: none;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    color: #8E8E93;
   }
 }
 
@@ -20863,6 +20871,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
     max-width: none;
+  }
+}
+
+@media (min-width: 47.99875em) and (max-width: 47.99875em) {
+  .popover .close {
+    display: none;
   }
 }
 
