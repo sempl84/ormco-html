@@ -5416,6 +5416,18 @@ input[type=number] {
   border: 0.125rem solid #FF3B30;
 }
 
+.configurator {
+  position: relative;
+}
+
+.configurator .modal-loader {
+  z-index: 99;
+}
+
+.configurator .modal-loader .modal-loader-circle {
+  position: fixed !important;
+}
+
 /*
 .icon-menu {
 	display: none;

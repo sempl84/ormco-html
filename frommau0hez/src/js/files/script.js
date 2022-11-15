@@ -1882,11 +1882,6 @@ function configuratorActions(configuratorEl) {
             if (toothLabel) {
               toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, torkName);
               toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', torkImageSrc);
-              // flsModules.tippy.forEach((e, index)=>{
-              //   e.destroy();
-              // });
-              // flsModules.tippy = [];
-              tippyInit();
               if (check === true) {
                 tooth.checked = false;
                 hiddenInput.value = tork.getAttribute(`${options.torkAttribute}`);
@@ -1900,11 +1895,6 @@ function configuratorActions(configuratorEl) {
           if (toothLabel) {
             toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, torkName);
             toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', torkImageSrc);
-            // flsModules.tippy.forEach((e, index)=>{
-            //   e.destroy();
-            // });
-            // flsModules.tippy = [];
-            tippyInit();
             if (check === true) {
               tooth.checked = false;
               hiddenInput.value = tork.getAttribute(`${options.torkAttribute}`);
@@ -1917,7 +1907,12 @@ function configuratorActions(configuratorEl) {
           });
           configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = false;
         }
-      })
+      });
+      if ("undefined" !== typeof flsModules.tippy && flsModules.tippy.length) flsModules.tippy.forEach(((e, index) => {
+          e.destroy();
+      }));
+      flsModules.tippy = [];
+      tippyInit();
     }
 
     function configuratorTorkButtons(buttons) {
@@ -2140,11 +2135,6 @@ function configuratorActions(configuratorEl) {
             if (toothLabel) {
               toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, tubeTippy);
               toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', tubeImage);
-              // flsModules.tippy.forEach((e, index)=>{
-              //   e.destroy();
-              // });
-              // flsModules.tippy = [];
-              tippyInit();
               if (check === true) {
                 tooth.checked = false;
                 const selectedOption = document.querySelector(`._select-selected[data-value="${hiddenInput.value}"]`)
@@ -2167,11 +2157,6 @@ function configuratorActions(configuratorEl) {
           if (toothLabel) {
             toothLabel.querySelector(`[${options.tippyAttribute}]`).setAttribute(`${options.tippyAttribute}`, tubeTippy);
             toothLabel.querySelector(`[${options.tippyAttribute}] img`).setAttribute('src', tubeImage);
-            // flsModules.tippy.forEach((e, index)=>{
-            //   e.destroy();
-            // });
-            // flsModules.tippy = [];
-            tippyInit();
             if (check === true) {
               tooth.checked = false;
               const selectedOption = document.querySelector(`._select-selected[data-value="${hiddenInput.value}"]`)
@@ -2196,7 +2181,12 @@ function configuratorActions(configuratorEl) {
           }
           configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = false;
         }
-      })
+      });
+      if ("undefined" !== typeof flsModules.tippy && flsModules.tippy.length) flsModules.tippy.forEach(((e, index) => {
+          e.destroy();
+      }));
+      flsModules.tippy = [];
+      tippyInit();
     }
 
     
@@ -2314,43 +2304,74 @@ function configuratorActions(configuratorEl) {
   }
 //========================================================================================================================================================
   function configuratorReset(source, type, tippy = "Стандартный") {
+    if (document.querySelectorAll("input[data-tooth]").length) {
       document.querySelectorAll("input[data-tooth]").forEach((e => {
           e.checked = false;
       }));
-      // if (typeof flsModules.tippy !== 'undefined') {
-      //   flsModules.tippy.forEach((e, index)=>{
-      //     e.destroy();
-      //   });
-      //   flsModules.tippy = [];
-      // }
+    }
+    if (typeof flsModules.tippy !== 'undefined') {
+      flsModules.tippy.forEach((e, index)=>{
+        e.destroy();
+      });
+      flsModules.tippy = [];
+    }
+    if (document.querySelectorAll(".teeth-torkConfigurator__tork img").length) {
       document.querySelectorAll(".teeth-torkConfigurator__tork img").forEach((e => {
           e.setAttribute("src", source);
       }));
-      document.querySelectorAll('input[type="hidden"]').forEach((e => {
-          e.value = "";
-      }));
-      if (document.querySelectorAll(`[data-${type}-parent]`)) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
-          e.hidden = false;
-      }));
-      if ("tubes" === type) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
-          e.classList.add("_pen");
-      }));
-      if ("arcs" === type) document.querySelectorAll("input:checked").forEach((e => {
-          e.click();
-      }));
-      if (tippy) {
-        if (document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').length) {
-          document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').forEach(e=>{
-            e.setAttribute('data-tippy-content', tippy);
-            setTimeout(() => {
-              tippyInit();
-            }, 50);
-          })
-        }
+    }
+    if (tippy) {
+      if (document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').length) {
+        document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').forEach(e=>{
+          e.setAttribute('data-tippy-content', tippy);
+          setTimeout(() => {
+            tippyInit();
+          }, 50);
+        })
       }
-      if (document.querySelectorAll("input[data-default]").length) document.querySelectorAll("input[data-default]").forEach((e => {
-          e.value = e.dataset.default;
-      }));
+    }
+    // if (document.querySelectorAll('input[type="hidden"]')) {
+    //   document.querySelectorAll('input[type="hidden"]').forEach((e => {
+    //       e.value = "";
+    //   }));
+    // }
+    if (document.querySelectorAll(`[data-${type}-parent]`).length) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
+        e.hidden = false;
+    }));
+    if ("tubes" === type) {
+      if (document.querySelectorAll(`[data-${type}-parent]`).length) {
+        document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
+          e.classList.add("_pen");
+        }));
+      }
+    }
+    if ("arcs" === type) {
+      if (document.querySelectorAll("input:checked").length) {
+        document.querySelectorAll("input:checked").forEach((e => {
+          e.click();
+        }));
+      }
+    }
+    if (document.querySelectorAll("input[data-default]").length) document.querySelectorAll("input[data-default]").forEach((e => {
+        e.value = e.dataset.default;
+    }));
+    const imagesDef =document.querySelectorAll('img[data-default]');
+    if (imagesDef.length) {
+      imagesDef.forEach(e=>{
+        let defSrc = e.getAttribute('data-default');
+        e.setAttribute('src', defSrc);
+      })
+    }
+    const tippiesDef =document.querySelectorAll('[data-tippy-content][data-default]');
+    if (tippiesDef.length) {
+      tippiesDef.forEach(e=>{
+        let tippyCont = e.getAttribute('data-default');
+        e.setAttribute('data-tippy-content', tippyCont);
+        setTimeout(() => {
+          tippyInit();
+        }, 50);
+      })
+    }
   }
 //========================================================================================================================================================
   function dugesFiltersRender() {

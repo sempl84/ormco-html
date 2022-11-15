@@ -544,3 +544,14 @@ input[type="number"] {
     border: rem(2) solid #FF3B30;
   }
 }
+
+
+.configurator {
+  position: relative;
+  .modal-loader {
+    z-index: 99;
+    .modal-loader-circle {
+      position: fixed !important;
+    }
+  }
+}
