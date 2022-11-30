@@ -247,8 +247,8 @@ export function formQuantity() {
 		let targetElement = e.target;
 		if (targetElement.closest('.quantity__button')) {
 			let value = parseInt(targetElement.closest('.quantity').querySelector('input').value);
-			let max = parseInt(targetElement.closest('.quantity').querySelector('input').getAttribute('max'))
-			let min = parseInt(targetElement.closest('.quantity').querySelector('input').getAttribute('min'))
+			let max = parseInt(targetElement.closest('.quantity').querySelector('input').getAttribute('max'));
+			let min = parseInt(targetElement.closest('.quantity').querySelector('input').getAttribute('min'));
 			if (targetElement.classList.contains('quantity__button_plus')) {
 				value++;
 				if (value > 1) { 
@@ -265,16 +265,18 @@ export function formQuantity() {
 				}
 				if (min && value <= min) {
 					value = min;
-					targetElement.parentElement.querySelector('.quantity__button_minus').classList.add('quantity__button_disabled')
+					targetElement.parentElement.querySelector('.quantity__button_minus').classList.add('quantity__button_disabled');
 				} else if (value <= 1 || isNaN(value)) {
 					value = 1;
-					targetElement.parentElement.querySelector('.quantity__button_minus').classList.add('quantity__button_disabled')
+					targetElement.parentElement.querySelector('.quantity__button_minus').classList.add('quantity__button_disabled');
 				}
 			}
-			targetElement.closest('.quantity').querySelector('input').value = value;
+      isNaN(value) ? value = 1 : null;
+			targetElement.closest('.quantity').querySelector('input').value = isNaN(value)&&value===0 ? 1 : value;
 		}
 	});
 }
+
 /* Модуь звездного рейтинга */
 export function formRating() {
 	const ratings = document.querySelectorAll('.rating');

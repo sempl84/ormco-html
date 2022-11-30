@@ -1,5 +1,5 @@
 // Подключение функционала "Чертогов Фрилансера"
-import { isMobile, _slideToggle, bodyLockToggle, bodyUnlock, bodyLock } from "./functions.js";
+import { isMobile, _slideToggle, bodyLockToggle, bodyUnlock, bodyLock, pageNavigation } from "./functions.js";
 import { _slideUp } from "./functions.js";
 import { _slideDown } from "./functions.js";
 // Подключение списка активных модулей
@@ -125,6 +125,27 @@ document.addEventListener('DOMContentLoaded', () => {
     contentMedias.forEach(contentMedia=>{
       let width = contentMedia.offsetWidth;
       contentMedia.style.width = width * 0.5625;
+    })
+  }
+  const headArticles = document.querySelectorAll('.head-article');
+  if (headArticles.length) {
+    headArticles.forEach(headArticle=>{
+      const links = headArticle.querySelectorAll('a');
+      links.forEach(link=>{
+        let linkhref = link.getAttribute('href');
+        if (linkhref[0] === '#') {
+          link.setAttribute('data-goto', linkhref);
+          link.setAttribute('data-goto-top-mobile', '106');
+          link.setAttribute('data-goto-header', '');
+        }
+      })
+    })
+  }
+  const productDescriptionLis =document.querySelectorAll('.info-model__description ul.disc li');
+  if (productDescriptionLis.length) {
+    productDescriptionLis.forEach(productDescriptionLi=>{
+      let productDescriptionLiHTML = productDescriptionLi.innerHTML;
+      productDescriptionLi.innerHTML = `<span>${productDescriptionLiHTML}</span>`
     })
   }
   //==================/new================================================================================
@@ -1648,7 +1669,13 @@ function configuratorActions(configuratorEl) {
         let checkedItemName = checkedItem.querySelector('.checked-filterHeader__name').textContent.replaceAll(':', '').trim();
         document.querySelectorAll(`[data-configurator-filter="${checkedItemName}"] input`).forEach(e=>{
           e.checked = false;
-        })
+        });
+        document.querySelectorAll('.btn-select').forEach(e=>{
+          if (e.textContent.toLowerCase().indexOf(checkedItemName.toLowerCase()) !== -1) {
+            console.log(e)
+            e.innerHTML = checkedItemName
+          }
+        });
         dugesFiltersRender();
       }
     })
@@ -2177,7 +2204,7 @@ function configuratorActions(configuratorEl) {
             e.innerHTML = unavArr.join(', ');
           });
           if (e.type === 'mouseenter' && !isMobile.any()) {
-            tube.querySelector('.option-unavaiable').innerHTML = `Недоступно для ${unavArr.join(', ')} зубов`
+            tube.querySelector('.option-unavaiable').innerHTML = `Недоступно для зубов: ${unavArr.join(', ')}`
           }
           configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = false;
         }
@@ -2324,10 +2351,10 @@ function configuratorActions(configuratorEl) {
       if (document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').length) {
         document.querySelectorAll('.teeth-torkConfigurator__label [data-tippy-content]').forEach(e=>{
           e.setAttribute('data-tippy-content', tippy);
-          setTimeout(() => {
-            tippyInit();
-          }, 50);
         })
+        setTimeout(() => {
+          tippyInit();
+        }, 50);
       }
     }
     // if (document.querySelectorAll('input[type="hidden"]')) {
@@ -2375,45 +2402,46 @@ function configuratorActions(configuratorEl) {
   }
 //========================================================================================================================================================
   function dugesFiltersRender() {
-    let filters = document.querySelectorAll('[data-configurator-filter]')
-    const checkFiltersParent = document.querySelector('.checked-filterHeader');
-    let itemsArr = [];
-    let itemsStr = '';
-    filters.forEach(filter=>{
-      let checkedFiltersArr = [];
-      let strValues = '';
-      const checkedFilters = filter.querySelectorAll('input:checked');
-      const filterParent = filter.closest('.check-select') ? filter.closest('.check-select') : filter.closest('.filters_item')
-      const filterButton = filterParent.querySelector('.check-select__select') ? filterParent.querySelector('.check-select__select') : filterParent.querySelector('.filters_item_title')
-      if (checkedFilters.length) {
-        filterButton.classList.add('_bluebd');
-      } else {
-        filterButton.classList.remove('_bluebd');
-      }
-      checkedFilters.forEach(checkedFilter=>{
-        checkedFiltersArr.push(checkedFilter);
-      });
-      checkedFiltersArr.forEach((checkedFilterToStr, index)=>{
-        const checkedFilterToStrText = checkedFilterToStr.closest('.check-field').textContent;
-        if (index + 1 !== checkedFiltersArr.length) {
-          strValues += checkedFilterToStrText + ', ';
-        } else {
-          strValues += checkedFilterToStrText;
-        }
-      })
-      if (strValues !== '') {
-        let str = `<div class="checked-filterHeader__item">
-          <span class="checked-filterHeader__name">${filter.getAttribute('data-configurator-filter')}:</span>
-          <span class="checked-filterHeader__value">${strValues}</span>
-          <span class="checked-filterHeader__del"></span>
-        </div>`
-        itemsArr.push(str);
-      }
-    })
-    itemsArr.forEach(item=>{
-      itemsStr+=item;
-    })
-    checkFiltersParent.innerHTML = itemsStr;
+    console.log('Функция dugesFiltersRender, для того чтоб серые блоки с фильтрами перерисовывались без аякса нужно раскомментировать код в ней');
+    // let filters = document.querySelectorAll('[data-configurator-filter]')
+    // const checkFiltersParent = document.querySelector('.checked-filterHeader');
+    // let itemsArr = [];
+    // let itemsStr = '';
+    // filters.forEach(filter=>{
+    //   let checkedFiltersArr = [];
+    //   let strValues = '';
+    //   const checkedFilters = filter.querySelectorAll('input:checked');
+    //   const filterParent = filter.closest('.check-select') ? filter.closest('.check-select') : filter.closest('.filters_item')
+    //   const filterButton = filterParent.querySelector('.check-select__select') ? filterParent.querySelector('.check-select__select') : filterParent.querySelector('.filters_item_title')
+    //   if (checkedFilters.length) {
+    //     filterButton.classList.add('_bluebd');
+    //   } else {
+    //     filterButton.classList.remove('_bluebd');
+    //   }
+    //   checkedFilters.forEach(checkedFilter=>{
+    //     checkedFiltersArr.push(checkedFilter);
+    //   });
+    //   checkedFiltersArr.forEach((checkedFilterToStr, index)=>{
+    //     const checkedFilterToStrText = checkedFilterToStr.closest('.check-field').textContent;
+    //     if (index + 1 !== checkedFiltersArr.length) {
+    //       strValues += checkedFilterToStrText + ', ';
+    //     } else {
+    //       strValues += checkedFilterToStrText;
+    //     }
+    //   })
+    //   if (strValues !== '') {
+    //     let str = `<div class="checked-filterHeader__item">
+    //       <span class="checked-filterHeader__name">${filter.getAttribute('data-configurator-filter')}:</span>
+    //       <span class="checked-filterHeader__value">${strValues}</span>
+    //       <span class="checked-filterHeader__del"></span>
+    //     </div>`
+    //     itemsArr.push(str);
+    //   }
+    // })
+    // itemsArr.forEach(item=>{
+    //   itemsStr+=item;
+    // })
+    // checkFiltersParent.innerHTML = itemsStr;
   }
 }
 //==================/new================================================================================

@@ -229,9 +229,12 @@
       }
     }
   }
+  &__nextprev {
+    display: flex;
+  }
 
   &__submit {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: end;
     gap: rem(12);
@@ -297,7 +300,7 @@
   }
 }
 .item-stepConfigurator {
-  &:not(:last-child) {margin-bottom: rem(32);}
+  &:not(:last-child) {margin-bottom: rem(48);}
   &_wrap {
     .swiper-wrapper {
       @media (max-width:$mobile){
@@ -1965,4 +1968,7 @@
       color: $blue;
     }
   }
+}
+.check-select__dropdown ul {
+  max-height: rem(160);
 }

@@ -7621,7 +7621,8 @@
                             targetElement.parentElement.querySelector(".quantity__button_minus").classList.add("quantity__button_disabled");
                         }
                     }
-                    targetElement.closest(".quantity").querySelector("input").value = value;
+                    isNaN(value) ? value = 1 : null;
+                    targetElement.closest(".quantity").querySelector("input").value = isNaN(value) && 0 === value ? 1 : value;
                 }
             }));
         }
@@ -9841,17 +9842,51 @@
                         e.preventDefault();
                     }));
                     let tippyConfirmTitle = tippyConfirm.getAttribute("data-tippy-confirm");
-                    let tippyConfirmOnclick = tippyConfirm.getAttribute("data-onclick");
+                    let tippyConfirmAttrs = tippyConfirm.attributes;
+                    let tippyConfirmAttrsOnBtn = "";
+                    for (let i = 0; i < tippyConfirmAttrs.length; i++) {
+                        let tippyConfirmAttr = tippyConfirmAttrs[i];
+                        if (-1 !== tippyConfirmAttr.name.indexOf("data")) tippyConfirmAttrsOnBtn += `${tippyConfirmAttr.name}="${tippyConfirmAttr.value}" `;
+                    }
+                    Object.keys(tippyConfirm.dataset).forEach((dataKey => {
+                        delete tippyConfirm.dataset[dataKey];
+                    }));
+                    console.log(tippyConfirmAttrsOnBtn);
                     let tippyConfirmThis = null;
                     tippyConfirmThis = tippy_esm(tippyConfirm, {
                         trigger: "click",
                         interactive: true,
                         allowHTML: true,
-                        content: `\n          <div class="confirm-tippy">\n            <div class="confirm-tippy__title">${tippyConfirmTitle}</div>\n            <div class="confirm-tippy__buttons">\n            <button type="button" class="confirm-tippy__yes" onclick="${tippyConfirmOnclick}">Подтвердить</button>\n            <button type="button" class="confirm-tippy__no">Закрыть</button>\n            </div>\n          </div>`
+                        content: `\n          <div class="confirm-tippy">\n            <div class="confirm-tippy__title">${tippyConfirmTitle}</div>\n            <div class="confirm-tippy__buttons">\n            <button type="button" class="confirm-tippy__yes" ${tippyConfirmAttrsOnBtn} >Подтвердить</button>\n            <button type="button" class="confirm-tippy__no">Закрыть</button>\n            </div>\n          </div>`
                     });
                     flsModules.tippy.push(tippyConfirmThis);
                 }));
+                const itppysMinus = document.querySelectorAll("[data-tippy-confirm-name]");
+                if (itppysMinus.length) {
+                    let tippyConfirmMinus = null;
+                    itppysMinus.forEach((target => {
+                        if (target.hasAttribute("data-tippy-confirm-value")) {
+                            let value = target.hasAttribute("data-count") ? target.getAttribute("data-count") : minusCount(target);
+                            if (value <= 1) {
+                                let attrName = target.getAttribute("data-tippy-confirm-name");
+                                let attrValue = target.getAttribute("data-tippy-confirm-value");
+                                tippyConfirmMinus = tippy_esm(target, {
+                                    trigger: "click",
+                                    interactive: true,
+                                    allowHTML: true,
+                                    content: `\n              <div class="confirm-tippy">\n                <div class="confirm-tippy__title">Удалить товар из заказа?</div>\n                <div class="confirm-tippy__buttons">\n                <button type="button" class="confirm-tippy__yes" ${attrName}="${attrValue}" >Подтвердить</button>\n                <button type="button" class="confirm-tippy__no">Закрыть</button>\n                </div>\n              </div>`
+                                });
+                                flsModules.tippy.push(tippyConfirmMinus);
+                                console.log(tippyConfirmMinus);
+                            }
+                        }
+                    }));
+                }
             }), 50);
+            function minusCount(target) {
+                let parent = target.closest(".quantity");
+                if (parent) if (parent.querySelector(".quantity__input input") && parent.querySelector(".quantity__input input").value) return parent.querySelector(".quantity__input input").value; else return 0;
+            }
         }
         tippyInit();
         function isObject(obj) {
@@ -17976,6 +18011,23 @@ PERFORMANCE OF THIS SOFTWARE.
                     contentMedia.style.width = .5625 * width;
                 }));
             }
+            const headArticles = document.querySelectorAll(".head-article");
+            if (headArticles.length) headArticles.forEach((headArticle => {
+                const links = headArticle.querySelectorAll("a");
+                links.forEach((link => {
+                    let linkhref = link.getAttribute("href");
+                    if ("#" === linkhref[0]) {
+                        link.setAttribute("data-goto", linkhref);
+                        link.setAttribute("data-goto-top-mobile", "106");
+                        link.setAttribute("data-goto-header", "");
+                    }
+                }));
+            }));
+            const productDescriptionLis = document.querySelectorAll(".info-model__description ul.disc li");
+            if (productDescriptionLis.length) productDescriptionLis.forEach((productDescriptionLi => {
+                let productDescriptionLiHTML = productDescriptionLi.innerHTML;
+                productDescriptionLi.innerHTML = `<span>${productDescriptionLiHTML}</span>`;
+            }));
         }));
         function copyTextToClipboard(text) {
             C(text).then((() => {
@@ -18828,6 +18880,12 @@ PERFORMANCE OF THIS SOFTWARE.
                         document.querySelectorAll(`[data-configurator-filter="${checkedItemName}"] input`).forEach((e => {
                             e.checked = false;
                         }));
+                        document.querySelectorAll(".btn-select").forEach((e => {
+                            if (-1 !== e.textContent.toLowerCase().indexOf(checkedItemName.toLowerCase())) {
+                                console.log(e);
+                                e.innerHTML = checkedItemName;
+                            }
+                        }));
                         dugesFiltersRender();
                     }
                 }));
@@ -19231,7 +19289,7 @@ PERFORMANCE OF THIS SOFTWARE.
                             configuratorTork.querySelectorAll(`[${options.unavTextAttribute}] span`).forEach((e => {
                                 e.innerHTML = unavArr.join(", ");
                             }));
-                            if ("mouseenter" === e.type && !isMobile.any()) tube.querySelector(".option-unavaiable").innerHTML = `Недоступно для ${unavArr.join(", ")} зубов`;
+                            if ("mouseenter" === e.type && !isMobile.any()) tube.querySelector(".option-unavaiable").innerHTML = `Недоступно для зубов: ${unavArr.join(", ")}`;
                             configuratorTork.querySelector(`[${options.unavTextAttribute}]`).hidden = false;
                         }
                     }));
@@ -19342,12 +19400,14 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (document.querySelectorAll(".teeth-torkConfigurator__tork img").length) document.querySelectorAll(".teeth-torkConfigurator__tork img").forEach((e => {
                     e.setAttribute("src", source);
                 }));
-                if (tippy) if (document.querySelectorAll(".teeth-torkConfigurator__label [data-tippy-content]").length) document.querySelectorAll(".teeth-torkConfigurator__label [data-tippy-content]").forEach((e => {
-                    e.setAttribute("data-tippy-content", tippy);
+                if (tippy) if (document.querySelectorAll(".teeth-torkConfigurator__label [data-tippy-content]").length) {
+                    document.querySelectorAll(".teeth-torkConfigurator__label [data-tippy-content]").forEach((e => {
+                        e.setAttribute("data-tippy-content", tippy);
+                    }));
                     setTimeout((() => {
                         tippyInit();
                     }), 50);
-                }));
+                }
                 if (document.querySelectorAll(`[data-${type}-parent]`).length) document.querySelectorAll(`[data-${type}-parent]`).forEach((e => {
                     e.hidden = false;
                 }));
@@ -19375,33 +19435,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
             }
             function dugesFiltersRender() {
-                let filters = document.querySelectorAll("[data-configurator-filter]");
-                const checkFiltersParent = document.querySelector(".checked-filterHeader");
-                let itemsArr = [];
-                let itemsStr = "";
-                filters.forEach((filter => {
-                    let checkedFiltersArr = [];
-                    let strValues = "";
-                    const checkedFilters = filter.querySelectorAll("input:checked");
-                    const filterParent = filter.closest(".check-select") ? filter.closest(".check-select") : filter.closest(".filters_item");
-                    const filterButton = filterParent.querySelector(".check-select__select") ? filterParent.querySelector(".check-select__select") : filterParent.querySelector(".filters_item_title");
-                    if (checkedFilters.length) filterButton.classList.add("_bluebd"); else filterButton.classList.remove("_bluebd");
-                    checkedFilters.forEach((checkedFilter => {
-                        checkedFiltersArr.push(checkedFilter);
-                    }));
-                    checkedFiltersArr.forEach(((checkedFilterToStr, index) => {
-                        const checkedFilterToStrText = checkedFilterToStr.closest(".check-field").textContent;
-                        if (index + 1 !== checkedFiltersArr.length) strValues += checkedFilterToStrText + ", "; else strValues += checkedFilterToStrText;
-                    }));
-                    if ("" !== strValues) {
-                        let str = `<div class="checked-filterHeader__item">\n          <span class="checked-filterHeader__name">${filter.getAttribute("data-configurator-filter")}:</span>\n          <span class="checked-filterHeader__value">${strValues}</span>\n          <span class="checked-filterHeader__del"></span>\n        </div>`;
-                        itemsArr.push(str);
-                    }
-                }));
-                itemsArr.forEach((item => {
-                    itemsStr += item;
-                }));
-                checkFiltersParent.innerHTML = itemsStr;
+                console.log("Функция dugesFiltersRender, для того чтоб серые блоки с фильтрами перерисовывались без аякса нужно раскомментировать код в ней");
             }
         }
         document.addEventListener("afterPopupOpen", (function(e) {
@@ -19673,7 +19707,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 $(this).find(".check-select__btn").on("click", (function() {
                     $(this).closest(".check-select").find(".check-select__select").removeClass("active");
                     $(this).closest(".check-select").find(".check-select__dropdown").fadeOut(50);
-                    if (1 === values.length) $(this).closest(".check-select").find(".check-select__select").text(values[0]); else if (values.length > 1) $(this).closest(".check-select").find(".check-select__select").text(`${title}: (${values.length})`); else {
+                    if (!$(this).closest(".configurator")) if (1 === values.length) $(this).closest(".check-select").find(".check-select__select").text(values[0]); else if (values.length > 1) $(this).closest(".check-select").find(".check-select__select").text(`${title}: (${values.length})`); else {
                         $(this).closest(".check-select").find(".check-select__select").text(title);
                         return false;
                     }

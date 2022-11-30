@@ -33,7 +33,6 @@
   display: grid;
   @media (min-width:$mobile){
     grid-template-columns: 26.6% auto;
-    grid-template-rows: rem(40) auto;
     .model_threed & {
       grid-template-columns: 39% auto;
     }
@@ -53,17 +52,24 @@
     }
   }
 
-  &__title {
-    font-weight: 600;
-    @include adaptiveValue("font-size", 28, 20);
+  &__head {
     @media (min-width:$mobile){
       grid-column-start: 1;
       grid-column-end: 3;
-      grid-row-start: 1;
     }
     @media (max-width:$mobile){
       grid-row-start: 2;
     }
+  }
+
+  &__title {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 28, 20);
+  }
+
+  &__article {
+    @extend .item-tubes__art;
+    margin-top: rem(4);
   }
 
   &__image {

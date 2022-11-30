@@ -116,14 +116,25 @@ export function tippyInit() {
       })
     }
   
-    const tippysConfirm =document.querySelectorAll('[data-tippy-confirm]');
+    const tippysConfirm = document.querySelectorAll('[data-tippy-confirm]');
     if (tippysConfirm.length) {
       tippysConfirm.forEach(tippyConfirm=>{
         tippyConfirm.addEventListener('click', (e)=>{
           e.preventDefault();
         });
         let tippyConfirmTitle = tippyConfirm.getAttribute('data-tippy-confirm');
-        let tippyConfirmOnclick = tippyConfirm.getAttribute('data-onclick');
+        let tippyConfirmAttrs = tippyConfirm.attributes;
+        let tippyConfirmAttrsOnBtn = '';
+        for (let i = 0; i < tippyConfirmAttrs.length; i++) {
+          let tippyConfirmAttr = tippyConfirmAttrs[i];
+          if (tippyConfirmAttr.name.indexOf('data') !== -1) {
+            tippyConfirmAttrsOnBtn += `${tippyConfirmAttr.name}="${tippyConfirmAttr.value}" `;
+          }
+        }
+        Object.keys(tippyConfirm.dataset).forEach(dataKey => {
+          delete tippyConfirm.dataset[dataKey];
+        });
+        console.log(tippyConfirmAttrsOnBtn)
         let tippyConfirmThis = null;
         tippyConfirmThis = tippy(tippyConfirm, {
           trigger: 'click',
@@ -133,7 +144,7 @@ export function tippyInit() {
           <div class="confirm-tippy">
             <div class="confirm-tippy__title">${tippyConfirmTitle}</div>
             <div class="confirm-tippy__buttons">
-            <button type="button" class="confirm-tippy__yes" onclick="${tippyConfirmOnclick}">Подтвердить</button>
+            <button type="button" class="confirm-tippy__yes" ${tippyConfirmAttrsOnBtn} >Подтвердить</button>
             <button type="button" class="confirm-tippy__no">Закрыть</button>
             </div>
           </div>`
@@ -141,6 +152,44 @@ export function tippyInit() {
         flsModules.tippy.push(tippyConfirmThis);
       })
     }
+    const itppysMinus =document.querySelectorAll('[data-tippy-confirm-name]');
+    if (itppysMinus.length) {
+      let tippyConfirmMinus = null;
+      itppysMinus.forEach(target=>{
+        if (target.hasAttribute('data-tippy-confirm-value')) {
+          let value = target.hasAttribute('data-count') ? target.getAttribute('data-count') : minusCount(target);
+          if (value <= 1) {
+            let attrName = target.getAttribute('data-tippy-confirm-name');
+            let attrValue = target.getAttribute('data-tippy-confirm-value');
+            tippyConfirmMinus = tippy(target, {
+              trigger: 'click',
+              interactive: true,
+              allowHTML: true,
+              content: `
+              <div class="confirm-tippy">
+                <div class="confirm-tippy__title">Удалить товар из заказа?</div>
+                <div class="confirm-tippy__buttons">
+                <button type="button" class="confirm-tippy__yes" ${attrName}="${attrValue}" >Подтвердить</button>
+                <button type="button" class="confirm-tippy__no">Закрыть</button>
+                </div>
+              </div>`
+            });
+            flsModules.tippy.push(tippyConfirmMinus);
+            console.log(tippyConfirmMinus);
+          }
+        }
+      })
+    }
   }, 50);
+  function minusCount(target) {
+    let parent = target.closest('.quantity');
+    if (parent) {
+      if (parent.querySelector('.quantity__input input')&&parent.querySelector('.quantity__input input').value) {
+        return parent.querySelector('.quantity__input input').value;
+      } else {
+        return 0;
+      }
+    }
+  }
 }
 tippyInit();

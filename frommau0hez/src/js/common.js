@@ -308,14 +308,16 @@ export function homePageFunctions() {
 		$(this).find('.check-select__btn').on('click', function() {
 			$(this).closest('.check-select').find('.check-select__select').removeClass('active');
 			$(this).closest('.check-select').find('.check-select__dropdown').fadeOut(50);
-			if ( values.length === 1 ) {
-				$(this).closest('.check-select').find('.check-select__select').text(values[0]);
-			} else if ( values.length > 1 ) {
-				$(this).closest('.check-select').find('.check-select__select').text(`${title}: (${values.length})`);
-			} else {
-				$(this).closest('.check-select').find('.check-select__select').text(title);
-				return false;
-			}
+      if (!$(this).closest('.configurator')) {
+        if ( values.length === 1 ) {
+          $(this).closest('.check-select').find('.check-select__select').text(values[0]);
+        } else if ( values.length > 1 ) {
+          $(this).closest('.check-select').find('.check-select__select').text(`${title}: (${values.length})`);
+        } else {
+          $(this).closest('.check-select').find('.check-select__select').text(title);
+          return false;
+        }
+      }
 		});
 	});
 
