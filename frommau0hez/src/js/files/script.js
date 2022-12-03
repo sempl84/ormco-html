@@ -148,10 +148,37 @@ document.addEventListener('DOMContentLoaded', () => {
       productDescriptionLi.innerHTML = `<span>${productDescriptionLiHTML}</span>`
     })
   }
+
+  const checkItemRadio = document.querySelectorAll('.check-select input');
+  if (checkItemRadio.length) {
+    checkSelectActive();
+    checkItemRadio.forEach(e=>{
+      e.addEventListener('change', ()=>{
+        checkSelectActive();
+        document.querySelectorAll('.btn-select').forEach(e=>{
+          e.classList.remove('active');
+        });
+        document.querySelectorAll('.check-select__dropdown').forEach(e=>{
+          e.style = 'display: none;'
+        });
+      })
+    })
+  }
   //==================/new================================================================================
   
 })
-
+function checkSelectActive() {
+  const checkItemRadioChecked = document.querySelectorAll('.check-select input:checked');
+  document.querySelectorAll('.btn-select').forEach(e=>{
+    e.classList.remove('is-select');
+  })
+  if (checkItemRadioChecked.length) {
+    checkItemRadioChecked.forEach(el=>{
+      let button = el.closest('.check-select').querySelector('.btn-select');
+      button ? button.classList.add('is-select') : null;
+    })
+  }
+}
 
 function copyTextToClipboard(text) {
   clipboard.writeText(text).then(
@@ -292,6 +319,7 @@ function cabinetOrdersActions(cabinetOrders) {
     cabinetOrder.querySelector('.head-ordersCabinet').addEventListener('click', () => {
       if (window.innerWidth <= 767) {
         cabinetOrderMobile.classList.add('_show');
+        bodyLock();
       }
     })
     const cabinetOrderMobileBack = cabinetOrderMobile.querySelector('.mobile-ordersCabinet__back');
@@ -299,12 +327,14 @@ function cabinetOrdersActions(cabinetOrders) {
       cabinetOrderMobileBack.addEventListener('click', () => {
         if (window.innerWidth <= 767) {
           cabinetOrderMobile.classList.remove('_show');
+          bodyUnlock();
         }
       })
     }
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
         cabinetOrderMobile.classList.remove('_show');
+        bodyUnlock();
       }
     })
   })

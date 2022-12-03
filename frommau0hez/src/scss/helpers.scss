@@ -637,7 +637,12 @@ input[type='checkbox'] {
 		display: none;
     z-index: 2;
 		ul {margin: 0 0 12px;}
-		li {margin: 0 0 12px;}
+		li {
+      margin: 0 0 12px;
+      label {
+        cursor: pointer;
+      }
+    }
 		li:last-child {margin: 0;}
 		.check-field {display: block;}
 	}

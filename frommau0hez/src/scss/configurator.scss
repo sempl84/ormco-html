@@ -1619,6 +1619,7 @@
 
   &__item {
     position: relative;
+    margin-right: rem(12);
   }
 
   &__checkbox {
@@ -1733,7 +1734,28 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, var(--confItemWidht));
   @include adaptiveValue("gap", 16, 8, 1440, 480, 1);
-  justify-content: center;
+  @media (max-width:$mobile){
+    justify-content: center;
+  }
+}
+.js-configurator-products {
+  h3 {
+    padding-top: rem(15);
+    font-weight: 600;
+    @include adaptiveValue("font-size", 25, 18, 1920, 480, 1);
+    @media (max-width:$mobile){
+      text-align: center;
+    }
+  }
+  h5 {
+    font-weight: 600;
+    padding-top: rem(15);
+    margin-bottom: rem(15);
+    @include adaptiveValue("font-size", 18, 15,1920, 480, 1);
+    @media (max-width:$mobile){
+      text-align: center;
+    }
+  }
 }
 
 .page_configurator {
@@ -1773,6 +1795,15 @@
       margin-top: auto;
     }
   }
+}
+
+.btn-select.is-select {
+  background: linear-gradient(0deg, rgba(213, 237, 253, 0.2), rgba(213, 237, 253, 0.2)), #FFFFFF;
+  box-shadow: inset 0 0 0 1px #80C9F9;
+  color: var(--color-blue2);
+}
+.btn-select.is-select::after {
+  background-image: url(../img/svg/select-blue.svg); transform: matrix(1,0,0,-1,0,0);
 }
 
 //========================================================================================================================================================

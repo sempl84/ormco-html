@@ -5,10 +5,10 @@
 	<title>Конфигуратор брекет-систем</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20221130195104">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20221130195104">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20221130195104" rel="stylesheet" />
-	<link rel="stylesheet" href="css/style.min.css?_v=20221130195104">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.css?_v=20221203153137">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css?_v=20221203153137">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.css?_v=20221203153137" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20221203153137">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </head>
@@ -394,7 +394,7 @@
 												<div class="check-select">
 													<button type="button" class="check-select__select btn _md3dib btn-icon btn-select">Рекомендованные товары</button>
 													<div class="check-select__dropdown">
-														<ul>
+														<ul data-simplebar>
 															<li>
 																<a href="#">ссылка на вторую категорию</a>
 															</li>
@@ -410,7 +410,7 @@
 												<div class="check-select">
 													<button type="button" class="check-select__select btn _md3dib btn-icon btn-select">Адгезивы</button>
 													<div class="check-select__dropdown">
-														<ul>
+														<ul data-simplebar>
 															<li>
 																<a href="#">ссылка на вторую категорию</a>
 															</li>
@@ -432,34 +432,29 @@
 														</ul>
 													</div>
 												</div><!-- /check-select -->
-												<div class="check-select">
-													<button type="button" class="check-select__select btn _md3dib btn-icon btn-select">Пружины</button>
-													<div class="check-select__dropdown">
-														<ul>
-															<li>
-																<a href="#">ссылка на вторую категорию</a>
-															</li>
-															<li>
-																<a href="#">ссылка на вторую категорию</a>
-															</li>
-															<li>
-																<a href="#">ссылка на вторую категорию</a>
-															</li>
-														</ul>
-													</div>
-												</div><!-- /check-select -->
+												<div class="showmore-filterConfigurator__item">
+													<input type="radio" name="showmore-filterConfigurator_radio" id="showmore-stepConfigurator__checkbox_1" class="showmore-filterConfigurator__checkbox">
+													<label for="showmore-stepConfigurator__checkbox_1" class="showmore-filterConfigurator__label">Рекомендованные товары</label>
+												</div>
 												<div class="check-select">
 													<button type="button" class="check-select__select btn _md3dib btn-icon btn-select">Эластики</button>
 													<div class="check-select__dropdown">
-														<ul>
+														<ul data-simplebar>
 															<li>
-																<a href="#">ссылка на вторую категорию</a>
+																<input type="radio" name="showmore-filterConfigurator_radio" id="showmore-stepConfigurator__checkbox_2" class="showmore-filterConfigurator__checkbox">
+																<label for="showmore-stepConfigurator__checkbox_2">Рекомендованные товары</label>
 															</li>
 															<li>
-																<a href="#">ссылка на вторую категорию</a>
+																<input type="radio" name="showmore-filterConfigurator_radio" id="showmore-stepConfigurator__checkbox_3" class="showmore-filterConfigurator__checkbox">
+																<label for="showmore-stepConfigurator__checkbox_3">Рекомендованные товары</label>
 															</li>
 															<li>
-																<a href="#">ссылка на вторую категорию</a>
+																<input type="radio" name="showmore-filterConfigurator_radio" id="showmore-stepConfigurator__checkbox_4" class="showmore-filterConfigurator__checkbox">
+																<label for="showmore-stepConfigurator__checkbox_4">Рекомендованные товары</label>
+															</li>
+															<li>
+																<input type="radio" name="showmore-filterConfigurator_radio" id="showmore-stepConfigurator__checkbox_5" class="showmore-filterConfigurator__checkbox">
+																<label for="showmore-stepConfigurator__checkbox_5">Рекомендованные товары</label>
 															</li>
 														</ul>
 													</div>
@@ -467,7 +462,7 @@
 												<div class="check-select">
 													<button type="button" class="check-select__select btn _md3dib btn-icon btn-select">Инстурменты</button>
 													<div class="check-select__dropdown">
-														<ul>
+														<ul data-simplebar>
 															<li>
 																<a href="#">ссылка на вторую категорию</a>
 															</li>
@@ -533,185 +528,202 @@
                     <button hidden data-showmore-button type="button" class="showmore-filterConfigurator__more"><span>Показать больше</span><span>Скрыть</span></button>
                   </div> -->
 
-
-								<div class="config_products">
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_1.webp" type="image/webp"><img src="img/configurator/dop_1.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 10 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
+								<div class="js-configurator-products">
+									<h3>Заголовок</h3>
+									<div class="config_products">
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_1.webp" type="image/webp"><img src="img/configurator/dop_1.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 10 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
 												</div>
-												<button class="slide-article__buy">Купить</button>
+											</div>
+										</div>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_2.webp" type="image/webp"><img src="img/configurator/dop_2.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 12 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
+												</div>
+											</div>
+										</div>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_3.webp" type="image/webp"><img src="img/configurator/dop_3.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 6 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
+												</div>
+											</div>
+										</div>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_4.webp" type="image/webp"><img src="img/configurator/dop_4.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">Отвертка для минивинтов Vector TAS с 2-мя наконечниками (22 мм и 40мм)</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>53 350 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_2.webp" type="image/webp"><img src="img/configurator/dop_2.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 12 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
+									<h5>
+										Подзаголовок
+									</h5>
+									<div class="config_products">
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_1.webp" type="image/webp"><img src="img/configurator/dop_1.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 10 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
 												</div>
-												<button class="slide-article__buy">Купить</button>
+											</div>
+										</div>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_2.webp" type="image/webp"><img src="img/configurator/dop_2.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 12 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
+												</div>
+											</div>
+										</div>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_3.webp" type="image/webp"><img src="img/configurator/dop_3.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 6 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_3.webp" type="image/webp"><img src="img/configurator/dop_3.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 6 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
+									<h5>
+										Подзаголовок
+									</h5>
+									<div class="config_products">
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_4.webp" type="image/webp"><img src="img/configurator/dop_4.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">Отвертка для минивинтов Vector TAS с 2-мя наконечниками (22 мм и 40мм)</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>53 350 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
 												</div>
-												<button class="slide-article__buy">Купить</button>
+											</div>
+										</div>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_1.webp" type="image/webp"><img src="img/configurator/dop_1.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 10 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_4.webp" type="image/webp"><img src="img/configurator/dop_4.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">Отвертка для минивинтов Vector TAS с 2-мя наконечниками (22 мм и 40мм)</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>53 350 <font class="rub">i</font></span>
+									<h5>
+										Подзаголовок
+									</h5>
+									<div class="config_products">
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_2.webp" type="image/webp"><img src="img/configurator/dop_2.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 12 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
 												</div>
-												<button class="slide-article__buy">Купить</button>
 											</div>
 										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_1.webp" type="image/webp"><img src="img/configurator/dop_1.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 10 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_3.webp" type="image/webp"><img src="img/configurator/dop_3.png" alt="image"></picture>
+											</div>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">VECTORTAS мини-винт 6 mm</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>1 420 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
 												</div>
-												<button class="slide-article__buy">Купить</button>
 											</div>
 										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_2.webp" type="image/webp"><img src="img/configurator/dop_2.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 12 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
-												</div>
-												<button class="slide-article__buy">Купить</button>
+										<div class="article__slide slide-article">
+											<div class="slide-article__image">
+												<picture><source srcset="img/configurator/dop_4.webp" type="image/webp"><img src="img/configurator/dop_4.png" alt="image"></picture>
 											</div>
-										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_3.webp" type="image/webp"><img src="img/configurator/dop_3.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 6 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
+											<div class="slide-article__body">
+												<div class="slide-article__art">Артикул: 227-1005</div>
+												<a href="#" class="slide-article__name">Отвертка для минивинтов Vector TAS с 2-мя наконечниками (22 мм и 40мм)</a>
+												<div class="slide-article__bottom">
+													<div class="slide-article__price">
+														<span>53 350 <font class="rub">i</font></span>
+													</div>
+													<button class="slide-article__buy">Купить</button>
 												</div>
-												<button class="slide-article__buy">Купить</button>
-											</div>
-										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_4.webp" type="image/webp"><img src="img/configurator/dop_4.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">Отвертка для минивинтов Vector TAS с 2-мя наконечниками (22 мм и 40мм)</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>53 350 <font class="rub">i</font></span>
-												</div>
-												<button class="slide-article__buy">Купить</button>
-											</div>
-										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_1.webp" type="image/webp"><img src="img/configurator/dop_1.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 10 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
-												</div>
-												<button class="slide-article__buy">Купить</button>
-											</div>
-										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_2.webp" type="image/webp"><img src="img/configurator/dop_2.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 12 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
-												</div>
-												<button class="slide-article__buy">Купить</button>
-											</div>
-										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_3.webp" type="image/webp"><img src="img/configurator/dop_3.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">VECTORTAS мини-винт 6 mm</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>1 420 <font class="rub">i</font></span>
-												</div>
-												<button class="slide-article__buy">Купить</button>
-											</div>
-										</div>
-									</div>
-									<div class="article__slide slide-article">
-										<div class="slide-article__image">
-											<picture><source srcset="img/configurator/dop_4.webp" type="image/webp"><img src="img/configurator/dop_4.png" alt="image"></picture>
-										</div>
-										<div class="slide-article__body">
-											<div class="slide-article__art">Артикул: 227-1005</div>
-											<a href="#" class="slide-article__name">Отвертка для минивинтов Vector TAS с 2-мя наконечниками (22 мм и 40мм)</a>
-											<div class="slide-article__bottom">
-												<div class="slide-article__price">
-													<span>53 350 <font class="rub">i</font></span>
-												</div>
-												<button class="slide-article__buy">Купить</button>
 											</div>
 										</div>
 									</div>
@@ -1473,12 +1485,12 @@
 
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20221130195104"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20221130195104"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20221130195104"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20221130195104"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20221130195104"></script>
-	<script src="js/app.min.js?_v=20221130195104"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?_v=20221203153137"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js?_v=20221203153137"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.0.3/swiper-bundle.min.js?_v=20221203153137"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js?_v=20221203153137"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js?_v=20221203153137"></script>
+	<script src="js/app.min.js?_v=20221203153137"></script>
 </body>
 
 </html>
