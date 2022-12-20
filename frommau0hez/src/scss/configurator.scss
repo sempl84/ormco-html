@@ -1122,10 +1122,7 @@
   gap: rem(43);
   max-width: 100vw;
   @media (max-width:$mobile){
-    gap: rem(59);
-    [data-step="tork"] & {
-      gap: rem(19);
-    }
+    gap: rem(19);
   }
 
   &__teeth {
@@ -1231,7 +1228,7 @@
       path[stroke-width="2"] {
         fill: #fff;
         stroke: #2CA5F5;
-        transition: all 0.3s ease 0s;
+        transition: all 0.1s ease 0s;
       }
     }
     .teeth-torkConfigurator__line_bottom & {
@@ -1242,8 +1239,10 @@
   &__tork {
     img,
     picture {
-      width: rem(24);
-      height: rem(24);
+      width: calc((100vw - rem(109)) / var(--toothes));
+      height: calc((100vw - rem(109)) / var(--toothes));
+      max-width: rem(24);
+      max-height: rem(24);
       flex: 0 0 rem(24);
       border-radius: 50%;
     }
@@ -1261,8 +1260,10 @@
     filter: drop-shadow(0px 2px 4px rgba(17, 17, 17, 0.2));
     svg {
       @media (max-width:$pc){
-        max-width: calc((100vw - rem(109)) / 8);
-        height: calc(((100vw - rem(109)) / 8) * 1.07);
+        width: calc((100vw - rem(109)) / var(--toothes));
+        height: calc(((100vw - rem(109)) / var(--toothes)) * 1.07);
+        /*max-width: calc((100vw - rem(109)) / 14); */
+        /*max-height: calc(((100vw - rem(109)) / 14) * 1.07); */
       }
     }
   }
@@ -1684,6 +1685,7 @@
   justify-content: space-between;
   gap: rem(15);
   padding: rem(12) rem(16);
+  padding-right: rem(40);
   margin: 0 rem(-15);
   box-shadow: 0px rem(1) rem(4) rgba(26, 26, 26, 0.08);
   position: relative;

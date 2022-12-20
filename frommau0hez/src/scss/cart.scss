@@ -19,9 +19,10 @@
     display: flex;
     align-items: end;
     @include adaptiveValue("gap", 12, 8, 1440, 480, 1);
-    @media (min-width:$mobile){
-      &:not(:last-child) {margin-bottom: rem(40);}
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 20, 1920, 480, 1);
     }
+    
     
     * {
       line-height: 1;

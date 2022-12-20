@@ -6,8 +6,10 @@ export function homePageFunctions() {
 		let headHeight = $('.header_top').outerHeight();
 		if ( top > headHeight ) {
 			$('.header_sticky').addClass('shadow');
+      $('header.header').css('padding-bottom', '7.25rem');
 		} else {
 			$('.header_sticky').removeClass('shadow');
+      $('header.header').css('padding-bottom', '0');
 		}
 
 		// Ontop fade

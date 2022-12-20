@@ -17,11 +17,6 @@
     z-index: 1;
     min-height: rem(44);
   }
-  &._header-scroll {
-    @media (min-width:$tablet){
-      padding-bottom: rem(116);
-    }
-  }
   &_sticky {
     background: #fff; position: sticky; top: 0; z-index: 148;
     &.shadow {

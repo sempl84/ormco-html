@@ -18,12 +18,13 @@ import lightGallery from 'lightgallery';
 // import lgThumbnail from 'lightgallery/plugins/thumbnail/lg-thumbnail.min.js'
 import lgZoom from 'lightgallery/plugins/zoom/lg-zoom.min.js'
 import lgAutoplay from 'lightgallery/plugins/autoplay/lg-autoplay.min.js';
+import lgVideo from 'lightgallery/plugins/video/lg-video.min.js';
 
 // Базовые стили
 import '@scss/libs/gallery/lightgallery.scss';
 // Стили дополнений
 // import '@scss/libs/gallery/lg-thumbnail.scss';
-// import '@scss/libs/gallery/lg-video.scss';
+import '@scss/libs/gallery/lg-video.scss';
 import '@scss/libs/gallery/lg-autoplay.scss';
 import '@scss/libs/gallery/lg-zoom.scss';
 // import '@scss/libs/gallery/lg-pager.scss';
@@ -39,6 +40,12 @@ import '@scss/libs/gallery/lg-zoom.scss';
 
 
 function lightGalleryInit() {
+  if (typeof flsModules.gallery !== 'undefined') {
+    flsModules.gallery.forEach(e=>{
+      e.destroy();
+    });
+  }
+  flsModules.gallery = null;
 	// Запуск
 	const galleries = document.querySelectorAll('[data-gallery]');
 	if (galleries.length) {
@@ -47,10 +54,10 @@ function lightGalleryInit() {
 			galleyItems.push({
 				gallery,
 				galleryClass: lightGallery(gallery, {
-					plugins: [lgZoom, lgAutoplay],
+					plugins: [lgZoom, lgAutoplay, lgVideo],
 					licenseKey: '7EC452A9-0CFD441C-BD984C7C-17C8456E',
 					speed: 500,
-					selector: 'a',
+					selector: 'a:not([data-no-gallery])',
 					autoplay: true,
 					zoom: true,
 				})
@@ -61,7 +68,7 @@ function lightGalleryInit() {
 	}
 }
 
-lightGalleryInit()
+lightGalleryInit();
 
 
 

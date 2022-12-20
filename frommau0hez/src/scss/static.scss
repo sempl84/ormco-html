@@ -68,9 +68,13 @@
     flex-shrink: 0;
     font-size: rem(15);
   }
-  img {
+  img:not(.blue-icons) {
     display: inline-block;
     &:not(:last-child) {margin-bottom: rem(24);}
+  }
+  img.blue-icons {
+    display: inline;
+    float: left;
   }
   ol {
     counter-reset: mainCounter;
@@ -135,7 +139,8 @@
       flex-direction: column;
     }
   }
-  [style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;"] {
+  [style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;"],
+  .gray-block {
     padding: rem(20) !important;
     background: #F9F9F9 !important;
     border-radius: rem(8) !important;
@@ -160,18 +165,20 @@
     height: rem(450);
     border-radius: rem(12);
   }
-  table tr {
-    display: flex;
-    align-items: start;
-    @include adaptiveValue("gap", 16, 12);
-    &:not(:last-child) {margin-bottom: rem(24);}
-    @media (max-width:$mobile){
-      flex-direction: column;
+  table:not(.table) {
+    tr {
+      display: flex;
+      align-items: start;
+      @include adaptiveValue("gap", 16, 12);
+      &:not(:last-child) {margin-bottom: rem(24);}
+      @media (max-width:$mobile){
+        flex-direction: column;
+      }
+      td {
+        min-width: rem(48);
+      }
     }
-    td {
-      min-width: rem(48);
-    }
-  }
+  } 
   table {
     &:not(:last-child) {margin-bottom: rem(16);}
   }
@@ -180,6 +187,77 @@
     font-size: rem(15);
     align-items: flex-start;
     &:not(:last-child) {margin-bottom: rem(16);}
+  }
+  
+  .table {
+    border-collapse: collapse;
+  }
+  .table tr th {
+    font-size: 16px;
+    background-color: #07477d;
+    color: #fff;
+    font-weight: normal
+  }
+
+  .table>tbody>tr>td,.table>tbody>tr>th,.table>tfoot>tr>td,.table>tfoot>tr>th,.table>thead>tr>td,.table>thead>tr>th {
+    padding: 12px 15px;
+    border: 0 none;
+    text-align: center
+  }
+
+  .table>tbody>tr>td {
+    padding: 25px 15px;
+    background-color: #f3f3f3;
+    color: #000;
+    white-space: inherit
+  }
+
+  .table tr:nth-of-type(2n) td {
+    background-color: #e7e7e8
+  }
+  
+  @media print {
+    .table {
+        border-collapse: collapse!important
+    }
+  
+    .table td,.table th {
+        background-color: #fff!important
+    }
+    
+  }
+  @media screen and (max-width: 767px) {
+      .table-responsive {
+          width:100%;
+          margin-bottom: 15px;
+          overflow-y: hidden;
+          -ms-overflow-style: -ms-autohiding-scrollbar;
+          border: 1px solid #ddd
+      }
+  
+      .table-responsive>.table {
+          margin-bottom: 0
+      }
+  
+      .table-responsive>.table>tbody>tr>td,.table-responsive>.table>tbody>tr>th,.table-responsive>.table>tfoot>tr>td,.table-responsive>.table>tfoot>tr>th,.table-responsive>.table>thead>tr>td,.table-responsive>.table>thead>tr>th {
+          white-space: nowrap
+      }
+  
+      .table-responsive>.table-bordered {
+          border: 0
+      }
+  
+      .table-responsive>.table-bordered>tbody>tr>td:first-child,.table-responsive>.table-bordered>tbody>tr>th:first-child,.table-responsive>.table-bordered>tfoot>tr>td:first-child,.table-responsive>.table-bordered>tfoot>tr>th:first-child,.table-responsive>.table-bordered>thead>tr>td:first-child,.table-responsive>.table-bordered>thead>tr>th:first-child {
+          border-left: 0
+      }
+  
+      .table-responsive>.table-bordered>tbody>tr>td:last-child,.table-responsive>.table-bordered>tbody>tr>th:last-child,.table-responsive>.table-bordered>tfoot>tr>td:last-child,.table-responsive>.table-bordered>tfoot>tr>th:last-child,.table-responsive>.table-bordered>thead>tr>td:last-child,.table-responsive>.table-bordered>thead>tr>th:last-child {
+          border-right: 0
+      }
+  
+      .table-responsive>.table-bordered>tbody>tr:last-child>td,.table-responsive>.table-bordered>tbody>tr:last-child>th,.table-responsive>.table-bordered>tfoot>tr:last-child>td,.table-responsive>.table-bordered>tfoot>tr:last-child>th {
+          border-bottom: 0
+      }
   }
 }
 //========================================================================================================================================================
@@ -956,7 +1034,6 @@
     &:not(:first-child) {
       margin-top: auto;
     }
-    max-height: rem(60);
     overflow: hidden;
     text-overflow: ellipsis;
     color: #111;

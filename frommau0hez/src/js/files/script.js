@@ -20,8 +20,25 @@ if (iframes.length) {
   });
 }
 let x = window.matchMedia("(max-width: 767px)");
+let y = window.matchMedia("(max-width: 992px)");
 
 document.addEventListener('DOMContentLoaded', () => {
+  let tables = document.querySelectorAll('table.table')
+  if (tables.length) {
+    let length = tables.length,
+    i, wrapper;
+    for (i = 0; i < length; i++) {
+        wrapper = document.createElement('div');
+        wrapper.setAttribute('class', 'table-responsive');
+        tables[i].parentNode.insertBefore(wrapper, tables[i]);
+        wrapper.appendChild(tables[i]);
+    }
+  }
+  if (isMobile.any()) {
+    document.documentElement.classList.add('touch');
+  } else {
+    document.documentElement.classList.add('no-touch');
+  }
 
   let scrollHeight = Math.max(
     document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -157,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkSelectActive();
         document.querySelectorAll('.btn-select').forEach(e=>{
           e.classList.remove('active');
+          e.classList.remove('is-select');
         });
         document.querySelectorAll('.check-select__dropdown').forEach(e=>{
           e.style = 'display: none;'
@@ -165,7 +183,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
   //==================/new================================================================================
-  
+  const confAgreeBtn = document.querySelector('.js-conf-agree-btn');
+  if (confAgreeBtn) {
+    const confAgreeBtnParent = confAgreeBtn.closest('.confPopup__footer');
+    if (confAgreeBtnParent) {
+      const confAgreeBtnClose = confAgreeBtnParent.querySelector('.confPopup__close');
+      if (confAgreeBtnClose) {
+        confAgreeBtn.addEventListener('click', (e)=>{
+          e.preventDefault();
+          confAgreeBtn.parentElement.hidden = true;
+          confAgreeBtnClose.hidden = false;
+        })
+      }
+    }
+  }
+
+  const marmat = document.querySelector('.marmat');
+  marmat ? marmatActions() : null;
 })
 function checkSelectActive() {
   const checkItemRadioChecked = document.querySelectorAll('.check-select input:checked');
@@ -711,30 +745,35 @@ function customDatePickerInit(datePickers = document.querySelectorAll('[data-dat
   let today = new Date().getDate() + 1;
   let tomonth = new Date().getMonth();
   let toyear = new Date().getFullYear();
-  datePickers.forEach(el => {
-    picker = datepicker(el, {
-      position: 'tl',
-      startDay: 1,
-      customDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-      customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      customOverlayMonths: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт ', 'Ноя', 'Дек'],
-      defaultView: 'overlay',
-      dateSelected: new Date(toyear, tomonth, today),
-      minDate: new Date(toyear, tomonth, today),
-      disableYearOverlay: true, // Clicking the year or month will *not* bring up the year overlay.
-      formatter: (input, date, instance) => {
-        const value = date.toLocaleDateString('ru-RU', { weekday: 'long', month: 'long', day: 'numeric' })
-        const shortValue = date.toLocaleDateString('ru-RU', { month: 'long', day: 'numeric' })
-        input.value = date.toLocaleDateString();
-        input.parentElement.querySelector('[data-date]').innerHTML = value;
-        input.closest('.buyers-ordering__item').querySelector('.buyers-ordering__dateshort').innerHTML = shortValue;
-      },
-      onSelect: (instance, date) => {
-        console.log(instance)
-        console.log(date)
-      }
+  if (datePickers.length) {
+    datePickers.forEach(el => {
+      picker = datepicker(el, {
+        position: 'tl',
+        startDay: 1,
+        customDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        customMonths: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        customOverlayMonths: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт ', 'Ноя', 'Дек'],
+        defaultView: 'overlay',
+        // dateSelected: new Date(toyear, tomonth, today),
+        minDate: new Date(toyear, tomonth, today),
+        disabledDates: [
+          new Date(toyear, tomonth, today),
+        ],
+        disableYearOverlay: true, // Clicking the year or month will *not* bring up the year overlay.
+        formatter: (input, date, instance) => {
+          const value = date.toLocaleDateString('ru-RU', { weekday: 'long', month: 'long', day: 'numeric' })
+          const shortValue = date.toLocaleDateString('ru-RU', { month: 'long', day: 'numeric' })
+          input.value = date.toLocaleDateString();
+          input.parentElement.querySelector('[data-date]').innerHTML = value;
+          input.closest('.buyers-ordering__item').querySelector('.buyers-ordering__dateshort').innerHTML = shortValue;
+        },
+        onSelect: (instance, date) => {
+          console.log(instance)
+          console.log(date)
+        }
+      })
     })
-  })
+  }
 }
 
 
@@ -988,10 +1027,12 @@ function checkOrderingStatus() {
   if (orderingCart) {
     const buyersAdress = document.querySelector('[data-adress]');
     const buyersLegalface = document.querySelector('[data-legalface]');
+    const dataDate = document.querySelector('[data-date]');
+    let dataDateStatus = dataDate&&dataDate.innerHTML!=='' ? true : false;
     if ((buyersAdress && buyersAdress.offsetHeight > 0 && buyersAdress.querySelector('.buyers-ordering__link')) || (buyersLegalface && buyersLegalface.offsetHeight > 0 && buyersLegalface.querySelector('.buyers-ordering__link'))) {
-      orderingCart.classList.add('ordering-cart_error');
+      dataDateStatus ? orderingCart.classList.add("ordering-cart_error") : null;
     } else {
-      orderingCart.classList.remove('ordering-cart_error');
+      dataDateStatus ? orderingCart.classList.add("ordering-cart_error") : orderingCart.classList.remove("ordering-cart_error");
     }
   }
 }
@@ -2511,3 +2552,117 @@ document.addEventListener('click', function(e) {
     }
   }
 })
+
+
+function marmatActions() {
+  const icons =document.querySelectorAll('.marmat__label .marmat__image img');
+  if (icons.length) {
+    icons.forEach(e=>{
+      if (e.src.indexOf('icon') >=0) {
+        e.style.maxWidth = '34%'
+      }
+    })
+  }
+
+  const checkboxes =document.querySelectorAll('.marmat__checkbox');
+  const uncheckBtn =document.querySelector('.marmat__uncheck');
+  const downloadCheckedBtn =document.querySelector('.marmat__downloadcheck');
+  if (checkboxes.length && uncheckBtn && downloadCheckedBtn) {
+    checkedActions();
+    checkboxes.forEach(checkbox=>{
+      checkbox.addEventListener('change', checkedActions)
+    })
+  }
+  if (uncheckBtn) {
+    uncheckBtn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      checkboxes.forEach(checkbox=>{
+        checkbox.checked = false;
+      });
+      checkedActions();
+    })
+  }
+
+  const downloadChecked = document.querySelector('.marmat__downloadcheck');
+  if (downloadChecked) {
+    downloadChecked.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const checkedInputs =document.querySelectorAll('.marmat__checkbox:checked');
+      if (checkedInputs.length) {
+        checkedInputs.forEach(checkedInput=>{
+          let checkedLink = checkedInput.closest('.marmat__item') ? checkedInput.closest('.marmat__item').querySelector('a.marmat__download') : null;
+          if (checkedLink) {
+            checkedLink.click();
+          }
+          checkedInput.checked = false;
+        })
+      }
+    })
+  }
+
+  function checkedActions() {
+    if (document.querySelectorAll('.marmat__checkbox:checked').length) {
+      uncheckBtn.hidden = false;
+      downloadCheckedBtn.removeAttribute('disabled');
+    } else {
+      uncheckBtn.hidden = true;
+      downloadCheckedBtn.setAttribute('disabled', '');
+    }
+  }
+
+  setTimeout(() => {
+    marmatLinksScroll(y);
+  }, 500);
+  y.addListener(function(e) {
+    setTimeout(() => {
+      marmatLinksScroll(y);
+    }, 500);
+  })
+  function marmatLinksScroll(y) {
+    const targetBlock = document.querySelector('.marmat__categories .spollers-breckets__items');
+    const targetBlockElement = document.querySelector('.marmat__categories .marmat_catlink_active');
+    if (targetBlock && targetBlockElement) {
+      let headerItem = '';
+      let offsetLeft = targetBlockElement.offsetLeft;
+      let options = {
+        speedAsDuration: false,
+        speed: 500,
+        header: headerItem,
+        offset: offsetLeft,
+        easing: 'easeOutQuad',
+      };
+      if (y.matches) {
+        if (typeof SmoothScroll !== 'undefined') {
+          new SmoothScroll().animateScroll(targetBlockElement, '', options);
+        } else {
+          let targetBlockElementPosition = (targetBlockElement.getBoundingClientRect().left + scrollY - (window.innerWidth / 2) + (targetBlockElement.scrollWidth / 2));
+          targetBlock.scrollTo({
+            left: targetBlockElementPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    }
+  }
+
+  const title = document.querySelector('.marmat__title');
+  const category = document.querySelector('.marmat__content .spollers-breckets__title');
+  if (title&&category) {
+    let titleText = title.textContent;
+    let categoryText = category.textContent;
+    if (titleText !== 'Маркетинговые материалы') {
+      podmenaTitle(titleText, categoryText);
+      window.addEventListener('resize', ()=>{
+        podmenaTitle(titleText, categoryText);
+      })
+    }
+  }
+
+  function podmenaTitle(mainTitle, mobileTitle) {
+    if (window.innerWidth <= 1022) {
+      title.innerHTML = mobileTitle;
+    } else {
+      title.innerHTML = mainTitle;
+    }
+  }
+}

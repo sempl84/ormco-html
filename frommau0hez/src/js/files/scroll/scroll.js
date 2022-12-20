@@ -179,12 +179,13 @@ export function stickyBlock() {
 						stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
 						stickyParent.classList.add('_sticky');
 					} else if (scrollY >= endPoint) {
-						stickyItemValues.position = `absolute`;
+						stickyItemValues.position = `static`;
 						stickyItemValues.bottom = `${stickyConfig.bottom}px`;
 						stickyItemValues.top = `auto`;
 						stickyItemValues.left = `${stickyBlockItem.getBoundingClientRect().left}px`; // Учесть разницу в ширине экрана?
 						stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
 						stickyParent.classList.remove('_sticky');
+            console.log('tada')
 					} else if (scrollY <= startPoint) {
 						stickyParent.classList.remove('_sticky');
 					}

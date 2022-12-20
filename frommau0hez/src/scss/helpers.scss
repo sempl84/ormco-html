@@ -329,8 +329,17 @@ input[type='checkbox'] {
 	display: flex; margin: 0 auto 5px;
 	height: 42px; align-items: center; justify-content: center;
 	&_input, .pincode-input-text {
-		background: 0; border: 0; height: 42px; @include inp; padding: 0 0 10px; width: 28px !important; border-bottom: 1px solid #C7C7CC;
+		background: 0; border: 0; height: 42px; @include inp; padding: 0 0 10px; border-bottom: 1px solid #C7C7CC;
 		color: #111; font-weight: 600; font-size: 28px; line-height: 32px; text-align: center; margin: 0 4px;
+    letter-spacing: 0 !important;
+    .touch & {
+      width: 50% !important;
+      margin: 0 auto !important;
+      display: block;
+    }
+    .no-touch & {
+      width: 28px !important;
+    }
 	}
 	&-error &_input {border-color: var(--color-red);}
 }

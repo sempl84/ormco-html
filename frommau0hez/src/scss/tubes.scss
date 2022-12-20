@@ -367,9 +367,10 @@
   }
 
   &__content {
-    padding: rem(44) 0 rem(50);
+    padding-bottom: rem(50);
     max-width: none;
-    min-height: calc(100vh - rem(44));
+    height: 100vh;
+    overflow: auto;
     background-color: #fff;
     border-radius: 0;
     position: relative;

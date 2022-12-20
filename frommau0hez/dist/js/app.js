@@ -3117,6 +3117,200 @@
                 }();
             }));
         },
+        1363: function(module) {
+            /**
+ * lightgallery | 2.4.0 | January 29th 2022
+ * http://www.lightgalleryjs.com/
+ * Copyright (c) 2020 Sachin Neravath;
+ * @license GPLv3
+ */
+            !function(e, o) {
+                true ? module.exports = o() : 0;
+            }(0, (function() {
+                "use strict";
+                var e = function() {
+                    return (e = Object.assign || function(e) {
+                        for (var o, i = 1, t = arguments.length; i < t; i++) for (var s in o = arguments[i]) Object.prototype.hasOwnProperty.call(o, s) && (e[s] = o[s]);
+                        return e;
+                    }).apply(this, arguments);
+                }, o = {
+                    autoplayFirstVideo: !0,
+                    youTubePlayerParams: !1,
+                    vimeoPlayerParams: !1,
+                    wistiaPlayerParams: !1,
+                    gotoNextSlideOnVideoEnd: !0,
+                    autoplayVideoOnSlide: !1,
+                    videojs: !1,
+                    videojsOptions: {}
+                }, i = "lgHasVideo", t = "lgSlideItemLoad", s = "lgBeforeSlide", n = "lgAfterSlide", l = "lgPosterClick", r = function(e) {
+                    return Object.keys(e).map((function(o) {
+                        return encodeURIComponent(o) + "=" + encodeURIComponent(e[o]);
+                    })).join("&");
+                };
+                return function() {
+                    function d(i) {
+                        return this.core = i, this.settings = e(e({}, o), this.core.settings), this;
+                    }
+                    return d.prototype.init = function() {
+                        var e = this;
+                        this.core.LGel.on(i + ".video", this.onHasVideo.bind(this)), this.core.LGel.on(l + ".video", (function() {
+                            var o = e.core.getSlideItem(e.core.index);
+                            e.loadVideoOnPosterClick(o);
+                        })), this.core.LGel.on(t + ".video", this.onSlideItemLoad.bind(this)), this.core.LGel.on(s + ".video", this.onBeforeSlide.bind(this)), 
+                        this.core.LGel.on(n + ".video", this.onAfterSlide.bind(this));
+                    }, d.prototype.onSlideItemLoad = function(e) {
+                        var o = this, i = e.detail, t = i.isFirstSlide, s = i.index;
+                        this.settings.autoplayFirstVideo && t && s === this.core.index && setTimeout((function() {
+                            o.loadAndPlayVideo(s);
+                        }), 200), !t && this.settings.autoplayVideoOnSlide && s === this.core.index && this.loadAndPlayVideo(s);
+                    }, d.prototype.onHasVideo = function(e) {
+                        var o = e.detail, i = o.index, t = o.src, s = o.html5Video;
+                        o.hasPoster || (this.appendVideos(this.core.getSlideItem(i), {
+                            src: t,
+                            addClass: "lg-object",
+                            index: i,
+                            html5Video: s
+                        }), this.gotoNextSlideOnVideoEnd(t, i));
+                    }, d.prototype.onBeforeSlide = function(e) {
+                        if (this.core.lGalleryOn) {
+                            var o = e.detail.prevIndex;
+                            this.pauseVideo(o);
+                        }
+                    }, d.prototype.onAfterSlide = function(e) {
+                        var o = this, i = e.detail, t = i.index, s = i.prevIndex, n = this.core.getSlideItem(t);
+                        this.settings.autoplayVideoOnSlide && t !== s && n.hasClass("lg-complete") && setTimeout((function() {
+                            o.loadAndPlayVideo(t);
+                        }), 100);
+                    }, d.prototype.loadAndPlayVideo = function(e) {
+                        var o = this.core.getSlideItem(e);
+                        this.core.galleryItems[e].poster ? this.loadVideoOnPosterClick(o, !0) : this.playVideo(e);
+                    }, d.prototype.playVideo = function(e) {
+                        this.controlVideo(e, "play");
+                    }, d.prototype.pauseVideo = function(e) {
+                        this.controlVideo(e, "pause");
+                    }, d.prototype.getVideoHtml = function(e, o, i, t) {
+                        var s = "", n = this.core.galleryItems[i].__slideVideoInfo || {}, l = this.core.galleryItems[i], d = l.title || l.alt;
+                        d = d ? 'title="' + d + '"' : "";
+                        var a = 'allowtransparency="true"\n            frameborder="0"\n            scrolling="no"\n            allowfullscreen\n            mozallowfullscreen\n            webkitallowfullscreen\n            oallowfullscreen\n            msallowfullscreen';
+                        if (n.youtube) {
+                            var c = "lg-youtube" + i, u = "?" + (n.youtube[2] ? n.youtube[2] + "&" : "") + "wmode=opaque&autoplay=0&mute=1&enablejsapi=1" + (this.settings.youTubePlayerParams ? "&" + r(this.settings.youTubePlayerParams) : "");
+                            s = '<iframe allow="autoplay" id=' + c + ' class="lg-video-object lg-youtube ' + o + '" ' + d + ' src="//www.youtube.com/embed/' + (n.youtube[1] + u) + '" ' + a + "></iframe>";
+                        } else if (n.vimeo) {
+                            c = "lg-vimeo" + i, u = function(e, o) {
+                                if (!o || !o.vimeo) return "";
+                                var i = o.vimeo[2] || "";
+                                return i = "?" == i[0] ? "&" + i.slice(1) : i || "", "?autoplay=0&muted=1" + (e ? "&" + r(e) : "") + i;
+                            }(this.settings.vimeoPlayerParams, n);
+                            s = '<iframe allow="autoplay" id=' + c + ' class="lg-video-object lg-vimeo ' + o + '" ' + d + ' src="//player.vimeo.com/video/' + (n.vimeo[1] + u) + '" ' + a + "></iframe>";
+                        } else if (n.wistia) {
+                            var f = "lg-wistia" + i;
+                            u = (u = r(this.settings.wistiaPlayerParams)) ? "?" + u : "", s = '<iframe allow="autoplay" id="' + f + '" src="//fast.wistia.net/embed/iframe/' + (n.wistia[4] + u) + '" ' + d + ' class="wistia_embed lg-video-object lg-wistia ' + o + '" name="wistia_embed" ' + a + "></iframe>";
+                        } else if (n.html5) {
+                            for (var h = "", y = 0; y < t.source.length; y++) h += '<source src="' + t.source[y].src + '" type="' + t.source[y].type + '">';
+                            if (t.tracks) {
+                                var g = function(e) {
+                                    var o = "", i = t.tracks[e];
+                                    Object.keys(i || {}).forEach((function(e) {
+                                        o += e + '="' + i[e] + '" ';
+                                    })), h += "<track " + o + ">";
+                                };
+                                for (y = 0; y < t.tracks.length; y++) g(y);
+                            }
+                            var p = "", v = t.attributes || {};
+                            Object.keys(v || {}).forEach((function(e) {
+                                p += e + '="' + v[e] + '" ';
+                            })), s = '<video class="lg-video-object lg-html5 ' + (this.settings.videojs ? "video-js" : "") + '" ' + p + ">\n                " + h + "\n                Your browser does not support HTML5 video.\n            </video>";
+                        }
+                        return s;
+                    }, d.prototype.appendVideos = function(e, o) {
+                        var i, t = this.getVideoHtml(o.src, o.addClass, o.index, o.html5Video);
+                        e.find(".lg-video-cont").append(t);
+                        var s = e.find(".lg-video-object").first();
+                        if (o.html5Video && s.on("mousedown.lg.video", (function(e) {
+                            e.stopPropagation();
+                        })), this.settings.videojs && (null === (i = this.core.galleryItems[o.index].__slideVideoInfo) || void 0 === i ? void 0 : i.html5)) try {
+                            return videojs(s.get(), this.settings.videojsOptions);
+                        } catch (e) {
+                            console.error("lightGallery:- Make sure you have included videojs");
+                        }
+                    }, d.prototype.gotoNextSlideOnVideoEnd = function(e, o) {
+                        var i = this, t = this.core.getSlideItem(o).find(".lg-video-object").first(), s = this.core.galleryItems[o].__slideVideoInfo || {};
+                        if (this.settings.gotoNextSlideOnVideoEnd) if (s.html5) t.on("ended", (function() {
+                            i.core.goToNextSlide();
+                        })); else if (s.vimeo) try {
+                            new Vimeo.Player(t.get()).on("ended", (function() {
+                                i.core.goToNextSlide();
+                            }));
+                        } catch (e) {
+                            console.error("lightGallery:- Make sure you have included //github.com/vimeo/player.js");
+                        } else if (s.wistia) try {
+                            window._wq = window._wq || [], window._wq.push({
+                                id: t.attr("id"),
+                                onReady: function(e) {
+                                    e.bind("end", (function() {
+                                        i.core.goToNextSlide();
+                                    }));
+                                }
+                            });
+                        } catch (e) {
+                            console.error("lightGallery:- Make sure you have included //fast.wistia.com/assets/external/E-v1.js");
+                        }
+                    }, d.prototype.controlVideo = function(e, o) {
+                        var i = this.core.getSlideItem(e).find(".lg-video-object").first(), t = this.core.galleryItems[e].__slideVideoInfo || {};
+                        if (i.get()) if (t.youtube) try {
+                            i.get().contentWindow.postMessage('{"event":"command","func":"' + o + 'Video","args":""}', "*");
+                        } catch (e) {
+                            console.error("lightGallery:- " + e);
+                        } else if (t.vimeo) try {
+                            new Vimeo.Player(i.get())[o]();
+                        } catch (e) {
+                            console.error("lightGallery:- Make sure you have included //github.com/vimeo/player.js");
+                        } else if (t.html5) if (this.settings.videojs) try {
+                            videojs(i.get())[o]();
+                        } catch (e) {
+                            console.error("lightGallery:- Make sure you have included videojs");
+                        } else i.get()[o](); else if (t.wistia) try {
+                            window._wq = window._wq || [], window._wq.push({
+                                id: i.attr("id"),
+                                onReady: function(e) {
+                                    e[o]();
+                                }
+                            });
+                        } catch (e) {
+                            console.error("lightGallery:- Make sure you have included //fast.wistia.com/assets/external/E-v1.js");
+                        }
+                    }, d.prototype.loadVideoOnPosterClick = function(e, o) {
+                        var i = this;
+                        if (e.hasClass("lg-video-loaded")) o && this.playVideo(this.core.index); else if (e.hasClass("lg-has-video")) this.playVideo(this.core.index); else {
+                            e.addClass("lg-has-video");
+                            var t = void 0, s = this.core.galleryItems[this.core.index].src, n = this.core.galleryItems[this.core.index].video;
+                            n && (t = "string" == typeof n ? JSON.parse(n) : n);
+                            var l = this.appendVideos(e, {
+                                src: s,
+                                addClass: "",
+                                index: this.core.index,
+                                html5Video: t
+                            });
+                            this.gotoNextSlideOnVideoEnd(s, this.core.index);
+                            var r = e.find(".lg-object").first().get();
+                            e.find(".lg-video-cont").first().append(r), e.addClass("lg-video-loading"), l && l.ready((function() {
+                                l.on("loadedmetadata", (function() {
+                                    i.onVideoLoadAfterPosterClick(e, i.core.index);
+                                }));
+                            })), e.find(".lg-video-object").first().on("load.lg error.lg loadedmetadata.lg", (function() {
+                                setTimeout((function() {
+                                    i.onVideoLoadAfterPosterClick(e, i.core.index);
+                                }), 50);
+                            }));
+                        }
+                    }, d.prototype.onVideoLoadAfterPosterClick = function(e, o) {
+                        e.addClass("lg-video-loaded"), this.playVideo(o);
+                    }, d.prototype.destroy = function() {
+                        this.core.LGel.off(".lg.video"), this.core.LGel.off(".video");
+                    }, d;
+                }();
+            }));
+        },
         5086: function(module) {
             /**
  * lightgallery | 2.4.0 | January 29th 2022
@@ -14935,12 +15129,13 @@
                         stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
                         stickyParent.classList.add("_sticky");
                     } else if (scrollY >= endPoint) {
-                        stickyItemValues.position = `absolute`;
+                        stickyItemValues.position = `static`;
                         stickyItemValues.bottom = `${stickyConfig.bottom}px`;
                         stickyItemValues.top = `auto`;
                         stickyItemValues.left = `${stickyBlockItem.getBoundingClientRect().left}px`;
                         stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
                         stickyParent.classList.remove("_sticky");
+                        console.log("tada");
                     } else if (scrollY <= startPoint) stickyParent.classList.remove("_sticky");
                     stickyBlockType(stickyBlockItem, stickyItemValues);
                 }
@@ -16614,7 +16809,12 @@ PERFORMANCE OF THIS SOFTWARE.
         const lightgallery_es5 = lightGallery;
         var lg_zoom_min = __webpack_require__(5086);
         var lg_autoplay_min = __webpack_require__(1312);
+        var lg_video_min = __webpack_require__(1363);
         function lightGalleryInit() {
+            if ("undefined" !== typeof flsModules.gallery) flsModules.gallery.forEach((e => {
+                e.destroy();
+            }));
+            flsModules.gallery = null;
             const galleries = document.querySelectorAll("[data-gallery]");
             if (galleries.length) {
                 let galleyItems = [];
@@ -16622,10 +16822,10 @@ PERFORMANCE OF THIS SOFTWARE.
                     galleyItems.push({
                         gallery,
                         galleryClass: lightgallery_es5(gallery, {
-                            plugins: [ lg_zoom_min, lg_autoplay_min ],
+                            plugins: [ lg_zoom_min, lg_autoplay_min, lg_video_min ],
                             licenseKey: "7EC452A9-0CFD441C-BD984C7C-17C8456E",
                             speed: 500,
-                            selector: "a",
+                            selector: "a:not([data-no-gallery])",
                             autoplay: true,
                             zoom: true
                         })
@@ -17934,7 +18134,19 @@ PERFORMANCE OF THIS SOFTWARE.
             e.loading = "lazy";
         }));
         let script_x = window.matchMedia("(max-width: 767px)");
+        let script_y = window.matchMedia("(max-width: 992px)");
         document.addEventListener("DOMContentLoaded", (() => {
+            let tables = document.querySelectorAll("table.table");
+            if (tables.length) {
+                let i, wrapper, length = tables.length;
+                for (i = 0; i < length; i++) {
+                    wrapper = document.createElement("div");
+                    wrapper.setAttribute("class", "table-responsive");
+                    tables[i].parentNode.insertBefore(wrapper, tables[i]);
+                    wrapper.appendChild(tables[i]);
+                }
+            }
+            if (isMobile.any()) document.documentElement.classList.add("touch"); else document.documentElement.classList.add("no-touch");
             Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
             const filtersItems = document.querySelectorAll(".filters-catalog__item");
             if (filtersItems.length) {
@@ -18036,6 +18248,7 @@ PERFORMANCE OF THIS SOFTWARE.
                         checkSelectActive();
                         document.querySelectorAll(".btn-select").forEach((e => {
                             e.classList.remove("active");
+                            e.classList.remove("is-select");
                         }));
                         document.querySelectorAll(".check-select__dropdown").forEach((e => {
                             e.style = "display: none;";
@@ -18043,6 +18256,20 @@ PERFORMANCE OF THIS SOFTWARE.
                     }));
                 }));
             }
+            const confAgreeBtn = document.querySelector(".js-conf-agree-btn");
+            if (confAgreeBtn) {
+                const confAgreeBtnParent = confAgreeBtn.closest(".confPopup__footer");
+                if (confAgreeBtnParent) {
+                    const confAgreeBtnClose = confAgreeBtnParent.querySelector(".confPopup__close");
+                    if (confAgreeBtnClose) confAgreeBtn.addEventListener("click", (e => {
+                        e.preventDefault();
+                        confAgreeBtn.parentElement.hidden = true;
+                        confAgreeBtnClose.hidden = false;
+                    }));
+                }
+            }
+            const marmat = document.querySelector(".marmat");
+            marmat ? marmatActions() : null;
         }));
         function checkSelectActive() {
             const checkItemRadioChecked = document.querySelectorAll(".check-select input:checked");
@@ -18389,7 +18616,7 @@ PERFORMANCE OF THIS SOFTWARE.
             let today = (new Date).getDate() + 1;
             let tomonth = (new Date).getMonth();
             let toyear = (new Date).getFullYear();
-            datePickers.forEach((el => {
+            if (datePickers.length) datePickers.forEach((el => {
                 picker = datepicker(el, {
                     position: "tl",
                     startDay: 1,
@@ -18397,8 +18624,8 @@ PERFORMANCE OF THIS SOFTWARE.
                     customMonths: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
                     customOverlayMonths: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт ", "Ноя", "Дек" ],
                     defaultView: "overlay",
-                    dateSelected: new Date(toyear, tomonth, today),
                     minDate: new Date(toyear, tomonth, today),
+                    disabledDates: [ new Date(toyear, tomonth, today) ],
                     disableYearOverlay: true,
                     formatter: (input, date, instance) => {
                         const value = date.toLocaleDateString("ru-RU", {
@@ -18502,7 +18729,9 @@ PERFORMANCE OF THIS SOFTWARE.
             if (orderingCart) {
                 const buyersAdress = document.querySelector("[data-adress]");
                 const buyersLegalface = document.querySelector("[data-legalface]");
-                if (buyersAdress && buyersAdress.offsetHeight > 0 && buyersAdress.querySelector(".buyers-ordering__link") || buyersLegalface && buyersLegalface.offsetHeight > 0 && buyersLegalface.querySelector(".buyers-ordering__link")) orderingCart.classList.add("ordering-cart_error"); else orderingCart.classList.remove("ordering-cart_error");
+                const dataDate = document.querySelector("[data-date]");
+                let dataDateStatus = dataDate && "" !== dataDate.innerHTML ? true : false;
+                if (buyersAdress && buyersAdress.offsetHeight > 0 && buyersAdress.querySelector(".buyers-ordering__link") || buyersLegalface && buyersLegalface.offsetHeight > 0 && buyersLegalface.querySelector(".buyers-ordering__link")) dataDateStatus ? orderingCart.classList.add("ordering-cart_error") : null; else dataDateStatus ? orderingCart.classList.add("ordering-cart_error") : orderingCart.classList.remove("ordering-cart_error");
             }
         }
         function findActions() {
@@ -19503,11 +19732,103 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
             }
         }));
+        function marmatActions() {
+            const icons = document.querySelectorAll(".marmat__label .marmat__image img");
+            if (icons.length) icons.forEach((e => {
+                if (e.src.indexOf("icon") >= 0) e.style.maxWidth = "34%";
+            }));
+            const checkboxes = document.querySelectorAll(".marmat__checkbox");
+            const uncheckBtn = document.querySelector(".marmat__uncheck");
+            const downloadCheckedBtn = document.querySelector(".marmat__downloadcheck");
+            if (checkboxes.length && uncheckBtn && downloadCheckedBtn) {
+                checkedActions();
+                checkboxes.forEach((checkbox => {
+                    checkbox.addEventListener("change", checkedActions);
+                }));
+            }
+            if (uncheckBtn) uncheckBtn.addEventListener("click", (e => {
+                e.preventDefault();
+                checkboxes.forEach((checkbox => {
+                    checkbox.checked = false;
+                }));
+                checkedActions();
+            }));
+            const downloadChecked = document.querySelector(".marmat__downloadcheck");
+            if (downloadChecked) downloadChecked.addEventListener("click", (e => {
+                e.preventDefault();
+                const checkedInputs = document.querySelectorAll(".marmat__checkbox:checked");
+                if (checkedInputs.length) checkedInputs.forEach((checkedInput => {
+                    let checkedLink = checkedInput.closest(".marmat__item") ? checkedInput.closest(".marmat__item").querySelector("a.marmat__download") : null;
+                    if (checkedLink) checkedLink.click();
+                    checkedInput.checked = false;
+                }));
+            }));
+            function checkedActions() {
+                if (document.querySelectorAll(".marmat__checkbox:checked").length) {
+                    uncheckBtn.hidden = false;
+                    downloadCheckedBtn.removeAttribute("disabled");
+                } else {
+                    uncheckBtn.hidden = true;
+                    downloadCheckedBtn.setAttribute("disabled", "");
+                }
+            }
+            setTimeout((() => {
+                marmatLinksScroll(script_y);
+            }), 500);
+            script_y.addListener((function(e) {
+                setTimeout((() => {
+                    marmatLinksScroll(script_y);
+                }), 500);
+            }));
+            function marmatLinksScroll(y) {
+                const targetBlock = document.querySelector(".marmat__categories .spollers-breckets__items");
+                const targetBlockElement = document.querySelector(".marmat__categories .marmat_catlink_active");
+                if (targetBlock && targetBlockElement) {
+                    let headerItem = "";
+                    let offsetLeft = targetBlockElement.offsetLeft;
+                    let options = {
+                        speedAsDuration: false,
+                        speed: 500,
+                        header: headerItem,
+                        offset: offsetLeft,
+                        easing: "easeOutQuad"
+                    };
+                    if (y.matches) if ("undefined" !== typeof SmoothScroll) (new SmoothScroll).animateScroll(targetBlockElement, "", options); else {
+                        let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().left + scrollY - window.innerWidth / 2 + targetBlockElement.scrollWidth / 2;
+                        targetBlock.scrollTo({
+                            left: targetBlockElementPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+            }
+            const title = document.querySelector(".marmat__title");
+            const category = document.querySelector(".marmat__content .spollers-breckets__title");
+            if (title && category) {
+                let titleText = title.textContent;
+                let categoryText = category.textContent;
+                if ("Маркетинговые материалы" !== titleText) {
+                    podmenaTitle(titleText, categoryText);
+                    window.addEventListener("resize", (() => {
+                        podmenaTitle(titleText, categoryText);
+                    }));
+                }
+            }
+            function podmenaTitle(mainTitle, mobileTitle) {
+                if (window.innerWidth <= 1022) title.innerHTML = mobileTitle; else title.innerHTML = mainTitle;
+            }
+        }
         function homePageFunctions() {
             $(window).on("scroll", (function() {
                 let top = $(document).scrollTop();
                 let headHeight = $(".header_top").outerHeight();
-                if (top > headHeight) $(".header_sticky").addClass("shadow"); else $(".header_sticky").removeClass("shadow");
+                if (top > headHeight) {
+                    $(".header_sticky").addClass("shadow");
+                    $("header.header").css("padding-bottom", "7.25rem");
+                } else {
+                    $(".header_sticky").removeClass("shadow");
+                    $("header.header").css("padding-bottom", "0");
+                }
                 if (top >= 500) $("#ontop").fadeIn(200); else $("#ontop").fadeOut(200);
             }));
             $(".js_choose_phone").on("click", (function() {
